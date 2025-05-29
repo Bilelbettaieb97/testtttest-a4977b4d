@@ -92,6 +92,10 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer utilities {
@@ -106,6 +110,14 @@
   
   .animate-slide-up {
     animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
   }
 
   @keyframes fadeIn {
@@ -141,9 +153,26 @@
     }
   }
 
-  /* Smooth scroll behavior */
-  html {
-    scroll-behavior: smooth;
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   /* Custom gradient hover effects */
@@ -157,5 +186,25 @@
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .container {
+      @apply px-4;
+    }
+  }
+
+  /* Touch target optimization for mobile */
+  button, a {
+    @apply touch-manipulation;
+    min-height: 44px;
+  }
+
+  /* Smooth scrolling for all devices */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 }
