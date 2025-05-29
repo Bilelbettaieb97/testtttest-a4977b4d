@@ -161,22 +161,22 @@ const SimplifiedContact = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 sm:py-24 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+    <section id="contact" className="py-16 sm:py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Boostez vos conversions <span className="text-purple-400">dès maintenant</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Réservez votre audit gratuit de 30 minutes et découvrez comment multiplier vos conversions
+          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+            Audit gratuit de 30 minutes - Découvrez comment multiplier vos conversions
           </p>
           
-          {/* Urgency banner and Calendly button */}
+          {/* Calendly button */}
           <div className="flex flex-col items-center gap-4 mb-8">
             <div className="inline-flex items-center bg-red-500/20 text-red-400 px-6 py-3 rounded-full font-semibold animate-pulse">
               <Gift className="w-5 h-5 mr-2" />
-              🎁 Audit gratuit - Offre limitée à 20 entreprises/mois
+              🎁 Audit gratuit - Offre limitée
             </div>
             <Button 
               onClick={openCalendly}
@@ -184,23 +184,23 @@ const SimplifiedContact = () => {
               className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
               <Calendar className="mr-2 w-6 h-6" />
-              🚀 Réserver mon audit gratuit maintenant
+              🚀 Réserver mon audit gratuit
             </Button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
-          {/* Benefits sidebar */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Benefits sidebar - Raccourci */}
           <div className="lg:col-span-1">
-            <h3 className="text-xl sm:text-2xl font-bold mb-6">Ce que vous obtenez :</h3>
-            <div className="space-y-4 mb-8">
+            <h3 className="text-xl font-bold mb-6">Ce que vous obtenez :</h3>
+            <div className="space-y-4 mb-6">
               <div className="flex items-start">
                 <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3 mt-1">
                   <span className="text-white text-sm">✓</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">Audit complet gratuit</h4>
-                  <p className="text-gray-300 text-sm">Analyse de vos pages actuelles et identification des points d'amélioration</p>
+                  <h4 className="font-semibold">Audit complet gratuit</h4>
+                  <p className="text-gray-300 text-sm">Analyse de vos conversions actuelles</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -208,8 +208,8 @@ const SimplifiedContact = () => {
                   <span className="text-white text-sm">✓</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">Plan d'action personnalisé</h4>
-                  <p className="text-gray-300 text-sm">Recommandations spécifiques pour votre secteur d'activité</p>
+                  <h4 className="font-semibold">Plan d'action</h4>
+                  <p className="text-gray-300 text-sm">Recommandations personnalisées</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -217,32 +217,25 @@ const SimplifiedContact = () => {
                   <span className="text-white text-sm">✓</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">Estimation ROI</h4>
-                  <p className="text-gray-300 text-sm">Projection des gains potentiels avec nos optimisations</p>
+                  <h4 className="font-semibold">Estimation ROI</h4>
+                  <p className="text-gray-300 text-sm">Projection des gains potentiels</p>
                 </div>
               </div>
             </div>
 
             {/* Contact info */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <div className="flex items-center mb-4">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="flex items-center mb-3">
                 <Phone className="w-5 h-5 text-purple-400 mr-3" />
                 <div>
-                  <div className="font-semibold">Besoin d'aide ?</div>
-                  <div className="text-sm text-gray-300">07 83 49 47 09</div>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <Clock className="w-5 h-5 text-purple-400 mr-3" />
-                <div>
-                  <div className="font-semibold">Disponibilité</div>
+                  <div className="font-semibold">07 83 49 47 09</div>
                   <div className="text-sm text-gray-300">Lun-Ven 9h-18h</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Form */}
+          {/* Form - Simplifié */}
           <div className="lg:col-span-2">
             <Card className="bg-white/5 backdrop-blur-sm border-purple-400/30 text-white shadow-2xl">
               <CardHeader>
@@ -254,7 +247,7 @@ const SimplifiedContact = () => {
                   </div>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-6 sm:p-8">
+              <CardContent className="p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {step === 1 && (
                     <>

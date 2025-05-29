@@ -7,9 +7,6 @@ import TrustSection from "@/components/TrustSection";
 import Offers from "@/components/Offers";
 import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
-import Blog from "@/components/Blog";
-import FAQ from "@/components/FAQ";
-import About from "@/components/About";
 import SimplifiedContact from "@/components/SimplifiedContact";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
@@ -35,13 +32,6 @@ const Index = () => {
         <Portfolio />
       </section>
       <Testimonials />
-      <section id="blog">
-        <Blog />
-      </section>
-      <FAQ />
-      <section id="about">
-        <About />
-      </section>
       <section id="contact">
         <SimplifiedContact />
       </section>
