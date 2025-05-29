@@ -17,16 +17,14 @@ const SimplifiedContact = () => {
     phone: "",
     project: "",
     budget: "",
-    company_size: "",
-    current_conversion_rate: "",
-    monthly_traffic: "",
     main_challenge: "",
     timeline: "",
-    heard_about_us: "",
     message: "",
     urgency: ""
   });
+  const [newsletterEmail, setNewsletterEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -52,16 +50,13 @@ const SimplifiedContact = () => {
         phone: "",
         project: "",
         budget: "",
-        company_size: "",
-        current_conversion_rate: "",
-        monthly_traffic: "",
         main_challenge: "",
         timeline: "",
-        heard_about_us: "",
         message: "",
         urgency: ""
       });
     } catch (error) {
+      console.log("Contact form error:", error);
       toast({
         title: "Erreur",
         description: "Une erreur est survenue. Veuillez réessayer.",
@@ -69,6 +64,35 @@ const SimplifiedContact = () => {
       });
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsNewsletterSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscriptions')
+        .insert([{ email: newsletterEmail }]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Inscription réussie !",
+        description: "Vous êtes maintenant abonné à notre newsletter.",
+      });
+
+      setNewsletterEmail("");
+    } catch (error) {
+      console.log("Newsletter error:", error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'inscription à la newsletter.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsNewsletterSubmitting(false);
     }
   };
 
@@ -150,40 +174,6 @@ const SimplifiedContact = () => {
                   </div>
                 </div>
 
-                {/* Informations sur l'entreprise */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="company_size" className="text-sm font-medium">Taille de l'entreprise</Label>
-                    <select
-                      id="company_size"
-                      value={formData.company_size}
-                      onChange={(e) => setFormData({ ...formData, company_size: e.target.value })}
-                      className="w-full p-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    >
-                      <option value="">Sélectionnez</option>
-                      <option value="1-10">1-10 employés</option>
-                      <option value="11-50">11-50 employés</option>
-                      <option value="51-200">51-200 employés</option>
-                      <option value="200+">200+ employés</option>
-                    </select>
-                  </div>
-                  <div>
-                    <Label htmlFor="monthly_traffic" className="text-sm font-medium">Trafic mensuel</Label>
-                    <select
-                      id="monthly_traffic"
-                      value={formData.monthly_traffic}
-                      onChange={(e) => setFormData({ ...formData, monthly_traffic: e.target.value })}
-                      className="w-full p-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    >
-                      <option value="">Sélectionnez</option>
-                      <option value="<1k">Moins de 1 000 visiteurs</option>
-                      <option value="1k-10k">1 000 - 10 000 visiteurs</option>
-                      <option value="10k-50k">10 000 - 50 000 visiteurs</option>
-                      <option value="50k+">Plus de 50 000 visiteurs</option>
-                    </select>
-                  </div>
-                </div>
-
                 {/* Informations projet */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -222,18 +212,21 @@ const SimplifiedContact = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="current_conversion_rate" className="text-sm font-medium">Taux de conversion actuel</Label>
+                    <Label htmlFor="main_challenge" className="text-sm font-medium">Principal défi actuel *</Label>
                     <select
-                      id="current_conversion_rate"
-                      value={formData.current_conversion_rate}
-                      onChange={(e) => setFormData({ ...formData, current_conversion_rate: e.target.value })}
+                      id="main_challenge"
+                      value={formData.main_challenge}
+                      onChange={(e) => setFormData({ ...formData, main_challenge: e.target.value })}
+                      required
                       className="w-full p-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                     >
-                      <option value="">Je ne sais pas</option>
-                      <option value="<1%">Moins de 1%</option>
-                      <option value="1-3%">1% - 3%</option>
-                      <option value="3-5%">3% - 5%</option>
-                      <option value="5%+">Plus de 5%</option>
+                      <option value="">Sélectionnez votre principal défi</option>
+                      <option value="traffic">Manque de trafic</option>
+                      <option value="conversion">Faible taux de conversion</option>
+                      <option value="leads">Pas assez de leads qualifiés</option>
+                      <option value="sales">Difficultés à transformer en ventes</option>
+                      <option value="retention">Fidélisation client</option>
+                      <option value="other">Autre</option>
                     </select>
                   </div>
                   <div>
@@ -251,42 +244,6 @@ const SimplifiedContact = () => {
                       <option value="flexible">Flexible</option>
                     </select>
                   </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="main_challenge" className="text-sm font-medium">Principal défi actuel *</Label>
-                  <select
-                    id="main_challenge"
-                    value={formData.main_challenge}
-                    onChange={(e) => setFormData({ ...formData, main_challenge: e.target.value })}
-                    required
-                    className="w-full p-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  >
-                    <option value="">Sélectionnez votre principal défi</option>
-                    <option value="traffic">Manque de trafic</option>
-                    <option value="conversion">Faible taux de conversion</option>
-                    <option value="leads">Pas assez de leads qualifiés</option>
-                    <option value="sales">Difficultés à transformer en ventes</option>
-                    <option value="retention">Fidélisation client</option>
-                    <option value="other">Autre</option>
-                  </select>
-                </div>
-
-                <div>
-                  <Label htmlFor="heard_about_us" className="text-sm font-medium">Comment nous avez-vous connus ?</Label>
-                  <select
-                    id="heard_about_us"
-                    value={formData.heard_about_us}
-                    onChange={(e) => setFormData({ ...formData, heard_about_us: e.target.value })}
-                    className="w-full p-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  >
-                    <option value="">Sélectionnez</option>
-                    <option value="google">Google</option>
-                    <option value="linkedin">LinkedIn</option>
-                    <option value="referral">Recommandation</option>
-                    <option value="website">Site web</option>
-                    <option value="other">Autre</option>
-                  </select>
                 </div>
 
                 <div>
@@ -364,6 +321,33 @@ const SimplifiedContact = () => {
                   <li>✅ Plan d'action prioritisé</li>
                   <li>✅ Exemples concrets d'optimisation</li>
                 </ul>
+              </CardContent>
+            </Card>
+
+            {/* Newsletter Subscription */}
+            <Card className="bg-gradient-to-r from-purple-100 to-pink-100 border-purple-200 shadow-lg">
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="font-bold text-sm sm:text-base mb-2 text-center">Newsletter</h3>
+                <p className="text-gray-600 text-xs sm:text-sm mb-3 text-center">
+                  Recevez nos conseils en conversion directement dans votre boîte mail
+                </p>
+                <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                  <Input
+                    type="email"
+                    placeholder="votre@email.com"
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    required
+                    className="text-sm"
+                  />
+                  <Button 
+                    type="submit" 
+                    disabled={isNewsletterSubmitting}
+                    className="w-full bg-purple-600 hover:bg-purple-700 text-sm"
+                  >
+                    {isNewsletterSubmitting ? "Inscription..." : "S'abonner"}
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </div>
