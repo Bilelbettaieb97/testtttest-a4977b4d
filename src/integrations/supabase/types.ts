@@ -13,39 +13,57 @@ export type Database = {
         Row: {
           budget: string | null
           company: string | null
+          company_size: string | null
           created_at: string
+          current_conversion_rate: string | null
           email: string
+          heard_about_us: string | null
           id: string
+          main_challenge: string | null
           message: string | null
+          monthly_traffic: string | null
           name: string
           phone: string | null
           project: string
+          timeline: string | null
           updated_at: string
           urgency: string | null
         }
         Insert: {
           budget?: string | null
           company?: string | null
+          company_size?: string | null
           created_at?: string
+          current_conversion_rate?: string | null
           email: string
+          heard_about_us?: string | null
           id?: string
+          main_challenge?: string | null
           message?: string | null
+          monthly_traffic?: string | null
           name: string
           phone?: string | null
           project: string
+          timeline?: string | null
           updated_at?: string
           urgency?: string | null
         }
         Update: {
           budget?: string | null
           company?: string | null
+          company_size?: string | null
           created_at?: string
+          current_conversion_rate?: string | null
           email?: string
+          heard_about_us?: string | null
           id?: string
+          main_challenge?: string | null
           message?: string | null
+          monthly_traffic?: string | null
           name?: string
           phone?: string | null
           project?: string
+          timeline?: string | null
           updated_at?: string
           urgency?: string | null
         }
