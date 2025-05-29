@@ -24,7 +24,7 @@ const SimplifiedContact = () => {
 
     try {
       const { error } = await supabase
-        .from('contacts')
+        .from('contact_submissions')
         .insert([
           {
             name: formData.name,
@@ -58,7 +58,7 @@ const SimplifiedContact = () => {
   };
 
   return (
-    <section className="py-8 sm:py-12 bg-gradient-to-br from-purple-50 to-pink-50">
+    <section className="py-8 sm:py-12 bg-gradient-to-br from-purple-50 to-pink-50" itemScope itemType="https://schema.org/ContactPage">
       <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-3">
@@ -76,13 +76,14 @@ const SimplifiedContact = () => {
               <CardTitle className="text-lg sm:text-xl text-center">Demander un audit</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4" itemScope itemType="https://schema.org/ContactForm">
                 <Input
                   placeholder="Votre nom"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
                   className="text-sm sm:text-base"
+                  itemProp="name"
                 />
                 <Input
                   type="email"
@@ -91,6 +92,7 @@ const SimplifiedContact = () => {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
                   className="text-sm sm:text-base"
+                  itemProp="email"
                 />
                 <Input
                   placeholder="Type de projet"
@@ -105,6 +107,7 @@ const SimplifiedContact = () => {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={3}
                   className="text-sm sm:text-base"
+                  itemProp="message"
                 />
                 <Button 
                   type="submit" 
@@ -142,14 +145,14 @@ const SimplifiedContact = () => {
               <Card className="shadow-lg">
                 <CardContent className="p-3 sm:p-4 text-center">
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mx-auto mb-1 sm:mb-2" />
-                  <p className="text-xs sm:text-sm font-medium">07 83 49 47 09</p>
+                  <p className="text-xs sm:text-sm font-medium" itemProp="telephone">07 83 49 47 09</p>
                 </CardContent>
               </Card>
               
               <Card className="shadow-lg">
                 <CardContent className="p-3 sm:p-4 text-center">
                   <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mx-auto mb-1 sm:mb-2" />
-                  <p className="text-xs sm:text-sm font-medium">contact@convertilab.fr</p>
+                  <p className="text-xs sm:text-sm font-medium" itemProp="email">contact@convertilab.fr</p>
                 </CardContent>
               </Card>
             </div>
