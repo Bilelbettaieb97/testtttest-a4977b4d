@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, ArrowLeft, Send, Phone, Clock, Gift } from "lucide-react";
+import { ArrowRight, ArrowLeft, Send, Phone, Clock, Gift, Calendar } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -92,6 +92,10 @@ const SimplifiedContact = () => {
     });
   };
 
+  const openCalendly = () => {
+    window.open('https://calendly.com/bilel-bettaieb-naboo', '_blank');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -168,10 +172,20 @@ const SimplifiedContact = () => {
             Réservez votre audit gratuit de 30 minutes et découvrez comment multiplier vos conversions
           </p>
           
-          {/* Urgency banner */}
-          <div className="inline-flex items-center bg-red-500/20 text-red-400 px-6 py-3 rounded-full font-semibold mb-8 animate-pulse">
-            <Gift className="w-5 h-5 mr-2" />
-            🎁 Audit gratuit - Offre limitée à 20 entreprises/mois
+          {/* Urgency banner and Calendly button */}
+          <div className="flex flex-col items-center gap-4 mb-8">
+            <div className="inline-flex items-center bg-red-500/20 text-red-400 px-6 py-3 rounded-full font-semibold animate-pulse">
+              <Gift className="w-5 h-5 mr-2" />
+              🎁 Audit gratuit - Offre limitée à 20 entreprises/mois
+            </div>
+            <Button 
+              onClick={openCalendly}
+              size="lg"
+              className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            >
+              <Calendar className="mr-2 w-6 h-6" />
+              🚀 Réserver mon audit gratuit maintenant
+            </Button>
           </div>
         </div>
 
@@ -215,7 +229,7 @@ const SimplifiedContact = () => {
                 <Phone className="w-5 h-5 text-purple-400 mr-3" />
                 <div>
                   <div className="font-semibold">Besoin d'aide ?</div>
-                  <div className="text-sm text-gray-300">+33 1 23 45 67 89</div>
+                  <div className="text-sm text-gray-300">07 83 49 47 09</div>
                 </div>
               </div>
               <div className="flex items-center">

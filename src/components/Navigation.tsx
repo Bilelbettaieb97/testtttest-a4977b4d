@@ -31,6 +31,10 @@ const Navigation = () => {
     setIsMenuOpen(false);
   };
 
+  const openCalendly = () => {
+    window.open('https://calendly.com/bilel-bettaieb-naboo', '_blank');
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6">
@@ -58,7 +62,7 @@ const Navigation = () => {
           {/* CTA Button - Desktop */}
           <div className="hidden lg:flex">
             <Button 
-              onClick={() => scrollToSection('#contact')}
+              onClick={openCalendly}
               className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2 font-semibold transition-all duration-300 transform hover:scale-105"
             >
               <Calendar className="mr-2 w-4 h-4" />
@@ -92,7 +96,7 @@ const Navigation = () => {
               ))}
               <div className="pt-2">
                 <Button 
-                  onClick={() => scrollToSection('#contact')}
+                  onClick={openCalendly}
                   className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold"
                 >
                   <Calendar className="mr-2 w-4 h-4" />

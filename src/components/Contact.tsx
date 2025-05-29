@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Calendar } from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
@@ -32,6 +32,10 @@ const Contact = () => {
     // Here you would typically send the data to your backend
   };
 
+  const openCalendly = () => {
+    window.open('https://calendly.com/bilel-bettaieb-naboo', '_blank');
+  };
+
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6 text-purple-600" />,
@@ -42,7 +46,7 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6 text-purple-600" />,
       title: "Téléphone",
-      content: "+33 1 23 45 67 89",
+      content: "07 83 49 47 09",
       subtitle: "Lun-Ven 9h-18h"
     },
     {
@@ -70,11 +74,19 @@ const Contact = () => {
             Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons 
             transformer vos visiteurs en clients.
           </p>
-          <div className="flex justify-center">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <div className="bg-green-500/20 text-green-400 px-6 py-3 rounded-full font-semibold flex items-center">
               <MessageCircle className="w-5 h-5 mr-2" />
               Consultation gratuite de 30 minutes offerte
             </div>
+            <Button 
+              onClick={openCalendly}
+              size="lg"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105"
+            >
+              <Calendar className="mr-2 w-5 h-5" />
+              Prendre rendez-vous maintenant
+            </Button>
           </div>
         </div>
 
