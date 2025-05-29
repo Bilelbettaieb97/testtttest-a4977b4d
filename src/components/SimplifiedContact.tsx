@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -7,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { ArrowRight, ArrowLeft, Send, Phone, Clock, Gift } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const SimplifiedContact = () => {
   const [step, setStep] = useState(1);
@@ -103,10 +103,31 @@ const SimplifiedContact = () => {
     setIsSubmitting(true);
     
     try {
-      // Simuler l'envoi du formulaire (remplacer par votre API)
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log("Submitting form data:", formData);
       
-      console.log("Form submitted:", formData);
+      // Insérer les données dans Supabase
+      const { data, error } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            company: formData.company || null,
+            phone: formData.phone || null,
+            project: formData.project,
+            budget: formData.budget || null,
+            message: formData.message || null,
+            urgency: formData.urgency || null
+          }
+        ])
+        .select();
+
+      if (error) {
+        console.error("Supabase error:", error);
+        throw error;
+      }
+
+      console.log("Form submitted successfully:", data);
       
       toast({
         title: "Demande envoyée avec succès ! 🎉",
@@ -118,8 +139,8 @@ const SimplifiedContact = () => {
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
-        title: "Erreur",
-        description: "Une erreur est survenue. Veuillez réessayer ou nous contacter directement.",
+        title: "Erreur lors de l'envoi",
+        description: "Une erreur est survenue lors de l'envoi. Veuillez réessayer ou nous contacter directement.",
         variant: "destructive",
       });
     } finally {
