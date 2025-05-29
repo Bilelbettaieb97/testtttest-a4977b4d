@@ -1,120 +1,78 @@
 
-import { Target, Zap, BarChart3, Wrench, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Zap, Target, TrendingUp, Users, ArrowRight } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: Target,
-      title: "Création de landing pages sur mesure",
-      description: "Pages uniques et performantes, adaptées à votre marque et vos objectifs.",
-      features: [
-        "Design UX/UI optimisé pour l'engagement",
-        "Rédaction persuasive centrée utilisateur",
-        "Intégration fluide avec vos outils marketing"
-      ],
-      highlight: "Conversion garantie +25%"
+      icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />,
+      title: "Landing Pages",
+      description: "Pages optimisées pour convertir vos visiteurs en clients",
+      features: ["Design responsive", "Copywriting persuasif", "Tests A/B"]
     },
     {
-      icon: BarChart3,
-      title: "Audit et optimisation",
-      description: "Analyse complète de vos pages existantes avec solutions concrètes.",
-      features: [
-        "Analyse forces et faiblesses",
-        "Recommandations d'amélioration",
-        "Plan d'action personnalisé"
-      ],
-      highlight: "Résultats sous 30 jours"
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />,
+      title: "Audit Conversion",
+      description: "Analyse complète de vos pages actuelles",
+      features: ["Analyse UX/UI", "Recommandations", "Plan d'action"]
     },
     {
-      icon: Zap,
-      title: "Tests A/B & analyse",
-      description: "Mesurez l'impact réel avec tests rigoureux et suivi détaillé des KPIs.",
-      features: [
-        "Tests A/B professionnels",
-        "Analyse comportement utilisateur",
-        "Rapports de performance détaillés"
-      ],
-      highlight: "ROI mesurable"
-    },
-    {
-      icon: Wrench,
-      title: "Maintenance et mises à jour",
-      description: "Suivi régulier pour maintenir vos pages performantes et actuelles.",
-      features: [
-        "Maintenance technique continue",
-        "Mises à jour de contenu",
-        "Support technique réactif"
-      ],
-      highlight: "Support 24/7"
+      icon: <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />,
+      title: "Optimisation",
+      description: "Amélioration continue de vos performances",
+      features: ["Suivi KPI", "Tests multivariés", "Support 3 mois"]
     }
   ];
 
-  const scrollToOffers = () => {
-    const element = document.querySelector('#offers');
+  const scrollToContact = () => {
+    const element = document.querySelector('#contact');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="services" className="py-12 sm:py-20 bg-gray-50">
+    <section className="py-12 sm:py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Nos services qui <span className="text-purple-600">boostent</span> vos conversions
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+            Nos <span className="text-purple-600">Services</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
-            Des solutions complètes pour transformer vos visiteurs en clients fidèles
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+            Solutions complètes pour maximiser vos conversions
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 sm:mb-12">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
-            >
-              <div className="flex items-center mb-4 sm:mb-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center mr-4">
-                  <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{service.title}</h3>
-                  <span className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full font-semibold">
-                    {service.highlight}
-                  </span>
-                </div>
-              </div>
-              
-              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed">{service.description}</p>
-              
-              <ul className="space-y-2 sm:space-y-3 mb-6">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <div className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm sm:text-base">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <CardHeader className="text-center pb-4">
+                <div className="mb-3 flex justify-center">{service.icon}</div>
+                <CardTitle className="text-lg sm:text-xl text-gray-900">{service.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-4 text-sm sm:text-base">{service.description}</p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  {service.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center justify-center">
+                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-6 sm:p-8 lg:p-12 text-white">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
-            Prêt à multiplier vos conversions ?
-          </h3>
-          <p className="text-lg sm:text-xl mb-6 sm:mb-8 opacity-90 max-w-2xl mx-auto">
-            Découvrez nos offres personnalisées et commencez à transformer vos visiteurs en clients dès aujourd'hui
-          </p>
+        <div className="text-center">
           <Button 
-            onClick={scrollToOffers}
-            size="lg"
-            className="bg-white text-purple-600 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+            onClick={scrollToContact}
+            size="lg" 
+            className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105"
           >
-            Découvrir nos offres
+            Commencer maintenant
             <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
           </Button>
         </div>
