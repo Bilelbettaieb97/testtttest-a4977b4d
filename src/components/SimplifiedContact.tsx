@@ -6,9 +6,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ArrowRight, ArrowLeft, Send, Phone, Clock, Gift } from "lucide-react";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const SimplifiedContact = () => {
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,24 +24,107 @@ const SimplifiedContact = () => {
     urgency: ""
   });
 
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    project: false
+  });
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
-  };
-
-  const handleNextStep = () => {
-    if (formData.name && formData.email && formData.project) {
-      setStep(2);
+    
+    // Clear error when user starts typing
+    if (errors[name as keyof typeof errors]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: false
+      }));
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateStep1 = () => {
+    const newErrors = {
+      name: !formData.name.trim(),
+      email: !formData.email.trim() || !isValidEmail(formData.email),
+      project: !formData.project
+    };
+    
+    setErrors(newErrors);
+    return !Object.values(newErrors).some(error => error);
+  };
+
+  const isValidEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleNextStep = () => {
+    if (validateStep1()) {
+      setStep(2);
+    } else {
+      toast({
+        title: "Erreur",
+        description: "Veuillez remplir tous les champs obligatoires correctement.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      phone: "",
+      project: "",
+      budget: "",
+      message: "",
+      urgency: ""
+    });
+    setStep(1);
+    setErrors({
+      name: false,
+      email: false,
+      project: false
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would typically send the data to your backend
+    
+    if (!validateStep1()) {
+      setStep(1);
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      // Simuler l'envoi du formulaire (remplacer par votre API)
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      console.log("Form submitted:", formData);
+      
+      toast({
+        title: "Demande envoyée avec succès ! 🎉",
+        description: "Nous vous recontacterons dans les 2h pour planifier votre audit gratuit.",
+      });
+      
+      resetForm();
+      
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue. Veuillez réessayer ou nous contacter directement.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const projectTypes = [
@@ -146,9 +233,12 @@ const SimplifiedContact = () => {
                             required
                             value={formData.name}
                             onChange={handleInputChange}
-                            className="bg-white/10 border-purple-400/30 text-white placeholder-gray-400"
+                            className={`bg-white/10 border-purple-400/30 text-white placeholder-gray-400 ${
+                              errors.name ? 'border-red-500' : ''
+                            }`}
                             placeholder="Votre nom"
                           />
+                          {errors.name && <p className="text-red-400 text-sm mt-1">Le nom est requis</p>}
                         </div>
                         <div>
                           <Label htmlFor="email" className="text-white">Email professionnel *</Label>
@@ -159,9 +249,12 @@ const SimplifiedContact = () => {
                             required
                             value={formData.email}
                             onChange={handleInputChange}
-                            className="bg-white/10 border-purple-400/30 text-white placeholder-gray-400"
+                            className={`bg-white/10 border-purple-400/30 text-white placeholder-gray-400 ${
+                              errors.email ? 'border-red-500' : ''
+                            }`}
                             placeholder="votre@entreprise.com"
                           />
+                          {errors.email && <p className="text-red-400 text-sm mt-1">Un email valide est requis</p>}
                         </div>
                       </div>
 
@@ -180,6 +273,7 @@ const SimplifiedContact = () => {
 
                       <div>
                         <Label htmlFor="project" className="text-white">Type de projet recherché *</Label>
+                        {errors.project && <p className="text-red-400 text-sm mb-2">Veuillez sélectionner un type de projet</p>}
                         <div className="grid grid-cols-1 gap-3 mt-3">
                           {projectTypes.map((type) => (
                             <label
@@ -187,6 +281,8 @@ const SimplifiedContact = () => {
                               className={`relative flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all
                                 ${formData.project === type.value 
                                   ? 'border-purple-400 bg-purple-400/20' 
+                                  : errors.project
+                                  ? 'border-red-500/50 bg-white/5 hover:bg-white/10'
                                   : 'border-purple-400/30 bg-white/5 hover:bg-white/10'
                                 }
                                 ${type.popular ? 'ring-2 ring-yellow-400' : ''}
@@ -280,6 +376,7 @@ const SimplifiedContact = () => {
                           variant="outline"
                           size="lg"
                           className="border-purple-400/30 text-white bg-transparent hover:bg-purple-400/20 px-6 py-3"
+                          disabled={isSubmitting}
                         >
                           <ArrowLeft className="mr-2 w-5 h-5" />
                           Retour
@@ -288,10 +385,20 @@ const SimplifiedContact = () => {
                         <Button 
                           type="submit"
                           size="lg"
-                          className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                          disabled={isSubmitting}
+                          className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                          🚀 Réserver mon audit gratuit
-                          <Send className="ml-2 w-5 h-5" />
+                          {isSubmitting ? (
+                            <>
+                              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                              Envoi en cours...
+                            </>
+                          ) : (
+                            <>
+                              🚀 Réserver mon audit gratuit
+                              <Send className="ml-2 w-5 h-5" />
+                            </>
+                          )}
                         </Button>
                       </div>
                       
