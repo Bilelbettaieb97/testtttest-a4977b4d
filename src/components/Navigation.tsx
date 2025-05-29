@@ -7,7 +7,7 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Accueil", href: "#home" },
+    { label: "Accueil", href: "#hero" },
     { label: "Services", href: "#services" },
     { label: "Méthode", href: "#methodology" },
     { label: "Offres", href: "#offers" },
@@ -18,9 +18,15 @@ const Navigation = () => {
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80; // Account for fixed header
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
     }
     setIsMenuOpen(false);
   };
@@ -42,7 +48,7 @@ const Navigation = () => {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium"
+                className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium cursor-pointer"
               >
                 {item.label}
               </button>
@@ -79,7 +85,7 @@ const Navigation = () => {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium"
+                  className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium cursor-pointer"
                 >
                   {item.label}
                 </button>
