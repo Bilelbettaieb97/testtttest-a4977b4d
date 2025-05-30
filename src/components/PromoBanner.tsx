@@ -38,14 +38,6 @@ const PromoBanner = () => {
     window.open('https://preview--convertilab-65.lovable.app/', '_blank');
   };
 
-  // Supprimer temporairement la vérification localStorage pour s'assurer que la bannière s'affiche
-  // useEffect(() => {
-  //   const wasClosed = localStorage.getItem('promoBannerClosed');
-  //   if (wasClosed) {
-  //     setIsVisible(false);
-  //   }
-  // }, []);
-
   if (!isVisible) return null;
 
   return (
@@ -58,7 +50,7 @@ const PromoBanner = () => {
           <Sparkles className="w-5 h-5 text-yellow-300 animate-pulse" />
           <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4">
             <span className="font-bold text-sm sm:text-base">
-              🎉 OFFRE LIMITÉE : Site web GRATUIT pour les 5 premiers inscrits !
+              🎉 OFFRE LIMITÉE : Site web professionnel à partir de 1990€ seulement !
             </span>
             <div className="flex items-center space-x-2 text-xs sm:text-sm">
               <Clock className="w-4 h-4" />

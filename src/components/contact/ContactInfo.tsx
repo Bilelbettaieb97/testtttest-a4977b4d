@@ -17,7 +17,7 @@ const ContactInfo = () => {
             <h3 className="font-semibold text-sm sm:text-base">Réservez un appel</h3>
           </div>
           <p className="text-gray-600 mb-3 sm:mb-4 text-xs sm:text-sm">
-            Discutons de votre projet en 15 minutes
+            Discutons de votre projet web en 30 minutes
           </p>
           <Button 
             onClick={openCalendly}
@@ -48,12 +48,12 @@ const ContactInfo = () => {
       <Card className="bg-purple-50 border-purple-200 shadow-lg">
         <CardContent className="p-4 sm:p-6">
           <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600 mx-auto mb-2 sm:mb-3" />
-          <h3 className="font-bold text-sm sm:text-base mb-2 text-center">Pourquoi nos audits sont efficaces ?</h3>
+          <h3 className="font-bold text-sm sm:text-base mb-2 text-center">Pourquoi nous choisir ?</h3>
           <ul className="text-gray-600 text-xs sm:text-sm space-y-1">
-            <li>✅ Analyse complète de votre funnel</li>
-            <li>✅ Recommandations chiffrées</li>
-            <li>✅ Plan d'action prioritisé</li>
-            <li>✅ Exemples concrets d'optimisation</li>
+            <li>✅ Développement 100% sur-mesure</li>
+            <li>✅ Design moderne et responsive</li>
+            <li>✅ Formation complète incluse</li>
+            <li>✅ Support technique garanti</li>
           </ul>
         </CardContent>
       </Card>

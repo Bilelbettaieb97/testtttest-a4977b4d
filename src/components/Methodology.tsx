@@ -1,33 +1,33 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Search, Palette, Code, Rocket } from "lucide-react";
+import { CheckCircle, MessageSquare, Palette, Code, Rocket } from "lucide-react";
 
 const Methodology = () => {
   const steps = [
     {
-      icon: <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />,
-      title: "Analyse",
-      description: "Compréhension de vos objectifs et cible"
-    },
-    {
-      icon: <Search className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />,
-      title: "Recherche",
-      description: "Benchmark concurrence et tendances"
+      icon: <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />,
+      title: "Consultation",
+      description: "Écoute de vos besoins et définition du projet"
     },
     {
       icon: <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-pink-600" />,
       title: "Design",
-      description: "Maquettes UX/UI optimisées conversion"
+      description: "Création de maquettes personnalisées"
     },
     {
-      icon: <Code className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />,
+      icon: <Code className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />,
       title: "Développement",
-      description: "Intégration technique et mobile"
+      description: "Intégration et programmation sur mesure"
+    },
+    {
+      icon: <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />,
+      title: "Tests",
+      description: "Vérification et optimisation complète"
     },
     {
       icon: <Rocket className="w-6 h-6 sm:w-8 sm:h-8 text-red-600" />,
       title: "Lancement",
-      description: "Tests A/B et suivi performances"
+      description: "Mise en ligne et formation utilisateur"
     }
   ];
 
@@ -36,10 +36,10 @@ const Methodology = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-            Notre <span className="text-purple-600">Méthode</span>
+            Notre <span className="text-purple-600">Processus</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-            Processus en 5 étapes pour garantir votre succès
+            5 étapes pour créer votre site web parfait
           </p>
         </div>
 

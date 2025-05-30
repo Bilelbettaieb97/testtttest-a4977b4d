@@ -1,71 +1,71 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Quote, TrendingUp, Users, Zap } from "lucide-react";
+import { Star, Quote, Globe, Users, Code } from "lucide-react";
 
 const Testimonials = () => {
   const testimonials = [
     {
-      text: "Grâce à ConvertiLab, notre taux de conversion est passé de 1.2% à 4.8% en seulement 6 semaines. Le ROI de notre investissement a été de 740% !",
+      text: "ConvertiLab a créé un site magnifique qui dépasse toutes nos attentes. Notre chiffre d'affaires en ligne a augmenté de 250% depuis le lancement !",
       author: "Marie Dubois",
       role: "Directrice Marketing",
-      company: "TechStart Solutions",
+      company: "Boutique Éthique",
       rating: 5,
-      metric: "+300% conversions",
+      metric: "+250% CA en ligne",
       avatar: "M",
       color: "bg-gradient-to-br from-purple-500 to-violet-600",
       accent: "from-purple-100 to-violet-100"
     },
     {
-      text: "L'équipe de ConvertiLab a révolutionné notre approche. Leurs landing pages nous ont permis de générer 2.3M€ de CA supplémentaire cette année.",
+      text: "Équipe professionnelle et à l'écoute. Notre site vitrine reflète parfaitement notre image de marque. Je recommande vivement !",
       author: "Thomas Laurent",
       role: "CEO & Fondateur",
-      company: "EcoGreen Energy",
+      company: "Cabinet Conseil",
       rating: 5,
-      metric: "+2.3M€ CA",
+      metric: "Site parfait",
       avatar: "T",
       color: "bg-gradient-to-br from-green-500 to-emerald-600",
       accent: "from-green-100 to-emerald-100"
     },
     {
-      text: "Incroyable ! Notre coût d'acquisition client a diminué de 65% tout en doublant notre volume de leads qualifiés. Une vraie transformation.",
+      text: "Développement impeccable ! Notre application web fonctionne parfaitement et nos clients adorent l'interface intuitive.",
       author: "Sophie Martin",
-      role: "Responsable Acquisition",
-      company: "FinanceUp",
+      role: "Product Manager",
+      company: "TechStart",
       rating: 5,
-      metric: "-65% CAC",
+      metric: "Interface parfaite",
       avatar: "S",
       color: "bg-gradient-to-br from-pink-500 to-rose-600",
       accent: "from-pink-100 to-rose-100"
     },
     {
-      text: "Professionnel, réactif et surtout efficace ! Nos pages convertissent maintenant 5x mieux qu'avant. Je recommande les yeux fermés.",
+      text: "Livraison dans les délais, communication excellente et résultat au-delà de nos espérances. Une équipe au top !",
       author: "Alexandre Chen",
-      role: "Growth Manager",
-      company: "SaaS Analytics Pro",
+      role: "Directeur Digital",
+      company: "Agence Créative",
       rating: 5,
-      metric: "×5 conversions",
+      metric: "Délais respectés",
       avatar: "A",
       color: "bg-gradient-to-br from-blue-500 to-cyan-600",
       accent: "from-blue-100 to-cyan-100"
     },
     {
-      text: "Résultats dépassant toutes nos attentes. +180% de leads qualifiés en 2 mois. L'investissement s'est rentabilisé en 3 semaines !",
+      text: "Refonte complète de notre site e-commerce. Performance et design au rendez-vous. Nos ventes en ligne ont explosé !",
       author: "Isabelle Durand",
-      role: "Directrice Commerciale",
-      company: "Immobilier Premium",
+      role: "Responsable E-commerce",
+      company: "Mode Lifestyle",
       rating: 5,
-      metric: "+180% leads",
+      metric: "Ventes x3",
       avatar: "I",
       color: "bg-gradient-to-br from-indigo-500 to-purple-600",
       accent: "from-indigo-100 to-purple-100"
     },
     {
-      text: "Une approche scientifique qui fonctionne ! Notre landing page mobile convertit maintenant 4x mieux. Équipe au top !",
+      text: "Formation complète incluse ! Nous savons maintenant gérer notre site en autonomie. Service après-vente exemplaire.",
       author: "Julien Moreau",
-      role: "Digital Manager",
-      company: "Fashion Trends",
+      role: "Gérant",
+      company: "Restaurant Gastronomique",
       rating: 5,
-      metric: "×4 mobile",
+      metric: "Autonomie totale",
       avatar: "J",
       color: "bg-gradient-to-br from-orange-500 to-red-600",
       accent: "from-orange-100 to-red-100"
@@ -74,7 +74,7 @@ const Testimonials = () => {
 
   const stats = [
     { 
-      icon: TrendingUp, 
+      icon: Globe, 
       value: "98%", 
       label: "Taux de satisfaction", 
       color: "text-green-600",
@@ -82,15 +82,15 @@ const Testimonials = () => {
     },
     { 
       icon: Users, 
-      value: "127", 
-      label: "Clients accompagnés", 
+      value: "150+", 
+      label: "Sites web créés", 
       color: "text-blue-600",
       bg: "from-blue-500 to-cyan-500"
     },
     { 
-      icon: Zap, 
-      value: "35%", 
-      label: "Amélioration minimum", 
+      icon: Code, 
+      value: "100%", 
+      label: "Sites sur-mesure", 
       color: "text-purple-600",
       bg: "from-purple-500 to-pink-500"
     }
@@ -116,7 +116,7 @@ const Testimonials = () => {
             </span>
           </h2>
           <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
-            Découvrez comment nous avons transformé leurs résultats avec des landing pages optimisées
+            Découvrez les retours de nos clients sur leurs nouveaux sites web
           </p>
           
           {/* Enhanced quick stats */}
@@ -190,7 +190,7 @@ const Testimonials = () => {
             <div className="flex items-center gap-3 text-lg font-bold text-gray-800">
               <div className="w-4 h-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full animate-pulse shadow-lg"></div>
               <span>Rejoignez</span>
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">+127 entreprises</span>
+              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">+150 entreprises</span>
               <span>qui nous font confiance</span>
             </div>
           </div>

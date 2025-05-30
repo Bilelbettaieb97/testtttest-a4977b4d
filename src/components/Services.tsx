@@ -1,27 +1,27 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Zap, Target, TrendingUp, ArrowRight } from "lucide-react";
+import { Code, Palette, Smartphone, ArrowRight } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />,
-      title: "Landing Pages",
-      description: "Pages optimisées pour convertir vos visiteurs en clients",
-      features: ["Design responsive", "Copywriting persuasif", "Tests A/B"]
+      icon: <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />,
+      title: "Design Web Créatif",
+      description: "Interface unique et moderne adaptée à votre image de marque",
+      features: ["Design personnalisé", "UX/UI optimisée", "Identité visuelle"]
     },
     {
-      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />,
-      title: "Audit Conversion",
-      description: "Analyse complète de vos pages actuelles",
-      features: ["Analyse UX/UI", "Recommandations", "Plan d'action"]
+      icon: <Code className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />,
+      title: "Développement Sur-Mesure",
+      description: "Sites web performants avec technologies modernes",
+      features: ["Code optimisé", "Sécurité renforcée", "Performance garantie"]
     },
     {
-      icon: <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />,
-      title: "Optimisation",
-      description: "Amélioration continue de vos performances",
-      features: ["Suivi KPI", "Tests multivariés", "Support 3 mois"]
+      icon: <Smartphone className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />,
+      title: "Responsive & Mobile",
+      description: "Parfaite adaptation sur tous les appareils",
+      features: ["Mobile-first", "Tablette optimisé", "Cross-browser"]
     }
   ];
 
@@ -40,7 +40,7 @@ const Services = () => {
             Nos <span className="text-purple-600">Services</span>
           </h2>
           <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
-            Solutions complètes pour maximiser vos conversions
+            De la conception au développement, nous créons votre site web idéal
           </p>
         </header>
 
@@ -74,7 +74,7 @@ const Services = () => {
             size="lg" 
             className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold transition-all duration-300 transform hover:scale-105"
           >
-            Commencer maintenant
+            Démarrer mon projet
             <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
           </Button>
         </div>

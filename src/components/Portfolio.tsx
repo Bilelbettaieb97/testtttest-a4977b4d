@@ -1,37 +1,37 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, Users, Star, ArrowRight } from "lucide-react";
+import { Globe, ShoppingCart, Star, ArrowRight } from "lucide-react";
 
 const Portfolio = () => {
   const cases = [
     {
-      icon: <TrendingUp className="w-8 h-8 text-green-600" />,
-      client: "Client A — E-commerce",
-      title: "Augmentation du taux de conversion de 35%",
-      description: "Création d'une landing page produit pour un e-commerce. Résultat : +35% de conversion en 3 mois.",
-      metrics: ["+35% conversion", "+50% revenus", "-25% coût d'acquisition"]
+      icon: <ShoppingCart className="w-8 h-8 text-green-600" />,
+      client: "Boutique Mode — E-commerce",
+      title: "Site e-commerce moderne et performant",
+      description: "Création complète d'une boutique en ligne avec système de paiement intégré et design mobile-first.",
+      metrics: ["+200% ventes", "50ms temps de chargement", "100% mobile-friendly"]
     },
     {
-      icon: <Users className="w-8 h-8 text-blue-600" />,
-      client: "Client B — B2B SaaS",
-      title: "Génération de leads qualifiés x2",
-      description: "Optimisation d'une landing page B2B avec campagne A/B testing. Résultat : doublement des leads qualifiés.",
-      metrics: ["x2 leads qualifiés", "+60% taux de qualification", "+40% ROI"]
+      icon: <Globe className="w-8 h-8 text-blue-600" />,
+      client: "Cabinet Médical — Site Vitrine",
+      title: "Présence digitale professionnelle",
+      description: "Site vitrine avec prise de rendez-vous en ligne et présentation des services médicaux.",
+      metrics: ["Design moderne", "Réservation en ligne", "SEO optimisé"]
     }
   ];
 
   const testimonials = [
     {
-      text: "Grâce à ConvertiLab, notre campagne a dépassé toutes nos attentes. Leurs conseils et leur expertise ont fait la différence.",
-      author: "Marie D.",
-      role: "Responsable Marketing",
+      text: "ConvertiLab a créé exactement le site que nous imaginions. Professionnel, à l'écoute et livraison dans les délais !",
+      author: "Sophie M.",
+      role: "Directrice",
       rating: 5
     },
     {
-      text: "Une équipe à l'écoute, réactive, qui a su comprendre notre univers et booster nos ventes en un temps record.",
-      author: "Thomas L.",
-      role: "CEO",
+      text: "Notre nouveau site e-commerce fonctionne parfaitement. L'équipe nous a accompagnés de A à Z avec beaucoup de patience.",
+      author: "Pierre L.",
+      role: "E-commerçant",
       rating: 5
     }
   ];
@@ -44,7 +44,7 @@ const Portfolio = () => {
             Nos <span className="text-purple-600">Réalisations</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Exemples de succès ConvertiLab
+            Découvrez quelques-uns des sites web que nous avons créés
           </p>
         </div>
 
@@ -103,7 +103,7 @@ const Portfolio = () => {
             size="lg" 
             className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 text-lg font-semibold"
           >
-            Voir plus de cas clients
+            Voir plus de réalisations
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>

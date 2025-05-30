@@ -1,50 +1,50 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Clock, Target, ArrowRight, Star } from "lucide-react";
+import { CheckCircle, Clock, Globe, ArrowRight, Star } from "lucide-react";
 
 const Offers = () => {
   const offers = [
     {
-      name: "Pack Starter",
-      subtitle: "Landing Page Produit",
-      price: "1 800",
-      duration: "10-14 jours",
+      name: "Site Vitrine",
+      subtitle: "Présentation Professionnelle",
+      price: "2 500",
+      duration: "2-3 semaines",
       popular: false,
       features: [
-        "Design personnalisé responsive",
-        "Copywriting optimisé conversion",
-        "Intégration formulaire/achat",
-        "2 cycles de modifications"
+        "Design responsive moderne",
+        "5-8 pages personnalisées",
+        "Référencement SEO de base",
+        "Formation à la gestion"
       ],
-      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
     },
     {
-      name: "Pack Lead Generation",
-      subtitle: "Landing + CRM",
-      price: "3 500",
-      duration: "3-4 semaines",
+      name: "Site E-commerce",
+      subtitle: "Boutique en Ligne",
+      price: "4 500",
+      duration: "4-6 semaines",
       popular: true,
       features: [
-        "Workshop stratégique",
-        "Design UX/UI sur mesure",
-        "Intégration CRM/emailing",
-        "Tests A/B inclus",
-        "Suivi 1 mois gratuit"
+        "Catalogue produits illimité",
+        "Système de paiement sécurisé",
+        "Gestion des commandes",
+        "SEO e-commerce optimisé",
+        "Formation complète"
       ],
       icon: <Star className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
     },
     {
-      name: "Pack Lead Magnet",
-      subtitle: "Landing + Suivi",
-      price: "5 000",
-      duration: "4-6 semaines",
+      name: "Application Web",
+      subtitle: "Solution Sur-Mesure",
+      price: "Sur devis",
+      duration: "6-12 semaines",
       popular: false,
       features: [
-        "Landing + création lead magnet",
-        "Intégration CRM complète",
-        "Tests A/B continus 2 mois",
-        "Rapports mensuels"
+        "Développement personnalisé",
+        "Interface utilisateur complexe",
+        "Base de données intégrée",
+        "Support technique 1 an"
       ],
       icon: <Star className="w-6 h-6 sm:w-8 sm:h-8 text-pink-600" />
     }
@@ -55,13 +55,13 @@ const Offers = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12 animate-fade-in">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-            Nos <span className="text-purple-600">Offres</span>
+            Nos <span className="text-purple-600">Forfaits</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-4">
-            Landing Pages Performantes - Choisissez votre pack
+            Des solutions web adaptées à tous vos besoins
           </p>
           <div className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full font-semibold text-sm">
-            🎯 Consultation gratuite incluse
+            🎯 Devis personnalisé gratuit
           </div>
         </div>
 
@@ -87,7 +87,8 @@ const Offers = () => {
                 <p className="text-sm sm:text-base text-purple-600 font-semibold">{offer.subtitle}</p>
                 <div className="my-4">
                   <div className="text-2xl sm:text-3xl font-bold text-gray-900">
-                    {offer.price}<span className="text-sm text-gray-600"> € HT</span>
+                    {offer.price === "Sur devis" ? offer.price : `${offer.price} €`}
+                    {offer.price !== "Sur devis" && <span className="text-sm text-gray-600"> HT</span>}
                   </div>
                   <div className="flex items-center justify-center mt-1 text-gray-600">
                     <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
@@ -116,7 +117,7 @@ const Offers = () => {
                   }`}
                   size="lg"
                 >
-                  Choisir ce pack
+                  Choisir ce forfait
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </CardContent>
@@ -129,7 +130,7 @@ const Offers = () => {
             size="lg" 
             className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105"
           >
-            Demander un devis
+            Demander un devis personnalisé
             <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
           </Button>
         </div>
