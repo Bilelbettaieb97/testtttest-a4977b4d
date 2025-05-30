@@ -32,7 +32,7 @@ const Navigation = () => {
   };
 
   const openCalendly = () => {
-    window.open('https://calendly.com/bilel-bettaieb-naboo', '_blank');
+    window.open('https://calendly.com/convertilab/30min?back=1&month=2025-05', '_blank');
   };
 
   return (
