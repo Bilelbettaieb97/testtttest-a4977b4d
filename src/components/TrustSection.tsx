@@ -78,17 +78,8 @@ const TrustSection = () => {
     }
   ];
 
-  const clientLogos = [
-    { name: "TechStart", industry: "SaaS", color: "bg-gradient-to-br from-blue-500 to-purple-600" },
-    { name: "EcoGreen", industry: "Énergie", color: "bg-gradient-to-br from-green-500 to-emerald-600" },
-    { name: "FinanceUp", industry: "Finance", color: "bg-gradient-to-br from-indigo-500 to-blue-600" },
-    { name: "Fashion Co", industry: "E-commerce", color: "bg-gradient-to-br from-pink-500 to-rose-600" },
-    { name: "Immo Premium", industry: "Immobilier", color: "bg-gradient-to-br from-orange-500 to-red-600" },
-    { name: "Analytics Pro", industry: "Data", color: "bg-gradient-to-br from-violet-500 to-purple-600" }
-  ];
-
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 relative overflow-hidden">
+    <section className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -166,7 +157,7 @@ const TrustSection = () => {
         </div>
 
         {/* Résultats prouvés */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 sm:p-12 shadow-2xl mb-16 border border-gray-100 relative overflow-hidden">
+        <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 sm:p-12 shadow-2xl border border-gray-100 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5"></div>
           <div className="relative z-10">
             <div className="text-center mb-12">
@@ -194,42 +185,6 @@ const TrustSection = () => {
                   <div className="text-sm text-gray-500">{achievement.subtitle}</div>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Section clients avec social proof */}
-        <div className="text-center">
-          <Badge className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 px-4 py-2 text-sm font-semibold mb-8 border-0">
-            <Users className="w-4 h-4 mr-2" />
-            +127 Entreprises Nous Font Confiance
-          </Badge>
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Rejoignez nos clients satisfaits
-            </span>
-          </h3>
-          <p className="text-lg text-gray-600 mb-12">Des TPE aux grandes entreprises, tous secteurs confondus</p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
-            {clientLogos.map((client, index) => (
-              <div key={index} className="group relative">
-                <div className="bg-white p-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-                  <div className={`w-10 h-10 ${client.color} rounded-xl flex items-center justify-center mx-auto mb-2 text-white font-bold text-sm shadow-md`}>
-                    {client.name.charAt(0)}
-                  </div>
-                  <div className="text-sm font-bold text-gray-800 mb-1">{client.name}</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wide">{client.industry}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="inline-flex items-center bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-            <CheckCircle className="w-5 h-5 mr-3" />
-            <div>
-              <div className="text-lg font-bold">98% de clients satisfaits</div>
-              <div className="text-sm text-green-100">nous recommandent</div>
             </div>
           </div>
         </div>
