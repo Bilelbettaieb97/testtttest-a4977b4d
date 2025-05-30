@@ -18,17 +18,17 @@ const Index = () => {
       <section id="hero">
         <Hero />
       </section>
-      <section id="portfolio">
+      <section id="portfolio" className="-mt-4">
         <Portfolio />
       </section>
       <TrustSection />
-      <section id="services">
+      <section id="services" className="-mt-4">
         <Services />
       </section>
-      <section id="testimonials">
+      <section id="testimonials" className="-mt-4">
         <Testimonials />
       </section>
-      <section id="contact">
+      <section id="contact" className="-mt-4">
         <SimplifiedContact />
       </section>
       <Footer />

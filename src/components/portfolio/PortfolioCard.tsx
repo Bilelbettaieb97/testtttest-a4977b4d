@@ -1,0 +1,94 @@
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Star } from "lucide-react";
+
+interface PortfolioCase {
+  icon: React.ReactNode;
+  sector: string;
+  client: string;
+  title: string;
+  description: string;
+  image: string;
+  metrics: Array<{
+    label: string;
+    value: string;
+    icon: React.ComponentType<any>;
+  }>;
+  technologies: string[];
+  results: string;
+  testimonial: string;
+  author: string;
+}
+
+interface PortfolioCardProps {
+  caseStudy: PortfolioCase;
+}
+
+const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
+  return (
+    <Card className="group bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+      <div className="relative overflow-hidden rounded-t-lg">
+        <AspectRatio ratio={16 / 9}>
+          <img 
+            src={caseStudy.image} 
+            alt={`Site ${caseStudy.client}`}
+            className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+            onError={(e) => {
+              e.currentTarget.src = "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60";
+            }}
+          />
+        </AspectRatio>
+      </div>
+
+      <CardHeader className="pb-3">
+        <div className="flex items-center gap-3 mb-2">
+          {caseStudy.icon}
+          <Badge variant="outline" className="bg-white border-purple-200 text-purple-700 text-xs">
+            {caseStudy.sector}
+          </Badge>
+        </div>
+        
+        <CardTitle className="text-lg font-bold text-gray-900 mb-1">
+          {caseStudy.title}
+        </CardTitle>
+        <p className="text-purple-600 font-semibold text-sm">{caseStudy.client}</p>
+      </CardHeader>
+
+      <CardContent className="space-y-3">
+        <p className="text-gray-600 text-sm leading-relaxed">
+          {caseStudy.description}
+        </p>
+
+        <div className="grid grid-cols-3 gap-2">
+          {caseStudy.metrics.slice(0, 3).map((metric, index) => (
+            <div key={index} className="text-center p-2 bg-gray-50 rounded-lg">
+              <metric.icon className="w-4 h-4 text-purple-600 mx-auto mb-1" />
+              <div className="text-sm font-bold text-gray-900">{metric.value}</div>
+              <div className="text-xs text-gray-600">{metric.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-lg p-3">
+          <div className="text-green-800 font-bold text-sm mb-1">Résultat :</div>
+          <div className="text-green-700 font-semibold text-sm">{caseStudy.results}</div>
+        </div>
+
+        <div className="bg-gray-50 rounded-lg p-3">
+          <div className="flex mb-2">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />
+            ))}
+          </div>
+          <p className="text-gray-700 italic text-sm mb-2">"{caseStudy.testimonial}"</p>
+          <div className="text-xs font-semibold text-gray-900">{caseStudy.author}</div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default PortfolioCard;
