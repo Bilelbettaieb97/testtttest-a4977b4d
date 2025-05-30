@@ -15,8 +15,8 @@ import PromoBanner from "@/components/PromoBanner";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <PromoBanner />
       <Navigation />
+      <PromoBanner />
       <section id="hero">
         <Hero />
       </section>
