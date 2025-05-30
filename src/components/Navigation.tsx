@@ -1,17 +1,15 @@
 
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Calendar } from "lucide-react";
+import { Menu, X, Calendar, FileText } from "lucide-react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { label: "Accueil", href: "#hero" },
-    { label: "Réalisations", href: "#portfolio" },
+    { label: "Portfolio", href: "#portfolio" },
     { label: "Services", href: "#services" },
-    { label: "Méthode", href: "#methodology" },
-    { label: "Offres", href: "#offers" },
     { label: "Témoignages", href: "#testimonials" },
     { label: "Contact", href: "#contact" }
   ];
@@ -32,6 +30,14 @@ const Navigation = () => {
 
   const openCalendly = () => {
     window.open('https://calendly.com/convertilab/30min?back=1&month=2025-05', '_blank');
+  };
+
+  const scrollToContact = () => {
+    const element = document.querySelector('#contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
   };
 
   return (
@@ -59,8 +65,17 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Button - Desktop */}
-          <div className="hidden lg:flex">
+          {/* CTA Buttons - Desktop */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <Button 
+              onClick={scrollToContact}
+              variant="outline"
+              className="border-2 border-green-500 text-green-600 hover:bg-green-500 hover:text-white px-6 py-2 font-semibold transition-all duration-300 transform hover:scale-105"
+            >
+              <FileText className="mr-2 w-4 h-4" />
+              Obtenir un devis
+            </Button>
+            
             <Button 
               onClick={openCalendly}
               className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -94,7 +109,16 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
-              <div className="pt-2">
+              <div className="pt-2 space-y-2">
+                <Button 
+                  onClick={scrollToContact}
+                  variant="outline"
+                  className="w-full border-2 border-green-500 text-green-600 hover:bg-green-500 hover:text-white font-semibold"
+                >
+                  <FileText className="mr-2 w-4 h-4" />
+                  Obtenir un devis
+                </Button>
+                
                 <Button 
                   onClick={openCalendly}
                   className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold"
