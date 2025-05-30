@@ -6,7 +6,6 @@ import Methodology from "@/components/Methodology";
 import TrustSection from "@/components/TrustSection";
 import Offers from "@/components/Offers";
 import Portfolio from "@/components/Portfolio";
-import ConversionOptimization from "@/components/ConversionOptimization";
 import Testimonials from "@/components/Testimonials";
 import SimplifiedContact from "@/components/SimplifiedContact";
 import Footer from "@/components/Footer";
@@ -28,14 +27,15 @@ const Index = () => {
       <section id="services">
         <Services />
       </section>
+      <section id="testimonials">
+        <Testimonials />
+      </section>
       <section id="methodology">
         <Methodology />
       </section>
       <section id="offers">
         <Offers />
       </section>
-      <ConversionOptimization />
-      <Testimonials />
       <section id="contact">
         <SimplifiedContact />
       </section>

@@ -8,12 +8,11 @@ const Navigation = () => {
 
   const navItems = [
     { label: "Accueil", href: "#hero" },
+    { label: "Réalisations", href: "#portfolio" },
     { label: "Services", href: "#services" },
     { label: "Méthode", href: "#methodology" },
     { label: "Offres", href: "#offers" },
-    { label: "Portfolio", href: "#portfolio" },
-    { label: "Blog", href: "#blog" },
-    { label: "À propos", href: "#about" },
+    { label: "Témoignages", href: "#testimonials" },
     { label: "Contact", href: "#contact" }
   ];
 
@@ -52,9 +51,10 @@ const Navigation = () => {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium cursor-pointer"
+                className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium cursor-pointer relative group"
               >
                 {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
           </div>
@@ -63,7 +63,7 @@ const Navigation = () => {
           <div className="hidden lg:flex">
             <Button 
               onClick={openCalendly}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2 font-semibold transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <Calendar className="mr-2 w-4 h-4" />
               Prendre rendez-vous
