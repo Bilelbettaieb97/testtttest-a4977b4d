@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -154,7 +153,7 @@ const Portfolio = () => {
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 via-purple-50/30 to-pink-50/30 relative overflow-hidden" id="portfolio">
+    <section className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 via-purple-50/30 to-pink-50/30 relative overflow-hidden" id="portfolio">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -162,7 +161,7 @@ const Portfolio = () => {
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Enhanced Header with Social Proof */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <Award className="w-4 h-4 mr-2" />
             Portfolio Clients Satisfaits
@@ -172,12 +171,12 @@ const Portfolio = () => {
             Nos <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Réalisations</span>
           </h2>
           
-          <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
+          <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 leading-relaxed">
             Découvrez comment nous avons transformé les entreprises de nos clients avec des sites web performants
           </p>
 
           {/* Quick Stats for Social Proof */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 mb-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 mb-6">
             <div className="text-center">
               <div className="text-3xl sm:text-4xl font-bold text-purple-600">150+</div>
               <div className="text-sm text-gray-600 font-medium">Sites créés</div>
@@ -194,7 +193,7 @@ const Portfolio = () => {
         </div>
 
         {/* Carousel for Case Studies avec navigation améliorée */}
-        <div className="mb-16 relative">
+        <div className="mb-12 relative">
           <Carousel className="w-full max-w-7xl mx-auto" opts={{ align: "start", loop: true }}>
             <CarouselContent className="-ml-2 md:-ml-4">
               {cases.map((caseStudy, index) => (
@@ -293,13 +292,13 @@ const Portfolio = () => {
         </div>
 
         {/* Enhanced CTA Section */}
-        <div className="text-center bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-gray-100 relative overflow-hidden">
+        <div className="text-center bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50 opacity-50"></div>
           <div className="relative z-10">
             <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Prêt à rejoindre nos clients satisfaits ?
             </h3>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
               Découvrez comment nous pouvons transformer votre présence digitale et booster vos ventes
             </p>
             

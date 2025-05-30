@@ -2,9 +2,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import Methodology from "@/components/Methodology";
 import TrustSection from "@/components/TrustSection";
-import Offers from "@/components/Offers";
 import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 import SimplifiedContact from "@/components/SimplifiedContact";
@@ -29,12 +27,6 @@ const Index = () => {
       </section>
       <section id="testimonials">
         <Testimonials />
-      </section>
-      <section id="methodology">
-        <Methodology />
-      </section>
-      <section id="offers">
-        <Offers />
       </section>
       <section id="contact">
         <SimplifiedContact />

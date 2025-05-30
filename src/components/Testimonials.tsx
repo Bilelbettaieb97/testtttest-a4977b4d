@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote, Globe, Users, Code } from "lucide-react";
 
@@ -97,7 +96,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 sm:py-32 bg-gradient-to-br from-slate-50 via-purple-50/50 to-pink-50/50 relative overflow-hidden">
+    <section className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 via-purple-50/50 to-pink-50/50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-32 right-10 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -105,7 +104,7 @@ const Testimonials = () => {
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 sm:mb-20">
+        <div className="text-center mb-12 sm:mb-14">
           <div className="inline-flex items-center bg-gradient-to-r from-yellow-100 to-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <Star className="w-4 h-4 mr-2" />
             Témoignages Clients
@@ -115,7 +114,7 @@ const Testimonials = () => {
               Ils nous font confiance
             </span>
           </h2>
-          <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
+          <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
             Découvrez les retours de nos clients sur leurs nouveaux sites web
           </p>
           
@@ -136,7 +135,7 @@ const Testimonials = () => {
         </div>
 
         {/* Enhanced Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-0 shadow-lg bg-white/90 backdrop-blur-sm overflow-hidden relative">
               <div className={`absolute inset-0 bg-gradient-to-br ${testimonial.accent} opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
