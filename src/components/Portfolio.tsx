@@ -31,7 +31,7 @@ const Portfolio = () => {
       client: "Cabinet Dr. Laurent",
       title: "Site médical avec prise de RDV",
       description: "Création d'un site professionnel pour cabinet médical avec système de réservation en ligne et présentation des services.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "RDV en ligne", value: "85%", icon: Users },
         { label: "Patients/mois", value: "+180", icon: TrendingUp },
@@ -48,7 +48,7 @@ const Portfolio = () => {
       client: "Restaurant Le Gourmet",
       title: "Site gastronomique avec commande",
       description: "Site vitrine élégant avec menu interactif, réservations en ligne et système de commande à emporter.",
-      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "Réservations", value: "+250%", icon: Users },
         { label: "Commandes", value: "+400%", icon: ShoppingCart },
@@ -65,7 +65,7 @@ const Portfolio = () => {
       client: "Spa Sérénité",
       title: "Site wellness avec réservations",
       description: "Plateforme élégante pour spa avec présentation des soins, réservation en ligne et programme de fidélité.",
-      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "Réservations", value: "+200%", icon: Users },
         { label: "Clients fidèles", value: "65%", icon: Heart },
@@ -82,7 +82,7 @@ const Portfolio = () => {
       client: "Garage Excellence Auto",
       title: "Site garage avec prise de RDV",
       description: "Site professionnel pour garage automobile avec prise de rendez-vous, devis en ligne et présentation des services.",
-      image: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "RDV en ligne", value: "90%", icon: Clock },
         { label: "Devis/mois", value: "+150", icon: TrendingUp },
@@ -99,7 +99,7 @@ const Portfolio = () => {
       client: "Agence Prestige Habitat",
       title: "Plateforme immobilière moderne",
       description: "Site immobilier avec recherche avancée, visite virtuelle et gestion des mandats pour agence de prestige.",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "Visiteurs", value: "+300%", icon: Users },
         { label: "Demandes", value: "+180%", icon: TrendingUp },
@@ -116,7 +116,7 @@ const Portfolio = () => {
       client: "Conseil & Stratégie Pro",
       title: "Site corporate professionnel",
       description: "Site vitrine corporate pour cabinet de conseil avec présentation d'expertise et génération de leads qualifiés.",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "Leads qualifiés", value: "+250%", icon: TrendingUp },
         { label: "Taux contact", value: "12%", icon: Users },
@@ -133,7 +133,7 @@ const Portfolio = () => {
       client: "Studio Vision Creative",
       title: "Portfolio photographe artistique",
       description: "Site portfolio élégant pour photographe professionnel avec galeries, booking et vente d'œuvres en ligne.",
-      image: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "Bookings", value: "+180%", icon: Camera },
         { label: "Ventes œuvres", value: "+120%", icon: ShoppingCart },
