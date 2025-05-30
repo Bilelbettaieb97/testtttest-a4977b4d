@@ -14,7 +14,7 @@ const Portfolio = () => {
       client: "Boutique Élégance",
       title: "Site e-commerce haute conversion",
       description: "Refonte complète d'une boutique de mode féminine avec optimisation du tunnel de vente et intégration paiement sécurisé.",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "Ventes", value: "+340%", icon: TrendingUp },
         { label: "Conversion", value: "4.8%", icon: Star },
@@ -31,7 +31,7 @@ const Portfolio = () => {
       client: "Cabinet Dr. Laurent",
       title: "Site médical avec prise de RDV",
       description: "Création d'un site professionnel pour cabinet médical avec système de réservation en ligne et présentation des services.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "RDV en ligne", value: "85%", icon: Users },
         { label: "Patients/mois", value: "+180", icon: TrendingUp },
@@ -48,7 +48,7 @@ const Portfolio = () => {
       client: "Restaurant Le Gourmet",
       title: "Site gastronomique avec commande",
       description: "Site vitrine élégant avec menu interactif, réservations en ligne et système de commande à emporter.",
-      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "Réservations", value: "+250%", icon: Users },
         { label: "Commandes", value: "+400%", icon: ShoppingCart },
@@ -65,7 +65,7 @@ const Portfolio = () => {
       client: "Spa Sérénité",
       title: "Site wellness avec réservations",
       description: "Plateforme élégante pour spa avec présentation des soins, réservation en ligne et programme de fidélité.",
-      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "Réservations", value: "+200%", icon: Users },
         { label: "Clients fidèles", value: "65%", icon: Heart },
@@ -82,7 +82,7 @@ const Portfolio = () => {
       client: "Garage Excellence Auto",
       title: "Site garage avec prise de RDV",
       description: "Site professionnel pour garage automobile avec prise de rendez-vous, devis en ligne et présentation des services.",
-      image: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "RDV en ligne", value: "90%", icon: Clock },
         { label: "Devis/mois", value: "+150", icon: TrendingUp },
@@ -99,7 +99,7 @@ const Portfolio = () => {
       client: "Agence Prestige Habitat",
       title: "Plateforme immobilière moderne",
       description: "Site immobilier avec recherche avancée, visite virtuelle et gestion des mandats pour agence de prestige.",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "Visiteurs", value: "+300%", icon: Users },
         { label: "Demandes", value: "+180%", icon: TrendingUp },
@@ -116,7 +116,7 @@ const Portfolio = () => {
       client: "Conseil & Stratégie Pro",
       title: "Site corporate professionnel",
       description: "Site vitrine corporate pour cabinet de conseil avec présentation d'expertise et génération de leads qualifiés.",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "Leads qualifiés", value: "+250%", icon: TrendingUp },
         { label: "Taux contact", value: "12%", icon: Users },
@@ -133,7 +133,7 @@ const Portfolio = () => {
       client: "Studio Vision Creative",
       title: "Portfolio photographe artistique",
       description: "Site portfolio élégant pour photographe professionnel avec galeries, booking et vente d'œuvres en ligne.",
-      image: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      image: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       metrics: [
         { label: "Bookings", value: "+180%", icon: Camera },
         { label: "Ventes œuvres", value: "+120%", icon: ShoppingCart },
@@ -193,20 +193,24 @@ const Portfolio = () => {
           </div>
         </div>
 
-        {/* Carousel for Case Studies */}
-        <div className="mb-16">
+        {/* Carousel for Case Studies avec navigation améliorée */}
+        <div className="mb-16 relative">
           <Carousel className="w-full max-w-7xl mx-auto" opts={{ align: "start", loop: true }}>
             <CarouselContent className="-ml-2 md:-ml-4">
               {cases.map((caseStudy, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                   <Card className="group bg-white border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-full">
-                    {/* Image Section */}
+                    {/* Image Section améliorée */}
                     <div className="relative overflow-hidden rounded-t-lg">
                       <AspectRatio ratio={16 / 9}>
                         <img 
                           src={caseStudy.image} 
                           alt={`Aperçu du site ${caseStudy.client}`}
                           className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.src = "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80";
+                          }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </AspectRatio>
@@ -272,9 +276,20 @@ const Portfolio = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            
+            {/* Boutons de navigation améliorés */}
+            <CarouselPrevious className="hidden md:flex -left-16 bg-white/90 hover:bg-white shadow-lg border-2 border-purple-200 hover:border-purple-400 text-purple-600 hover:text-purple-700 w-12 h-12 transition-all duration-300" />
+            <CarouselNext className="hidden md:flex -right-16 bg-white/90 hover:bg-white shadow-lg border-2 border-purple-200 hover:border-purple-400 text-purple-600 hover:text-purple-700 w-12 h-12 transition-all duration-300" />
           </Carousel>
+          
+          {/* Indicateur mobile pour le scroll */}
+          <div className="flex md:hidden justify-center mt-4 text-sm text-gray-500">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
+              <span>Glissez pour voir plus</span>
+              <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
+            </div>
+          </div>
         </div>
 
         {/* Enhanced CTA Section */}
