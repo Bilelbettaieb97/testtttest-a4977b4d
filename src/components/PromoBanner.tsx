@@ -38,18 +38,18 @@ const PromoBanner = () => {
     window.open('https://preview--convertilab-65.lovable.app/', '_blank');
   };
 
-  // Vérifier si l'utilisateur a déjà fermé la bannière
-  useEffect(() => {
-    const wasClosed = localStorage.getItem('promoBannerClosed');
-    if (wasClosed) {
-      setIsVisible(false);
-    }
-  }, []);
+  // Supprimer temporairement la vérification localStorage pour s'assurer que la bannière s'affiche
+  // useEffect(() => {
+  //   const wasClosed = localStorage.getItem('promoBannerClosed');
+  //   if (wasClosed) {
+  //     setIsVisible(false);
+  //   }
+  // }, []);
 
   if (!isVisible) return null;
 
   return (
-    <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white py-3 px-4 relative overflow-hidden z-40">
+    <div className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white py-4 px-4 relative overflow-hidden" style={{ marginTop: '64px' }}>
       {/* Animation de fond */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse"></div>
       
