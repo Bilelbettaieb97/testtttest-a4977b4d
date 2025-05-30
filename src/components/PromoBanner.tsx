@@ -49,7 +49,7 @@ const PromoBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white py-3 px-4 relative overflow-hidden">
+    <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white py-3 px-4 relative overflow-hidden z-40">
       {/* Animation de fond */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse"></div>
       
