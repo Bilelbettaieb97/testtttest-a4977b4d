@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Users, Award, Calendar } from "lucide-react";
 
@@ -64,7 +65,7 @@ const Hero = () => {
               size="lg" 
               className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
-              Estimez votre projet
+              Estimer le coût en 1 clic
               <Code className="ml-3 w-5 h-5 sm:w-6 sm:h-6" />
             </Button>
             
