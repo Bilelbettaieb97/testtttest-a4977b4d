@@ -26,7 +26,7 @@ const PortfolioCTA = () => {
           size="lg" 
           className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg"
         >
-          Devis gratuit
+          Estimer le coût en 1 min
           <ArrowRight className="ml-2 w-5 h-5" />
         </Button>
         
