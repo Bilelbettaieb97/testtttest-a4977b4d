@@ -1,13 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Users, Award, Calendar } from "lucide-react";
 
 const Hero = () => {
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const openPriceEstimator = () => {
+    window.open('https://preview--estimezlecoutdevotresiteweb-13.lovable.app/', '_blank');
   };
 
   const openCalendly = () => {
@@ -64,7 +60,7 @@ const Hero = () => {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-10 animate-slide-up">
             <Button 
-              onClick={scrollToContact}
+              onClick={openPriceEstimator}
               size="lg" 
               className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >

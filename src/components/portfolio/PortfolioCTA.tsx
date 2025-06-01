@@ -3,11 +3,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const PortfolioCTA = () => {
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const openPriceEstimator = () => {
+    window.open('https://preview--estimezlecoutdevotresiteweb-13.lovable.app/', '_blank');
   };
 
   return (
@@ -22,7 +19,7 @@ const PortfolioCTA = () => {
         </p>
         
         <Button 
-          onClick={scrollToContact}
+          onClick={openPriceEstimator}
           size="lg" 
           className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg"
         >
