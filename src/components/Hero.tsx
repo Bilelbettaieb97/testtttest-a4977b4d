@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="absolute bottom-20 left-10 w-40 h-40 bg-pink-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
       <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-blue-200 rounded-full blur-2xl opacity-20"></div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-16 sm:pt-20 pb-8 sm:pb-12">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-24 sm:pt-32 pb-8 sm:pb-12">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 mb-6 sm:mb-8 text-sm bg-purple-100 text-purple-800 rounded-full border border-purple-200 animate-fade-in">

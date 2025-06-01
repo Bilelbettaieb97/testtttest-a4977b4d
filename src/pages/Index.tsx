@@ -8,13 +8,11 @@ import Testimonials from "@/components/Testimonials";
 import SimplifiedContact from "@/components/SimplifiedContact";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import PromoBanner from "@/components/PromoBanner";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <PromoBanner />
       <section id="hero">
         <Hero />
       </section>

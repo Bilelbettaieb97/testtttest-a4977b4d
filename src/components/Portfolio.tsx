@@ -1,6 +1,6 @@
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ShoppingCart, Globe, Utensils, Heart, Car, Home, Briefcase, Camera, Users, TrendingUp, Clock, Star } from "lucide-react";
+import { ShoppingCart, Globe, Utensils, Heart, Car, Home, Briefcase, Camera, Users, TrendingUp, Clock, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import PortfolioCard from "./portfolio/PortfolioCard";
 import PortfolioHeader from "./portfolio/PortfolioHeader";
 import PortfolioCTA from "./portfolio/PortfolioCTA";
@@ -95,12 +95,18 @@ const Portfolio = () => {
               ))}
             </CarouselContent>
             
-            <CarouselPrevious className="hidden md:flex -left-12 bg-white shadow-lg border-2 border-purple-200 text-purple-600 w-10 h-10" />
-            <CarouselNext className="hidden md:flex -right-12 bg-white shadow-lg border-2 border-purple-200 text-purple-600 w-10 h-10" />
+            <CarouselPrevious className="hidden md:flex -left-12 bg-white shadow-xl border-2 border-purple-200 text-purple-600 w-12 h-12 hover:bg-purple-50 hover:border-purple-300 transition-all duration-300 hover:scale-110">
+              <ChevronLeft className="h-6 w-6" />
+            </CarouselPrevious>
+            <CarouselNext className="hidden md:flex -right-12 bg-white shadow-xl border-2 border-purple-200 text-purple-600 w-12 h-12 hover:bg-purple-50 hover:border-purple-300 transition-all duration-300 hover:scale-110">
+              <ChevronRight className="h-6 w-6" />
+            </CarouselNext>
           </Carousel>
           
-          <div className="flex md:hidden justify-center mt-3 text-sm text-gray-500">
-            <span>Glissez pour voir plus →</span>
+          <div className="flex md:hidden justify-center mt-4 text-sm text-gray-600 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mx-auto w-fit shadow-lg border border-purple-100">
+            <ChevronLeft className="w-4 h-4 mr-1 text-purple-600" />
+            <span className="font-medium">Glissez pour voir plus d'exemples</span>
+            <ChevronRight className="w-4 h-4 ml-1 text-purple-600" />
           </div>
         </div>
 
