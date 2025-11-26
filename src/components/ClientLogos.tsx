@@ -69,11 +69,9 @@ const ClientLogos = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-transparent"></div>
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+    <section className="py-16 sm:py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/40 to-pink-50/40">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,.03)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Stats */}
@@ -86,24 +84,24 @@ const ClientLogos = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-6 hover:border-slate-700/50 transition-all duration-500 overflow-hidden"
+              className="group relative bg-white border-2 border-gray-100 rounded-2xl p-6 hover:border-purple-300 hover:shadow-xl transition-all duration-500 overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Glow effect */}
-              <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 -z-10`}></div>
+              <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 -z-10`}></div>
               
               <div className="relative text-center">
                 <div className={`w-14 h-14 bg-gradient-to-br ${stat.gradient} rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                   <stat.icon className="w-7 h-7 text-white" strokeWidth={2.5} />
                 </div>
-                <div className="text-4xl font-bold mb-2 text-white">
+                <div className="text-4xl font-bold mb-2 text-gray-900">
                   <AnimatedCounter 
                     end={stat.value} 
                     suffix={stat.suffix}
                     duration={2500}
                   />
                 </div>
-                <div className="text-slate-400 font-medium">{stat.label}</div>
+                <div className="text-gray-600 font-medium">{stat.label}</div>
               </div>
             </div>
           ))}
@@ -121,17 +119,17 @@ const ClientLogos = () => {
             {guarantees.map((guarantee, index) => (
               <div
                 key={index}
-                className="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-xl p-5 hover:border-slate-700/50 transition-all duration-500 overflow-hidden"
+                className="group relative bg-white border-2 border-gray-100 rounded-xl p-5 hover:border-purple-300 hover:shadow-xl transition-all duration-500 overflow-hidden"
               >
                 {/* Glow effect */}
-                <div className={`absolute -inset-0.5 bg-gradient-to-r ${guarantee.gradient} rounded-xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 -z-10`}></div>
+                <div className={`absolute -inset-0.5 bg-gradient-to-r ${guarantee.gradient} rounded-xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 -z-10`}></div>
                 
                 <div className="relative">
                   <div className={`w-10 h-10 bg-gradient-to-br ${guarantee.gradient} rounded-lg flex items-center justify-center mb-3 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <guarantee.icon className="w-5 h-5 text-white" strokeWidth={2.5} />
                   </div>
-                  <h3 className="font-bold text-white mb-2 text-sm">{guarantee.title}</h3>
-                  <p className="text-slate-400 text-xs leading-relaxed">{guarantee.description}</p>
+                  <h3 className="font-bold text-gray-900 mb-2 text-sm">{guarantee.title}</h3>
+                  <p className="text-gray-600 text-xs leading-relaxed">{guarantee.description}</p>
                 </div>
               </div>
             ))}
@@ -139,17 +137,17 @@ const ClientLogos = () => {
 
           {/* Clients - Compact version */}
           <div className="text-center">
-            <p className="text-slate-400 text-sm mb-4">Secteurs d'expertise</p>
+            <p className="text-gray-500 text-sm mb-4 font-medium">Secteurs d'expertise</p>
             <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
               {clients.map((client, index) => (
                 <div
                   key={index}
-                  className="group flex items-center gap-2 px-4 py-2 bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-full hover:border-slate-700/50 transition-all duration-300"
+                  className="group flex items-center gap-2 px-4 py-2 bg-white border-2 border-gray-100 rounded-full hover:border-purple-300 hover:shadow-lg transition-all duration-300"
                 >
                   <div className={`w-8 h-8 bg-gradient-to-br ${client.gradient} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                     <client.icon className="w-4 h-4 text-white" strokeWidth={2.5} />
                   </div>
-                  <span className="text-sm font-medium text-slate-300">{client.name}</span>
+                  <span className="text-sm font-medium text-gray-700">{client.name}</span>
                 </div>
               ))}
             </div>
