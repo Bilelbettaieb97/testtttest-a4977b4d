@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ const NewsletterSubscription = () => {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,12 +34,8 @@ const NewsletterSubscription = () => {
 
       if (error) throw error;
 
-      toast({
-        title: "Inscription réussie !",
-        description: "Vous êtes maintenant abonné à notre newsletter.",
-      });
-
       setNewsletterEmail("");
+      navigate("/newsletter-confirmation");
     } catch (error) {
       console.log("Newsletter error:", error);
       toast({
