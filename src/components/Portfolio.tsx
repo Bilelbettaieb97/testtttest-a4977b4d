@@ -12,7 +12,6 @@ import portfolioFormation from "@/assets/portfolio-formation.jpg";
 import portfolioB2B from "@/assets/portfolio-b2b.jpg";
 
 const Portfolio = () => {
-  // Réduire le nombre de cas pour améliorer les performances
   const cases = [
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
@@ -29,7 +28,8 @@ const Portfolio = () => {
       technologies: ["React", "Stripe"],
       results: "CA multiplié par 3 en 6 mois",
       testimonial: "Notre boutique en ligne génère plus que notre magasin physique !",
-      author: "Sophie Martineau"
+      author: "Sophie Martineau",
+      slug: "boutique-elegance"
     },
     {
       icon: <Utensils className="w-6 h-6 text-purple-600" />,
@@ -46,7 +46,8 @@ const Portfolio = () => {
       technologies: ["WordPress", "WooCommerce"],
       results: "60% de CA en plus pendant Covid",
       testimonial: "Le site nous a sauvés pendant les fermetures !",
-      author: "Pierre Dubois"
+      author: "Pierre Dubois",
+      slug: "le-gourmet"
     },
     {
       icon: <Home className="w-6 h-6 text-indigo-600" />,
@@ -63,7 +64,8 @@ const Portfolio = () => {
       technologies: ["React", "Maps"],
       results: "30% de vente plus rapide",
       testimonial: "Nous sommes l'agence de référence !",
-      author: "Catherine Moreau"
+      author: "Catherine Moreau",
+      slug: "prestige-habitat"
     },
     {
       icon: <Dumbbell className="w-6 h-6 text-red-600" />,
@@ -80,7 +82,8 @@ const Portfolio = () => {
       technologies: ["React", "Stripe"],
       results: "3x plus de membres actifs",
       testimonial: "La digitalisation a révolutionné notre salle !",
-      author: "Marc Leroy"
+      author: "Marc Leroy",
+      slug: "fitzone-studio"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-pink-600" />,
@@ -97,7 +100,8 @@ const Portfolio = () => {
       technologies: ["WordPress", "Bookly"],
       results: "Carnet complet 3 semaines à l'avance",
       testimonial: "Nous n'avons plus jamais de créneaux vides !",
-      author: "Émilie Bernard"
+      author: "Émilie Bernard",
+      slug: "institut-belle-vie"
     },
     {
       icon: <BookOpen className="w-6 h-6 text-orange-600" />,
@@ -114,7 +118,8 @@ const Portfolio = () => {
       technologies: ["React", "Vimeo"],
       results: "200+ étudiants actifs quotidiennement",
       testimonial: "Notre plateforme rivalise avec les géants !",
-      author: "Thomas Petit"
+      author: "Thomas Petit",
+      slug: "skillsup-academy"
     },
     {
       icon: <Briefcase className="w-6 h-6 text-cyan-600" />,
@@ -131,7 +136,8 @@ const Portfolio = () => {
       technologies: ["Next.js", "HubSpot"],
       results: "Pipeline commercial multiplié par 5",
       testimonial: "Le meilleur investissement de l'année !",
-      author: "Laurent Dupuis"
+      author: "Laurent Dupuis",
+      slug: "consultpro"
     }
   ];
 

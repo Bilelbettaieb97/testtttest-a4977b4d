@@ -1,8 +1,9 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Star } from "lucide-react";
+import { Star, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface PortfolioCase {
   icon: React.ReactNode;
@@ -20,6 +21,7 @@ interface PortfolioCase {
   results: string;
   testimonial: string;
   author: string;
+  slug?: string;
 }
 
 interface PortfolioCardProps {
@@ -86,6 +88,15 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
           <p className="text-gray-700 italic text-sm mb-2">"{caseStudy.testimonial}"</p>
           <div className="text-xs font-semibold text-gray-900">{caseStudy.author}</div>
         </div>
+
+        {caseStudy.slug && (
+          <Link to={`/case-study/${caseStudy.slug}`} className="block">
+            <Button className="w-full group/btn" variant="default">
+              Voir le projet complet
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+            </Button>
+          </Link>
+        )}
       </CardContent>
     </Card>
   );
