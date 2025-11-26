@@ -1,8 +1,13 @@
-
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Globe, Code, Smartphone, ShoppingCart, Star, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
+  const { toast } = useToast();
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const services = [
     { name: "Design Web Créatif", href: "#services" },
     { name: "Développement Expert", href: "#services" },
@@ -31,6 +36,62 @@ const Footer = () => {
         top: elementPosition,
         behavior: 'smooth'
       });
+    }
+  };
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!newsletterEmail.trim()) {
+      toast({
+        title: "Erreur",
+        description: "Veuillez entrer votre email",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (!emailRegex.test(newsletterEmail)) {
+      toast({
+        title: "Erreur",
+        description: "Veuillez entrer un email valide",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscriptions')
+        .insert([{ email: newsletterEmail.trim() }]);
+
+      if (error) {
+        console.error('Newsletter submission error:', error);
+        toast({
+          title: "Erreur",
+          description: "Une erreur s'est produite. Veuillez réessayer.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Merci de votre inscription ! 🎉",
+          description: "Vous recevrez bientôt nos meilleurs conseils.",
+        });
+        setNewsletterEmail("");
+      }
+    } catch (error) {
+      console.error('Newsletter submission error:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite. Veuillez réessayer.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -174,16 +235,23 @@ const Footer = () => {
             <p className="text-gray-300 mb-6 text-sm sm:text-base">
               Recevez nos meilleures stratégies, tendances design et conseils techniques pour optimiser votre présence digitale
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
               <input 
                 type="email" 
                 placeholder="Votre email professionnel..." 
-                className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-purple-400/50 text-white placeholder-gray-300 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                disabled={isSubmitting}
+                className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-purple-400/50 text-white placeholder-gray-300 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all disabled:opacity-50"
               />
-              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">
-                S'abonner
+              <Button 
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Envoi..." : "S'abonner"}
               </Button>
-            </div>
+            </form>
             <div className="text-xs text-gray-400 mt-3">
               ✅ Pas de spam • ✅ Contenu premium • ✅ Désabonnement simple
             </div>
