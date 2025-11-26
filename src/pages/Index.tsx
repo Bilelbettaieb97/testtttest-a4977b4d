@@ -27,12 +27,12 @@ const Index = () => {
       <section id="portfolio" className="-mt-4">
         <Portfolio />
       </section>
+      <ProcessTimeline />
       <ClientLogos />
       <TrustSection />
       <section id="services" className="-mt-4">
         <Services />
       </section>
-      <ProcessTimeline />
       <section id="testimonials" className="-mt-4">
         <Testimonials />
       </section>
