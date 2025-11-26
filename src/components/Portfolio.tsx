@@ -150,7 +150,7 @@ const Portfolio = () => {
 
         <div className="mb-8 relative">
           <Carousel className="w-full max-w-6xl mx-auto" opts={{ align: "start", loop: true }}>
-            <CarouselContent className="-ml-2 md:-ml-4">
+            <CarouselContent className="-ml-2 md:-ml-4 items-stretch">
               {cases.map((caseStudy, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                   <PortfolioCard caseStudy={caseStudy} />
