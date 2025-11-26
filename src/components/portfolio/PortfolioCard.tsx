@@ -30,7 +30,7 @@ interface PortfolioCardProps {
 
 const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
   return (
-    <Card className="group bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+    <Card className="group bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
       <div className="relative overflow-hidden rounded-t-lg">
         <AspectRatio ratio={16 / 9}>
           <img 
@@ -53,14 +53,14 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
           </Badge>
         </div>
         
-        <CardTitle className="text-lg font-bold text-gray-900 mb-1">
+        <CardTitle className="text-lg font-bold text-gray-900 mb-1 min-h-[3rem]">
           {caseStudy.title}
         </CardTitle>
         <p className="text-purple-600 font-semibold text-sm">{caseStudy.client}</p>
       </CardHeader>
 
-      <CardContent className="space-y-3">
-        <p className="text-gray-600 text-sm leading-relaxed">
+      <CardContent className="space-y-3 flex-grow flex flex-col">
+        <p className="text-gray-600 text-sm leading-relaxed min-h-[2.5rem]">
           {caseStudy.description}
         </p>
 
@@ -79,18 +79,18 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
           <div className="text-green-700 font-semibold text-sm">{caseStudy.results}</div>
         </div>
 
-        <div className="bg-gray-50 rounded-lg p-3">
+        <div className="bg-gray-50 rounded-lg p-3 min-h-[6rem]">
           <div className="flex mb-2">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />
             ))}
           </div>
-          <p className="text-gray-700 italic text-sm mb-2">"{caseStudy.testimonial}"</p>
+          <p className="text-gray-700 italic text-sm mb-2 line-clamp-2">"{caseStudy.testimonial}"</p>
           <div className="text-xs font-semibold text-gray-900">{caseStudy.author}</div>
         </div>
 
         {caseStudy.slug && (
-          <Link to={`/case-study/${caseStudy.slug}`} className="block">
+          <Link to={`/case-study/${caseStudy.slug}`} className="block mt-auto">
             <Button className="w-full group/btn" variant="default">
               Voir le projet complet
               <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
