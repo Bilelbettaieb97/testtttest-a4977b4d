@@ -49,7 +49,6 @@ const ChatBot = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
           },
           body: JSON.stringify({ messages: [...messages, userMessage] }),
         }
