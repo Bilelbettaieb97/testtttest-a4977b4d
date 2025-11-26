@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       contact_submissions: {
         Row: {
+          budget: string | null
           company: string
           created_at: string
           email: string
@@ -25,9 +26,11 @@ export type Database = {
           name: string
           phone: string | null
           project: string
+          timeline: string | null
           urgency: string | null
         }
         Insert: {
+          budget?: string | null
           company: string
           created_at?: string
           email: string
@@ -37,9 +40,11 @@ export type Database = {
           name: string
           phone?: string | null
           project: string
+          timeline?: string | null
           urgency?: string | null
         }
         Update: {
+          budget?: string | null
           company?: string
           created_at?: string
           email?: string
@@ -49,6 +54,7 @@ export type Database = {
           name?: string
           phone?: string | null
           project?: string
+          timeline?: string | null
           urgency?: string | null
         }
         Relationships: []
