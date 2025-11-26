@@ -88,11 +88,11 @@ const NewsletterConfirmation = () => {
                   </p>
                   <p className="text-xs text-gray-500 mb-4">{resource.format}</p>
                   <Button 
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
-                    onClick={() => window.open(resource.downloadUrl, '_blank')}
+                    className="w-full"
+                    variant="outline"
+                    disabled
                   >
-                    <Download className="w-4 h-4 mr-2" />
-                    Télécharger
+                    Bientôt disponible
                   </Button>
                 </CardContent>
               </Card>
