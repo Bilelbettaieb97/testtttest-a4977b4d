@@ -430,15 +430,14 @@ const ProcessTimeline = () => {
                   <p className="text-slate-300 mb-4">
                     Des questions sur cette étape ? Parlons-en lors de votre consultation gratuite !
                   </p>
-                  <button
-                    onClick={() => {
-                      setSelectedStep(null);
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className={`px-6 py-3 bg-gradient-to-r ${steps[selectedStep].gradient} text-white font-bold rounded-xl hover:scale-105 transition-transform shadow-lg`}
+                  <a
+                    href="https://calendly.com/votre-calendly/consultation"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-block px-6 py-3 bg-gradient-to-r ${steps[selectedStep].gradient} text-white font-bold rounded-xl hover:scale-105 transition-transform shadow-lg`}
                   >
                     Réserver ma consultation gratuite
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
