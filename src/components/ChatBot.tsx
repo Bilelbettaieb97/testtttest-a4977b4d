@@ -5,6 +5,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { MessageCircle, X, Send, Loader2, Minimize2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface Message {
   role: "user" | "assistant";
@@ -22,6 +23,7 @@ const ChatBot = () => {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [conversationId, setConversationId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -31,6 +33,56 @@ const ChatBot = () => {
     }
   }, [messages]);
 
+  // Create new conversation when chat opens
+  useEffect(() => {
+    if (isOpen && !conversationId) {
+      createConversation();
+    }
+  }, [isOpen]);
+
+  const createConversation = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("chat_conversations")
+        .insert({
+          user_agent: navigator.userAgent,
+          session_id: `session_${Date.now()}`,
+        })
+        .select()
+        .single();
+
+      if (error) throw error;
+      setConversationId(data.id);
+    } catch (error) {
+      console.error("Error creating conversation:", error);
+    }
+  };
+
+  const saveMessage = async (role: "user" | "assistant", content: string) => {
+    if (!conversationId) return;
+
+    try {
+      const startTime = Date.now();
+      
+      await supabase.from("chat_messages").insert({
+        conversation_id: conversationId,
+        role,
+        content,
+        response_time_ms: role === "assistant" ? Date.now() - startTime : null,
+      });
+
+      // Update first_message if this is the first user message
+      if (role === "user" && messages.length === 1) {
+        await supabase
+          .from("chat_conversations")
+          .update({ first_message: content })
+          .eq("id", conversationId);
+      }
+    } catch (error) {
+      console.error("Error saving message:", error);
+    }
+  };
+
   const sendMessage = async () => {
     if (!input.trim() || isLoading) return;
 
@@ -39,8 +91,12 @@ const ChatBot = () => {
     setInput("");
     setIsLoading(true);
 
+    // Save user message
+    await saveMessage("user", userMessage.content);
+
     let assistantContent = "";
     const assistantMessage: Message = { role: "assistant", content: "" };
+    const messageStartTime = Date.now();
 
     try {
       const response = await fetch(
@@ -100,6 +156,17 @@ const ChatBot = () => {
             // Incomplete JSON, continue
           }
         }
+      }
+
+      // Save complete assistant message with response time
+      if (assistantContent) {
+        const responseTime = Date.now() - messageStartTime;
+        await supabase.from("chat_messages").insert({
+          conversation_id: conversationId,
+          role: "assistant",
+          content: assistantContent,
+          response_time_ms: responseTime,
+        });
       }
     } catch (error) {
       console.error("Chat error:", error);
@@ -162,7 +229,16 @@ const ChatBot = () => {
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false);
+              // Mark conversation as completed when closing
+              if (conversationId) {
+                supabase
+                  .from("chat_conversations")
+                  .update({ status: "completed" })
+                  .eq("id", conversationId);
+              }
+            }}
             className="text-white hover:bg-white/20"
           >
             <X className="h-4 w-4" />
