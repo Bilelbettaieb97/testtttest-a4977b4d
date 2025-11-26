@@ -2,8 +2,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import PricingComparison from "@/components/PricingComparison";
-import PriceCalculator from "@/components/PriceCalculator";
 import TrustSection from "@/components/TrustSection";
 import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
@@ -34,8 +32,6 @@ const Index = () => {
       <section id="services" className="-mt-4">
         <Services />
       </section>
-      <PricingComparison />
-      <PriceCalculator />
       <ProcessTimeline />
       <section id="testimonials" className="-mt-4">
         <Testimonials />
