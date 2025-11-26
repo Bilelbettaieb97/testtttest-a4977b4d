@@ -177,14 +177,6 @@ const ProcessTimeline = () => {
                 >
                   {/* Carte principale */}
                   <div className="relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-6 sm:p-8 hover:border-slate-700/50 transition-all duration-500 overflow-hidden">
-                    {/* Badge "En savoir plus" - Toujours visible */}
-                    <div className="absolute top-4 right-4 z-10">
-                      <div className={`flex items-center gap-2 bg-gradient-to-r ${step.gradient} px-4 py-2 rounded-full text-white text-xs font-bold shadow-lg ${step.glowColor} group-hover:scale-110 transition-transform duration-300`}>
-                        <Sparkles className="w-4 h-4" />
-                        <span className="hidden sm:inline">En savoir plus</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </div>
                     {/* Effet de brillance au hover */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
                     
@@ -224,13 +216,22 @@ const ProcessTimeline = () => {
                           </div>
                         </div>
 
-                        <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-4">
                           {step.description}
                         </p>
 
+                        {/* Bouton "En savoir plus" - En bas à droite */}
+                        <div className="flex justify-end">
+                          <div className={`flex items-center gap-2 bg-gradient-to-r ${step.gradient} px-4 py-2.5 rounded-full text-white text-sm font-bold shadow-lg ${step.glowColor} group-hover:scale-110 group-hover:shadow-xl transition-all duration-300`}>
+                            <Sparkles className="w-4 h-4" />
+                            <span>En savoir plus</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </div>
+                        </div>
+
                         {/* Flèche suivant sur mobile */}
                         {index < steps.length - 1 && (
-                          <div className="flex items-center gap-2 text-slate-500 text-sm pt-2 lg:hidden">
+                          <div className="flex items-center gap-2 text-slate-500 text-sm pt-4 lg:hidden">
                             <ArrowRight className="w-4 h-4" />
                             <span>Étape suivante</span>
                           </div>
