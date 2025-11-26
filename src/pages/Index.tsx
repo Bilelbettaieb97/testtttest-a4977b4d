@@ -8,7 +8,6 @@ import SimplifiedContact from "@/components/SimplifiedContact";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import PromoBanner from "@/components/PromoBanner";
-import ClientLogos from "@/components/ClientLogos";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import About from "@/components/About";
@@ -27,7 +26,6 @@ const Index = () => {
         <Portfolio />
       </section>
       <ProcessTimeline />
-      <ClientLogos />
       <section id="services" className="-mt-4">
         <Services />
       </section>
