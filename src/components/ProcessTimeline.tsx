@@ -105,16 +105,11 @@ const ProcessTimeline = () => {
           </div>
         </div>
 
-        {/* CTA at the end */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 inline-block">
-            <p className="text-white text-lg font-semibold mb-2">
-              ⚡ Délai moyen de livraison : 2-4 semaines
-            </p>
-            <p className="text-purple-100 text-sm">
-              De la première consultation à la mise en ligne
-            </p>
-          </div>
+        {/* Delivery info */}
+        <div className="text-center mt-12">
+          <p className="text-gray-600 text-lg">
+            ⚡ <span className="font-semibold text-gray-900">Délai moyen : 2-4 semaines</span> de consultation à mise en ligne
+          </p>
         </div>
       </div>
     </section>

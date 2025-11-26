@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Quote, Globe, Users, Code } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const Testimonials = () => {
   const testimonials = [
@@ -71,30 +71,6 @@ const Testimonials = () => {
     }
   ];
 
-  const stats = [
-    { 
-      icon: Globe, 
-      value: "98%", 
-      label: "Taux de satisfaction", 
-      color: "text-green-600",
-      bg: "from-green-500 to-emerald-500"
-    },
-    { 
-      icon: Users, 
-      value: "150+", 
-      label: "Sites web créés", 
-      color: "text-blue-600",
-      bg: "from-blue-500 to-cyan-500"
-    },
-    { 
-      icon: Code, 
-      value: "100%", 
-      label: "Sites sur-mesure", 
-      color: "text-purple-600",
-      bg: "from-purple-500 to-pink-500"
-    }
-  ];
-
   return (
     <section className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 via-purple-50/50 to-pink-50/50 relative overflow-hidden">
       {/* Background decoration */}
@@ -104,39 +80,24 @@ const Testimonials = () => {
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-14">
+        <div className="text-center mb-12">
           <div className="inline-flex items-center bg-gradient-to-r from-yellow-100 to-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <Star className="w-4 h-4 mr-2" />
             Témoignages Clients
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
             <span className="bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
               Ils nous font confiance
             </span>
           </h2>
-          <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Découvrez les retours de nos clients sur leurs nouveaux sites web
           </p>
-          
-          {/* Enhanced quick stats */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16">
-            {stats.map((stat, index) => (
-              <div key={index} className="group flex items-center gap-4">
-                <div className={`w-14 h-14 bg-gradient-to-br ${stat.bg} rounded-2xl shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <stat.icon className="w-7 h-7 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="text-3xl font-bold text-gray-900">{stat.value}</div>
-                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Enhanced Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-          {testimonials.map((testimonial, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-10 max-w-5xl mx-auto">
+          {testimonials.slice(0, 4).map((testimonial, index) => (
             <Card key={index} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-0 shadow-lg bg-white/90 backdrop-blur-sm overflow-hidden relative">
               <div className={`absolute inset-0 bg-gradient-to-br ${testimonial.accent} opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
               <CardContent className="p-8 relative z-10">

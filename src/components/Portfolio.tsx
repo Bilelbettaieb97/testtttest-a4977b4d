@@ -68,24 +68,6 @@ const Portfolio = () => {
       slug: "institut-belle-vie"
     },
     {
-      icon: <Home className="w-6 h-6 text-indigo-600" />,
-      sector: "Immobilier",
-      client: "Prestige Habitat",
-      title: "Plateforme immobilière moderne",
-      description: "Site avec recherche avancée et visite virtuelle.",
-      image: portfolioImmobilier,
-      metrics: [
-        { label: "Visiteurs", value: "+300%", icon: Users },
-        { label: "Demandes", value: "+180%", icon: TrendingUp },
-        { label: "Conversion", value: "8.2%", icon: Star }
-      ],
-      technologies: ["React", "Maps"],
-      results: "30% de vente plus rapide",
-      testimonial: "Nous sommes l'agence de référence !",
-      author: "Catherine Moreau",
-      slug: "prestige-habitat"
-    },
-    {
       icon: <Dumbbell className="w-6 h-6 text-red-600" />,
       sector: "Sport & Fitness",
       client: "FitZone Studio",
@@ -102,24 +84,6 @@ const Portfolio = () => {
       testimonial: "La digitalisation a révolutionné notre salle !",
       author: "Marc Leroy",
       slug: "fitzone-studio"
-    },
-    {
-      icon: <BookOpen className="w-6 h-6 text-orange-600" />,
-      sector: "Formation",
-      client: "SkillsUp Academy",
-      title: "Plateforme e-learning moderne",
-      description: "Site de formation en ligne avec vidéos, quiz et certifications.",
-      image: portfolioFormation,
-      metrics: [
-        { label: "Étudiants", value: "+550%", icon: Users },
-        { label: "Cours vendus", value: "+380%", icon: TrendingUp },
-        { label: "Complétion", value: "78%", icon: Star }
-      ],
-      technologies: ["React", "Vimeo"],
-      results: "200+ étudiants actifs quotidiennement",
-      testimonial: "Notre plateforme rivalise avec les géants !",
-      author: "Thomas Petit",
-      slug: "skillsup-academy"
     },
     {
       icon: <Briefcase className="w-6 h-6 text-cyan-600" />,
