@@ -50,6 +50,24 @@ const Portfolio = () => {
       slug: "le-gourmet"
     },
     {
+      icon: <Sparkles className="w-6 h-6 text-pink-600" />,
+      sector: "Beauté & Bien-être",
+      client: "Institut Belle Vie",
+      title: "Site spa avec réservation en ligne",
+      description: "Plateforme élégante avec booking, packages et programme de fidélité.",
+      image: portfolioBeaute,
+      metrics: [
+        { label: "Réservations", value: "+280%", icon: Users },
+        { label: "Packages", value: "+190%", icon: ShoppingCart },
+        { label: "Satisfaction", value: "9.6/10", icon: Star }
+      ],
+      technologies: ["WordPress", "Bookly"],
+      results: "Carnet complet 3 semaines à l'avance",
+      testimonial: "Nous n'avons plus jamais de créneaux vides !",
+      author: "Émilie Bernard",
+      slug: "institut-belle-vie"
+    },
+    {
       icon: <Home className="w-6 h-6 text-indigo-600" />,
       sector: "Immobilier",
       client: "Prestige Habitat",
@@ -84,24 +102,6 @@ const Portfolio = () => {
       testimonial: "La digitalisation a révolutionné notre salle !",
       author: "Marc Leroy",
       slug: "fitzone-studio"
-    },
-    {
-      icon: <Sparkles className="w-6 h-6 text-pink-600" />,
-      sector: "Beauté & Bien-être",
-      client: "Institut Belle Vie",
-      title: "Site spa avec réservation en ligne",
-      description: "Plateforme élégante avec booking, packages et programme de fidélité.",
-      image: portfolioBeaute,
-      metrics: [
-        { label: "Réservations", value: "+280%", icon: Users },
-        { label: "Packages", value: "+190%", icon: ShoppingCart },
-        { label: "Satisfaction", value: "9.6/10", icon: Star }
-      ],
-      technologies: ["WordPress", "Bookly"],
-      results: "Carnet complet 3 semaines à l'avance",
-      testimonial: "Nous n'avons plus jamais de créneaux vides !",
-      author: "Émilie Bernard",
-      slug: "institut-belle-vie"
     },
     {
       icon: <BookOpen className="w-6 h-6 text-orange-600" />,
