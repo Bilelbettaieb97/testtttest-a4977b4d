@@ -39,6 +39,46 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validation côté client
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!formData.name.trim() || !formData.email.trim() || !formData.company.trim()) {
+      toast({
+        title: "Champs manquants",
+        description: "Veuillez remplir tous les champs obligatoires (nom, email, entreprise).",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Email invalide",
+        description: "Veuillez entrer une adresse email valide.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!formData.project) {
+      toast({
+        title: "Type de projet manquant",
+        description: "Veuillez sélectionner un type de projet.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!formData.main_challenge) {
+      toast({
+        title: "Défi manquant",
+        description: "Veuillez sélectionner votre principal défi.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -46,7 +86,10 @@ const ContactForm = () => {
         .from('contact_submissions')
         .insert([formData]);
 
-      if (error) throw error;
+      if (error) {
+        console.error("Contact form Supabase error:", error);
+        throw error;
+      }
 
       toast({
         title: "Message envoyé !",
@@ -65,11 +108,11 @@ const ContactForm = () => {
         message: "",
         urgency: ""
       });
-    } catch (error) {
-      console.log("Contact form error:", error);
+    } catch (error: any) {
+      console.error("Contact form error:", error);
       toast({
-        title: "Erreur",
-        description: "Une erreur est survenue. Veuillez réessayer.",
+        title: "Erreur d'envoi",
+        description: error?.message || "Une erreur est survenue. Vérifiez que les permissions de la base de données sont correctes.",
         variant: "destructive",
       });
     } finally {
