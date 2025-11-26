@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { TrendingUp } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface ChartData {
   name: string;
@@ -14,10 +15,19 @@ interface CaseStudyChartsProps {
 }
 
 const CaseStudyCharts = ({ title, data }: CaseStudyChartsProps) => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: chartsRef, isVisible: chartsVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: summaryRef, isVisible: summaryVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section className="py-16 bg-gradient-to-br from-muted/30 to-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-12 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
             <TrendingUp className="w-8 h-8 text-primary" />
           </div>
@@ -27,7 +37,12 @@ const CaseStudyCharts = ({ title, data }: CaseStudyChartsProps) => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div 
+          ref={chartsRef}
+          className={`grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto transition-all duration-700 delay-200 ${
+            chartsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           {/* Bar Chart */}
           <Card className="p-6 border-2">
             <h3 className="text-xl font-bold mb-6 text-center">Comparaison Avant/Après</h3>
@@ -88,7 +103,12 @@ const CaseStudyCharts = ({ title, data }: CaseStudyChartsProps) => {
         </div>
 
         {/* Summary Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8">
+        <div 
+          ref={summaryRef}
+          className={`grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8 transition-all duration-700 delay-300 ${
+            summaryVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           {data.map((item, index) => {
             const growth = ((item.after - item.before) / item.before) * 100;
             return (

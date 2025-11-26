@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface GalleryImage {
   src: string;
@@ -16,6 +17,8 @@ interface CaseStudyGalleryProps {
 
 const CaseStudyGallery = ({ images }: CaseStudyGalleryProps) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation({ threshold: 0.2 });
 
   const openLightbox = (index: number) => {
     setSelectedIndex(index);
@@ -40,14 +43,24 @@ const CaseStudyGallery = ({ images }: CaseStudyGalleryProps) => {
   return (
     <section className="py-16 bg-gradient-to-br from-background to-muted/20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-12 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Galerie du Projet</h2>
           <p className="text-xl text-muted-foreground">
             Découvrez les différentes pages et fonctionnalités
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div 
+          ref={gridRef}
+          className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto transition-all duration-700 delay-200 ${
+            gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           {images.map((image, index) => (
             <Card
               key={index}

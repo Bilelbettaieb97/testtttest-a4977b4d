@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface CaseStudyHeroProps {
   title: string;
@@ -10,13 +11,21 @@ interface CaseStudyHeroProps {
 }
 
 const CaseStudyHero = ({ title, subtitle, image, sector, client, icon }: CaseStudyHeroProps) => {
+  const { ref: leftRef, isVisible: leftVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: rightRef, isVisible: rightVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section className="relative bg-gradient-to-br from-primary/5 via-background to-accent/5 py-16 overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+          <div 
+            ref={leftRef}
+            className={`space-y-6 transition-all duration-700 ${
+              leftVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-xl bg-primary/10 text-primary">
                 {icon}
@@ -39,7 +48,12 @@ const CaseStudyHero = ({ title, subtitle, image, sector, client, icon }: CaseStu
             </div>
           </div>
 
-          <div className="relative">
+          <div 
+            ref={rightRef}
+            className={`relative transition-all duration-700 delay-200 ${
+              rightVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl"></div>
             <img
               src={image}

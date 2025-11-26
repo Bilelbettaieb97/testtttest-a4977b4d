@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Clock, CheckCircle2 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface TimelinePhase {
   phase: string;
@@ -12,10 +13,18 @@ interface CaseStudyTimelineProps {
 }
 
 const CaseStudyTimeline = ({ timeline }: CaseStudyTimelineProps) => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: timelineRef, isVisible: timelineVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className="text-center mb-12">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-12 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
             <Clock className="w-8 h-8 text-primary" />
           </div>
@@ -25,7 +34,12 @@ const CaseStudyTimeline = ({ timeline }: CaseStudyTimelineProps) => {
           </p>
         </div>
 
-        <div className="relative">
+        <div 
+          ref={timelineRef}
+          className={`relative transition-all duration-700 delay-200 ${
+            timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           {/* Timeline line */}
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/20 hidden md:block"></div>
 
