@@ -5,7 +5,7 @@ import { Phone, Mail, MessageSquare, Calendar } from "lucide-react";
 
 const ContactInfo = () => {
   const openCalendly = () => {
-    window.open('https://calendly.com/convertilab/30min?back=1&month=2025-05', '_blank');
+    window.open('https://calendly.com/convertilab-5bsc/30min', '_blank');
   };
 
   return (
