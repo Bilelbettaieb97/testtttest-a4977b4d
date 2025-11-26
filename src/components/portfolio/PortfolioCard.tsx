@@ -53,14 +53,14 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
           </Badge>
         </div>
         
-        <CardTitle className="text-lg font-bold text-gray-900 mb-1 min-h-[3rem]">
+        <CardTitle className="text-lg font-bold text-gray-900 mb-1 min-h-[3rem] line-clamp-2">
           {caseStudy.title}
         </CardTitle>
         <p className="text-purple-600 font-semibold text-sm">{caseStudy.client}</p>
       </CardHeader>
 
       <CardContent className="space-y-3 flex-grow flex flex-col">
-        <p className="text-gray-600 text-sm leading-relaxed min-h-[2.5rem]">
+        <p className="text-gray-600 text-sm leading-relaxed min-h-[2.5rem] line-clamp-2">
           {caseStudy.description}
         </p>
 
