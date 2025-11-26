@@ -1,6 +1,6 @@
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ShoppingCart, Globe, Utensils, Heart, Car, Home, Briefcase, Camera, Users, TrendingUp, Clock, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ShoppingCart, Utensils, Home, Users, TrendingUp, Clock, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import PortfolioCard from "./portfolio/PortfolioCard";
 import PortfolioHeader from "./portfolio/PortfolioHeader";
 import PortfolioCTA from "./portfolio/PortfolioCTA";
@@ -24,23 +24,6 @@ const Portfolio = () => {
       results: "CA multiplié par 3 en 6 mois",
       testimonial: "Notre boutique en ligne génère plus que notre magasin physique !",
       author: "Sophie Martineau"
-    },
-    {
-      icon: <Globe className="w-6 h-6 text-blue-600" />,
-      sector: "Médical",
-      client: "Cabinet Dr. Laurent",
-      title: "Site médical avec prise de RDV",
-      description: "Site professionnel avec système de réservation en ligne.",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
-      metrics: [
-        { label: "RDV", value: "85%", icon: Users },
-        { label: "Patients", value: "+180", icon: TrendingUp },
-        { label: "Note", value: "9.8/10", icon: Star }
-      ],
-      technologies: ["Next.js", "Calendly"],
-      results: "70% d'appels en moins",
-      testimonial: "Nos patients adorent prendre RDV 24h/24 !",
-      author: "Dr. Laurent"
     },
     {
       icon: <Utensils className="w-6 h-6 text-purple-600" />,
