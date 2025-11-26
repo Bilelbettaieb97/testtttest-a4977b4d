@@ -29,6 +29,9 @@ interface PortfolioCardProps {
 }
 
 const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
+  const testimonialSentences = caseStudy.testimonial.match(/[^.!?]+[.!?]*/g) || [];
+  const formattedTestimonial = testimonialSentences.slice(0, 2).join(" ").trim();
+
   return (
     <Card className="group bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
       <div className="relative overflow-hidden rounded-t-lg">
@@ -86,7 +89,7 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
                 <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />
               ))}
             </div>
-            <p className="text-gray-700 italic text-sm mb-2 line-clamp-2">"{caseStudy.testimonial}"</p>
+            <p className="text-gray-700 italic text-sm mb-2 line-clamp-2">“{formattedTestimonial}”</p>
             <div className="text-xs font-semibold text-gray-900">{caseStudy.author}</div>
           </div>
 
