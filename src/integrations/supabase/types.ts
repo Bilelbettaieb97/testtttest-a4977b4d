@@ -14,63 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      contact_submissions: {
-        Row: {
-          company: string
-          created_at: string
-          email: string
-          id: string
-          main_challenge: string
-          message: string | null
-          name: string
-          phone: string | null
-          project: string
-          urgency: string | null
-        }
-        Insert: {
-          company: string
-          created_at?: string
-          email: string
-          id?: string
-          main_challenge: string
-          message?: string | null
-          name: string
-          phone?: string | null
-          project: string
-          urgency?: string | null
-        }
-        Update: {
-          company?: string
-          created_at?: string
-          email?: string
-          id?: string
-          main_challenge?: string
-          message?: string | null
-          name?: string
-          phone?: string | null
-          project?: string
-          urgency?: string | null
-        }
-        Relationships: []
-      }
-      newsletter_subscriptions: {
-        Row: {
-          created_at: string
-          email: string
-          id: string
-        }
-        Insert: {
-          created_at?: string
-          email: string
-          id?: string
-        }
-        Update: {
-          created_at?: string
-          email?: string
-          id?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
