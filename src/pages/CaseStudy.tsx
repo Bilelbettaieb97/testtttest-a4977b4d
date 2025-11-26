@@ -13,6 +13,7 @@ import CaseStudyMetrics from "@/components/case-study/CaseStudyMetrics";
 import CaseStudyTimeline from "@/components/case-study/CaseStudyTimeline";
 import CaseStudyTestimonial from "@/components/case-study/CaseStudyTestimonial";
 import CaseStudyCTA from "@/components/case-study/CaseStudyCTA";
+import CaseStudyNavigation from "@/components/case-study/CaseStudyNavigation";
 import portfolioEcommerce from "@/assets/portfolio-ecommerce.jpg";
 import portfolioRestaurant from "@/assets/portfolio-restaurant.jpg";
 import portfolioImmobilier from "@/assets/portfolio-immobilier.jpg";
@@ -295,6 +296,53 @@ const CaseStudy = () => {
 
   const caseStudy = slug ? caseStudies[slug as keyof typeof caseStudies] : null;
 
+  // Order of projects for navigation
+  const projectOrder = [
+    "boutique-elegance",
+    "le-gourmet",
+    "prestige-habitat",
+    "fitzone-studio",
+    "institut-belle-vie",
+    "skillsup-academy",
+    "consultpro"
+  ];
+
+  // Get navigation projects
+  const getNavigationProjects = () => {
+    if (!slug) return { previous: undefined, next: undefined };
+    
+    const currentIndex = projectOrder.indexOf(slug);
+    if (currentIndex === -1) return { previous: undefined, next: undefined };
+
+    const previousIndex = currentIndex === 0 ? projectOrder.length - 1 : currentIndex - 1;
+    const nextIndex = currentIndex === projectOrder.length - 1 ? 0 : currentIndex + 1;
+
+    const previousSlug = projectOrder[previousIndex];
+    const nextSlug = projectOrder[nextIndex];
+
+    const previousCase = caseStudies[previousSlug as keyof typeof caseStudies];
+    const nextCase = caseStudies[nextSlug as keyof typeof caseStudies];
+
+    return {
+      previous: previousCase ? {
+        slug: previousSlug,
+        title: previousCase.title,
+        client: previousCase.client,
+        image: previousCase.image,
+        sector: previousCase.sector
+      } : undefined,
+      next: nextCase ? {
+        slug: nextSlug,
+        title: nextCase.title,
+        client: nextCase.client,
+        image: nextCase.image,
+        sector: nextCase.sector
+      } : undefined
+    };
+  };
+
+  const { previous, next } = getNavigationProjects();
+
   if (!caseStudy) {
     navigate("/");
     return null;
@@ -350,6 +398,11 @@ const CaseStudy = () => {
       />
 
       <CaseStudyCTA results={caseStudy.results} />
+
+      <CaseStudyNavigation
+        previousProject={previous}
+        nextProject={next}
+      />
 
       <Footer />
     </div>
