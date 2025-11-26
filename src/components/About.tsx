@@ -1,7 +1,6 @@
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Award, Code, Users, Shield, ArrowRight } from "lucide-react";
+import { Award, Code, Shield } from "lucide-react";
 
 const About = () => {
   const values = [
@@ -22,11 +21,6 @@ const About = () => {
     }
   ];
 
-  const expertise = [
-    { label: "+5 ans", detail: "d'expérience en développement web" },
-    { label: "+150", detail: "sites web créés avec succès" },
-    { label: "Technologies", detail: "modernes et performantes" }
-  ];
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-900 to-purple-900 text-white">
@@ -58,43 +52,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Expertise */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-bold text-center mb-12">Notre expertise</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {expertise.map((item, index) => (
-              <div key={index} className="text-center p-8 bg-white/5 backdrop-blur-sm rounded-lg">
-                <div className="text-4xl font-bold text-purple-400 mb-2">{item.label}</div>
-                <div className="text-gray-300">{item.detail}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Team CTA */}
-        <div className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-12">
-          <h3 className="text-3xl font-bold mb-6">Prêt à créer votre site web ?</h3>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contactez notre équipe pour une consultation gratuite et découvrez 
-            comment nous pouvons donner vie à votre projet digital.
-          </p>
-          <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 text-lg font-semibold"
-            >
-              Consultation gratuite
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-2 border-purple-400 text-white bg-transparent hover:bg-purple-400/10 px-8 py-4 text-lg"
-            >
-              Voir nos réalisations
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );
