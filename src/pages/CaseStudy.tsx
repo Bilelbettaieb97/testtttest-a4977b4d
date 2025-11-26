@@ -7,6 +7,8 @@ import CaseStudyHero from "@/components/case-study/CaseStudyHero";
 import CaseStudyOverview from "@/components/case-study/CaseStudyOverview";
 import CaseStudyChallenge from "@/components/case-study/CaseStudyChallenge";
 import CaseStudySolution from "@/components/case-study/CaseStudySolution";
+import CaseStudyGallery from "@/components/case-study/CaseStudyGallery";
+import CaseStudyCharts from "@/components/case-study/CaseStudyCharts";
 import CaseStudyMetrics from "@/components/case-study/CaseStudyMetrics";
 import CaseStudyTimeline from "@/components/case-study/CaseStudyTimeline";
 import CaseStudyTestimonial from "@/components/case-study/CaseStudyTestimonial";
@@ -18,6 +20,12 @@ import portfolioFitness from "@/assets/portfolio-fitness.jpg";
 import portfolioBeaute from "@/assets/portfolio-beaute.jpg";
 import portfolioFormation from "@/assets/portfolio-formation.jpg";
 import portfolioB2B from "@/assets/portfolio-b2b.jpg";
+import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
+import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
+import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
+import galleryRestaurant2 from "@/assets/gallery-restaurant-2.jpg";
+import galleryImmobilier1 from "@/assets/gallery-immobilier-1.jpg";
+import galleryImmobilier2 from "@/assets/gallery-immobilier-2.jpg";
 
 const CaseStudy = () => {
   const { slug } = useParams();
@@ -31,6 +39,16 @@ const CaseStudy = () => {
       title: "Site e-commerce haute conversion",
       subtitle: "Refonte complète avec optimisation du tunnel de vente",
       image: portfolioEcommerce,
+      gallery: [
+        { src: portfolioEcommerce, alt: "Page d'accueil", caption: "Page d'accueil élégante avec mise en avant des nouveautés" },
+        { src: galleryEcommerce1, alt: "Page produit", caption: "Fiche produit détaillée avec galerie et avis clients" },
+        { src: galleryEcommerce2, alt: "Tunnel de paiement", caption: "Processus de paiement sécurisé avec Stripe" }
+      ],
+      chartData: [
+        { name: "Ventes", before: 1000, after: 4400 },
+        { name: "Visiteurs", before: 5000, after: 15000 },
+        { name: "Conversion", before: 0.9, after: 4.8 }
+      ],
       challenge: "Boutique Élégance faisait face à un taux d'abandon de panier de 82% et une expérience utilisateur confuse. Le site était lent, peu sécurisé et n'inspirait pas confiance aux clients potentiels.",
       solution: "Nous avons créé une plateforme e-commerce moderne avec un design élégant, un tunnel de vente optimisé, l'intégration de Stripe pour les paiements sécurisés, et une navigation intuitive.",
       metrics: [
@@ -58,6 +76,16 @@ const CaseStudy = () => {
       title: "Site gastronomique avec commande",
       subtitle: "Transformation digitale d'un restaurant gastronomique",
       image: portfolioRestaurant,
+      gallery: [
+        { src: portfolioRestaurant, alt: "Page d'accueil", caption: "Page d'accueil élégante avec ambiance gastronomique" },
+        { src: galleryRestaurant1, alt: "Menu interactif", caption: "Menu digital avec photos professionnelles des plats" },
+        { src: galleryRestaurant2, alt: "Réservation", caption: "Système de réservation en ligne simple et efficace" }
+      ],
+      chartData: [
+        { name: "Réservations", before: 400, after: 1400 },
+        { name: "Commandes", before: 200, after: 1000 },
+        { name: "Visiteurs", before: 2000, after: 7000 }
+      ],
       challenge: "Le restaurant souffrait d'un manque de visibilité en ligne et avait perdu 60% de son chiffre d'affaires pendant la pandémie. Aucun système de commande en ligne n'était en place.",
       solution: "Création d'un site élégant avec menu interactif, système de réservation en ligne, commande à emporter intégrée et galerie photo professionnelle pour mettre en valeur les plats.",
       metrics: [
@@ -85,6 +113,16 @@ const CaseStudy = () => {
       title: "Plateforme immobilière moderne",
       subtitle: "Transformation digitale d'une agence immobilière",
       image: portfolioImmobilier,
+      gallery: [
+        { src: portfolioImmobilier, alt: "Page d'accueil", caption: "Interface moderne avec recherche avancée" },
+        { src: galleryImmobilier1, alt: "Fiche bien", caption: "Fiches détaillées avec visite virtuelle 360°" },
+        { src: galleryImmobilier2, alt: "Recherche", caption: "Recherche multicritères avec carte interactive" }
+      ],
+      chartData: [
+        { name: "Visiteurs", before: 5000, after: 20000 },
+        { name: "Demandes", before: 250, after: 700 },
+        { name: "Ventes", before: 12, after: 35 }
+      ],
       challenge: "L'agence perdait des clients face aux plateformes nationales. Le site était obsolète, la recherche de biens difficile et aucune visite virtuelle n'était proposée.",
       solution: "Développement d'une plateforme complète avec recherche avancée multicritères, visites virtuelles 360°, carte interactive et espace client personnalisé pour suivre les dossiers.",
       metrics: [
@@ -112,6 +150,16 @@ const CaseStudy = () => {
       title: "Plateforme fitness avec abonnements",
       subtitle: "Digitalisation complète d'une salle de sport",
       image: portfolioFitness,
+      gallery: [
+        { src: portfolioFitness, alt: "Page d'accueil", caption: "Interface dynamique avec réservation de cours" },
+        { src: portfolioFitness, alt: "Planning des cours", caption: "Calendrier interactif pour réserver les séances" },
+        { src: portfolioFitness, alt: "Espace membre", caption: "Dashboard personnel avec suivi d'entraînement" }
+      ],
+      chartData: [
+        { name: "Membres", before: 150, after: 780 },
+        { name: "Réservations", before: 500, after: 2800 },
+        { name: "Revenu mensuel", before: 8000, after: 35000 }
+      ],
       challenge: "La salle perdait des membres face aux applications de fitness. La gestion des réservations était chaotique et le suivi des membres inexistant.",
       solution: "Création d'une plateforme complète avec réservation de cours en temps réel, suivi personnalisé des entraînements, paiements d'abonnements automatisés et application mobile.",
       metrics: [
@@ -139,6 +187,16 @@ const CaseStudy = () => {
       title: "Site spa avec réservation en ligne",
       subtitle: "Modernisation d'un institut de beauté",
       image: portfolioBeaute,
+      gallery: [
+        { src: portfolioBeaute, alt: "Page d'accueil", caption: "Design élégant et apaisant pour l'institut" },
+        { src: portfolioBeaute, alt: "Réservation", caption: "Système de booking en ligne 24/7" },
+        { src: portfolioBeaute, alt: "Packages", caption: "Offres et forfaits personnalisables" }
+      ],
+      chartData: [
+        { name: "Réservations", before: 350, after: 1330 },
+        { name: "Packages vendus", before: 80, after: 232 },
+        { name: "Taux occupation", before: 65, after: 98 }
+      ],
       challenge: "L'institut gérait tout manuellement avec un agenda papier. Les créneaux vides étaient fréquents et le suivi client inexistant.",
       solution: "Site élégant avec système de réservation en ligne 24/7, packages personnalisables, programme de fidélité automatisé et rappels SMS.",
       metrics: [
@@ -166,6 +224,16 @@ const CaseStudy = () => {
       title: "Plateforme e-learning moderne",
       subtitle: "Création d'une académie en ligne",
       image: portfolioFormation,
+      gallery: [
+        { src: portfolioFormation, alt: "Page d'accueil", caption: "Plateforme e-learning avec catalogue de cours" },
+        { src: portfolioFormation, alt: "Interface cours", caption: "Lecteur vidéo avec quiz interactifs" },
+        { src: portfolioFormation, alt: "Dashboard étudiant", caption: "Suivi de progression et certificats" }
+      ],
+      chartData: [
+        { name: "Étudiants", before: 50, after: 325 },
+        { name: "Cours vendus", before: 180, after: 864 },
+        { name: "Revenu mensuel", before: 3500, after: 17500 }
+      ],
       challenge: "Le formateur donnait uniquement des cours en présentiel, limitant sa capacité à 20 étudiants par session. Aucune présence en ligne n'existait.",
       solution: "Plateforme e-learning complète avec hébergement vidéo, quiz interactifs, suivi de progression, forum communautaire et certifications automatisées.",
       metrics: [
@@ -193,6 +261,16 @@ const CaseStudy = () => {
       title: "Site corporate avec génération de leads",
       subtitle: "Optimisation de la génération de leads B2B",
       image: portfolioB2B,
+      gallery: [
+        { src: portfolioB2B, alt: "Page d'accueil", caption: "Site corporate professionnel avec CTA clairs" },
+        { src: portfolioB2B, alt: "Formulaire lead", caption: "Formulaires intelligents pour qualifier les prospects" },
+        { src: portfolioB2B, alt: "Blog", caption: "Contenu de valeur pour le SEO et l'expertise" }
+      ],
+      chartData: [
+        { name: "Leads mensuels", before: 25, after: 140 },
+        { name: "Trafic organique", before: 800, after: 4200 },
+        { name: "Conversions", before: 3, after: 17 }
+      ],
       challenge: "Le cabinet recevait très peu de demandes qualifiées via son site. Le positionnement était flou et le site peu professionnel.",
       solution: "Site corporate premium avec SEO optimisé, tunnel de conversion intelligent, formulaires qualifiants, intégration CRM et contenu de valeur (blog, études de cas).",
       metrics: [
@@ -255,6 +333,10 @@ const CaseStudy = () => {
       <CaseStudyChallenge challenge={caseStudy.challenge} />
 
       <CaseStudySolution solution={caseStudy.solution} />
+
+      <CaseStudyGallery images={caseStudy.gallery} />
+
+      <CaseStudyCharts title={caseStudy.title} data={caseStudy.chartData} />
 
       <CaseStudyMetrics metrics={caseStudy.metrics} />
 
