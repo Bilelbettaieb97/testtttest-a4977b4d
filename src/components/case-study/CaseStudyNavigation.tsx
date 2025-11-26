@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface NavigationProject {
@@ -19,6 +20,11 @@ interface CaseStudyNavigationProps {
 
 const CaseStudyNavigation = ({ previousProject, nextProject }: CaseStudyNavigationProps) => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
 
   return (
     <section className="py-16 bg-gradient-to-br from-muted/30 to-background">
@@ -36,8 +42,12 @@ const CaseStudyNavigation = ({ previousProject, nextProject }: CaseStudyNavigati
           <div className="grid md:grid-cols-2 gap-6">
             {/* Previous Project */}
             {previousProject && (
-              <Link to={`/case-study/${previousProject.slug}`} className="block group">
-                <Card className="overflow-hidden border-2 hover:border-primary/50 transition-all hover:shadow-xl h-full">
+              <Link 
+                to={`/case-study/${previousProject.slug}`} 
+                className="block group cursor-pointer"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                <Card className="overflow-hidden border-2 hover:border-primary/50 transition-all hover:shadow-xl hover:scale-[1.02] h-full">
                   <div className="relative aspect-video overflow-hidden">
                     <img
                       src={previousProject.image}
@@ -49,7 +59,7 @@ const CaseStudyNavigation = ({ previousProject, nextProject }: CaseStudyNavigati
                       <Button
                         variant="secondary"
                         size="sm"
-                        className="pointer-events-none"
+                        className="pointer-events-none shadow-lg"
                       >
                         <ChevronLeft className="w-4 h-4 mr-1" />
                         Précédent
@@ -73,8 +83,12 @@ const CaseStudyNavigation = ({ previousProject, nextProject }: CaseStudyNavigati
 
             {/* Next Project */}
             {nextProject && (
-              <Link to={`/case-study/${nextProject.slug}`} className="block group">
-                <Card className="overflow-hidden border-2 hover:border-primary/50 transition-all hover:shadow-xl h-full">
+              <Link 
+                to={`/case-study/${nextProject.slug}`} 
+                className="block group cursor-pointer"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                <Card className="overflow-hidden border-2 hover:border-primary/50 transition-all hover:shadow-xl hover:scale-[1.02] h-full">
                   <div className="relative aspect-video overflow-hidden">
                     <img
                       src={nextProject.image}
@@ -86,7 +100,7 @@ const CaseStudyNavigation = ({ previousProject, nextProject }: CaseStudyNavigati
                       <Button
                         variant="secondary"
                         size="sm"
-                        className="pointer-events-none"
+                        className="pointer-events-none shadow-lg"
                       >
                         Suivant
                         <ChevronRight className="w-4 h-4 ml-1" />
