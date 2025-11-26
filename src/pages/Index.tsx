@@ -2,7 +2,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import TrustSection from "@/components/TrustSection";
 import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 import SimplifiedContact from "@/components/SimplifiedContact";
@@ -29,7 +28,6 @@ const Index = () => {
       </section>
       <ProcessTimeline />
       <ClientLogos />
-      <TrustSection />
       <section id="services" className="-mt-4">
         <Services />
       </section>
