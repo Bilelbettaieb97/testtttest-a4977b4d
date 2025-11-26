@@ -177,11 +177,12 @@ const ProcessTimeline = () => {
                 >
                   {/* Carte principale */}
                   <div className="relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-6 sm:p-8 hover:border-slate-700/50 transition-all duration-500 overflow-hidden">
-                    {/* Badge "En savoir plus" */}
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-xs font-semibold">
-                        <Sparkles className="w-3 h-3" />
-                        En savoir plus
+                    {/* Badge "En savoir plus" - Toujours visible */}
+                    <div className="absolute top-4 right-4 z-10">
+                      <div className={`flex items-center gap-2 bg-gradient-to-r ${step.gradient} px-4 py-2 rounded-full text-white text-xs font-bold shadow-lg ${step.glowColor} group-hover:scale-110 transition-transform duration-300`}>
+                        <Sparkles className="w-4 h-4" />
+                        <span className="hidden sm:inline">En savoir plus</span>
+                        <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
                     {/* Effet de brillance au hover */}
