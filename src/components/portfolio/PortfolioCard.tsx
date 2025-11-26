@@ -30,7 +30,7 @@ interface PortfolioCardProps {
 
 const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
   return (
-    <Card className="group bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+    <Card className="group bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col md:min-h-[430px]">
       <div className="relative overflow-hidden rounded-t-lg">
         <AspectRatio ratio={16 / 9}>
           <img 
@@ -64,7 +64,7 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
           {caseStudy.description}
         </p>
 
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-2 min-h-[80px]">
           {caseStudy.metrics.slice(0, 3).map((metric, index) => (
             <div key={index} className="text-center p-2 bg-gray-50 rounded-lg">
               <metric.icon className="w-4 h-4 text-purple-600 mx-auto mb-1" />
