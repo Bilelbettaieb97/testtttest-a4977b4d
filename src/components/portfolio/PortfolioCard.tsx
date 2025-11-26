@@ -30,7 +30,7 @@ interface PortfolioCardProps {
 
 const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
   return (
-    <Card className="group bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col md:min-h-[430px]">
+    <Card className="group bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col md:h-[460px] overflow-hidden">
       <div className="relative overflow-hidden rounded-t-lg">
         <AspectRatio ratio={16 / 9}>
           <img 
