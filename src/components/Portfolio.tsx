@@ -1,9 +1,15 @@
-
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ShoppingCart, Utensils, Home, Users, TrendingUp, Clock, Star, ChevronLeft, ChevronRight, Dumbbell, Sparkles, BookOpen, Briefcase } from "lucide-react";
 import PortfolioCard from "./portfolio/PortfolioCard";
 import PortfolioHeader from "./portfolio/PortfolioHeader";
 import PortfolioCTA from "./portfolio/PortfolioCTA";
+import portfolioEcommerce from "@/assets/portfolio-ecommerce.jpg";
+import portfolioRestaurant from "@/assets/portfolio-restaurant.jpg";
+import portfolioImmobilier from "@/assets/portfolio-immobilier.jpg";
+import portfolioFitness from "@/assets/portfolio-fitness.jpg";
+import portfolioBeaute from "@/assets/portfolio-beaute.jpg";
+import portfolioFormation from "@/assets/portfolio-formation.jpg";
+import portfolioB2B from "@/assets/portfolio-b2b.jpg";
 
 const Portfolio = () => {
   // Réduire le nombre de cas pour améliorer les performances
@@ -14,7 +20,7 @@ const Portfolio = () => {
       client: "Boutique Élégance",
       title: "Site e-commerce haute conversion",
       description: "Refonte complète avec optimisation du tunnel de vente et paiement sécurisé.",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
+      image: portfolioEcommerce,
       metrics: [
         { label: "Ventes", value: "+340%", icon: TrendingUp },
         { label: "Conversion", value: "4.8%", icon: Star },
@@ -31,7 +37,7 @@ const Portfolio = () => {
       client: "Le Gourmet",
       title: "Site gastronomique avec commande",
       description: "Site vitrine avec menu interactif et réservations en ligne.",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
+      image: portfolioRestaurant,
       metrics: [
         { label: "Réservations", value: "+250%", icon: Users },
         { label: "Commandes", value: "+400%", icon: ShoppingCart },
@@ -48,7 +54,7 @@ const Portfolio = () => {
       client: "Prestige Habitat",
       title: "Plateforme immobilière moderne",
       description: "Site avec recherche avancée et visite virtuelle.",
-      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
+      image: portfolioImmobilier,
       metrics: [
         { label: "Visiteurs", value: "+300%", icon: Users },
         { label: "Demandes", value: "+180%", icon: TrendingUp },
@@ -65,7 +71,7 @@ const Portfolio = () => {
       client: "FitZone Studio",
       title: "Plateforme fitness avec abonnements",
       description: "Site avec réservation de cours, suivi d'entraînement et paiement en ligne.",
-      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
+      image: portfolioFitness,
       metrics: [
         { label: "Membres", value: "+420%", icon: Users },
         { label: "Réservations", value: "95%", icon: TrendingUp },
@@ -82,7 +88,7 @@ const Portfolio = () => {
       client: "Institut Belle Vie",
       title: "Site spa avec réservation en ligne",
       description: "Plateforme élégante avec booking, packages et programme de fidélité.",
-      image: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
+      image: portfolioBeaute,
       metrics: [
         { label: "Réservations", value: "+280%", icon: Users },
         { label: "Packages", value: "+190%", icon: ShoppingCart },
@@ -99,7 +105,7 @@ const Portfolio = () => {
       client: "SkillsUp Academy",
       title: "Plateforme e-learning moderne",
       description: "Site de formation en ligne avec vidéos, quiz et certifications.",
-      image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
+      image: portfolioFormation,
       metrics: [
         { label: "Étudiants", value: "+550%", icon: Users },
         { label: "Cours vendus", value: "+380%", icon: TrendingUp },
@@ -116,7 +122,7 @@ const Portfolio = () => {
       client: "ConsultPro",
       title: "Site corporate avec génération de leads",
       description: "Site vitrine optimisé SEO avec formulaires intelligents et tunnel de conversion.",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
+      image: portfolioB2B,
       metrics: [
         { label: "Leads", value: "+460%", icon: Users },
         { label: "Conversion", value: "12.3%", icon: Star },
