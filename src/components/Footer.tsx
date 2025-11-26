@@ -82,6 +82,13 @@ const Footer = () => {
         .insert([{ email: newsletterEmail.trim() }]);
 
       if (error) {
+        // Si l'email existe déjà, on redirige quand même vers la page de confirmation
+        if ((error as any).code === '23505') {
+          setNewsletterEmail("");
+          navigate("/newsletter-confirmation");
+          return;
+        }
+
         console.error('Newsletter submission error:', error);
         toast({
           title: "Erreur",
