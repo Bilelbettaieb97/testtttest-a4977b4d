@@ -26,67 +26,209 @@ const handler = async (req: Request): Promise<Response> => {
     const emailResponse = await resend.emails.send({
       from: "ConvertiLab <onboarding@resend.dev>",
       to: [email],
-      subject: "Bienvenue dans notre communauté ! 🎉",
+      subject: "Bienvenue chez ConvertiLab ! 🚀",
       html: `
         <!DOCTYPE html>
         <html>
           <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
+              * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+              }
               body {
-                font-family: 'Arial', sans-serif;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
                 line-height: 1.6;
-                color: #333;
+                color: #1f2937;
+                background-color: #f3f4f6;
+                padding: 20px;
+              }
+              .container {
                 max-width: 600px;
                 margin: 0 auto;
-                padding: 20px;
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
               }
               .header {
                 background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
                 color: white;
-                padding: 30px;
+                padding: 40px 30px;
                 text-align: center;
-                border-radius: 10px 10px 0 0;
+              }
+              .logo {
+                font-size: 48px;
+                margin-bottom: 10px;
+              }
+              .header h1 {
+                font-size: 28px;
+                font-weight: 700;
+                margin: 10px 0;
+                letter-spacing: -0.5px;
+              }
+              .header p {
+                font-size: 16px;
+                opacity: 0.95;
+                margin-top: 8px;
               }
               .content {
-                background: #f9fafb;
-                padding: 30px;
-                border-radius: 0 0 10px 10px;
+                padding: 40px 30px;
+              }
+              .content h2 {
+                color: #9333ea;
+                font-size: 22px;
+                margin-bottom: 20px;
+                font-weight: 600;
+              }
+              .content p {
+                margin-bottom: 16px;
+                color: #4b5563;
+                font-size: 15px;
+              }
+              .benefits {
+                background: linear-gradient(135deg, #faf5ff 0%, #fce7f3 100%);
+                border-radius: 12px;
+                padding: 24px;
+                margin: 24px 0;
+              }
+              .benefit-item {
+                display: flex;
+                align-items: start;
+                margin-bottom: 12px;
+              }
+              .benefit-item:last-child {
+                margin-bottom: 0;
+              }
+              .benefit-icon {
+                font-size: 20px;
+                margin-right: 12px;
+                flex-shrink: 0;
+              }
+              .benefit-text {
+                color: #6b21a8;
+                font-size: 15px;
+                font-weight: 500;
+              }
+              .cta-section {
+                text-align: center;
+                margin: 32px 0;
               }
               .button {
                 display: inline-block;
                 background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
-                color: white;
-                padding: 12px 30px;
+                color: white !important;
+                padding: 16px 40px;
                 text-decoration: none;
-                border-radius: 5px;
-                margin: 20px 0;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 16px;
+                box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
+                transition: transform 0.2s;
+              }
+              .button:hover {
+                transform: translateY(-2px);
               }
               .footer {
+                background: #f9fafb;
+                padding: 30px;
                 text-align: center;
-                margin-top: 30px;
+                border-top: 1px solid #e5e7eb;
+              }
+              .footer p {
                 color: #6b7280;
+                font-size: 13px;
+                line-height: 1.8;
+                margin-bottom: 8px;
+              }
+              .social-links {
+                margin-top: 20px;
+              }
+              .social-links a {
+                color: #9333ea;
+                text-decoration: none;
+                margin: 0 10px;
                 font-size: 14px;
+                font-weight: 500;
+              }
+              @media only screen and (max-width: 600px) {
+                body {
+                  padding: 10px;
+                }
+                .header, .content, .footer {
+                  padding: 24px 20px;
+                }
+                .header h1 {
+                  font-size: 24px;
+                }
+                .button {
+                  padding: 14px 32px;
+                  font-size: 15px;
+                }
               }
             </style>
           </head>
           <body>
-            <div class="header">
-              <h1>Merci de votre inscription ! 🎉</h1>
-            </div>
-            <div class="content">
-              <p>Bonjour,</p>
-              <p>Nous sommes ravis de vous compter parmi nos abonnés !</p>
-              <p>Vous recevrez bientôt nos meilleurs conseils et astuces pour optimiser votre taux de conversion.</p>
-              <p>En attendant, nos ressources gratuites seront bientôt disponibles.</p>
-              <div style="text-align: center;">
-                <a href="${Deno.env.get("SITE_URL") || "https://hoaofayagbbhenktvchh.lovable.app"}/newsletter-confirmation" class="button">
-                  Voir mes ressources
-                </a>
+            <div class="container">
+              <div class="header">
+                <div class="logo">🚀</div>
+                <h1>Bienvenue chez ConvertiLab !</h1>
+                <p>Votre voyage vers l'optimisation commence ici</p>
               </div>
-              <p>À très bientôt,<br>L'équipe ConvertiLab</p>
-            </div>
-            <div class="footer">
-              <p>Vous recevez cet email car vous vous êtes inscrit à notre newsletter.</p>
+              
+              <div class="content">
+                <h2>Merci pour votre confiance ! 🎉</h2>
+                <p>Nous sommes ravis de vous compter parmi notre communauté d'experts en conversion.</p>
+                
+                <p>En vous abonnant à notre newsletter, vous allez recevoir :</p>
+                
+                <div class="benefits">
+                  <div class="benefit-item">
+                    <span class="benefit-icon">📈</span>
+                    <span class="benefit-text">Des stratégies éprouvées pour augmenter vos conversions</span>
+                  </div>
+                  <div class="benefit-item">
+                    <span class="benefit-icon">💡</span>
+                    <span class="benefit-text">Des études de cas réels et inspirants</span>
+                  </div>
+                  <div class="benefit-item">
+                    <span class="benefit-icon">🎯</span>
+                    <span class="benefit-text">Des conseils d'experts en UX et conversion</span>
+                  </div>
+                  <div class="benefit-item">
+                    <span class="benefit-icon">🎁</span>
+                    <span class="benefit-text">Des ressources exclusives (bientôt disponibles)</span>
+                  </div>
+                </div>
+                
+                <p>Vos ressources gratuites seront bientôt accessibles. En attendant, découvrez ce qui vous attend !</p>
+                
+                <div class="cta-section">
+                  <a href="${Deno.env.get("SITE_URL") || "https://hoaofayagbbhenktvchh.lovable.app"}/newsletter-confirmation" class="button">
+                    Découvrir mes ressources
+                  </a>
+                </div>
+                
+                <p style="margin-top: 32px; color: #6b7280; font-size: 14px;">
+                  Une question ? N'hésitez pas à nous contacter, nous sommes là pour vous accompagner.
+                </p>
+                
+                <p style="font-weight: 600; color: #9333ea; margin-top: 24px;">
+                  À très bientôt,<br>
+                  L'équipe ConvertiLab
+                </p>
+              </div>
+              
+              <div class="footer">
+                <p><strong>ConvertiLab</strong> - Experts en Optimisation de Conversion</p>
+                <p>Vous recevez cet email car vous vous êtes inscrit à notre newsletter.</p>
+                <div class="social-links">
+                  <a href="${Deno.env.get("SITE_URL") || "https://hoaofayagbbhenktvchh.lovable.app"}">Visiter notre site</a>
+                </div>
+              </div>
             </div>
           </body>
         </html>
