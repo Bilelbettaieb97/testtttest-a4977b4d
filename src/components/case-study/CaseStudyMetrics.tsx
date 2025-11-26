@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { TrendingUp } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface Metric {
   label: string;
@@ -12,10 +13,18 @@ interface CaseStudyMetricsProps {
 }
 
 const CaseStudyMetrics = ({ metrics }: CaseStudyMetricsProps) => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section className="py-16 bg-gradient-to-br from-accent/5 to-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-12 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/10 mb-4">
             <TrendingUp className="w-8 h-8 text-accent" />
           </div>
@@ -25,7 +34,12 @@ const CaseStudyMetrics = ({ metrics }: CaseStudyMetricsProps) => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div 
+          ref={gridRef}
+          className={`grid md:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-700 delay-200 ${
+            gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           {metrics.map((metric, index) => (
             <Card 
               key={index} 

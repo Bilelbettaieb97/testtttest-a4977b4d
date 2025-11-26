@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Rocket } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface CaseStudyCTAProps {
   results: string;
 }
 
 const CaseStudyCTA = ({ results }: CaseStudyCTAProps) => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
+
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -17,7 +20,12 @@ const CaseStudyCTA = ({ results }: CaseStudyCTAProps) => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4 max-w-5xl">
-        <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 via-accent/10 to-background border-2">
+        <Card 
+          ref={ref}
+          className={`p-8 md:p-12 bg-gradient-to-br from-primary/10 via-accent/10 to-background border-2 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
+          }`}
+        >
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
               <Rocket className="w-8 h-8 text-primary" />
