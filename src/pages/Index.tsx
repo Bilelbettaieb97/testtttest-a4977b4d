@@ -24,10 +24,10 @@ const Index = () => {
       <section id="hero">
         <Hero />
       </section>
-      <ClientLogos />
       <section id="portfolio" className="-mt-4">
         <Portfolio />
       </section>
+      <ClientLogos />
       <TrustSection />
       <section id="services" className="-mt-4">
         <Services />
