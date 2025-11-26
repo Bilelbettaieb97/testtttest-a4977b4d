@@ -30,9 +30,17 @@ const NewsletterSubscription = () => {
     try {
       const { error } = await supabase
         .from('newsletter_subscriptions')
-        .insert([{ email: newsletterEmail }]);
+        .insert([{ email: newsletterEmail }] );
 
-      if (error) throw error;
+      if (error) {
+        // Si l'email existe déjà, on considère l'inscription comme réussie
+        if ((error as any).code === '23505') {
+          setNewsletterEmail("");
+          navigate("/newsletter-confirmation");
+          return;
+        }
+        throw error;
+      }
 
       setNewsletterEmail("");
       navigate("/newsletter-confirmation");
