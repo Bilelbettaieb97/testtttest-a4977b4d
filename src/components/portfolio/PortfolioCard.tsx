@@ -74,29 +74,31 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-lg p-3">
-          <div className="text-green-800 font-bold text-sm mb-1">Résultat :</div>
-          <div className="text-green-700 font-semibold text-sm">{caseStudy.results}</div>
-        </div>
-
-        <div className="bg-gray-50 rounded-lg p-3 min-h-[6rem]">
-          <div className="flex mb-2">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />
-            ))}
+        <div className="mt-auto space-y-3">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-lg p-3">
+            <div className="text-green-800 font-bold text-sm mb-1">Résultat :</div>
+            <div className="text-green-700 font-semibold text-sm">{caseStudy.results}</div>
           </div>
-          <p className="text-gray-700 italic text-sm mb-2 line-clamp-2">"{caseStudy.testimonial}"</p>
-          <div className="text-xs font-semibold text-gray-900">{caseStudy.author}</div>
-        </div>
 
-        {caseStudy.slug && (
-          <Link to={`/case-study/${caseStudy.slug}`} className="block mt-auto">
-            <Button className="w-full group/btn" variant="default">
-              Voir le projet complet
-              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-            </Button>
-          </Link>
-        )}
+          <div className="bg-gray-50 rounded-lg p-3 min-h-[6rem]">
+            <div className="flex mb-2">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />
+              ))}
+            </div>
+            <p className="text-gray-700 italic text-sm mb-2 line-clamp-2">"{caseStudy.testimonial}"</p>
+            <div className="text-xs font-semibold text-gray-900">{caseStudy.author}</div>
+          </div>
+
+          {caseStudy.slug && (
+            <Link to={`/case-study/${caseStudy.slug}`} className="block">
+              <Button className="w-full group/btn" variant="default">
+                Voir le projet complet
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+              </Button>
+            </Link>
+          )}
+        </div>
       </CardContent>
     </Card>
   );
