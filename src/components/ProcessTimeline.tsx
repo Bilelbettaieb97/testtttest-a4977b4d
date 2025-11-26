@@ -259,6 +259,98 @@ const ProcessTimeline = () => {
         <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-slate-950 border-slate-800">
           {selectedStep !== null && (
             <div className="space-y-6">
+              {/* Barre de progression */}
+              <div className="space-y-4 pb-6 border-b border-slate-800">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-slate-400">Progression du processus</span>
+                  <span className="font-bold text-white">
+                    {Math.round(((selectedStep + 1) / steps.length) * 100)}% complété
+                  </span>
+                </div>
+                
+                {/* Barre de progression principale */}
+                <div className="relative h-3 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                  <div
+                    className={`h-full bg-gradient-to-r ${steps[selectedStep].gradient} transition-all duration-500 relative overflow-hidden`}
+                    style={{ width: `${((selectedStep + 1) / steps.length) * 100}%` }}
+                  >
+                    {/* Effet shimmer */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_2s_infinite]"></div>
+                  </div>
+                </div>
+
+                {/* Navigation des étapes */}
+                <div className="flex items-center justify-between gap-2">
+                  {steps.map((step, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedStep(idx)}
+                      className={`group relative flex-1 transition-all duration-300 ${
+                        idx === selectedStep ? 'scale-110' : 'hover:scale-105'
+                      }`}
+                    >
+                      <div className="flex flex-col items-center gap-2">
+                        {/* Cercle d'étape */}
+                        <div
+                          className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                            idx <= selectedStep
+                              ? `bg-gradient-to-br ${step.gradient} shadow-lg`
+                              : 'bg-slate-800 border-2 border-slate-700'
+                          }`}
+                        >
+                          {idx < selectedStep ? (
+                            <CheckCircle className="w-5 h-5 text-white" />
+                          ) : (
+                            <span className={`text-sm font-bold ${idx <= selectedStep ? 'text-white' : 'text-slate-500'}`}>
+                              {idx + 1}
+                            </span>
+                          )}
+                        </div>
+                        
+                        {/* Label étape (visible sur hover ou si sélectionné) */}
+                        <span
+                          className={`text-xs text-center transition-all duration-300 ${
+                            idx === selectedStep
+                              ? 'text-white font-semibold opacity-100'
+                              : 'text-slate-500 opacity-0 group-hover:opacity-100'
+                          }`}
+                        >
+                          {step.title.length > 15 ? step.title.substring(0, 15) + '...' : step.title}
+                        </span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Navigation boutons précédent/suivant */}
+                <div className="flex items-center justify-between gap-4 pt-2">
+                  <button
+                    onClick={() => selectedStep > 0 && setSelectedStep(selectedStep - 1)}
+                    disabled={selectedStep === 0}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                      selectedStep === 0
+                        ? 'text-slate-600 cursor-not-allowed'
+                        : 'text-slate-300 hover:text-white hover:bg-slate-800'
+                    }`}
+                  >
+                    <ArrowRight className="w-4 h-4 rotate-180" />
+                    Précédent
+                  </button>
+                  <button
+                    onClick={() => selectedStep < steps.length - 1 && setSelectedStep(selectedStep + 1)}
+                    disabled={selectedStep === steps.length - 1}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                      selectedStep === steps.length - 1
+                        ? 'text-slate-600 cursor-not-allowed'
+                        : 'text-slate-300 hover:text-white hover:bg-slate-800'
+                    }`}
+                  >
+                    Suivant
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+
               <DialogHeader>
                 <div className="flex items-center gap-4 mb-4">
                   <div className={`w-16 h-16 bg-gradient-to-br ${steps[selectedStep].gradient} rounded-2xl flex items-center justify-center shadow-2xl`}>
