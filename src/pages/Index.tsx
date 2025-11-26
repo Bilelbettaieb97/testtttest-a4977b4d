@@ -17,6 +17,7 @@ import ExitIntentPopup from "@/components/ExitIntentPopup";
 import Methodology from "@/components/Methodology";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
+import ChatBot from "@/components/ChatBot";
 
 const Index = () => {
   return (
@@ -49,6 +50,7 @@ const Index = () => {
       <Footer />
       <StickyMobileCTA />
       <ExitIntentPopup />
+      <ChatBot />
     </div>
   );
 };
