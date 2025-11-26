@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Globe, Code, Smartphone, ShoppingCart, Star, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 import { useToast } from "@/hooks/use-toast";
@@ -16,6 +17,7 @@ const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
 
 const Footer = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const services = [
@@ -87,11 +89,8 @@ const Footer = () => {
           variant: "destructive",
         });
       } else {
-        toast({
-          title: "Merci de votre inscription ! 🎉",
-          description: "Vous recevrez bientôt nos meilleurs conseils.",
-        });
         setNewsletterEmail("");
+        navigate("/newsletter-confirmation");
       }
     } catch (error) {
       console.error('Newsletter submission error:', error);
