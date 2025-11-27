@@ -1,14 +1,13 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Users, Award, Calendar } from "lucide-react";
 
 const Hero = () => {
   const openPriceEstimator = () => {
-    window.open('https://preview--estimezlecoutdevotresiteweb-13.lovable.app/', '_blank');
+    window.open("https://estimationdesiteweb.lovable.app/", "_blank");
   };
 
   const openCalendly = () => {
-    window.open('https://calendly.com/convertilab-5bsc/30min', '_blank');
+    window.open("https://calendly.com/convertilab-5bsc/30min", "_blank");
   };
 
   return (
@@ -16,9 +15,18 @@ const Hero = () => {
       {/* Enhanced Background Elements with parallax effect */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-10 w-32 h-32 bg-purple-200 rounded-full blur-3xl opacity-30 animate-float"></div>
-      <div className="absolute bottom-20 left-10 w-40 h-40 bg-pink-200 rounded-full blur-3xl opacity-30 animate-float" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-blue-200 rounded-full blur-2xl opacity-20 animate-float" style={{ animationDelay: '0.5s' }}></div>
-      <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-cyan-200 rounded-full blur-3xl opacity-20 animate-float" style={{ animationDelay: '1.5s' }}></div>
+      <div
+        className="absolute bottom-20 left-10 w-40 h-40 bg-pink-200 rounded-full blur-3xl opacity-30 animate-float"
+        style={{ animationDelay: "1s" }}
+      ></div>
+      <div
+        className="absolute top-1/2 left-1/4 w-20 h-20 bg-blue-200 rounded-full blur-2xl opacity-20 animate-float"
+        style={{ animationDelay: "0.5s" }}
+      ></div>
+      <div
+        className="absolute top-1/3 right-1/4 w-24 h-24 bg-cyan-200 rounded-full blur-3xl opacity-20 animate-float"
+        style={{ animationDelay: "1.5s" }}
+      ></div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-24 sm:pt-32 pb-8 sm:pb-12">
         <div className="max-w-5xl mx-auto text-center">
@@ -38,7 +46,8 @@ const Hero = () => {
 
           {/* Subheading */}
           <p className="text-lg sm:text-2xl text-gray-600 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed font-medium animate-fade-in">
-            <strong className="text-purple-700">Design unique & développement expert</strong> pour créer le site web qui vous ressemble. 
+            <strong className="text-purple-700">Design unique & développement expert</strong> pour créer le site web qui
+            vous ressemble.
             <br className="hidden sm:block" />
             Consultation gratuite pour votre projet digital.
           </p>
@@ -46,33 +55,39 @@ const Hero = () => {
           {/* Enhanced Stats with glassmorphism */}
           <div className="grid grid-cols-3 gap-4 sm:gap-8 mb-10 sm:mb-12 max-w-3xl mx-auto animate-scale-in">
             <div className="group text-center p-4 sm:p-6 glass rounded-xl border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:rotate-1">
-              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">100%</div>
+              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                100%
+              </div>
               <div className="text-sm sm:text-base text-gray-700 font-semibold">Sur-Mesure</div>
             </div>
             <div className="group text-center p-4 sm:p-6 glass rounded-xl border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:rotate-1">
-              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">2-4</div>
+              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                2-4
+              </div>
               <div className="text-sm sm:text-base text-gray-700 font-semibold">Semaines</div>
             </div>
             <div className="group text-center p-4 sm:p-6 glass rounded-xl border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:rotate-1">
-              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
+              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                24/7
+              </div>
               <div className="text-sm sm:text-base text-gray-700 font-semibold">Support</div>
             </div>
           </div>
 
           {/* Enhanced CTAs with glow effect */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-10 animate-slide-up">
-            <Button 
+            <Button
               onClick={openPriceEstimator}
-              size="lg" 
+              size="lg"
               className="group w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-semibold transition-all duration-300 transform hover:scale-110 shadow-2xl hover:shadow-3xl animate-glow"
             >
               Estimer le coût en 1 clic
               <Code className="ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform duration-300" />
             </Button>
-            
-            <Button 
+
+            <Button
               onClick={openCalendly}
-              variant="outline" 
+              variant="outline"
               size="lg"
               className="group w-full sm:w-auto border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-semibold transition-all duration-300 hover:scale-110 glass shadow-xl hover:shadow-2xl"
             >
