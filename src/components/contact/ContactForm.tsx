@@ -169,28 +169,47 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden">
+    <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-800">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-4 sm:px-6 py-3 sm:py-4">
+        <h3 className="text-white font-bold text-lg sm:text-xl text-center">Devis instantané</h3>
+        <p className="text-purple-100 text-xs sm:text-sm text-center mt-1">On revient vers vous sous 24h</p>
+      </div>
+
       {/* Progress Steps */}
-      <div className="px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4">
+      <div className="px-4 sm:px-6 pt-4 sm:pt-5 pb-3 sm:pb-4">
         <div className="flex items-center justify-between mb-2">
-          {[1, 2, 3].map((s) => (
-            <div key={s} className="flex items-center flex-1">
+          {[
+            { num: 1, label: "Contact", color: "emerald" },
+            { num: 2, label: "Projet", color: "blue" },
+            { num: 3, label: "Message", color: "purple" }
+          ].map((s, idx) => (
+            <div key={s.num} className="flex items-center flex-1">
               <div className={`
                 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm transition-all duration-300
-                ${s < step ? 'bg-green-500 text-white' : s === step ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/30' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}
+                ${s.num < step ? 'bg-emerald-500 text-white' : s.num === step ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/30' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}
               `}>
-                {s < step ? <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" /> : s}
+                {s.num < step ? <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" /> : s.num}
               </div>
-              {s < 3 && (
-                <div className={`flex-1 h-1 mx-1 sm:mx-2 rounded-full transition-all duration-300 ${s < step ? 'bg-green-500' : 'bg-slate-200 dark:bg-slate-700'}`} />
+              {idx < 2 && (
+                <div className={`flex-1 h-1 mx-1 sm:mx-2 rounded-full transition-all duration-300 ${s.num < step ? 'bg-emerald-500' : 'bg-slate-200 dark:bg-slate-700'}`} />
               )}
             </div>
           ))}
         </div>
-        <div className="flex justify-between text-[10px] sm:text-xs text-slate-500 px-1">
-          <span>Contact</span>
-          <span>Projet</span>
-          <span>Message</span>
+        <div className="flex justify-between text-[10px] sm:text-xs px-1">
+          <span className={step >= 1 ? "text-emerald-600 font-medium" : "text-slate-400"}>🟢 Contact</span>
+          <span className={step >= 2 ? "text-blue-600 font-medium" : "text-slate-400"}>🔵 Projet</span>
+          <span className={step >= 3 ? "text-purple-600 font-medium" : "text-slate-400"}>🟣 Message</span>
+        </div>
+      </div>
+
+      {/* Reassurance badges */}
+      <div className="px-4 sm:px-6 pb-3">
+        <div className="flex flex-wrap justify-center gap-2 text-[10px] sm:text-xs">
+          <span className="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full font-medium">✓ 100% gratuit</span>
+          <span className="bg-blue-50 text-blue-700 px-2 py-1 rounded-full font-medium">✓ Sans engagement</span>
+          <span className="bg-purple-50 text-purple-700 px-2 py-1 rounded-full font-medium">✓ Réponse rapide</span>
         </div>
       </div>
 
