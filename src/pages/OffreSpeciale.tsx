@@ -10,6 +10,9 @@ import { Link } from 'react-router-dom';
 import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
 import portfolioRestaurant from '@/assets/portfolio-restaurant.jpg';
 import portfolioBeaute from '@/assets/portfolio-beaute.jpg';
+import portfolioFitness from '@/assets/portfolio-fitness.jpg';
+import portfolioB2B from '@/assets/portfolio-b2b.jpg';
+import portfolioImmobilier from '@/assets/portfolio-immobilier.jpg';
 
 const TOTAL_SPOTS = 10;
 
@@ -160,7 +163,10 @@ const OffreSpeciale = () => {
   const exampleSites = [
     { image: portfolioEcommerce, title: "E-commerce", description: "Boutiques en ligne performantes" },
     { image: portfolioRestaurant, title: "Restaurants", description: "Sites avec réservation en ligne" },
-    { image: portfolioBeaute, title: "Beauté & Bien-être", description: "Plateformes de booking élégantes" }
+    { image: portfolioBeaute, title: "Beauté & Bien-être", description: "Plateformes de booking élégantes" },
+    { image: portfolioFitness, title: "Fitness & Sport", description: "Sites pour coachs et salles de sport" },
+    { image: portfolioB2B, title: "B2B & Agences", description: "Sites corporate professionnels" },
+    { image: portfolioImmobilier, title: "Immobilier", description: "Vitrines pour agences immobilières" }
   ];
 
   return (
