@@ -1,29 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Users, Award, Calendar } from "lucide-react";
 import ContactForm from "./contact/ContactForm";
-
 const Hero = () => {
   const openPriceEstimator = () => {
     window.open("https://estimationdesiteweb.lovable.app/", "_blank");
   };
-
   const openCalendly = () => {
     window.open("https://calendly.com/convertilab-5bsc/30min", "_blank");
   };
-
-  return (
-    <main className="relative bg-gradient-to-br from-purple-50 via-white to-pink-50 min-h-screen flex items-center overflow-hidden">
+  return <main className="relative bg-gradient-to-br from-purple-50 via-white to-pink-50 min-h-screen flex items-center overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-10 w-32 h-32 bg-purple-200 rounded-full blur-3xl opacity-30 animate-float"></div>
-      <div
-        className="absolute bottom-20 left-10 w-40 h-40 bg-pink-200 rounded-full blur-3xl opacity-30 animate-float"
-        style={{ animationDelay: "1s" }}
-      ></div>
-      <div
-        className="absolute top-1/2 left-1/4 w-20 h-20 bg-blue-200 rounded-full blur-2xl opacity-20 animate-float"
-        style={{ animationDelay: "0.5s" }}
-      ></div>
+      <div className="absolute bottom-20 left-10 w-40 h-40 bg-pink-200 rounded-full blur-3xl opacity-30 animate-float" style={{
+      animationDelay: "1s"
+    }}></div>
+      <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-blue-200 rounded-full blur-2xl opacity-20 animate-float" style={{
+      animationDelay: "0.5s"
+    }}></div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-24 sm:pt-32 pb-8 sm:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -73,21 +67,12 @@ const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 sm:gap-4 mb-6 animate-slide-up">
-              <Button
-                onClick={openPriceEstimator}
-                size="lg"
-                className="group w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl"
-              >
-                Estimer le coût
+              <Button onClick={openPriceEstimator} size="lg" className="group w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+                Estimer le coût de votre site         
                 <Code className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform duration-300" />
               </Button>
 
-              <Button
-                onClick={openCalendly}
-                variant="outline"
-                size="lg"
-                className="group w-full sm:w-auto border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 glass shadow-xl"
-              >
+              <Button onClick={openCalendly} variant="outline" size="lg" className="group w-full sm:w-auto border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 glass shadow-xl">
                 <Calendar className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                 Appel 30 min
               </Button>
@@ -115,8 +100,6 @@ const Hero = () => {
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden lg:block">
         <ArrowRight className="w-6 h-6 text-purple-400 rotate-90" />
       </div>
-    </main>
-  );
+    </main>;
 };
-
 export default Hero;
