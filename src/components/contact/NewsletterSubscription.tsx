@@ -35,11 +35,20 @@ const NewsletterSubscription = () => {
       if (error) {
         // Si l'email existe déjà, on considère l'inscription comme réussie
         if ((error as any).code === '23505') {
+          // Track Google Ads conversion
+          if (typeof window !== 'undefined' && (window as any).trackFormConversion) {
+            (window as any).trackFormConversion();
+          }
           setNewsletterEmail("");
           navigate("/newsletter-confirmation");
           return;
         }
         throw error;
+      }
+
+      // Track Google Ads conversion
+      if (typeof window !== 'undefined' && (window as any).trackFormConversion) {
+        (window as any).trackFormConversion();
       }
 
       setNewsletterEmail("");

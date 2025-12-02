@@ -101,6 +101,11 @@ const ContactForm = () => {
         throw error;
       }
 
+      // Track Google Ads conversion
+      if (typeof window !== 'undefined' && (window as any).trackFormConversion) {
+        (window as any).trackFormConversion();
+      }
+
       toast({
         title: "Message envoyé !",
         description: "Nous vous recontacterons sous 24h avec votre audit personnalisé.",
