@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,6 +18,8 @@ interface ContactFormData {
   message: string;
   urgency: string;
 }
+
+const STORAGE_KEY = "convertilab_contact_form";
 
 const projectTypes = [
   { value: "vitrine", label: "Site vitrine", icon: Globe, desc: "Présenter votre activité" },
@@ -59,8 +61,41 @@ const ContactForm = () => {
 
   const totalSteps = 3;
 
+  // Load saved data from localStorage on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setFormData(prev => ({
+          ...prev,
+          name: parsed.name || "",
+          email: parsed.email || "",
+          company: parsed.company || "",
+          phone: parsed.phone || "",
+        }));
+      }
+    } catch (e) {
+      // Ignore parse errors
+    }
+  }, []);
+
+  // Save contact info to localStorage when it changes
+  useEffect(() => {
+    if (formData.name || formData.email || formData.company || formData.phone) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        phone: formData.phone,
+      }));
+    }
+  }, [formData.name, formData.email, formData.company, formData.phone]);
+
   const validateStep1 = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[\d\s+()-]{10,}$/;
+    
     if (!formData.name.trim()) {
       toast({ title: "Nom requis", variant: "destructive" });
       return false;
@@ -71,6 +106,10 @@ const ContactForm = () => {
     }
     if (!formData.company.trim()) {
       toast({ title: "Entreprise requise", variant: "destructive" });
+      return false;
+    }
+    if (!formData.phone.trim() || !phoneRegex.test(formData.phone)) {
+      toast({ title: "Téléphone requis (min. 10 chiffres)", variant: "destructive" });
       return false;
     }
     return true;
@@ -201,7 +240,7 @@ const ContactForm = () => {
                   <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
                   <Input
                     type="tel"
-                    placeholder="Téléphone (optionnel)"
+                    placeholder="Votre téléphone *"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="pl-12 h-14 text-base bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
