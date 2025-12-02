@@ -171,7 +171,7 @@ const ContactForm = () => {
   return (
     <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-800">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 px-4 sm:px-6 py-3 sm:py-4">
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-4 sm:px-6 py-3 sm:py-4">
         <h3 className="text-white font-bold text-lg sm:text-xl text-center">Devis instantané</h3>
         <p className="text-purple-100 text-xs sm:text-sm text-center mt-1">On revient vers vous sous 24h</p>
       </div>
