@@ -431,21 +431,22 @@ const OffreSpeciale = () => {
             {exampleSites.map((site, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:-translate-y-2"
               >
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={site.image}
                     alt={site.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
-                  <div>
-                    <h3 className="text-white font-bold text-lg mb-1">{site.title}</h3>
-                    <p className="text-gray-300 text-sm">{site.description}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-white font-bold text-lg mb-1 group-hover:text-purple-300 transition-colors duration-300">{site.title}</h3>
+                    <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{site.description}</p>
                   </div>
                 </div>
+                <div className="absolute inset-0 bg-purple-500/0 group-hover:bg-purple-500/10 transition-colors duration-500 pointer-events-none" />
               </div>
             ))}
           </div>
