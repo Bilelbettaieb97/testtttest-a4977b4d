@@ -50,7 +50,7 @@ const ContactForm = () => {
     phone: "",
     project: "",
     budget: "",
-    main_challenge: "",
+    main_challenge: "non_specifie",
     timeline: "",
     message: "",
     urgency: ""
@@ -115,7 +115,7 @@ const ContactForm = () => {
 
       setFormData({
         name: "", email: "", company: "", phone: "",
-        project: "", budget: "", main_challenge: "",
+        project: "", budget: "", main_challenge: "non_specifie",
         timeline: "", message: "", urgency: ""
       });
       setStep(1);
