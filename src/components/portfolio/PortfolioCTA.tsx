@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const PortfolioCTA = () => {
   const openPriceEstimator = () => {
-    window.open('https://preview--estimezlecoutdevotresiteweb-13.lovable.app/', '_blank');
+    window.open('https://estimationdesiteweb.lovable.app/', '_blank');
   };
 
   return (
