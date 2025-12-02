@@ -33,7 +33,7 @@ const PromoBanner = () => {
     localStorage.setItem('promoBannerClosed', 'true');
   };
   const handleRedirect = () => {
-    window.open('https://preview--convertilab-65.lovable.app/', '_blank');
+    window.location.href = '/offre-speciale';
   };
   if (!isVisible) return null;
   return <div className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white py-4 px-4 relative overflow-hidden" style={{
