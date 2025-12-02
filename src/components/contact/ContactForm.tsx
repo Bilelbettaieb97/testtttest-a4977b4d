@@ -21,19 +21,10 @@ interface ContactFormData {
 }
 
 const projectTypes = [
-  { value: "audit", label: "Audit de conversion", icon: "🔍" },
+  { value: "vitrine", label: "Site web vitrine", icon: "🌐" },
+  { value: "ecommerce", label: "E-commerce", icon: "🛒" },
   { value: "landing", label: "Landing Page", icon: "📄" },
-  { value: "funnel", label: "Tunnel de vente", icon: "🎯" },
-  { value: "optimization", label: "Optimisation site", icon: "⚡" },
-  { value: "custom", label: "Projet sur mesure", icon: "✨" },
-];
-
-const challenges = [
-  { value: "traffic", label: "Manque de trafic", icon: "📊" },
-  { value: "conversion", label: "Faible conversion", icon: "📉" },
-  { value: "leads", label: "Pas assez de leads", icon: "👥" },
-  { value: "sales", label: "Difficultés ventes", icon: "💰" },
-  { value: "other", label: "Autre", icon: "❓" },
+  { value: "audit", label: "Audit de conversion", icon: "🔍" },
 ];
 
 const budgets = [
@@ -89,10 +80,6 @@ const ContactForm = () => {
   const validateStep2 = () => {
     if (!formData.project) {
       toast({ title: "Projet requis", description: "Veuillez sélectionner un type de projet.", variant: "destructive" });
-      return false;
-    }
-    if (!formData.main_challenge) {
-      toast({ title: "Défi requis", description: "Veuillez sélectionner votre principal défi.", variant: "destructive" });
       return false;
     }
     return true;
@@ -258,30 +245,6 @@ const ContactForm = () => {
                     >
                       <span className="text-lg">{type.icon}</span>
                       <p className="text-xs font-medium mt-1 text-foreground">{type.label}</p>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <label className="text-sm font-medium text-foreground mb-3 flex items-center gap-2">
-                  <Target className="w-4 h-4" />
-                  Principal défi *
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-2">
-                  {challenges.map((challenge) => (
-                    <button
-                      key={challenge.value}
-                      type="button"
-                      onClick={() => setFormData({ ...formData, main_challenge: challenge.value })}
-                      className={`p-3 rounded-xl border-2 text-left transition-all duration-200 ${
-                        formData.main_challenge === challenge.value
-                          ? 'border-purple-500 bg-purple-50 dark:bg-purple-950'
-                          : 'border-border hover:border-purple-300 hover:bg-muted/50'
-                      }`}
-                    >
-                      <span className="text-lg">{challenge.icon}</span>
-                      <p className="text-xs font-medium mt-1 text-foreground">{challenge.label}</p>
                     </button>
                   ))}
                 </div>
