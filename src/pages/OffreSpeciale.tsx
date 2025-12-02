@@ -7,9 +7,9 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Check, Clock, Users, Zap, Star, ArrowRight, Phone, Sparkles, Shield, Award, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import exampleCoach from '@/assets/example-site-coach.jpg';
-import exampleArtisan from '@/assets/example-site-artisan.jpg';
-import exampleRestaurant from '@/assets/example-site-restaurant.jpg';
+import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
+import portfolioRestaurant from '@/assets/portfolio-restaurant.jpg';
+import portfolioBeaute from '@/assets/portfolio-beaute.jpg';
 
 const TOTAL_SPOTS = 10;
 
@@ -158,9 +158,9 @@ const OffreSpeciale = () => {
   ];
 
   const exampleSites = [
-    { image: exampleCoach, title: "Coach & Consultants", description: "Sites épurés pour services" },
-    { image: exampleArtisan, title: "Artisans & PME", description: "Sites professionnels avec formulaire" },
-    { image: exampleRestaurant, title: "Restaurants & Commerces", description: "Sites vitrines attractifs" }
+    { image: portfolioEcommerce, title: "E-commerce", description: "Boutiques en ligne performantes" },
+    { image: portfolioRestaurant, title: "Restaurants", description: "Sites avec réservation en ligne" },
+    { image: portfolioBeaute, title: "Beauté & Bien-être", description: "Plateformes de booking élégantes" }
   ];
 
   return (
@@ -169,7 +169,7 @@ const OffreSpeciale = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link to="/" className="text-white font-bold text-xl">
-            WebCraft<span className="text-purple-400">Studio</span>
+            Converti<span className="text-purple-400">Lab</span>
           </Link>
           <div className="flex items-center gap-2 bg-red-500/20 px-4 py-2 rounded-full border border-red-500/30">
             <Users className="w-4 h-4 text-red-400" />
