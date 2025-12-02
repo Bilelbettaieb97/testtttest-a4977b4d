@@ -5,8 +5,11 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Check, Clock, Users, Zap, Star, ArrowRight, Phone, Mail, Building2, Sparkles } from 'lucide-react';
+import { Check, Clock, Users, Zap, Star, ArrowRight, Phone, Sparkles, Shield, Award, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import exampleCoach from '@/assets/example-site-coach.jpg';
+import exampleArtisan from '@/assets/example-site-artisan.jpg';
+import exampleRestaurant from '@/assets/example-site-restaurant.jpg';
 
 const TOTAL_SPOTS = 10;
 
@@ -122,6 +125,39 @@ const OffreSpeciale = () => {
     "Support technique 30 jours"
   ];
 
+  const testimonials = [
+    {
+      stars: 5,
+      text: "Un site livré super vite, très pro. Résultat : plus de demandes que jamais.",
+      author: "Sarah",
+      role: "Coach bien-être"
+    },
+    {
+      stars: 5,
+      text: "J'avais un petit budget, et pourtant le site est digne d'une vraie agence.",
+      author: "Julien",
+      role: "Artisan plombier"
+    },
+    {
+      stars: 5,
+      text: "Mon business avait besoin d'un site moderne : excellent travail.",
+      author: "Mélissa",
+      role: "Entrepreneure"
+    }
+  ];
+
+  const badges = [
+    { icon: Award, text: "+150 sites créés", color: "text-purple-400" },
+    { icon: Star, text: "4,9/5 satisfaction client", color: "text-yellow-400" },
+    { icon: TrendingUp, text: "+80 petites entreprises", color: "text-green-400" }
+  ];
+
+  const exampleSites = [
+    { image: exampleCoach, title: "Coach & Consultants", description: "Sites épurés pour services" },
+    { image: exampleArtisan, title: "Artisans & PME", description: "Sites professionnels avec formulaire" },
+    { image: exampleRestaurant, title: "Restaurants & Commerces", description: "Sites vitrines attractifs" }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
       {/* Header */}
@@ -145,19 +181,23 @@ const OffreSpeciale = () => {
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-yellow-500/20 text-yellow-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-yellow-500/30">
                 <Sparkles className="w-4 h-4" />
-                OFFRE LIMITÉE - 10 PLACES SEULEMENT
+                OFFRE LIMITÉE – {spotsRemaining} PLACES DISPONIBLES
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Votre site web professionnel à{' '}
+                Un site web professionnel pour seulement{' '}
                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   300€
                 </span>
               </h1>
               
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Offre exceptionnelle pour les <strong className="text-white">10 premiers clients</strong>. 
-                Un site web moderne, responsive et optimisé pour convertir vos visiteurs en clients.
+              <p className="text-xl text-gray-300 mb-4 leading-relaxed">
+                Un site moderne, rapide et optimisé pour convertir vos visiteurs en clients.
+              </p>
+              
+              <p className="text-lg text-green-400 font-semibold mb-8 flex items-center justify-center lg:justify-start gap-2">
+                <Shield className="w-5 h-5" />
+                Aucun paiement maintenant. Paiement uniquement après validation.
               </p>
 
               {/* Features Grid */}
@@ -281,8 +321,9 @@ const OffreSpeciale = () => {
                         {isSubmitting ? 'Réservation en cours...' : spotsRemaining <= 0 ? 'Offre épuisée' : 'Réserver ma place à 300€'}
                       </Button>
 
-                      <p className="text-center text-gray-400 text-sm">
-                        Paiement après validation du projet. Aucun engagement.
+                      <p className="text-center text-green-400 text-sm font-medium flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        Aucun paiement maintenant : vous payez seulement après validation du projet.
                       </p>
                     </form>
                   </>
@@ -311,6 +352,96 @@ const OffreSpeciale = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Social Proof Section */}
+      <section className="py-16 px-4 bg-black/30">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
+            Ils nous font confiance
+          </h2>
+          <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+            Découvrez ce que nos clients disent de notre travail
+          </p>
+
+          {/* Testimonials */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-purple-500/30 transition-all"
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.stars)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-gray-300 mb-4 italic">"{testimonial.text}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold">
+                    {testimonial.author[0]}
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold">{testimonial.author}</p>
+                    <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Badges */}
+          <div className="flex flex-wrap justify-center gap-6">
+            {badges.map((badge, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 bg-white/5 px-6 py-3 rounded-full border border-white/10"
+              >
+                <badge.icon className={`w-5 h-5 ${badge.color}`} />
+                <span className="text-white font-semibold">{badge.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Example Sites Section */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
+            À quoi ressemble un site à 300€ ?
+          </h2>
+          <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+            Voici des exemples de sites que nous créons pour nos clients. Qualité professionnelle garantie.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {exampleSites.map((site, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all"
+              >
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={site.image}
+                    alt={site.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+                  <div>
+                    <h3 className="text-white font-bold text-lg mb-1">{site.title}</h3>
+                    <p className="text-gray-300 text-sm">{site.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-purple-400 mt-8 font-medium">
+            + Des dizaines d'autres projets réalisés avec succès
+          </p>
         </div>
       </section>
 
@@ -361,6 +492,10 @@ const OffreSpeciale = () => {
               {
                 q: "Y a-t-il des frais cachés ?",
                 a: "Non. Le prix de 300€ inclut tout : design, développement, hébergement 1 an, et certificat SSL."
+              },
+              {
+                q: "Quand dois-je payer ?",
+                a: "Aucun paiement à la réservation ! Vous ne payez qu'après avoir validé le design et le projet final. Zéro risque pour vous."
               }
             ].map((faq, index) => (
               <div key={index} className="bg-white/5 rounded-xl p-6 border border-white/10">
@@ -387,6 +522,9 @@ const OffreSpeciale = () => {
           >
             Réserver ma place maintenant
           </Button>
+          <p className="text-white/60 text-sm mt-4">
+            Aucun paiement maintenant • Paiement après validation
+          </p>
         </div>
       </section>
 
