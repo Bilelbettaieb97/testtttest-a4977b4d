@@ -19,7 +19,7 @@ const Hero = () => {
       animationDelay: "0.5s"
     }}></div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-24 sm:pt-32 pb-8 sm:pb-12">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-4 sm:pt-8 pb-8 sm:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left - Information */}
           <div className="text-center lg:text-left">
