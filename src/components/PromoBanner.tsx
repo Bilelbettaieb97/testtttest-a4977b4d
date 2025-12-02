@@ -36,35 +36,53 @@ const PromoBanner = () => {
     window.location.href = '/offre-speciale';
   };
   if (!isVisible) return null;
-  return <div className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white py-4 px-4 relative overflow-hidden" style={{
-    marginTop: '64px'
-  }}>
+  return (
+    <div className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white py-2 sm:py-3 px-3 sm:px-4 relative overflow-hidden" style={{
+      marginTop: '64px'
+    }}>
       {/* Animation de fond */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse"></div>
       
-      <div className="container mx-auto flex items-center justify-between relative z-10">
-        <div className="flex items-center space-x-3 flex-1">
-          <Sparkles className="w-5 h-5 text-yellow-300 animate-pulse" />
-          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4">
-            <span className="font-bold text-sm sm:text-base">🔥 OFFRE EXCLUSIVE : Site web professionnel à 300€ pour les 10 premiers clients !</span>
-            <div className="flex items-center space-x-2 text-xs sm:text-sm">
-              <Clock className="w-4 h-4" />
-              <span className="bg-white/20 px-2 py-1 rounded text-white font-medium">
+      <div className="container mx-auto flex items-center justify-between relative z-10 gap-2">
+        {/* Contenu principal */}
+        <div className="flex items-center gap-2 flex-1 min-w-0">
+          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 animate-pulse flex-shrink-0" />
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3 min-w-0">
+            <span className="font-bold text-xs sm:text-sm leading-tight truncate sm:whitespace-normal">
+              <span className="hidden sm:inline">🔥 OFFRE EXCLUSIVE : </span>
+              <span className="sm:hidden">🔥 </span>
+              Site web à 300€
+              <span className="hidden sm:inline"> pour les 10 premiers clients !</span>
+            </span>
+            <div className="hidden sm:flex items-center gap-2 text-xs sm:text-sm flex-shrink-0">
+              <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="bg-white/20 px-2 py-0.5 rounded text-white font-medium">
                 {timeLeft.days}j {timeLeft.hours}h {timeLeft.minutes}m
               </span>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center space-x-3">
-          <Button onClick={handleRedirect} variant="secondary" size="sm" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2 transition-all duration-300 transform hover:scale-105">
-            J'en profite !
+        {/* Boutons */}
+        <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+          <Button 
+            onClick={handleRedirect} 
+            variant="secondary" 
+            size="sm" 
+            className="bg-white text-purple-600 hover:bg-gray-100 font-semibold text-[10px] sm:text-xs px-2 sm:px-3 py-1 h-auto transition-all duration-300 transform hover:scale-105"
+          >
+            J'en profite
           </Button>
-          <button onClick={handleClose} className="text-white/80 hover:text-white transition-colors p-1" aria-label="Fermer la bannière">
+          <button 
+            onClick={handleClose} 
+            className="text-white/80 hover:text-white transition-colors p-0.5 sm:p-1" 
+            aria-label="Fermer la bannière"
+          >
             <X className="w-4 h-4" />
           </button>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 export default PromoBanner;
