@@ -46,7 +46,7 @@ const PromoBanner = () => {
         <div className="flex items-center space-x-3 flex-1">
           <Sparkles className="w-5 h-5 text-yellow-300 animate-pulse" />
           <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4">
-            <span className="font-bold text-sm sm:text-base">🎉 OFFRE LIMITÉE : Site web professionnel à partir de 490€ seulement !</span>
+            <span className="font-bold text-sm sm:text-base">🔥 OFFRE EXCLUSIVE : Site web professionnel à 300€ pour les 10 premiers clients !</span>
             <div className="flex items-center space-x-2 text-xs sm:text-sm">
               <Clock className="w-4 h-4" />
               <span className="bg-white/20 px-2 py-1 rounded text-white font-medium">
