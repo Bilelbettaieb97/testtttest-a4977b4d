@@ -98,7 +98,7 @@ const Hero = () => {
       </div>
 
       {/* Trust Banner */}
-      <TrustBanner />
+      <TrustBanner className="px-0 mx-0 my-[15px]" />
     </main>;
 };
 export default Hero;

@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -13,17 +12,15 @@ import ExitIntentPopup from "@/components/ExitIntentPopup";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import ChatBot from "@/components/ChatBot";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <PromoBanner />
       <Navigation />
       <section id="hero">
         <Hero />
       </section>
       <section id="portfolio" className="-mt-4">
-        <Portfolio />
+        <Portfolio className="px-0" />
       </section>
       <ProcessTimeline />
       <section id="services" className="-mt-4">
@@ -41,8 +38,6 @@ const Index = () => {
       <StickyMobileCTA />
       <ExitIntentPopup />
       <ChatBot />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
