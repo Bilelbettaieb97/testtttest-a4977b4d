@@ -78,13 +78,21 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Trust Indicator */}
-            <div className="flex items-center justify-center lg:justify-start text-sm text-gray-600 animate-fade-in">
-              <div className="glass px-4 py-2 rounded-full border border-purple-200 flex items-center gap-2 shadow-lg">
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 text-sm text-gray-600 animate-fade-in">
+              <div className="glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-purple-200 flex items-center gap-2 shadow-lg">
                 <Users className="w-4 h-4 text-purple-600" />
                 <span className="font-semibold">
-                  <span className="text-purple-600">+150</span> sites créés
+                  <span className="text-purple-600">+150</span> sites
                 </span>
+              </div>
+              <div className="glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-green-200 flex items-center gap-2 shadow-lg">
+                <Award className="w-4 h-4 text-green-600" />
+                <span className="font-semibold text-green-700">Satisfait ou remboursé</span>
+              </div>
+              <div className="glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-blue-200 flex items-center gap-2 shadow-lg">
+                <span className="text-yellow-500">★★★★★</span>
+                <span className="font-semibold text-blue-700">5/5</span>
               </div>
             </div>
           </div>
