@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Users, Award, Calendar } from "lucide-react";
 import ContactForm from "./contact/ContactForm";
+import TrustBanner from "./TrustBanner";
 const Hero = () => {
   const openPriceEstimator = () => {
     window.open("https://estimationdesiteweb.lovable.app/", "_blank");
@@ -96,9 +97,9 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden lg:block">
-        <ArrowRight className="w-6 h-6 text-purple-400 rotate-90" />
+      {/* Trust Banner */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <TrustBanner />
       </div>
     </main>;
 };
