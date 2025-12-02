@@ -41,25 +41,25 @@ const PromoBanner = () => {
 
   return (
     <div 
-      className="w-full bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-white py-2 sm:py-3 px-3 sm:px-4 relative overflow-hidden" 
+      className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white py-2 sm:py-3 px-3 sm:px-4 relative overflow-hidden" 
       style={{ marginTop: '64px' }}
     >
-      {/* Subtle animated gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent animate-pulse"></div>
+      {/* Animation de fond */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse"></div>
       
       <div className="container mx-auto flex items-center justify-between relative z-10 gap-2">
         {/* Main content */}
         <div className="flex items-center gap-2 flex-1 min-w-0">
-          <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400 animate-pulse flex-shrink-0" />
+          <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 animate-pulse flex-shrink-0" />
           <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3 min-w-0">
-            <span className="font-semibold text-xs sm:text-sm leading-tight">
-              <span className="text-orange-400 font-bold">Offre Limitée</span>
+            <span className="font-bold text-xs sm:text-sm leading-tight">
+              <span className="text-yellow-300">🔥 Offre Limitée</span>
               <span className="hidden sm:inline"> : 10 projets à tarif préférentiel</span>
               <span className="sm:hidden"> — 10 places</span>
             </span>
             <div className="hidden sm:flex items-center gap-2 text-xs sm:text-sm flex-shrink-0">
-              <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-purple-300" />
-              <span className="bg-white/10 backdrop-blur-sm px-2 py-0.5 rounded text-white/90 font-medium border border-white/10">
+              <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="bg-white/20 px-2 py-0.5 rounded text-white font-medium">
                 {timeLeft.days}j {timeLeft.hours}h {timeLeft.minutes}m
               </span>
             </div>
@@ -70,14 +70,15 @@ const PromoBanner = () => {
         <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
           <Button 
             onClick={handleRedirect} 
+            variant="secondary"
             size="sm" 
-            className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white font-semibold text-[10px] sm:text-xs px-2 sm:px-4 py-1 h-auto transition-all duration-300 transform hover:scale-105 rounded-lg shadow-lg shadow-purple-500/20"
+            className="bg-white text-purple-600 hover:bg-gray-100 font-semibold text-[10px] sm:text-xs px-2 sm:px-3 py-1 h-auto transition-all duration-300 transform hover:scale-105"
           >
             Réserver ma place
           </Button>
           <button 
             onClick={handleClose} 
-            className="text-white/60 hover:text-white transition-colors p-0.5 sm:p-1" 
+            className="text-white/80 hover:text-white transition-colors p-0.5 sm:p-1" 
             aria-label="Fermer la bannière"
           >
             <X className="w-4 h-4" />
