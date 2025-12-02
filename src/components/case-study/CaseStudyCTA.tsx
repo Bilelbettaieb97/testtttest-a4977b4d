@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Rocket } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useNavigate } from "react-router-dom";
 
 interface CaseStudyCTAProps {
   results: string;
@@ -9,12 +10,16 @@ interface CaseStudyCTAProps {
 
 const CaseStudyCTA = ({ results }: CaseStudyCTAProps) => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
+  const navigate = useNavigate();
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+  const goToContact = () => {
+    navigate('/#contact');
+    setTimeout(() => {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
   };
 
   return (
@@ -47,7 +52,7 @@ const CaseStudyCTA = ({ results }: CaseStudyCTAProps) => {
             </p>
             <Button
               size="lg"
-              onClick={scrollToContact}
+              onClick={goToContact}
               className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-6 text-lg"
             >
               Démarrer mon projet
