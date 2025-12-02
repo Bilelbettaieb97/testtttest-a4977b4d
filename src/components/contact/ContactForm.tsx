@@ -178,37 +178,37 @@ const ContactForm = () => {
 
       {/* Progress Steps */}
       <div className="px-4 sm:px-6 pt-4 sm:pt-5 pb-3 sm:pb-4">
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between mb-3">
           {[
-            { num: 1, label: "Contact", color: "emerald" },
-            { num: 2, label: "Projet", color: "blue" },
-            { num: 3, label: "Message", color: "purple" }
+            { num: 1, label: "Contact" },
+            { num: 2, label: "Projet" },
+            { num: 3, label: "Message" }
           ].map((s, idx) => (
             <div key={s.num} className="flex items-center flex-1">
-              <div className={`
-                w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm transition-all duration-300
-                ${s.num < step ? 'bg-emerald-500 text-white' : s.num === step ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/30' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}
-              `}>
-                {s.num < step ? <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" /> : s.num}
+              <div className="flex flex-col items-center">
+                <div className={`
+                  w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm transition-all duration-300
+                  ${s.num < step ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' : s.num === step ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/30' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}
+                `}>
+                  {s.num < step ? <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" /> : s.num}
+                </div>
+                <span className={`mt-1 text-[10px] sm:text-xs font-medium ${s.num <= step ? 'text-purple-600' : 'text-slate-400'}`}>
+                  {s.label}
+                </span>
               </div>
               {idx < 2 && (
-                <div className={`flex-1 h-1 mx-1 sm:mx-2 rounded-full transition-all duration-300 ${s.num < step ? 'bg-emerald-500' : 'bg-slate-200 dark:bg-slate-700'}`} />
+                <div className={`flex-1 h-1 mx-2 sm:mx-3 rounded-full transition-all duration-300 mb-5 ${s.num < step ? 'bg-gradient-to-r from-purple-500 to-pink-500' : 'bg-slate-200 dark:bg-slate-700'}`} />
               )}
             </div>
           ))}
-        </div>
-        <div className="flex justify-between text-[10px] sm:text-xs px-1">
-          <span className={step >= 1 ? "text-emerald-600 font-medium" : "text-slate-400"}>🟢 Contact</span>
-          <span className={step >= 2 ? "text-blue-600 font-medium" : "text-slate-400"}>🔵 Projet</span>
-          <span className={step >= 3 ? "text-purple-600 font-medium" : "text-slate-400"}>🟣 Message</span>
         </div>
       </div>
 
       {/* Reassurance badges */}
       <div className="px-4 sm:px-6 pb-3">
         <div className="flex flex-wrap justify-center gap-2 text-[10px] sm:text-xs">
-          <span className="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full font-medium">✓ 100% gratuit</span>
-          <span className="bg-blue-50 text-blue-700 px-2 py-1 rounded-full font-medium">✓ Sans engagement</span>
+          <span className="bg-purple-50 text-purple-700 px-2 py-1 rounded-full font-medium">✓ 100% gratuit</span>
+          <span className="bg-pink-50 text-pink-700 px-2 py-1 rounded-full font-medium">✓ Sans engagement</span>
           <span className="bg-purple-50 text-purple-700 px-2 py-1 rounded-full font-medium">✓ Réponse rapide</span>
         </div>
       </div>
