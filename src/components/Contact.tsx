@@ -40,7 +40,7 @@ const Contact = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-semibold mb-4">
-            Devis Gratuit
+            Contactez-nous
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Lancez votre projet
