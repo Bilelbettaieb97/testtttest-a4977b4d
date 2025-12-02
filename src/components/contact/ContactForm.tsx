@@ -112,14 +112,14 @@ const ContactForm = () => {
       toast({ title: "Téléphone requis (min. 10 chiffres)", variant: "destructive" });
       return false;
     }
+    if (!formData.project) {
+      toast({ title: "Sélectionnez un type de site", variant: "destructive" });
+      return false;
+    }
     return true;
   };
 
   const validateStep2 = () => {
-    if (!formData.project) {
-      toast({ title: "Sélectionnez un type de projet", variant: "destructive" });
-      return false;
-    }
     return true;
   };
 
@@ -199,62 +199,95 @@ const ContactForm = () => {
           {/* Step 1: Contact Info */}
           {step === 1 && (
             <div className="space-y-3 sm:space-y-4 animate-fade-in">
-              <div className="text-center mb-4 sm:mb-6">
+              <div className="text-center mb-3 sm:mb-4">
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Vos coordonnées</h3>
                 <p className="text-slate-500 text-xs sm:text-sm mt-1">Pour vous recontacter rapidement</p>
               </div>
               
               <div className="space-y-2 sm:space-y-3">
-                <div className="relative group">
-                  <User className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
-                  <Input
-                    placeholder="Votre nom *"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="pl-10 sm:pl-12 h-12 sm:h-14 text-sm sm:text-base bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
-                  />
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                  <div className="relative group">
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
+                    <Input
+                      placeholder="Votre nom *"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
+                    />
+                  </div>
+                  
+                  <div className="relative group">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
+                    <Input
+                      type="email"
+                      placeholder="votre@email.com *"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
+                    />
+                  </div>
                 </div>
                 
-                <div className="relative group">
-                  <Mail className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
-                  <Input
-                    type="email"
-                    placeholder="votre@email.com *"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="pl-10 sm:pl-12 h-12 sm:h-14 text-sm sm:text-base bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
-                  />
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                  <div className="relative group">
+                    <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
+                    <Input
+                      placeholder="Votre entreprise *"
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
+                    />
+                  </div>
+                  
+                  <div className="relative group">
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
+                    <Input
+                      type="tel"
+                      placeholder="Votre téléphone *"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
+                    />
+                  </div>
                 </div>
-                
-                <div className="relative group">
-                  <Building2 className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
-                  <Input
-                    placeholder="Votre entreprise *"
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="pl-10 sm:pl-12 h-12 sm:h-14 text-sm sm:text-base bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
-                  />
-                </div>
-                
-                <div className="relative group">
-                  <Phone className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
-                  <Input
-                    type="tel"
-                    placeholder="Votre téléphone *"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="pl-10 sm:pl-12 h-12 sm:h-14 text-sm sm:text-base bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
-                  />
+              </div>
+
+              {/* Type de site */}
+              <div>
+                <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 block">Type de site *</label>
+                <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
+                  {projectTypes.map((type) => {
+                    const IconComponent = type.icon;
+                    return (
+                      <button
+                        key={type.value}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, project: type.value })}
+                        className={`p-2 sm:p-3 rounded-lg sm:rounded-xl text-center transition-all duration-200 border-2 ${
+                          formData.project === type.value
+                            ? 'border-purple-500 bg-purple-50 dark:bg-purple-950/50 shadow-md'
+                            : 'border-slate-200 dark:border-slate-700 hover:border-purple-300 bg-white dark:bg-slate-800'
+                        }`}
+                      >
+                        <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-lg mx-auto mb-1 flex items-center justify-center ${
+                          formData.project === type.value ? 'bg-purple-500 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-500'
+                        }`}>
+                          <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" />
+                        </div>
+                        <p className="font-medium text-slate-900 dark:text-white text-[10px] sm:text-xs">{type.label}</p>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
               <Button
                 type="button"
                 onClick={nextStep}
-                className="w-full h-12 sm:h-14 bg-purple-600 hover:bg-purple-700 text-white text-sm sm:text-base font-semibold rounded-xl mt-3 sm:mt-4 transition-all hover:shadow-lg hover:shadow-purple-500/25"
+                className="w-full h-11 sm:h-12 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-purple-500/25"
               >
                 Continuer
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
           )}
@@ -263,37 +296,26 @@ const ContactForm = () => {
           {step === 2 && (
             <div className="space-y-4 sm:space-y-5 animate-fade-in">
               <div className="text-center mb-4 sm:mb-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Votre projet</h3>
-                <p className="text-slate-500 text-xs sm:text-sm mt-1">Quel type de site souhaitez-vous ?</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Détails du projet</h3>
+                <p className="text-slate-500 text-xs sm:text-sm mt-1">Budget et délai souhaités</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                {projectTypes.map((type) => {
-                  const IconComponent = type.icon;
-                  return (
-                    <button
-                      key={type.value}
-                      type="button"
-                      onClick={() => setFormData({ ...formData, project: type.value })}
-                      className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl text-left transition-all duration-200 border-2 ${
-                        formData.project === type.value
-                          ? 'border-purple-500 bg-purple-50 dark:bg-purple-950/50 shadow-lg shadow-purple-500/10'
-                          : 'border-slate-200 dark:border-slate-700 hover:border-purple-300 bg-white dark:bg-slate-800'
-                      }`}
-                    >
-                      <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center mb-1.5 sm:mb-2 ${
-                        formData.project === type.value ? 'bg-purple-500 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-500'
-                      }`}>
-                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
-                      </div>
-                      <p className="font-semibold text-slate-900 dark:text-white text-xs sm:text-sm">{type.label}</p>
-                      <p className="text-[10px] sm:text-xs text-slate-500 mt-0.5">{type.desc}</p>
-                    </button>
-                  );
-                })}
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 rounded-xl p-3 mb-4">
+                <div className="flex items-center gap-2 text-xs sm:text-sm">
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center bg-purple-500 text-white`}>
+                    {(() => {
+                      const IconComponent = projectTypes.find(p => p.value === formData.project)?.icon || Globe;
+                      return <IconComponent className="w-4 h-4" />;
+                    })()}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900 dark:text-white">{projectTypes.find(p => p.value === formData.project)?.label || "Type de site"}</p>
+                    <p className="text-slate-500 text-[10px] sm:text-xs">{projectTypes.find(p => p.value === formData.project)?.desc}</p>
+                  </div>
+                </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-1 sm:pt-2">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 sm:mb-2 block">Budget</label>
                   <div className="flex flex-wrap gap-1.5 sm:gap-2">
