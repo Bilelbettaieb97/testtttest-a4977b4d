@@ -8,6 +8,7 @@ import NewsletterConfirmation from "./pages/NewsletterConfirmation";
 import CaseStudy from "./pages/CaseStudy";
 import ChatAnalytics from "./pages/ChatAnalytics";
 import OffreSpeciale from "./pages/OffreSpeciale";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/case-study/:slug" element={<CaseStudy />} />
           <Route path="/chat-analytics" element={<ChatAnalytics />} />
           <Route path="/offre-speciale" element={<OffreSpeciale />} />
+          <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
