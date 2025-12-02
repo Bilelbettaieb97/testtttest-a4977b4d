@@ -9,9 +9,9 @@ const Hero = () => {
   const openCalendly = () => {
     window.open("https://calendly.com/convertilab-5bsc/30min", "_blank");
   };
-  return <main className="relative bg-gradient-to-br from-purple-50 via-white to-pink-50 min-h-screen flex items-center overflow-hidden">
+  return <main className="relative bg-gradient-to-br from-purple-50 via-white to-pink-50 overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
       <div className="absolute top-20 right-10 w-32 h-32 bg-purple-200 rounded-full blur-3xl opacity-30 animate-float"></div>
       <div className="absolute bottom-20 left-10 w-40 h-40 bg-pink-200 rounded-full blur-3xl opacity-30 animate-float" style={{
       animationDelay: "1s"
@@ -98,9 +98,7 @@ const Hero = () => {
       </div>
 
       {/* Trust Banner */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <TrustBanner />
-      </div>
+      <TrustBanner />
     </main>;
 };
 export default Hero;
