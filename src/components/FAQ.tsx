@@ -73,20 +73,21 @@ const FAQ = () => {
           </Card>
 
           {/* CTA after FAQ */}
-          <div className="text-center mt-12 p-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl text-white">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+          <div className="text-center mt-8 sm:mt-12 p-4 sm:p-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl text-white">
+            <h3 className="text-xl sm:text-3xl font-bold mb-3 sm:mb-4">
               D'autres questions ? Parlons-en !
             </h3>
-            <p className="text-lg mb-6 opacity-90">
+            <p className="text-sm sm:text-lg mb-4 sm:mb-6 opacity-90">
               Réservez votre consultation gratuite de 30 minutes
             </p>
             <Button 
               onClick={scrollToContact}
               size="lg"
-              className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+              className="bg-white text-purple-600 hover:bg-gray-100 px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105"
             >
-              Consultation gratuite maintenant
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <span className="hidden sm:inline">Consultation gratuite maintenant</span>
+              <span className="sm:hidden">Consultation gratuite</span>
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </div>
         </div>

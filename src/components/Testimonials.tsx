@@ -100,7 +100,7 @@ const Testimonials = () => {
           {testimonials.slice(0, 4).map((testimonial, index) => (
             <Card key={index} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-0 shadow-lg bg-white/90 backdrop-blur-sm overflow-hidden relative">
               <div className={`absolute inset-0 bg-gradient-to-br ${testimonial.accent} opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
-              <CardContent className="p-8 relative z-10">
+              <CardContent className="p-4 sm:p-8 relative z-10">
                 {/* Enhanced quote icon */}
                 <div className="relative">
                   <Quote className="w-10 h-10 text-purple-300 mb-6" />
@@ -115,26 +115,26 @@ const Testimonials = () => {
                 </div>
                 
                 {/* Testimonial text */}
-                <p className="text-gray-700 mb-8 leading-relaxed italic text-lg">
+                <p className="text-gray-700 mb-4 sm:mb-8 leading-relaxed italic text-base sm:text-lg">
                   "{testimonial.text}"
                 </p>
                 
                 {/* Enhanced metric highlight */}
-                <div className={`bg-gradient-to-r ${testimonial.accent} p-4 rounded-xl mb-8 border border-white/50`}>
-                  <div className="text-gray-800 font-bold text-xl text-center">
+                <div className={`bg-gradient-to-r ${testimonial.accent} p-3 sm:p-4 rounded-xl mb-4 sm:mb-8 border border-white/50`}>
+                  <div className="text-gray-800 font-bold text-lg sm:text-xl text-center">
                     {testimonial.metric}
                   </div>
                 </div>
                 
                 {/* Enhanced author info */}
                 <div className="flex items-center">
-                  <div className={`w-16 h-16 ${testimonial.color} rounded-2xl flex items-center justify-center text-white font-bold text-xl mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-12 h-12 sm:w-16 sm:h-16 ${testimonial.color} rounded-xl sm:rounded-2xl flex items-center justify-center text-white font-bold text-base sm:text-xl mr-3 sm:mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900 text-lg">{testimonial.author}</div>
-                    <div className="text-sm text-gray-600 mb-1">{testimonial.role}</div>
-                    <div className="text-sm font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    <div className="font-bold text-gray-900 text-base sm:text-lg">{testimonial.author}</div>
+                    <div className="text-xs sm:text-sm text-gray-600 mb-1">{testimonial.role}</div>
+                    <div className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                       {testimonial.company}
                     </div>
                   </div>

@@ -258,20 +258,20 @@ const ProcessTimeline = () => {
 
       {/* Modal détaillé */}
       <Dialog open={selectedStep !== null} onOpenChange={() => setSelectedStep(null)}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-slate-950 border-slate-800">
+        <DialogContent className="max-w-[95vw] sm:max-w-3xl max-h-[85vh] overflow-y-auto bg-slate-950 border-slate-800 p-4 sm:p-6">
           {selectedStep !== null && (
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {/* Barre de progression */}
-              <div className="space-y-4 pb-6 border-b border-slate-800">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-slate-400">Progression du processus</span>
+              <div className="space-y-3 sm:space-y-4 pb-4 sm:pb-6 border-b border-slate-800">
+                <div className="flex items-center justify-between text-xs sm:text-sm">
+                  <span className="text-slate-400">Progression</span>
                   <span className="font-bold text-white">
-                    {Math.round(((selectedStep + 1) / steps.length) * 100)}% complété
+                    {Math.round(((selectedStep + 1) / steps.length) * 100)}%
                   </span>
                 </div>
                 
                 {/* Barre de progression principale */}
-                <div className="relative h-3 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                <div className="relative h-2 sm:h-3 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
                   <div
                     className={`h-full bg-gradient-to-r ${steps[selectedStep].gradient} transition-all duration-500 relative overflow-hidden`}
                     style={{ width: `${((selectedStep + 1) / steps.length) * 100}%` }}
@@ -282,36 +282,36 @@ const ProcessTimeline = () => {
                 </div>
 
                 {/* Navigation des étapes */}
-                <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center justify-between gap-1 sm:gap-2">
                   {steps.map((step, idx) => (
                     <button
                       key={idx}
                       onClick={() => setSelectedStep(idx)}
                       className={`group relative flex-1 transition-all duration-300 ${
-                        idx === selectedStep ? 'scale-110' : 'hover:scale-105'
+                        idx === selectedStep ? 'scale-105 sm:scale-110' : 'hover:scale-105'
                       }`}
                     >
-                      <div className="flex flex-col items-center gap-2">
+                      <div className="flex flex-col items-center gap-1 sm:gap-2">
                         {/* Cercle d'étape */}
                         <div
-                          className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                          className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
                             idx <= selectedStep
                               ? `bg-gradient-to-br ${step.gradient} shadow-lg`
                               : 'bg-slate-800 border-2 border-slate-700'
                           }`}
                         >
                           {idx < selectedStep ? (
-                            <CheckCircle className="w-5 h-5 text-white" />
+                            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                           ) : (
-                            <span className={`text-sm font-bold ${idx <= selectedStep ? 'text-white' : 'text-slate-500'}`}>
+                            <span className={`text-xs sm:text-sm font-bold ${idx <= selectedStep ? 'text-white' : 'text-slate-500'}`}>
                               {idx + 1}
                             </span>
                           )}
                         </div>
                         
-                        {/* Label étape (visible sur hover ou si sélectionné) */}
+                        {/* Label étape (visible sur hover ou si sélectionné) - masqué sur mobile */}
                         <span
-                          className={`text-xs text-center transition-all duration-300 ${
+                          className={`text-xs text-center transition-all duration-300 hidden sm:block ${
                             idx === selectedStep
                               ? 'text-white font-semibold opacity-100'
                               : 'text-slate-500 opacity-0 group-hover:opacity-100'
@@ -325,80 +325,82 @@ const ProcessTimeline = () => {
                 </div>
 
                 {/* Navigation boutons précédent/suivant */}
-                <div className="flex items-center justify-between gap-4 pt-2">
+                <div className="flex items-center justify-between gap-2 sm:gap-4 pt-2">
                   <button
                     onClick={() => selectedStep > 0 && setSelectedStep(selectedStep - 1)}
                     disabled={selectedStep === 0}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                    className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                       selectedStep === 0
                         ? 'text-slate-600 cursor-not-allowed'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800'
                     }`}
                   >
-                    <ArrowRight className="w-4 h-4 rotate-180" />
-                    Précédent
+                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 rotate-180" />
+                    <span className="hidden sm:inline">Précédent</span>
+                    <span className="sm:hidden">Préc.</span>
                   </button>
                   <button
                     onClick={() => selectedStep < steps.length - 1 && setSelectedStep(selectedStep + 1)}
                     disabled={selectedStep === steps.length - 1}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                    className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                       selectedStep === steps.length - 1
                         ? 'text-slate-600 cursor-not-allowed'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800'
                     }`}
                   >
-                    Suivant
-                    <ArrowRight className="w-4 h-4" />
+                    <span className="hidden sm:inline">Suivant</span>
+                    <span className="sm:hidden">Suiv.</span>
+                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                   </button>
                 </div>
               </div>
 
               <DialogHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${steps[selectedStep].gradient} rounded-2xl flex items-center justify-center shadow-2xl`}>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4">
+                  <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${steps[selectedStep].gradient} rounded-xl sm:rounded-2xl flex items-center justify-center shadow-2xl flex-shrink-0`}>
                     {(() => {
                       const Icon = steps[selectedStep].icon;
-                      return <Icon className="w-8 h-8 text-white" strokeWidth={2.5} />;
+                      return <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" strokeWidth={2.5} />;
                     })()}
                   </div>
-                  <div className="flex-1">
-                    <div className="text-sm text-slate-400 mb-1">Étape {steps[selectedStep].number}</div>
-                    <DialogTitle className="text-3xl font-bold text-white">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs sm:text-sm text-slate-400 mb-1">Étape {steps[selectedStep].number}</div>
+                    <DialogTitle className="text-xl sm:text-3xl font-bold text-white">
                       {steps[selectedStep].title}
                     </DialogTitle>
                   </div>
-                  <div className={`px-4 py-2 bg-gradient-to-r ${steps[selectedStep].gradient} rounded-full text-white text-sm font-bold`}>
-                    <Clock className="w-4 h-4 inline mr-2" />
+                  <div className={`px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r ${steps[selectedStep].gradient} rounded-full text-white text-xs sm:text-sm font-bold flex-shrink-0`}>
+                    <Clock className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2" />
                     {steps[selectedStep].duration}
                   </div>
                 </div>
-                <DialogDescription className="text-base text-slate-300 leading-relaxed">
+                <DialogDescription className="text-sm sm:text-base text-slate-300 leading-relaxed">
                   {steps[selectedStep].details.fullDescription}
                 </DialogDescription>
               </DialogHeader>
 
               {/* Processus détaillé */}
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center gap-2 text-white font-semibold">
-                  <Target className="w-5 h-5 text-violet-400" />
-                  <h3 className="text-xl">Le processus</h3>
+                  <Target className="w-4 h-4 sm:w-5 sm:h-5 text-violet-400" />
+                  <h3 className="text-base sm:text-xl">Le processus</h3>
                 </div>
-                <p className="text-slate-300 leading-relaxed bg-slate-900/50 p-4 rounded-xl border border-slate-800">
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed bg-slate-900/50 p-3 sm:p-4 rounded-xl border border-slate-800">
                   {steps[selectedStep].details.process}
                 </p>
               </div>
 
               {/* Livrables */}
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center gap-2 text-white font-semibold">
-                  <Award className="w-5 h-5 text-violet-400" />
-                  <h3 className="text-xl">Ce que vous recevez</h3>
+                  <Award className="w-4 h-4 sm:w-5 sm:h-5 text-violet-400" />
+                  <h3 className="text-base sm:text-xl">Ce que vous recevez</h3>
                 </div>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {steps[selectedStep].details.deliverables.map((deliverable, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-300">
-                      <div className={`w-6 h-6 bg-gradient-to-br ${steps[selectedStep].gradient} rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                        <CheckCircle className="w-4 h-4 text-white" />
+                    <li key={idx} className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-slate-300">
+                      <div className={`w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br ${steps[selectedStep].gradient} rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                        <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                       </div>
                       <span>{deliverable}</span>
                     </li>
@@ -407,16 +409,16 @@ const ProcessTimeline = () => {
               </div>
 
               {/* Outils utilisés */}
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center gap-2 text-white font-semibold">
-                  <Zap className="w-5 h-5 text-violet-400" />
-                  <h3 className="text-xl">Outils & Technologies</h3>
+                  <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-violet-400" />
+                  <h3 className="text-base sm:text-xl">Outils & Technologies</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {steps[selectedStep].details.tools.map((tool, idx) => (
                     <div
                       key={idx}
-                      className="px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg text-slate-300 text-sm font-medium hover:border-slate-700 transition-colors"
+                      className="px-3 sm:px-4 py-1.5 sm:py-2 bg-slate-900 border border-slate-800 rounded-lg text-slate-300 text-xs sm:text-sm font-medium hover:border-slate-700 transition-colors"
                     >
                       {tool}
                     </div>
@@ -425,18 +427,19 @@ const ProcessTimeline = () => {
               </div>
 
               {/* CTA */}
-              <div className="pt-4 border-t border-slate-800">
-                <div className="bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border border-violet-500/20 rounded-xl p-6 text-center">
-                  <p className="text-slate-300 mb-4">
-                    Des questions sur cette étape ? Parlons-en lors de votre consultation gratuite !
+              <div className="pt-3 sm:pt-4 border-t border-slate-800">
+                <div className="bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border border-violet-500/20 rounded-xl p-4 sm:p-6 text-center">
+                  <p className="text-sm sm:text-base text-slate-300 mb-3 sm:mb-4">
+                    Des questions sur cette étape ? Parlons-en !
                   </p>
                   <a
                     href="https://calendly.com/votre-calendly/consultation"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-block px-6 py-3 bg-gradient-to-r ${steps[selectedStep].gradient} text-white font-bold rounded-xl hover:scale-105 transition-transform shadow-lg`}
+                    className={`inline-block px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r ${steps[selectedStep].gradient} text-white text-sm sm:text-base font-bold rounded-xl hover:scale-105 transition-transform shadow-lg`}
                   >
-                    Réserver ma consultation gratuite
+                    <span className="hidden sm:inline">Réserver ma consultation gratuite</span>
+                    <span className="sm:hidden">Consultation gratuite</span>
                   </a>
                 </div>
               </div>
