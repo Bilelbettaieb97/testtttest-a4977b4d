@@ -8,7 +8,7 @@ const Hero = () => {
   const openCalendly = () => {
     window.open("https://calendly.com/convertilab-5bsc/30min", "_blank");
   };
-  return <main className="relative bg-gradient-to-br from-purple-50 via-white to-pink-50 min-h-screen flex items-center overflow-hidden">
+  return <main className="relative bg-gradient-to-br from-purple-50 via-white to-pink-50 flex items-center overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-10 w-32 h-32 bg-purple-200 rounded-full blur-3xl opacity-30 animate-float"></div>
@@ -19,7 +19,7 @@ const Hero = () => {
       animationDelay: "0.5s"
     }}></div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-4 sm:pt-8 pb-8 sm:pb-12">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-4 sm:pt-8 pb-4 sm:pb-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left - Information */}
           <div className="text-center lg:text-left">
