@@ -39,7 +39,7 @@ const Index = () => {
       </section>
       <Footer />
       <StickyMobileCTA />
-      {/* <ExitIntentPopup /> */}
+      <ExitIntentPopup />
       <ChatBot />
     </div>
   );
