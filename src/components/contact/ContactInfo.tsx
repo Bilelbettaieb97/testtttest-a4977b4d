@@ -1,15 +1,11 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MessageSquare, Calendar } from "lucide-react";
-
 const ContactInfo = () => {
   const openCalendly = () => {
     window.open('https://calendly.com/convertilab-5bsc/30min', '_blank');
   };
-
-  return (
-    <div className="space-y-4 sm:space-y-6">
+  return <div className="space-y-4 sm:space-y-6">
       <Card className="shadow-lg">
         <CardContent className="p-4 sm:p-6">
           <div className="flex items-center mb-3">
@@ -19,11 +15,7 @@ const ContactInfo = () => {
           <p className="text-gray-600 mb-3 sm:mb-4 text-xs sm:text-sm">
             Discutons de votre projet web en 30 minutes
           </p>
-          <Button 
-            onClick={openCalendly}
-            variant="outline" 
-            className="w-full border-purple-600 text-purple-600 hover:bg-purple-50 text-sm"
-          >
+          <Button onClick={openCalendly} variant="outline" className="w-full border-purple-600 text-purple-600 hover:bg-purple-50 text-sm">
             Prendre rendez-vous
           </Button>
         </CardContent>
@@ -33,7 +25,7 @@ const ContactInfo = () => {
         <Card className="shadow-lg">
           <CardContent className="p-3 sm:p-4 text-center">
             <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mx-auto mb-1 sm:mb-2" />
-            <p className="text-xs sm:text-sm font-medium" itemProp="telephone">07 83 49 47 09</p>
+            <p className="text-xs sm:text-sm font-medium" itemProp="telephone">06 11 80 45 03 </p>
           </CardContent>
         </Card>
         
@@ -57,8 +49,6 @@ const ContactInfo = () => {
           </ul>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
-
 export default ContactInfo;
