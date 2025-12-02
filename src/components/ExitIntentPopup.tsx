@@ -10,11 +10,17 @@ const ExitIntentPopup = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if popup was already shown in this session
-    const alreadyShown = sessionStorage.getItem('exitPopupShown');
-    if (alreadyShown) {
-      setHasShown(true);
-      return;
+    // Check if popup was dismissed in the last 24 hours
+    const dismissedAt = localStorage.getItem('exitPopupDismissedAt');
+    if (dismissedAt) {
+      const dismissedTime = parseInt(dismissedAt, 10);
+      const now = Date.now();
+      const twentyFourHours = 24 * 60 * 60 * 1000;
+      
+      if (now - dismissedTime < twentyFourHours) {
+        setHasShown(true);
+        return;
+      }
     }
 
     // Timer: Show popup after 5 seconds
@@ -22,7 +28,6 @@ const ExitIntentPopup = () => {
       if (!hasShown) {
         setIsOpen(true);
         setHasShown(true);
-        sessionStorage.setItem('exitPopupShown', 'true');
       }
     }, 5000);
 
@@ -31,7 +36,6 @@ const ExitIntentPopup = () => {
       if (e.clientY <= 0 && !hasShown) {
         setIsOpen(true);
         setHasShown(true);
-        sessionStorage.setItem('exitPopupShown', 'true');
       }
     };
 
@@ -42,6 +46,11 @@ const ExitIntentPopup = () => {
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [hasShown]);
+
+  const handleClose = () => {
+    setIsOpen(false);
+    localStorage.setItem('exitPopupDismissedAt', Date.now().toString());
+  };
 
   const goToOffer = () => {
     setIsOpen(false);
@@ -57,11 +66,11 @@ const ExitIntentPopup = () => {
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-md border-0 p-0 overflow-hidden">
         <div className="relative bg-gradient-to-br from-purple-600 via-pink-600 to-purple-700 text-white p-6">
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={handleClose}
             className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors z-10"
           >
             <X className="w-5 h-5" />
