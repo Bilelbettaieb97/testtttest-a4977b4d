@@ -90,6 +90,11 @@ const OffreSpeciale = () => {
           throw error;
         }
       } else {
+        // Track Google Ads conversion
+        if (typeof window !== 'undefined' && (window as any).trackFormConversion) {
+          (window as any).trackFormConversion();
+        }
+        
         setIsReserved(true);
         toast({
           title: "Place réservée ! 🎉",
