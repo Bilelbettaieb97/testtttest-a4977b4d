@@ -170,16 +170,34 @@ const Services = () => {
         {/* Tabs */}
         <Tabs defaultValue="sites-web" className="w-full">
           <TabsList className="w-full max-w-2xl mx-auto grid grid-cols-4 mb-12 h-auto p-1.5 bg-muted/70 backdrop-blur-sm rounded-2xl">
-            {serviceCategories.map((category) => (
-              <TabsTrigger 
-                key={category.id} 
-                value={category.id}
-                className={`flex items-center justify-center gap-2 py-3 px-4 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:${category.gradient} data-[state=active]:text-white data-[state=active]:shadow-lg`}
-              >
-                {category.icon}
-                <span className="hidden sm:inline font-medium">{category.label}</span>
-              </TabsTrigger>
-            ))}
+            <TabsTrigger 
+              value="sites-web"
+              className="flex items-center justify-center gap-2 py-3 px-4 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-violet-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
+            >
+              <Globe className="w-5 h-5" />
+              <span className="hidden sm:inline font-medium">Sites Web</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="design"
+              className="flex items-center justify-center gap-2 py-3 px-4 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-pink-500 data-[state=active]:to-rose-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
+            >
+              <Palette className="w-5 h-5" />
+              <span className="hidden sm:inline font-medium">Design</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="seo"
+              className="flex items-center justify-center gap-2 py-3 px-4 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-emerald-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
+            >
+              <Search className="w-5 h-5" />
+              <span className="hidden sm:inline font-medium">SEO</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="sea"
+              className="flex items-center justify-center gap-2 py-3 px-4 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
+            >
+              <TrendingUp className="w-5 h-5" />
+              <span className="hidden sm:inline font-medium">SEA</span>
+            </TabsTrigger>
           </TabsList>
 
           {serviceCategories.map((category) => (
