@@ -236,6 +236,19 @@
     }
   }
 
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(200%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
   /* Improved gradient hover effects */
   .gradient-hover {
     background: linear-gradient(45deg, #8b5cf6, #ec4899);
