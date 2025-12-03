@@ -93,6 +93,18 @@ const ContactForm = () => {
   }, [formData.name, formData.email, formData.company, formData.phone]);
 
   const validateStep1 = () => {
+    if (!formData.project) {
+      toast({ title: "Sélectionnez un type de site", variant: "destructive" });
+      return false;
+    }
+    return true;
+  };
+
+  const validateStep2 = () => {
+    return true;
+  };
+
+  const validateStep3 = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^[\d\s+()-]{10,}$/;
     
@@ -112,14 +124,6 @@ const ContactForm = () => {
       toast({ title: "Téléphone requis (min. 10 chiffres)", variant: "destructive" });
       return false;
     }
-    if (!formData.project) {
-      toast({ title: "Sélectionnez un type de site", variant: "destructive" });
-      return false;
-    }
-    return true;
-  };
-
-  const validateStep2 = () => {
     return true;
   };
 
@@ -180,9 +184,9 @@ const ContactForm = () => {
       <div className="px-4 sm:px-6 pt-4 sm:pt-5 pb-3 sm:pb-4">
         <div className="flex items-center justify-between mb-3">
           {[
-            { num: 1, label: "Contact" },
-            { num: 2, label: "Projet" },
-            { num: 3, label: "Message" }
+            { num: 1, label: "Projet" },
+            { num: 2, label: "Détails" },
+            { num: 3, label: "Contact" }
           ].map((s, idx) => (
             <div key={s.num} className="flex items-center flex-1">
               <div className="flex flex-col items-center">
@@ -215,98 +219,48 @@ const ContactForm = () => {
 
       <div className="p-4 sm:p-6 pt-2">
         <form onSubmit={handleSubmit}>
-          {/* Step 1: Contact Info */}
+          {/* Step 1: Project Type */}
           {step === 1 && (
-            <div className="space-y-3 sm:space-y-4 animate-fade-in">
-              <div className="text-center mb-3 sm:mb-4">
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Vos coordonnées</h3>
-                <p className="text-slate-500 text-xs sm:text-sm mt-1">Pour vous recontacter rapidement</p>
-              </div>
-              
-              <div className="space-y-2 sm:space-y-3">
-                <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                  <div className="relative group">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
-                    <Input
-                      placeholder="Votre nom *"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
-                    />
-                  </div>
-                  
-                  <div className="relative group">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
-                    <Input
-                      type="email"
-                      placeholder="votre@email.com *"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
-                    />
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                  <div className="relative group">
-                    <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
-                    <Input
-                      placeholder="Votre entreprise *"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
-                    />
-                  </div>
-                  
-                  <div className="relative group">
-                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
-                    <Input
-                      type="tel"
-                      placeholder="Votre téléphone *"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
-                    />
-                  </div>
-                </div>
+            <div className="space-y-4 sm:space-y-5 animate-fade-in">
+              <div className="text-center mb-4 sm:mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Votre projet</h3>
+                <p className="text-slate-500 text-xs sm:text-sm mt-1">Quel type de site recherchez-vous ?</p>
               </div>
 
-              {/* Type de site */}
-              <div>
-                <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 block">Type de site *</label>
-                <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
-                  {projectTypes.map((type) => {
-                    const IconComponent = type.icon;
-                    return (
-                      <button
-                        key={type.value}
-                        type="button"
-                        onClick={() => setFormData({ ...formData, project: type.value })}
-                        className={`p-2 sm:p-3 rounded-lg sm:rounded-xl text-center transition-all duration-200 border-2 ${
-                          formData.project === type.value
-                            ? 'border-purple-500 bg-purple-50 dark:bg-purple-950/50 shadow-md'
-                            : 'border-slate-200 dark:border-slate-700 hover:border-purple-300 bg-white dark:bg-slate-800'
-                        }`}
-                      >
-                        <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-lg mx-auto mb-1 flex items-center justify-center ${
-                          formData.project === type.value ? 'bg-purple-500 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-500'
-                        }`}>
-                          <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" />
-                        </div>
-                        <p className="font-medium text-slate-900 dark:text-white text-[10px] sm:text-xs">{type.label}</p>
-                      </button>
-                    );
-                  })}
-                </div>
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                {projectTypes.map((type) => {
+                  const IconComponent = type.icon;
+                  const isSelected = formData.project === type.value;
+                  return (
+                    <button
+                      key={type.value}
+                      type="button"
+                      onClick={() => setFormData({ ...formData, project: type.value })}
+                      className={`p-4 sm:p-5 rounded-xl sm:rounded-2xl text-center transition-all duration-300 border-2 ${
+                        isSelected
+                          ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/50 dark:to-pink-950/50 shadow-lg shadow-purple-500/20 scale-[1.02]'
+                          : 'border-slate-200 dark:border-slate-700 hover:border-purple-300 bg-white dark:bg-slate-800 hover:shadow-md'
+                      }`}
+                    >
+                      <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl mx-auto mb-3 flex items-center justify-center transition-all ${
+                        isSelected ? 'bg-gradient-to-br from-purple-500 to-pink-500 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-500'
+                      }`}>
+                        <IconComponent className="w-6 h-6 sm:w-7 sm:h-7" />
+                      </div>
+                      <p className="font-semibold text-slate-900 dark:text-white text-sm sm:text-base">{type.label}</p>
+                      <p className="text-slate-500 text-[10px] sm:text-xs mt-1">{type.desc}</p>
+                    </button>
+                  );
+                })}
               </div>
 
               <Button
                 type="button"
                 onClick={nextStep}
-                className="w-full h-11 sm:h-12 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-purple-500/25"
+                className="w-full h-12 sm:h-14 bg-purple-600 hover:bg-purple-700 text-white text-sm sm:text-base font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-purple-500/25"
               >
                 Continuer
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
             </div>
           )}
@@ -461,22 +415,79 @@ const ContactForm = () => {
             </div>
           )}
 
-          {/* Step 3: Message */}
+          {/* Step 3: Contact Info & Message */}
           {step === 3 && (
-            <div className="space-y-4 sm:space-y-5 animate-fade-in">
-              <div className="text-center mb-4 sm:mb-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Presque fini !</h3>
-                <p className="text-slate-500 text-xs sm:text-sm mt-1">Un message à nous partager ?</p>
+            <div className="space-y-3 sm:space-y-4 animate-fade-in">
+              <div className="text-center mb-3 sm:mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Vos coordonnées</h3>
+                <p className="text-slate-500 text-xs sm:text-sm mt-1">Pour vous recontacter rapidement</p>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 rounded-xl sm:rounded-2xl p-3 sm:p-4">
-                <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm">
-                    {formData.name.charAt(0).toUpperCase() || "?"}
+              {/* Project Summary */}
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 rounded-xl p-3">
+                <div className="flex items-center gap-2 text-xs sm:text-sm">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-purple-500 text-white">
+                    {(() => {
+                      const IconComponent = projectTypes.find(p => p.value === formData.project)?.icon || Globe;
+                      return <IconComponent className="w-4 h-4" />;
+                    })()}
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900 dark:text-white">{formData.name || "Votre nom"}</p>
-                    <p className="text-slate-500 text-[10px] sm:text-xs">{formData.company} • {projectTypes.find(p => p.value === formData.project)?.label}</p>
+                    <p className="font-semibold text-slate-900 dark:text-white">{projectTypes.find(p => p.value === formData.project)?.label}</p>
+                    <p className="text-slate-500 text-[10px] sm:text-xs">
+                      {formData.budget && budgets.find(b => b.value === formData.budget)?.label}
+                      {formData.budget && formData.timeline && ' • '}
+                      {formData.timeline && timelines.find(t => t.value === formData.timeline)?.label}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Fields */}
+              <div className="space-y-2 sm:space-y-3">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                  <div className="relative group">
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
+                    <Input
+                      placeholder="Votre nom *"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
+                    />
+                  </div>
+                  
+                  <div className="relative group">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
+                    <Input
+                      type="email"
+                      placeholder="votre@email.com *"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
+                    />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                  <div className="relative group">
+                    <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
+                    <Input
+                      placeholder="Votre entreprise *"
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
+                    />
+                  </div>
+                  
+                  <div className="relative group">
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-purple-500 transition-colors" />
+                    <Input
+                      type="tel"
+                      placeholder="Votre téléphone *"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="pl-9 h-11 sm:h-12 text-sm bg-slate-50 dark:bg-slate-800 border-0 rounded-xl focus:ring-2 focus:ring-purple-500"
+                    />
                   </div>
                 </div>
               </div>
@@ -485,8 +496,8 @@ const ContactForm = () => {
                 placeholder="Décrivez brièvement votre projet... (optionnel)"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                rows={3}
-                className="bg-slate-50 dark:bg-slate-800 border-0 rounded-xl text-sm sm:text-base focus:ring-2 focus:ring-purple-500 resize-none"
+                rows={2}
+                className="bg-slate-50 dark:bg-slate-800 border-0 rounded-xl text-sm focus:ring-2 focus:ring-purple-500 resize-none"
               />
 
               <div className="flex gap-2 sm:gap-3">
@@ -500,7 +511,12 @@ const ContactForm = () => {
                   Retour
                 </Button>
                 <Button
-                  type="submit"
+                  type="button"
+                  onClick={(e) => {
+                    if (validateStep3()) {
+                      handleSubmit(e as any);
+                    }
+                  }}
                   disabled={isSubmitting}
                   className="flex-1 h-12 sm:h-14 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-purple-500/25 text-sm"
                 >
