@@ -1,6 +1,7 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { ArrowLeft, ShoppingCart, Utensils, Home, Dumbbell, Sparkles, BookOpen, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -369,19 +370,40 @@ const CaseStudy = () => {
       />
       <BreadcrumbSchema 
         items={[
-          { name: 'Accueil', url: '/' },
-          { name: 'Portfolio', url: '/#portfolio' },
-          { name: caseStudy.client, url: `/case-study/${slug}` }
+          { name: 'Accueil', url: 'https://convertilab.fr/' },
+          { name: 'Portfolio', url: 'https://convertilab.fr/portfolio' },
+          { name: caseStudy.client, url: `https://convertilab.fr/case-study/${slug}` }
         ]}
       />
       
       <Navigation />
       
       <div className="container mx-auto px-4 pt-24 pb-8">
+        {/* Breadcrumb */}
+        <Breadcrumb className="mb-6">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/">Accueil</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/portfolio">Portfolio</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{caseStudy.client}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+        
         <Button
           variant="ghost"
-          onClick={() => navigate("/#portfolio")}
-          className="mb-8 -ml-2"
+          onClick={() => navigate("/portfolio")}
+          className="-ml-2"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Retour au portfolio

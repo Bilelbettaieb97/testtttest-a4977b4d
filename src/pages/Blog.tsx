@@ -1,13 +1,16 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import BlogHeader from "@/components/blog/BlogHeader";
 import BlogCard from "@/components/blog/BlogCard";
 import { SEO } from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 import { blogArticles } from "@/data/blogArticles";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Search } from "lucide-react";
 
 const categories = ["Tous", "Business", "Web Design", "SEO", "Technique"];
@@ -35,10 +38,30 @@ const Blog = () => {
         keywords="blog web design, conseils SEO, création site web, marketing digital, business en ligne"
       />
       
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "https://convertilab.fr/" },
+        { name: "Blog", url: "https://convertilab.fr/blog" }
+      ]} />
+      
       <Navigation />
       
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6">
+          {/* Breadcrumb */}
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Accueil</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Blog</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+          
           <BlogHeader />
           
           {/* Search & Filters */}
