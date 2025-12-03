@@ -17,7 +17,8 @@ import {
   TrendingUp,
   ClipboardCheck,
   Wrench,
-  GraduationCap
+  GraduationCap,
+  Sparkles
 } from "lucide-react";
 
 const Services = () => {
@@ -28,6 +29,9 @@ const Services = () => {
       label: "Sites Web",
       title: "Création de Sites Web",
       description: "Des solutions web sur-mesure adaptées à vos objectifs",
+      gradient: "from-violet-500 to-purple-600",
+      lightGradient: "from-violet-50 to-purple-50",
+      accentColor: "text-violet-600",
       services: [
         {
           name: "Landing Page",
@@ -67,6 +71,9 @@ const Services = () => {
       label: "Design",
       title: "Design & Identité Visuelle",
       description: "Une image de marque mémorable qui vous distingue",
+      gradient: "from-pink-500 to-rose-600",
+      lightGradient: "from-pink-50 to-rose-50",
+      accentColor: "text-pink-600",
       services: [
         {
           name: "Design UI/UX",
@@ -88,6 +95,9 @@ const Services = () => {
       label: "SEO",
       title: "SEO & Visibilité",
       description: "Soyez trouvé par vos clients potentiels sur Google",
+      gradient: "from-emerald-500 to-teal-600",
+      lightGradient: "from-emerald-50 to-teal-50",
+      accentColor: "text-emerald-600",
       services: [
         {
           name: "Référencement SEO",
@@ -109,6 +119,9 @@ const Services = () => {
       label: "Accompagnement",
       title: "Accompagnement & Support",
       description: "Un partenaire durable pour votre croissance digitale",
+      gradient: "from-amber-500 to-orange-600",
+      lightGradient: "from-amber-50 to-orange-50",
+      accentColor: "text-amber-600",
       services: [
         {
           name: "Maintenance & Support",
@@ -134,15 +147,23 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 sm:py-28 bg-background">
-      <div className="container mx-auto px-4 sm:px-6">
-        {/* Header minimaliste */}
+    <section id="services" className="py-20 sm:py-28 bg-background relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-violet-200/30 to-purple-200/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-pink-200/30 to-rose-200/30 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        {/* Header */}
         <header className="text-center mb-16 max-w-2xl mx-auto">
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
-            Nos services
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-4 tracking-tight">
-            Ce que nous faisons
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-100 to-pink-100 dark:from-violet-900/30 dark:to-pink-900/30 mb-6">
+            <Sparkles className="w-4 h-4 text-violet-600 dark:text-violet-400" />
+            <span className="text-sm font-medium text-violet-700 dark:text-violet-300">Nos services</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-bold text-foreground mb-4 tracking-tight">
+            Ce que nous{" "}
+            <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              faisons
+            </span>
           </h2>
           <p className="text-muted-foreground text-lg">
             Des solutions digitales complètes, un accompagnement personnalisé
@@ -151,15 +172,15 @@ const Services = () => {
 
         {/* Tabs */}
         <Tabs defaultValue="sites-web" className="w-full">
-          <TabsList className="w-full max-w-2xl mx-auto grid grid-cols-4 mb-12 h-auto p-1 bg-muted/50">
+          <TabsList className="w-full max-w-2xl mx-auto grid grid-cols-4 mb-12 h-auto p-1.5 bg-muted/70 backdrop-blur-sm rounded-2xl">
             {serviceCategories.map((category) => (
               <TabsTrigger 
                 key={category.id} 
                 value={category.id}
-                className="flex items-center gap-2 py-3 px-4 text-sm data-[state=active]:bg-background data-[state=active]:shadow-sm"
+                className={`flex items-center justify-center gap-2 py-3 px-4 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:${category.gradient} data-[state=active]:text-white data-[state=active]:shadow-lg`}
               >
                 {category.icon}
-                <span className="hidden sm:inline">{category.label}</span>
+                <span className="hidden sm:inline font-medium">{category.label}</span>
               </TabsTrigger>
             ))}
           </TabsList>
@@ -168,65 +189,70 @@ const Services = () => {
             <TabsContent 
               key={category.id} 
               value={category.id}
-              className="mt-0 focus-visible:outline-none"
+              className="mt-0 focus-visible:outline-none animate-fade-in"
             >
               {/* Category header */}
               <div className="text-center mb-12">
-                <h3 className="text-2xl font-semibold text-foreground mb-2">
+                <h3 className={`text-2xl sm:text-3xl font-bold text-foreground mb-3`}>
                   {category.title}
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-lg">
                   {category.description}
                 </p>
               </div>
 
-              {/* Services list */}
-              <div className="max-w-4xl mx-auto space-y-6">
+              {/* Services grid */}
+              <div className="max-w-5xl mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {category.services.map((service, index) => (
                   <div 
                     key={index}
-                    className="group p-6 sm:p-8 rounded-lg border border-border bg-card hover:border-foreground/20 transition-colors"
+                    className="group relative p-6 rounded-2xl border border-border bg-card hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden"
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+                    {/* Gradient overlay on hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${category.lightGradient} dark:from-transparent dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                    
+                    <div className="relative z-10">
                       {/* Icon */}
-                      <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-foreground flex-shrink-0">
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                         {service.icon}
                       </div>
                       
                       {/* Content */}
-                      <div className="flex-1">
-                        <h4 className="text-lg font-medium text-foreground mb-2">
-                          {service.name}
-                        </h4>
-                        <p className="text-muted-foreground mb-4">
-                          {service.description}
-                        </p>
-                        
-                        {/* Features */}
-                        <div className="flex flex-wrap gap-2">
-                          {service.features.map((feature, featureIndex) => (
-                            <span 
-                              key={featureIndex}
-                              className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground"
-                            >
-                              {feature}
-                            </span>
-                          ))}
-                        </div>
+                      <h4 className="text-lg font-semibold text-foreground mb-2 group-hover:text-foreground/90">
+                        {service.name}
+                      </h4>
+                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                        {service.description}
+                      </p>
+                      
+                      {/* Features */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {service.features.slice(0, 3).map((feature, featureIndex) => (
+                          <span 
+                            key={featureIndex}
+                            className="text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                        {service.features.length > 3 && (
+                          <span className="text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground">
+                            +{service.features.length - 3}
+                          </span>
+                        )}
                       </div>
 
                       {/* CTA */}
-                      <div className="sm:self-center">
-                        <Button 
-                          onClick={scrollToContact}
-                          variant="ghost" 
-                          size="sm"
-                          className="text-muted-foreground hover:text-foreground"
-                        >
-                          Devis
-                          <ArrowRight className="ml-1 w-4 h-4" />
-                        </Button>
-                      </div>
+                      <Button 
+                        onClick={scrollToContact}
+                        variant="ghost" 
+                        size="sm"
+                        className={`p-0 h-auto ${category.accentColor} hover:${category.accentColor} font-medium group/btn`}
+                      >
+                        Demander un devis
+                        <ArrowRight className="ml-1 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
                     </div>
                   </div>
                 ))}
@@ -235,26 +261,36 @@ const Services = () => {
           ))}
         </Tabs>
 
-        {/* Bottom CTA - minimaliste */}
+        {/* Bottom CTA */}
         <div className="mt-20 text-center">
-          <p className="text-muted-foreground mb-6">
-            Vous ne trouvez pas ce que vous cherchez ?
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              onClick={scrollToContact}
-              size="lg"
-              className="px-8"
-            >
-              Discutons de votre projet
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-            <Link 
-              to="/portfolio" 
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4"
-            >
-              Voir nos réalisations
-            </Link>
+          <div className="inline-block p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 relative overflow-hidden">
+            {/* Animated background */}
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-50"></div>
+            
+            <div className="relative z-10">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+                Vous ne trouvez pas ce que vous cherchez ?
+              </h3>
+              <p className="text-white/80 mb-8 max-w-lg mx-auto">
+                Discutons ensemble de votre projet sur-mesure
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button 
+                  onClick={scrollToContact}
+                  size="lg"
+                  className="bg-white text-purple-600 hover:bg-white/90 px-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                >
+                  Discutons de votre projet
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+                <Link 
+                  to="/portfolio" 
+                  className="text-sm text-white/90 hover:text-white transition-colors underline underline-offset-4"
+                >
+                  Voir nos réalisations
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
