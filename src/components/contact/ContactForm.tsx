@@ -182,12 +182,7 @@ const ContactForm = () => {
         description: "Nous vous recontacterons sous 24h.",
       });
 
-      setFormData({
-        name: "", email: "", company: "", phone: "",
-        project: "", budget: "", main_challenge: "non_specifie",
-        timeline: "", message: "", urgency: ""
-      });
-      setStep(1);
+      setStep(4); // Go to confirmation screen
     } catch (error: any) {
       toast({
         title: "Erreur",
@@ -202,76 +197,84 @@ const ContactForm = () => {
   return (
     <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-800">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-4 sm:px-6 py-3 sm:py-4">
-        <h3 className="text-white font-bold text-lg sm:text-xl text-center">Devis instantané</h3>
-        <p className="text-purple-100 text-xs sm:text-sm text-center mt-1">On revient vers vous sous 24h</p>
+      <div className={`px-4 sm:px-6 py-3 sm:py-4 ${step === 4 ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 'bg-gradient-to-r from-purple-600 to-pink-600'}`}>
+        <h3 className="text-white font-bold text-lg sm:text-xl text-center">
+          {step === 4 ? 'Demande envoyée !' : 'Devis instantané'}
+        </h3>
+        <p className="text-white/80 text-xs sm:text-sm text-center mt-1">
+          {step === 4 ? 'Merci pour votre confiance' : 'On revient vers vous sous 24h'}
+        </p>
       </div>
 
-      {/* Progress Bar */}
-      <div className="px-4 sm:px-6 pt-4 sm:pt-5 pb-2">
-        <div className="relative">
-          {/* Background bar */}
-          <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-            {/* Animated progress fill */}
-            <div 
-              className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 rounded-full transition-all duration-500 ease-out relative overflow-hidden"
-              style={{ width: `${((step - 1) / (totalSteps - 1)) * 100}%` }}
-            >
-              {/* Shimmer effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[shimmer_2s_infinite] -translate-x-full" 
-                   style={{ animation: 'shimmer 2s infinite' }} />
+      {/* Progress Bar - hidden on confirmation */}
+      {step <= totalSteps && (
+        <div className="px-4 sm:px-6 pt-4 sm:pt-5 pb-2">
+          <div className="relative">
+            {/* Background bar */}
+            <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+              {/* Animated progress fill */}
+              <div 
+                className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 rounded-full transition-all duration-500 ease-out relative overflow-hidden"
+                style={{ width: `${((step - 1) / (totalSteps - 1)) * 100}%` }}
+              >
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[shimmer_2s_infinite] -translate-x-full" 
+                     style={{ animation: 'shimmer 2s infinite' }} />
+              </div>
+            </div>
+            
+            {/* Step indicators */}
+            <div className="flex justify-between mt-3">
+              {[
+                { num: 1, label: "Projet" },
+                { num: 2, label: "Détails" },
+                { num: 3, label: "Contact" }
+              ].map((s) => (
+                <div key={s.num} className="flex flex-col items-center">
+                  <div className={`
+                    w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm 
+                    transition-all duration-500 ease-out transform
+                    ${s.num < step 
+                      ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white scale-100' 
+                      : s.num === step 
+                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/40 scale-110 ring-4 ring-purple-200 dark:ring-purple-900' 
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-400 scale-95'}
+                  `}>
+                    {s.num < step ? (
+                      <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 animate-scale-in" />
+                    ) : (
+                      <span className={s.num === step ? 'animate-pulse' : ''}>{s.num}</span>
+                    )}
+                  </div>
+                  <span className={`mt-2 text-[10px] sm:text-xs font-medium transition-all duration-300 ${
+                    s.num < step ? 'text-purple-500' : s.num === step ? 'text-purple-600 font-semibold' : 'text-slate-400'
+                  }`}>
+                    {s.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
           
-          {/* Step indicators */}
-          <div className="flex justify-between mt-3">
-            {[
-              { num: 1, label: "Projet" },
-              { num: 2, label: "Détails" },
-              { num: 3, label: "Contact" }
-            ].map((s) => (
-              <div key={s.num} className="flex flex-col items-center">
-                <div className={`
-                  w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm 
-                  transition-all duration-500 ease-out transform
-                  ${s.num < step 
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white scale-100' 
-                    : s.num === step 
-                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/40 scale-110 ring-4 ring-purple-200 dark:ring-purple-900' 
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-400 scale-95'}
-                `}>
-                  {s.num < step ? (
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 animate-scale-in" />
-                  ) : (
-                    <span className={s.num === step ? 'animate-pulse' : ''}>{s.num}</span>
-                  )}
-                </div>
-                <span className={`mt-2 text-[10px] sm:text-xs font-medium transition-all duration-300 ${
-                  s.num < step ? 'text-purple-500' : s.num === step ? 'text-purple-600 font-semibold' : 'text-slate-400'
-                }`}>
-                  {s.label}
-                </span>
-              </div>
-            ))}
+          {/* Step counter */}
+          <div className="text-center mt-3">
+            <span className="text-xs text-slate-500">
+              Étape <span className="font-bold text-purple-600">{step}</span> sur <span className="font-bold">{totalSteps}</span>
+            </span>
           </div>
         </div>
-        
-        {/* Step counter */}
-        <div className="text-center mt-3">
-          <span className="text-xs text-slate-500">
-            Étape <span className="font-bold text-purple-600">{step}</span> sur <span className="font-bold">{totalSteps}</span>
-          </span>
-        </div>
-      </div>
+      )}
 
-      {/* Reassurance badges */}
-      <div className="px-4 sm:px-6 pb-3">
-        <div className="flex flex-wrap justify-center gap-2 text-[10px] sm:text-xs">
-          <span className="bg-purple-50 text-purple-700 px-2 py-1 rounded-full font-medium">✓ 100% gratuit</span>
-          <span className="bg-pink-50 text-pink-700 px-2 py-1 rounded-full font-medium">✓ Sans engagement</span>
-          <span className="bg-purple-50 text-purple-700 px-2 py-1 rounded-full font-medium">✓ Réponse rapide</span>
+      {/* Reassurance badges - hidden on confirmation */}
+      {step <= totalSteps && (
+        <div className="px-4 sm:px-6 pb-3">
+          <div className="flex flex-wrap justify-center gap-2 text-[10px] sm:text-xs">
+            <span className="bg-purple-50 text-purple-700 px-2 py-1 rounded-full font-medium">✓ 100% gratuit</span>
+            <span className="bg-pink-50 text-pink-700 px-2 py-1 rounded-full font-medium">✓ Sans engagement</span>
+            <span className="bg-purple-50 text-purple-700 px-2 py-1 rounded-full font-medium">✓ Réponse rapide</span>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="p-4 sm:p-6 pt-2">
         <form onSubmit={handleSubmit}>
@@ -600,6 +603,80 @@ const ContactForm = () => {
                   100% gratuit
                 </span>
               </div>
+            </div>
+          )}
+
+          {/* Step 4: Confirmation Screen */}
+          {step === 4 && (
+            <div className="py-6 sm:py-8 animate-fade-in text-center">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center animate-scale-in">
+                <CheckCircle2 className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
+              </div>
+              
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3">
+                Merci {formData.name.split(' ')[0]} ! 🎉
+              </h3>
+              
+              <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base mb-6 max-w-sm mx-auto">
+                Votre demande a bien été envoyée. Notre équipe vous recontactera sous <span className="font-semibold text-purple-600">24 heures</span>.
+              </p>
+
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 rounded-xl p-4 mb-6 text-left">
+                <h4 className="font-semibold text-slate-900 dark:text-white text-sm mb-3">Récapitulatif de votre demande :</h4>
+                <div className="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                  <div className="flex items-center gap-2">
+                    <Globe className="w-4 h-4 text-purple-500" />
+                    <span>{projectTypes.find(p => p.value === formData.project)?.label}</span>
+                  </div>
+                  {formData.budget && (
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-purple-500" />
+                      <span>Budget : {budgets.find(b => b.value === formData.budget)?.label}</span>
+                    </div>
+                  )}
+                  {formData.timeline && (
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-purple-500" />
+                      <span>Délai : {timelines.find(t => t.value === formData.timeline)?.label}</span>
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-purple-500" />
+                    <span>{formData.email}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <Button
+                  type="button"
+                  onClick={() => window.open('https://calendly.com/convertilab-5bsc/30min', '_blank')}
+                  className="w-full h-12 sm:h-14 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-purple-500/25 text-sm"
+                >
+                  <Calendar className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+                  Réserver un appel maintenant
+                </Button>
+                
+                <Button
+                  type="button"
+                  onClick={() => {
+                    setFormData({
+                      name: "", email: "", company: "", phone: "",
+                      project: "", budget: "", main_challenge: "non_specifie",
+                      timeline: "", message: "", urgency: ""
+                    });
+                    setStep(1);
+                  }}
+                  variant="outline"
+                  className="w-full h-10 sm:h-12 rounded-xl border-2 text-sm text-slate-600"
+                >
+                  Nouvelle demande
+                </Button>
+              </div>
+
+              <p className="text-[10px] sm:text-xs text-slate-400 mt-4">
+                Un email de confirmation a été envoyé à {formData.email}
+              </p>
             </div>
           )}
         </form>
