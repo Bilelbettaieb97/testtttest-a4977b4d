@@ -2,16 +2,52 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Calendar, FileText, BookOpen } from "lucide-react";
+import { Menu, X, Calendar, FileText, BookOpen, Globe, Palette, Search, Target, ChevronDown } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
+  const serviceCategories = [
+    { 
+      label: "Sites Web", 
+      href: "/services/sites-web", 
+      icon: Globe,
+      description: "Sites vitrines, e-commerce et applications web"
+    },
+    { 
+      label: "Design", 
+      href: "/services/design", 
+      icon: Palette,
+      description: "Identité visuelle, UI/UX et création graphique"
+    },
+    { 
+      label: "SEO", 
+      href: "/services/seo", 
+      icon: Search,
+      description: "Référencement naturel et optimisation"
+    },
+    { 
+      label: "SEA", 
+      href: "/services/sea", 
+      icon: Target,
+      description: "Publicité Google Ads et campagnes payantes"
+    },
+  ];
+
   const navItems = [
     { label: "Portfolio", href: "/portfolio" },
-    { label: "Services", href: "/services" },
     { label: "À propos", href: "/a-propos" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" }
@@ -35,7 +71,59 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
+            <Link
+              to="/portfolio"
+              className={`text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium cursor-pointer relative group ${location.pathname === '/portfolio' ? 'text-purple-600' : ''}`}
+            >
+              Portfolio
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 ${location.pathname === '/portfolio' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+            </Link>
+
+            {/* Services Dropdown */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`text-gray-700 hover:text-purple-600 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent font-medium ${location.pathname.startsWith('/services') ? 'text-purple-600' : ''}`}>
+                    Services
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-2 p-4 bg-white">
+                      {serviceCategories.map((service) => (
+                        <li key={service.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={service.href}
+                              className={cn(
+                                "flex items-center gap-3 select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-purple-50 hover:text-purple-600",
+                                location.pathname === service.href && "bg-purple-50 text-purple-600"
+                              )}
+                            >
+                              <service.icon className="h-5 w-5 text-purple-500" />
+                              <div>
+                                <div className="text-sm font-medium">{service.label}</div>
+                                <p className="text-xs text-gray-500 mt-0.5">{service.description}</p>
+                              </div>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                      <li className="border-t pt-2 mt-2">
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/services"
+                            className="flex items-center justify-center gap-2 text-sm font-medium text-purple-600 hover:text-purple-700 p-2 rounded-md hover:bg-purple-50 transition-colors"
+                          >
+                            Voir tous les services
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -86,6 +174,47 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-sm">
             <div className="px-2 pt-2 pb-3 space-y-1">
+              <Link
+                to="/portfolio"
+                onClick={() => setIsMenuOpen(false)}
+                className={`flex items-center gap-2 w-full px-3 py-2 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium ${location.pathname === '/portfolio' ? 'text-purple-600 bg-purple-50' : 'text-gray-700'}`}
+              >
+                Portfolio
+              </Link>
+
+              {/* Mobile Services Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className={`flex items-center justify-between w-full px-3 py-2 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium ${location.pathname.startsWith('/services') ? 'text-purple-600 bg-purple-50' : 'text-gray-700'}`}
+                >
+                  Services
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isServicesOpen && (
+                  <div className="pl-4 mt-1 space-y-1">
+                    {serviceCategories.map((service) => (
+                      <Link
+                        key={service.href}
+                        to={service.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`flex items-center gap-2 w-full px-3 py-2 text-sm hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 ${location.pathname === service.href ? 'text-purple-600 bg-purple-50' : 'text-gray-600'}`}
+                      >
+                        <service.icon className="w-4 h-4" />
+                        {service.label}
+                      </Link>
+                    ))}
+                    <Link
+                      to="/services"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center gap-2 w-full px-3 py-2 text-sm text-purple-600 hover:bg-purple-50 rounded-md transition-colors duration-200 font-medium"
+                    >
+                      Tous les services
+                    </Link>
+                  </div>
+                )}
+              </div>
+
               {navItems.map((item) => (
                 <Link
                   key={item.label}
