@@ -195,6 +195,17 @@ const Navigation = () => {
                               </NavigationMenuLink>
                             </li>
                           ))}
+                          <li className="border-t border-gray-200 pt-2 mt-2">
+                            <NavigationMenuLink asChild>
+                              <Link
+                                to={activeCategory?.href || '/services'}
+                                className="group flex items-center justify-center gap-2 text-sm font-semibold text-purple-600 hover:text-purple-700 p-2 rounded-lg hover:bg-purple-50 transition-all duration-200"
+                              >
+                                Voir tous les {activeCategory?.label}
+                                <ChevronDown className="w-4 h-4 -rotate-90 group-hover:translate-x-1 transition-transform duration-200" />
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
                         </ul>
                       </div>
                     </div>
