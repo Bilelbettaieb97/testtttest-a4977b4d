@@ -10,12 +10,10 @@ const Navigation = () => {
   const isHomePage = location.pathname === '/';
 
   const navItems = [
-    { label: "Accueil", href: "#hero", isAnchor: true },
     { label: "Portfolio", href: "#portfolio", isAnchor: true },
     { label: "Services", href: "#services", isAnchor: true },
     { label: "Témoignages", href: "#testimonials", isAnchor: true },
-    { label: "Blog", href: "/blog", isAnchor: false },
-    { label: "Contact", href: "#contact", isAnchor: true }
+    { label: "Blog", href: "/blog", isAnchor: false }
   ];
 
   const scrollToSection = (href: string) => {
