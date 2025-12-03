@@ -1,16 +1,12 @@
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Globe, 
   Palette, 
   Search, 
   HeadphonesIcon, 
   ArrowRight, 
-  CheckCircle, 
-  Star, 
-  Zap, 
   Rocket,
   FileText,
   Store,
@@ -28,120 +24,105 @@ const Services = () => {
   const serviceCategories = [
     {
       id: "sites-web",
-      icon: <Globe className="w-8 h-8" />,
+      icon: <Globe className="w-5 h-5" />,
+      label: "Sites Web",
       title: "Création de Sites Web",
-      description: "Des solutions web sur-mesure pour chaque besoin",
-      gradient: "from-purple-500 to-pink-500",
+      description: "Des solutions web sur-mesure adaptées à vos objectifs",
       services: [
         {
           name: "Landing Page",
           icon: <Rocket className="w-5 h-5" />,
-          description: "Page unique optimisée pour la conversion",
-          features: ["Design responsive", "Optimisation conversion", "Formulaire contact"]
+          description: "Page unique optimisée pour la conversion de vos visiteurs en clients",
+          features: ["Design responsive", "Optimisation conversion", "Formulaire contact", "Hébergement inclus"]
         },
         {
           name: "Site Vitrine",
           icon: <FileText className="w-5 h-5" />,
-          description: "Présentation complète de votre activité",
-          features: ["Multi-pages", "SEO optimisé", "Design personnalisé"]
+          description: "Présentation complète et professionnelle de votre activité",
+          features: ["Multi-pages", "SEO optimisé", "Design personnalisé", "Support inclus"]
         },
         {
           name: "Site E-commerce",
           icon: <Store className="w-5 h-5" />,
-          description: "Boutique en ligne performante",
-          features: ["Paiement sécurisé", "Gestion stocks", "Formation incluse"]
+          description: "Boutique en ligne performante pour vendre vos produits",
+          features: ["Paiement sécurisé", "Gestion stocks", "Formation incluse", "Analytics"]
         },
         {
           name: "Application Web",
           icon: <Code className="w-5 h-5" />,
-          description: "Solutions sur-mesure complexes",
-          features: ["Développement custom", "API intégrées", "Évolutif"]
+          description: "Solutions sur-mesure pour des besoins spécifiques",
+          features: ["Développement custom", "API intégrées", "Scalable", "Maintenance"]
         },
         {
           name: "Refonte de Site",
           icon: <RefreshCw className="w-5 h-5" />,
-          description: "Modernisez votre présence en ligne",
-          features: ["Audit complet", "Nouveau design", "Migration données"]
+          description: "Modernisez votre présence en ligne existante",
+          features: ["Audit complet", "Nouveau design", "Migration données", "SEO préservé"]
         }
       ]
     },
     {
       id: "design",
-      icon: <Palette className="w-8 h-8" />,
-      title: "Design & Identité",
-      description: "Une image de marque mémorable et cohérente",
-      gradient: "from-blue-500 to-cyan-500",
+      icon: <Palette className="w-5 h-5" />,
+      label: "Design",
+      title: "Design & Identité Visuelle",
+      description: "Une image de marque mémorable qui vous distingue",
       services: [
         {
           name: "Design UI/UX",
           icon: <PenTool className="w-5 h-5" />,
-          description: "Interfaces intuitives et esthétiques",
-          features: ["Wireframes", "Prototypes", "Tests utilisateurs"]
+          description: "Interfaces intuitives qui optimisent l'expérience utilisateur",
+          features: ["Wireframes", "Prototypes interactifs", "Tests utilisateurs", "Design system"]
         },
         {
           name: "Identité Visuelle",
           icon: <Fingerprint className="w-5 h-5" />,
-          description: "Logo et charte graphique complète",
-          features: ["Logo", "Charte graphique", "Déclinaisons"]
+          description: "Logo et charte graphique pour une image cohérente",
+          features: ["Création logo", "Charte graphique", "Déclinaisons supports", "Guide d'utilisation"]
         }
       ]
     },
     {
       id: "seo",
-      icon: <Search className="w-8 h-8" />,
+      icon: <Search className="w-5 h-5" />,
+      label: "SEO",
       title: "SEO & Visibilité",
-      description: "Soyez trouvé par vos clients potentiels",
-      gradient: "from-green-500 to-emerald-500",
+      description: "Soyez trouvé par vos clients potentiels sur Google",
       services: [
         {
           name: "Référencement SEO",
           icon: <TrendingUp className="w-5 h-5" />,
-          description: "Améliorez votre positionnement Google",
-          features: ["Optimisation on-page", "Contenu SEO", "Backlinks"]
+          description: "Améliorez durablement votre positionnement sur les moteurs de recherche",
+          features: ["Optimisation on-page", "Stratégie contenu", "Netlinking", "Suivi positions"]
         },
         {
           name: "Audit SEO",
           icon: <ClipboardCheck className="w-5 h-5" />,
-          description: "Analyse complète de votre visibilité",
-          features: ["Rapport détaillé", "Recommandations", "Plan d'action"]
+          description: "Analyse complète de votre visibilité actuelle et axes d'amélioration",
+          features: ["Rapport détaillé", "Analyse concurrence", "Recommandations", "Plan d'action"]
         }
       ]
     },
     {
       id: "accompagnement",
-      icon: <HeadphonesIcon className="w-8 h-8" />,
-      title: "Accompagnement",
-      description: "Un partenaire pour votre croissance digitale",
-      gradient: "from-orange-500 to-red-500",
+      icon: <HeadphonesIcon className="w-5 h-5" />,
+      label: "Accompagnement",
+      title: "Accompagnement & Support",
+      description: "Un partenaire durable pour votre croissance digitale",
       services: [
         {
           name: "Maintenance & Support",
           icon: <Wrench className="w-5 h-5" />,
-          description: "Gardez votre site performant et sécurisé",
-          features: ["Mises à jour", "Sauvegardes", "Support réactif"]
+          description: "Gardez votre site performant, sécurisé et à jour",
+          features: ["Mises à jour", "Sauvegardes auto", "Monitoring", "Support réactif"]
         },
         {
           name: "Formation",
           icon: <GraduationCap className="w-5 h-5" />,
-          description: "Maîtrisez vos outils digitaux",
-          features: ["Formation admin", "Bonnes pratiques", "Documentation"]
+          description: "Maîtrisez vos outils digitaux en toute autonomie",
+          features: ["Formation admin", "Bonnes pratiques", "Documentation", "Support post-formation"]
         }
       ]
-    }
-  ];
-
-  const advantages = [
-    {
-      icon: <Star className="w-5 h-5 text-yellow-500" />,
-      text: "Consultation gratuite et devis sous 24h"
-    },
-    {
-      icon: <Zap className="w-5 h-5 text-blue-500" />,
-      text: "Solutions adaptées à chaque budget"
-    },
-    {
-      icon: <CheckCircle className="w-5 h-5 text-green-500" />,
-      text: "Support inclus sur tous nos projets"
     }
   ];
 
@@ -153,149 +134,127 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-16 sm:py-24 bg-background relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 to-pink-50/30 dark:from-purple-950/10 dark:to-pink-950/10"></div>
-      <div className="absolute top-20 right-10 w-64 h-64 bg-purple-200 dark:bg-purple-800 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {/* Header */}
-        <header className="text-center mb-16">
-          <Badge className="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 text-purple-700 dark:text-purple-300 px-6 py-2 text-sm font-semibold mb-6 border-0">
-            <Star className="w-4 h-4 mr-2" />
-            Nos Expertises
-          </Badge>
-          <h2 className="text-3xl sm:text-5xl font-bold text-foreground mb-6 leading-tight">
-            Des services <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">complets</span> pour votre succès
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-            De la conception à l'accompagnement, nous vous proposons une gamme complète de services digitaux
+    <section id="services" className="py-20 sm:py-28 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        {/* Header minimaliste */}
+        <header className="text-center mb-16 max-w-2xl mx-auto">
+          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
+            Nos services
           </p>
-          
-          {/* Avantages */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-sm">
-            {advantages.map((advantage, index) => (
-              <div key={index} className="flex items-center gap-2">
-                {advantage.icon}
-                <span className="font-medium text-muted-foreground">{advantage.text}</span>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-foreground mb-4 tracking-tight">
+            Ce que nous faisons
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Des solutions digitales complètes, un accompagnement personnalisé
+          </p>
         </header>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        {/* Tabs */}
+        <Tabs defaultValue="sites-web" className="w-full">
+          <TabsList className="w-full max-w-2xl mx-auto grid grid-cols-4 mb-12 h-auto p-1 bg-muted/50">
+            {serviceCategories.map((category) => (
+              <TabsTrigger 
+                key={category.id} 
+                value={category.id}
+                className="flex items-center gap-2 py-3 px-4 text-sm data-[state=active]:bg-background data-[state=active]:shadow-sm"
+              >
+                {category.icon}
+                <span className="hidden sm:inline">{category.label}</span>
+              </TabsTrigger>
+            ))}
+          </TabsList>
+
           {serviceCategories.map((category) => (
-            <Card 
+            <TabsContent 
               key={category.id} 
-              className="border border-border shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+              value={category.id}
+              className="mt-0 focus-visible:outline-none"
             >
-              <CardHeader className="relative">
-                <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-5 group-hover:opacity-10 transition-opacity`}></div>
-                <div className="relative z-10 flex items-start gap-4">
-                  <div className={`w-14 h-14 bg-gradient-to-br ${category.gradient} rounded-xl flex items-center justify-center text-white shadow-lg flex-shrink-0`}>
-                    {category.icon}
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl text-foreground mb-1">{category.title}</CardTitle>
-                    <p className="text-sm text-muted-foreground">{category.description}</p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="relative z-10">
-                <div className="space-y-4">
-                  {category.services.map((service, serviceIndex) => (
-                    <div 
-                      key={serviceIndex} 
-                      className="p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors border border-transparent hover:border-border"
-                    >
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${category.gradient} bg-opacity-20 flex items-center justify-center text-foreground`}>
-                          {service.icon}
-                        </div>
-                        <h4 className="font-semibold text-foreground">{service.name}</h4>
+              {/* Category header */}
+              <div className="text-center mb-12">
+                <h3 className="text-2xl font-semibold text-foreground mb-2">
+                  {category.title}
+                </h3>
+                <p className="text-muted-foreground">
+                  {category.description}
+                </p>
+              </div>
+
+              {/* Services list */}
+              <div className="max-w-4xl mx-auto space-y-6">
+                {category.services.map((service, index) => (
+                  <div 
+                    key={index}
+                    className="group p-6 sm:p-8 rounded-lg border border-border bg-card hover:border-foreground/20 transition-colors"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+                      {/* Icon */}
+                      <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-foreground flex-shrink-0">
+                        {service.icon}
                       </div>
-                      <p className="text-sm text-muted-foreground mb-3">{service.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {service.features.map((feature, featureIndex) => (
-                          <span 
-                            key={featureIndex} 
-                            className="text-xs px-2 py-1 rounded-full bg-background border border-border text-muted-foreground"
-                          >
-                            {feature}
-                          </span>
-                        ))}
+                      
+                      {/* Content */}
+                      <div className="flex-1">
+                        <h4 className="text-lg font-medium text-foreground mb-2">
+                          {service.name}
+                        </h4>
+                        <p className="text-muted-foreground mb-4">
+                          {service.description}
+                        </p>
+                        
+                        {/* Features */}
+                        <div className="flex flex-wrap gap-2">
+                          {service.features.map((feature, featureIndex) => (
+                            <span 
+                              key={featureIndex}
+                              className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground"
+                            >
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* CTA */}
+                      <div className="sm:self-center">
+                        <Button 
+                          onClick={scrollToContact}
+                          variant="ghost" 
+                          size="sm"
+                          className="text-muted-foreground hover:text-foreground"
+                        >
+                          Devis
+                          <ArrowRight className="ml-1 w-4 h-4" />
+                        </Button>
                       </div>
                     </div>
-                  ))}
-                </div>
-                
-                {/* Devis sur-mesure badge */}
-                <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Badge variant="secondary" className="text-sm font-medium">
-                      Devis sur-mesure
-                    </Badge>
                   </div>
-                  <Button 
-                    onClick={scrollToContact}
-                    variant="ghost" 
-                    className={`text-sm font-semibold bg-gradient-to-r ${category.gradient} bg-clip-text text-transparent hover:opacity-80`}
-                  >
-                    Demander un devis
-                    <ArrowRight className="ml-2 w-4 h-4 text-purple-600" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                ))}
+              </div>
+            </TabsContent>
           ))}
-        </div>
+        </Tabs>
 
-        {/* Portfolio Link */}
-        <div className="text-center mb-12">
-          <p className="text-muted-foreground mb-4">
-            Découvrez comment nous avons aidé nos clients à développer leur activité
+        {/* Bottom CTA - minimaliste */}
+        <div className="mt-20 text-center">
+          <p className="text-muted-foreground mb-6">
+            Vous ne trouvez pas ce que vous cherchez ?
           </p>
-          <Link 
-            to="/portfolio" 
-            className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 font-semibold transition-colors"
-          >
-            Voir nos réalisations
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
-        {/* CTA Section */}
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-2xl">
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="relative z-10">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4">
-              Prêt à donner vie à votre projet ?
-            </h3>
-            <p className="text-lg text-purple-100 mb-8 max-w-2xl mx-auto">
-              Discutons ensemble de vos besoins et obtenez un devis personnalisé gratuit sous 24h
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                onClick={scrollToContact} 
-                size="lg" 
-                className="bg-white text-purple-600 hover:bg-gray-50 px-10 py-6 text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl"
-              >
-                Obtenir un devis gratuit
-                <ArrowRight className="ml-3 w-6 h-6" />
-              </Button>
-              <Button 
-                asChild 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold"
-              >
-                <Link to="/blog">
-                  Lire nos conseils
-                </Link>
-              </Button>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button 
+              onClick={scrollToContact}
+              size="lg"
+              className="px-8"
+            >
+              Discutons de votre projet
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+            <Link 
+              to="/portfolio" 
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4"
+            >
+              Voir nos réalisations
+            </Link>
           </div>
         </div>
       </div>
