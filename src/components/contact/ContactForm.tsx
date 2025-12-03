@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { User, Mail, Building2, Phone, ArrowRight, ArrowLeft, CheckCircle2, Send, Globe, ShoppingCart, FileText, Search } from "lucide-react";
+import { User, Mail, Building2, Phone, ArrowRight, ArrowLeft, CheckCircle2, Send, Globe, ShoppingCart, FileText, Search, Sparkles, Rocket, Gem, Trophy, Zap, Calendar, Target, Waves } from "lucide-react";
 
 interface ContactFormData {
   name: string;
@@ -29,17 +29,17 @@ const projectTypes = [
 ];
 
 const budgets = [
-  { value: "<2k", label: "< 2k€" },
-  { value: "2k-5k", label: "2-5k€" },
-  { value: "5k-10k", label: "5-10k€" },
-  { value: "10k+", label: "10k€+" },
+  { value: "<2k", label: "< 2 000€", icon: Sparkles, desc: "Projet simple", popular: false },
+  { value: "2k-5k", label: "2 - 5k€", icon: Rocket, desc: "Site complet", popular: true },
+  { value: "5k-10k", label: "5 - 10k€", icon: Gem, desc: "Sur-mesure", popular: false },
+  { value: "10k+", label: "10k€+", icon: Trophy, desc: "Premium", popular: false },
 ];
 
 const timelines = [
-  { value: "urgent", label: "< 2 sem" },
-  { value: "1month", label: "1 mois" },
-  { value: "3months", label: "2-3 mois" },
-  { value: "flexible", label: "Flexible" },
+  { value: "urgent", label: "< 2 semaines", icon: Zap, desc: "Express", recommended: false },
+  { value: "1month", label: "1 mois", icon: Calendar, desc: "Idéal", recommended: true },
+  { value: "3months", label: "2-3 mois", icon: Target, desc: "Confortable", recommended: false },
+  { value: "flexible", label: "Flexible", icon: Waves, desc: "Pas de rush", recommended: false },
 ];
 
 const ContactForm = () => {
@@ -334,45 +334,109 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <div>
-                  <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 sm:mb-2 block">Budget</label>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {budgets.map((b) => (
+              {/* Budget Section */}
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-200">💰 Budget estimé</label>
+                  <span className="text-[10px] sm:text-xs text-slate-400">Optionnel</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                  {budgets.map((b) => {
+                    const IconComponent = b.icon;
+                    const isSelected = formData.budget === b.value;
+                    return (
                       <button
                         key={b.value}
                         type="button"
                         onClick={() => setFormData({ ...formData, budget: b.value })}
-                        className={`px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-xs font-medium transition-all ${
-                          formData.budget === b.value
-                            ? 'bg-purple-600 text-white shadow-md'
-                            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+                        className={`relative p-3 sm:p-4 rounded-xl text-left transition-all duration-300 group ${
+                          isSelected
+                            ? 'bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25 scale-[1.02]'
+                            : 'bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-purple-300 hover:shadow-md hover:scale-[1.01]'
                         }`}
                       >
-                        {b.label}
+                        {b.popular && (
+                          <span className={`absolute -top-2 right-2 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                            isSelected ? 'bg-white text-purple-600' : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
+                          }`}>
+                            Populaire
+                          </span>
+                        )}
+                        <div className="flex items-start gap-2 sm:gap-3">
+                          <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                            isSelected ? 'bg-white/20' : 'bg-purple-100 dark:bg-purple-900/30'
+                          }`}>
+                            <IconComponent className={`w-4 h-4 sm:w-5 sm:h-5 ${isSelected ? 'text-white' : 'text-purple-600 dark:text-purple-400'}`} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className={`font-bold text-sm sm:text-base ${isSelected ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
+                              {b.label}
+                            </p>
+                            <p className={`text-[10px] sm:text-xs ${isSelected ? 'text-white/80' : 'text-slate-500'}`}>
+                              {b.desc}
+                            </p>
+                          </div>
+                        </div>
                       </button>
-                    ))}
-                  </div>
+                    );
+                  })}
                 </div>
-                <div>
-                  <label className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 sm:mb-2 block">Délai</label>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {timelines.map((t) => (
+              </div>
+
+              {/* Timeline Section */}
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-200">⏱️ Délai souhaité</label>
+                  <span className="text-[10px] sm:text-xs text-slate-400">Optionnel</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                  {timelines.map((t) => {
+                    const IconComponent = t.icon;
+                    const isSelected = formData.timeline === t.value;
+                    return (
                       <button
                         key={t.value}
                         type="button"
                         onClick={() => setFormData({ ...formData, timeline: t.value })}
-                        className={`px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-xs font-medium transition-all ${
-                          formData.timeline === t.value
-                            ? 'bg-purple-600 text-white shadow-md'
-                            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+                        className={`relative p-3 sm:p-4 rounded-xl text-left transition-all duration-300 group ${
+                          isSelected
+                            ? 'bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25 scale-[1.02]'
+                            : 'bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-purple-300 hover:shadow-md hover:scale-[1.01]'
                         }`}
                       >
-                        {t.label}
+                        {t.recommended && (
+                          <span className={`absolute -top-2 right-2 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                            isSelected ? 'bg-white text-purple-600' : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
+                          }`}>
+                            Recommandé
+                          </span>
+                        )}
+                        <div className="flex items-start gap-2 sm:gap-3">
+                          <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                            isSelected ? 'bg-white/20' : 'bg-pink-100 dark:bg-pink-900/30'
+                          }`}>
+                            <IconComponent className={`w-4 h-4 sm:w-5 sm:h-5 ${isSelected ? 'text-white' : 'text-pink-600 dark:text-pink-400'}`} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className={`font-bold text-sm sm:text-base ${isSelected ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
+                              {t.label}
+                            </p>
+                            <p className={`text-[10px] sm:text-xs ${isSelected ? 'text-white/80' : 'text-slate-500'}`}>
+                              {t.desc}
+                            </p>
+                          </div>
+                        </div>
                       </button>
-                    ))}
-                  </div>
+                    );
+                  })}
                 </div>
+              </div>
+
+              {/* Reassurance message */}
+              <div className="text-center py-2">
+                <p className="text-[10px] sm:text-xs text-slate-400 italic">
+                  💡 Ces informations nous aident à mieux estimer votre projet
+                </p>
               </div>
 
               <div className="flex gap-2 sm:gap-3 pt-1 sm:pt-2">
