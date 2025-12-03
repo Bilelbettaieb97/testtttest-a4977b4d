@@ -56,11 +56,20 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/">
+            <button
+              onClick={() => {
+                if (isHomePage) {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  window.location.href = '/';
+                }
+              }}
+              className="cursor-pointer"
+            >
               <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                 ConvertiLab
               </h1>
-            </Link>
+            </button>
           </div>
 
           {/* Desktop Navigation */}
