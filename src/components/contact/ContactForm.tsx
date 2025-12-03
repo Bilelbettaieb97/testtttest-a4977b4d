@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { User, Mail, Building2, Phone, ArrowRight, ArrowLeft, CheckCircle2, Send, Globe, ShoppingCart, FileText, Search, Sparkles, Rocket, Gem, Trophy, Zap, Calendar, Target, Waves } from "lucide-react";
+import confetti from "canvas-confetti";
 
 interface ContactFormData {
   name: string;
@@ -149,6 +150,32 @@ const ContactForm = () => {
       if (typeof window !== 'undefined' && (window as any).trackFormConversion) {
         (window as any).trackFormConversion();
       }
+
+      // Trigger confetti celebration
+      const duration = 3000;
+      const end = Date.now() + duration;
+
+      const frame = () => {
+        confetti({
+          particleCount: 3,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: ['#8b5cf6', '#ec4899', '#a855f7', '#f472b6']
+        });
+        confetti({
+          particleCount: 3,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: ['#8b5cf6', '#ec4899', '#a855f7', '#f472b6']
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      };
+      frame();
 
       toast({
         title: "Demande envoyée ! 🎉",
