@@ -3,6 +3,8 @@ import { ArrowLeft, ShoppingCart, Utensils, Home, Dumbbell, Sparkles, BookOpen, 
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEO } from "@/components/SEO";
+import { CaseStudySchema, BreadcrumbSchema } from "@/components/seo/StructuredData";
 import CaseStudyHero from "@/components/case-study/CaseStudyHero";
 import CaseStudyOverview from "@/components/case-study/CaseStudyOverview";
 import CaseStudyChallenge from "@/components/case-study/CaseStudyChallenge";
@@ -350,6 +352,29 @@ const CaseStudy = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        url={`/case-study/${slug}`}
+        title={`${caseStudy.client} - ${caseStudy.title}`}
+        description={caseStudy.subtitle}
+        image={typeof caseStudy.image === 'string' ? caseStudy.image : undefined}
+        type="article"
+        keywords={`étude de cas, ${caseStudy.sector}, ${caseStudy.client}, création site web, ${caseStudy.technologies.join(', ')}`}
+      />
+      <CaseStudySchema 
+        caseStudy={{
+          title: `${caseStudy.client} - ${caseStudy.title}`,
+          description: caseStudy.subtitle,
+          image: typeof caseStudy.image === 'string' ? caseStudy.image : 'https://convertilab.fr/favicon.png'
+        }}
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Accueil', url: '/' },
+          { name: 'Portfolio', url: '/#portfolio' },
+          { name: caseStudy.client, url: `/case-study/${slug}` }
+        ]}
+      />
+      
       <Navigation />
       
       <div className="container mx-auto px-4 pt-24 pb-8">
