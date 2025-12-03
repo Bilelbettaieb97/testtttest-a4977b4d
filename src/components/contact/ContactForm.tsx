@@ -180,31 +180,60 @@ const ContactForm = () => {
         <p className="text-purple-100 text-xs sm:text-sm text-center mt-1">On revient vers vous sous 24h</p>
       </div>
 
-      {/* Progress Steps */}
-      <div className="px-4 sm:px-6 pt-4 sm:pt-5 pb-3 sm:pb-4">
-        <div className="flex items-center justify-between mb-3">
-          {[
-            { num: 1, label: "Projet" },
-            { num: 2, label: "Détails" },
-            { num: 3, label: "Contact" }
-          ].map((s, idx) => (
-            <div key={s.num} className="flex items-center flex-1">
-              <div className="flex flex-col items-center">
+      {/* Progress Bar */}
+      <div className="px-4 sm:px-6 pt-4 sm:pt-5 pb-2">
+        <div className="relative">
+          {/* Background bar */}
+          <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+            {/* Animated progress fill */}
+            <div 
+              className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 rounded-full transition-all duration-500 ease-out relative overflow-hidden"
+              style={{ width: `${((step - 1) / (totalSteps - 1)) * 100}%` }}
+            >
+              {/* Shimmer effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[shimmer_2s_infinite] -translate-x-full" 
+                   style={{ animation: 'shimmer 2s infinite' }} />
+            </div>
+          </div>
+          
+          {/* Step indicators */}
+          <div className="flex justify-between mt-3">
+            {[
+              { num: 1, label: "Projet" },
+              { num: 2, label: "Détails" },
+              { num: 3, label: "Contact" }
+            ].map((s) => (
+              <div key={s.num} className="flex flex-col items-center">
                 <div className={`
-                  w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm transition-all duration-300
-                  ${s.num < step ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' : s.num === step ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/30' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}
+                  w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm 
+                  transition-all duration-500 ease-out transform
+                  ${s.num < step 
+                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white scale-100' 
+                    : s.num === step 
+                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/40 scale-110 ring-4 ring-purple-200 dark:ring-purple-900' 
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-400 scale-95'}
                 `}>
-                  {s.num < step ? <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" /> : s.num}
+                  {s.num < step ? (
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 animate-scale-in" />
+                  ) : (
+                    <span className={s.num === step ? 'animate-pulse' : ''}>{s.num}</span>
+                  )}
                 </div>
-                <span className={`mt-1 text-[10px] sm:text-xs font-medium ${s.num <= step ? 'text-purple-600' : 'text-slate-400'}`}>
+                <span className={`mt-2 text-[10px] sm:text-xs font-medium transition-all duration-300 ${
+                  s.num < step ? 'text-purple-500' : s.num === step ? 'text-purple-600 font-semibold' : 'text-slate-400'
+                }`}>
                   {s.label}
                 </span>
               </div>
-              {idx < 2 && (
-                <div className={`flex-1 h-1 mx-2 sm:mx-3 rounded-full transition-all duration-300 mb-5 ${s.num < step ? 'bg-gradient-to-r from-purple-500 to-pink-500' : 'bg-slate-200 dark:bg-slate-700'}`} />
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+        
+        {/* Step counter */}
+        <div className="text-center mt-3">
+          <span className="text-xs text-slate-500">
+            Étape <span className="font-bold text-purple-600">{step}</span> sur <span className="font-bold">{totalSteps}</span>
+          </span>
         </div>
       </div>
 
