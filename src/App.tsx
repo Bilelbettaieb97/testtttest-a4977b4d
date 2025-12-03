@@ -18,6 +18,17 @@ import SitesWebPage from "./pages/services/SitesWeb";
 import DesignPage from "./pages/services/Design";
 import SeoPage from "./pages/services/Seo";
 import SeaPage from "./pages/services/Sea";
+import LandingPageService from "./pages/services/LandingPage";
+import SiteVitrineService from "./pages/services/SiteVitrine";
+import SiteEcommerceService from "./pages/services/SiteEcommerce";
+import ApplicationWebService from "./pages/services/ApplicationWeb";
+import RefonteSiteService from "./pages/services/RefonteSite";
+import DesignUiUxService from "./pages/services/DesignUiUx";
+import IdentiteVisuelleService from "./pages/services/IdentiteVisuelle";
+import ReferencementSeoService from "./pages/services/ReferencementSeo";
+import AuditSeoService from "./pages/services/AuditSeo";
+import GoogleAdsService from "./pages/services/GoogleAds";
+import MetaAdsService from "./pages/services/MetaAds";
 import PortfolioPage from "./pages/PortfolioPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
@@ -35,9 +46,20 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/sites-web" element={<SitesWebPage />} />
+            <Route path="/services/sites-web/landing-page" element={<LandingPageService />} />
+            <Route path="/services/sites-web/site-vitrine" element={<SiteVitrineService />} />
+            <Route path="/services/sites-web/site-ecommerce" element={<SiteEcommerceService />} />
+            <Route path="/services/sites-web/application-web" element={<ApplicationWebService />} />
+            <Route path="/services/sites-web/refonte-site" element={<RefonteSiteService />} />
             <Route path="/services/design" element={<DesignPage />} />
+            <Route path="/services/design/ui-ux" element={<DesignUiUxService />} />
+            <Route path="/services/design/identite-visuelle" element={<IdentiteVisuelleService />} />
             <Route path="/services/seo" element={<SeoPage />} />
+            <Route path="/services/seo/referencement" element={<ReferencementSeoService />} />
+            <Route path="/services/seo/audit" element={<AuditSeoService />} />
             <Route path="/services/sea" element={<SeaPage />} />
+            <Route path="/services/sea/google-ads" element={<GoogleAdsService />} />
+            <Route path="/services/sea/meta-ads" element={<MetaAdsService />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/a-propos" element={<AboutPage />} />

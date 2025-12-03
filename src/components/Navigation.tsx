@@ -16,6 +16,7 @@ import { cn } from "@/lib/utils";
 interface SubService {
   name: string;
   icon: LucideIcon;
+  href: string;
 }
 
 interface ServiceCategory {
@@ -39,11 +40,11 @@ const Navigation = () => {
       icon: Globe,
       description: "Sites vitrines, e-commerce et applications web",
       subServices: [
-        { name: "Landing Page", icon: Rocket },
-        { name: "Site Vitrine", icon: FileText },
-        { name: "Site E-commerce", icon: Store },
-        { name: "Application Web", icon: Code },
-        { name: "Refonte de Site", icon: RefreshCw },
+        { name: "Landing Page", icon: Rocket, href: "/services/sites-web/landing-page" },
+        { name: "Site Vitrine", icon: FileText, href: "/services/sites-web/site-vitrine" },
+        { name: "Site E-commerce", icon: Store, href: "/services/sites-web/site-ecommerce" },
+        { name: "Application Web", icon: Code, href: "/services/sites-web/application-web" },
+        { name: "Refonte de Site", icon: RefreshCw, href: "/services/sites-web/refonte-site" },
       ]
     },
     { 
@@ -52,8 +53,8 @@ const Navigation = () => {
       icon: Palette,
       description: "Identité visuelle, UI/UX et création graphique",
       subServices: [
-        { name: "Design UI/UX", icon: PenTool },
-        { name: "Identité Visuelle", icon: Fingerprint },
+        { name: "Design UI/UX", icon: PenTool, href: "/services/design/ui-ux" },
+        { name: "Identité Visuelle", icon: Fingerprint, href: "/services/design/identite-visuelle" },
       ]
     },
     { 
@@ -62,8 +63,8 @@ const Navigation = () => {
       icon: Search,
       description: "Référencement naturel et optimisation",
       subServices: [
-        { name: "Référencement SEO", icon: TrendingUp },
-        { name: "Audit SEO", icon: ClipboardCheck },
+        { name: "Référencement SEO", icon: TrendingUp, href: "/services/seo/referencement" },
+        { name: "Audit SEO", icon: ClipboardCheck, href: "/services/seo/audit" },
       ]
     },
     { 
@@ -72,8 +73,8 @@ const Navigation = () => {
       icon: Target,
       description: "Publicité Google Ads et campagnes payantes",
       subServices: [
-        { name: "Google Ads", icon: Search },
-        { name: "Meta Ads", icon: Fingerprint },
+        { name: "Google Ads", icon: Search, href: "/services/sea/google-ads" },
+        { name: "Meta Ads", icon: Fingerprint, href: "/services/sea/meta-ads" },
       ]
     },
   ];
@@ -185,7 +186,7 @@ const Navigation = () => {
                             <li key={subService.name}>
                               <NavigationMenuLink asChild>
                                 <Link
-                                  to={activeCategory.href}
+                                  to={subService.href}
                                   className="group flex items-center gap-3 p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200"
                                 >
                                   <subService.icon className="w-4 h-4 text-purple-500 group-hover:text-purple-600 transition-colors" />
