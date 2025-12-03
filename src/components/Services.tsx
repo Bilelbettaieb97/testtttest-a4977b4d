@@ -36,35 +36,35 @@ const Services = () => {
           icon: <Rocket className="w-5 h-5" />,
           description: "Page unique optimisée pour la conversion de vos visiteurs en clients",
           features: ["Design responsive", "Optimisation conversion", "Formulaire contact", "Hébergement inclus"],
-          link: "/services/landing-page"
+          link: "/services/sites-web/landing-page"
         },
         {
           name: "Site Vitrine",
           icon: <FileText className="w-5 h-5" />,
           description: "Présentation complète et professionnelle de votre activité",
           features: ["Multi-pages", "SEO optimisé", "Design personnalisé", "Support inclus"],
-          link: "/services/site-vitrine"
+          link: "/services/sites-web/site-vitrine"
         },
         {
           name: "Site E-commerce",
           icon: <Store className="w-5 h-5" />,
           description: "Boutique en ligne performante pour vendre vos produits",
           features: ["Paiement sécurisé", "Gestion stocks", "Formation incluse", "Analytics"],
-          link: "/services/site-ecommerce"
+          link: "/services/sites-web/site-ecommerce"
         },
         {
           name: "Application Web",
           icon: <Code className="w-5 h-5" />,
           description: "Solutions sur-mesure pour des besoins spécifiques",
           features: ["Développement custom", "API intégrées", "Scalable", "Maintenance"],
-          link: "/services/application-web"
+          link: "/services/sites-web/application-web"
         },
         {
           name: "Refonte de Site",
           icon: <RefreshCw className="w-5 h-5" />,
           description: "Modernisez votre présence en ligne existante",
           features: ["Audit complet", "Nouveau design", "Migration données", "SEO préservé"],
-          link: "/services/refonte-site"
+          link: "/services/sites-web/refonte-site"
         }
       ]
     },
@@ -84,14 +84,14 @@ const Services = () => {
           icon: <PenTool className="w-5 h-5" />,
           description: "Interfaces intuitives qui optimisent l'expérience utilisateur",
           features: ["Wireframes", "Prototypes interactifs", "Tests utilisateurs", "Design system"],
-          link: "/services/design-ui-ux"
+          link: "/services/design/ui-ux"
         },
         {
           name: "Identité Visuelle",
           icon: <Fingerprint className="w-5 h-5" />,
           description: "Logo et charte graphique pour une image cohérente",
           features: ["Création logo", "Charte graphique", "Déclinaisons supports", "Guide d'utilisation"],
-          link: "/services/identite-visuelle"
+          link: "/services/design/identite-visuelle"
         }
       ]
     },
@@ -111,14 +111,14 @@ const Services = () => {
           icon: <TrendingUp className="w-5 h-5" />,
           description: "Améliorez durablement votre positionnement sur les moteurs de recherche",
           features: ["Optimisation on-page", "Stratégie contenu", "Netlinking", "Suivi positions"],
-          link: "/services/referencement-seo"
+          link: "/services/seo/referencement"
         },
         {
           name: "Audit SEO",
           icon: <ClipboardCheck className="w-5 h-5" />,
           description: "Analyse complète de votre visibilité actuelle et axes d'amélioration",
           features: ["Rapport détaillé", "Analyse concurrence", "Recommandations", "Plan d'action"],
-          link: "/services/audit-seo"
+          link: "/services/seo/audit"
         }
       ]
     },
@@ -138,14 +138,14 @@ const Services = () => {
           icon: <Search className="w-5 h-5" />,
           description: "Campagnes Search, Display et Shopping pour capter vos clients au bon moment",
           features: ["Campagnes Search", "Google Shopping", "Display", "Remarketing"],
-          link: "/services/google-ads"
+          link: "/services/sea/google-ads"
         },
         {
           name: "Meta Ads",
           icon: <Fingerprint className="w-5 h-5" />,
           description: "Publicités Facebook et Instagram pour toucher votre audience idéale",
           features: ["Facebook Ads", "Instagram Ads", "Ciblage précis", "Créatifs optimisés"],
-          link: "/services/meta-ads"
+          link: "/services/sea/meta-ads"
         }
       ]
     }
