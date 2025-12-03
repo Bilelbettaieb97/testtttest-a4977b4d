@@ -10,6 +10,57 @@
     <priority>1.0</priority>
   </url>
   
+  <!-- Blog -->
+  <url>
+    <loc>https://convertilab.fr/blog</loc>
+    <lastmod>2025-12-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://convertilab.fr/blog/pourquoi-site-web-indispensable-2024</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://convertilab.fr/blog/erreurs-site-web-eviter</loc>
+    <lastmod>2024-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://convertilab.fr/blog/seo-local-guide-complet</loc>
+    <lastmod>2024-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://convertilab.fr/blog/combien-coute-site-web</loc>
+    <lastmod>2024-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://convertilab.fr/blog/tendances-web-design-2024</loc>
+    <lastmod>2024-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://convertilab.fr/blog/optimiser-vitesse-site-web</loc>
+    <lastmod>2024-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
   <!-- Offre Spéciale -->
   <url>
     <loc>https://convertilab.fr/offre-speciale</loc>
