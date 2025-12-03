@@ -53,6 +53,10 @@ const Navigation = () => {
     { label: "Contact", href: "/contact" }
   ];
 
+  // Separate Portfolio from other nav items for ordering
+  const portfolioItem = navItems.find(item => item.label === "Portfolio");
+  const otherNavItems = navItems.filter(item => item.label !== "Portfolio");
+
   const openCalendly = () => {
     window.open('https://calendly.com/convertilab-5bsc/30min', '_blank');
   };
@@ -72,13 +76,16 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6">
-            <Link
-              to="/portfolio"
-              className={`text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium cursor-pointer relative group ${location.pathname === '/portfolio' ? 'text-purple-600' : ''}`}
-            >
-              Portfolio
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 ${location.pathname === '/portfolio' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-            </Link>
+            {/* Portfolio Link */}
+            {portfolioItem && (
+              <Link
+                to={portfolioItem.href}
+                className={`text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium cursor-pointer relative group ${location.pathname === portfolioItem.href ? 'text-purple-600' : ''}`}
+              >
+                {portfolioItem.label}
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 ${location.pathname === portfolioItem.href ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+              </Link>
+            )}
 
             {/* Services Dropdown */}
             <NavigationMenu>
@@ -135,7 +142,7 @@ const Navigation = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            {navItems.map((item) => (
+            {otherNavItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
@@ -226,7 +233,7 @@ const Navigation = () => {
                 )}
               </div>
 
-              {navItems.map((item) => (
+              {otherNavItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
