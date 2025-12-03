@@ -92,12 +92,34 @@ export default {
 					'100%': {
 						transform: 'translateX(100%)'
 					}
+				},
+				'tab-slide-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'tab-slide-out': {
+					'0%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'shimmer': 'shimmer 2s infinite'
+				'shimmer': 'shimmer 2s infinite',
+				'tab-slide-in': 'tab-slide-in 0.3s ease-out forwards',
+				'tab-slide-out': 'tab-slide-out 0.2s ease-out forwards'
 			}
 		}
 	},
