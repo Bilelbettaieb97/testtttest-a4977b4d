@@ -41,7 +41,7 @@ const PromoBanner = () => {
 
   return (
     <div 
-      className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white py-2 sm:py-3 px-3 sm:px-4 relative overflow-hidden" 
+      className="hidden sm:block w-full bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white py-2 sm:py-3 px-3 sm:px-4 relative overflow-hidden" 
       style={{ marginTop: '64px' }}
     >
       {/* Animation de fond */}

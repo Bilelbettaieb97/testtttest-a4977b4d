@@ -37,29 +37,8 @@ const StickyMobileCTA = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-3 bg-gradient-to-r from-purple-600 to-pink-600 shadow-2xl md:hidden">
-      <div className="flex items-center justify-between">
-        <div className="flex-1 mr-3">
-          <div className="text-white font-bold text-sm">🚀 Audit gratuit</div>
-          <div className="text-white/90 text-xs">+35% conversions garanties</div>
-        </div>
-        <div className="flex items-center gap-2">
-          <Button
-            onClick={scrollToContact}
-            size="sm"
-            className="bg-white text-purple-600 hover:bg-gray-100 font-bold px-3 py-2 text-xs"
-          >
-            <Phone className="w-3 h-3 mr-1" />
-            Contact
-          </Button>
-          <button
-            onClick={hideSticky}
-            className="text-white/70 hover:text-white p-1"
-          >
-            <X className="w-3 h-3" />
-          </button>
-        </div>
-      </div>
+    <div className="hidden">
+      {/* Hidden - disabled on mobile */}
     </div>
   );
 };
