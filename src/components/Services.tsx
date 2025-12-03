@@ -29,6 +29,7 @@ const Services = () => {
       gradient: "from-violet-500 to-purple-600",
       lightGradient: "from-violet-50 to-purple-50",
       accentColor: "text-violet-600",
+      link: "/services/sites-web",
       services: [
         {
           name: "Landing Page",
@@ -71,6 +72,7 @@ const Services = () => {
       gradient: "from-pink-500 to-rose-600",
       lightGradient: "from-pink-50 to-rose-50",
       accentColor: "text-pink-600",
+      link: "/services/design",
       services: [
         {
           name: "Design UI/UX",
@@ -95,6 +97,7 @@ const Services = () => {
       gradient: "from-emerald-500 to-teal-600",
       lightGradient: "from-emerald-50 to-teal-50",
       accentColor: "text-emerald-600",
+      link: "/services/seo",
       services: [
         {
           name: "Référencement SEO",
@@ -119,6 +122,7 @@ const Services = () => {
       gradient: "from-amber-500 to-orange-600",
       lightGradient: "from-amber-50 to-orange-50",
       accentColor: "text-amber-600",
+      link: "/services/sea",
       services: [
         {
           name: "Google Ads",
@@ -271,6 +275,17 @@ const Services = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+              
+              {/* En savoir plus link */}
+              <div className="text-center mt-8">
+                <Link 
+                  to={category.link}
+                  className={`inline-flex items-center gap-2 ${category.accentColor} hover:opacity-80 font-medium transition-opacity`}
+                >
+                  En savoir plus sur nos services {category.label}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </TabsContent>
           ))}
