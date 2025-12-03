@@ -7,6 +7,7 @@ import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { getArticleBySlug, getRelatedArticles } from "@/data/blogArticles";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 import { Helmet } from "react-helmet-async";
@@ -137,6 +138,29 @@ const BlogArticle = () => {
       <Navigation />
       
       <main className="pt-24 pb-16">
+        {/* Breadcrumb */}
+        <div className="container mx-auto px-4 sm:px-6 mb-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Accueil</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/blog">Blog</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="max-w-[200px] truncate">{article.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+        
         {/* Hero */}
         <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
           <img 

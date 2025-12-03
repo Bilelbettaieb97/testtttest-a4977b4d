@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Check, Clock, Users, Zap, Star, ArrowRight, Phone, Sparkles, Shield, Award, TrendingUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { SEO } from "@/components/SEO";
 import { ProductSchema, BreadcrumbSchema } from "@/components/seo/StructuredData";
 import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
@@ -190,8 +191,8 @@ const OffreSpeciale = () => {
       />
       <BreadcrumbSchema 
         items={[
-          { name: 'Accueil', url: '/' },
-          { name: 'Offre Spéciale', url: '/offre-speciale' }
+          { name: 'Accueil', url: 'https://convertilab.fr/' },
+          { name: 'Offre Spéciale', url: 'https://convertilab.fr/offre-speciale' }
         ]}
       />
       
@@ -211,6 +212,20 @@ const OffreSpeciale = () => {
       {/* Hero Section */}
       <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-3 sm:px-4">
         <div className="container mx-auto max-w-6xl">
+          {/* Breadcrumb */}
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/" className="text-gray-400 hover:text-white">Accueil</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="text-gray-600" />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-white">Offre Spéciale</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <div className="text-center lg:text-left">
