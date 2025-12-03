@@ -35,31 +35,36 @@ const Services = () => {
           name: "Landing Page",
           icon: <Rocket className="w-5 h-5" />,
           description: "Page unique optimisée pour la conversion de vos visiteurs en clients",
-          features: ["Design responsive", "Optimisation conversion", "Formulaire contact", "Hébergement inclus"]
+          features: ["Design responsive", "Optimisation conversion", "Formulaire contact", "Hébergement inclus"],
+          link: "/services/landing-page"
         },
         {
           name: "Site Vitrine",
           icon: <FileText className="w-5 h-5" />,
           description: "Présentation complète et professionnelle de votre activité",
-          features: ["Multi-pages", "SEO optimisé", "Design personnalisé", "Support inclus"]
+          features: ["Multi-pages", "SEO optimisé", "Design personnalisé", "Support inclus"],
+          link: "/services/site-vitrine"
         },
         {
           name: "Site E-commerce",
           icon: <Store className="w-5 h-5" />,
           description: "Boutique en ligne performante pour vendre vos produits",
-          features: ["Paiement sécurisé", "Gestion stocks", "Formation incluse", "Analytics"]
+          features: ["Paiement sécurisé", "Gestion stocks", "Formation incluse", "Analytics"],
+          link: "/services/site-ecommerce"
         },
         {
           name: "Application Web",
           icon: <Code className="w-5 h-5" />,
           description: "Solutions sur-mesure pour des besoins spécifiques",
-          features: ["Développement custom", "API intégrées", "Scalable", "Maintenance"]
+          features: ["Développement custom", "API intégrées", "Scalable", "Maintenance"],
+          link: "/services/application-web"
         },
         {
           name: "Refonte de Site",
           icon: <RefreshCw className="w-5 h-5" />,
           description: "Modernisez votre présence en ligne existante",
-          features: ["Audit complet", "Nouveau design", "Migration données", "SEO préservé"]
+          features: ["Audit complet", "Nouveau design", "Migration données", "SEO préservé"],
+          link: "/services/refonte-site"
         }
       ]
     },
@@ -78,13 +83,15 @@ const Services = () => {
           name: "Design UI/UX",
           icon: <PenTool className="w-5 h-5" />,
           description: "Interfaces intuitives qui optimisent l'expérience utilisateur",
-          features: ["Wireframes", "Prototypes interactifs", "Tests utilisateurs", "Design system"]
+          features: ["Wireframes", "Prototypes interactifs", "Tests utilisateurs", "Design system"],
+          link: "/services/design-ui-ux"
         },
         {
           name: "Identité Visuelle",
           icon: <Fingerprint className="w-5 h-5" />,
           description: "Logo et charte graphique pour une image cohérente",
-          features: ["Création logo", "Charte graphique", "Déclinaisons supports", "Guide d'utilisation"]
+          features: ["Création logo", "Charte graphique", "Déclinaisons supports", "Guide d'utilisation"],
+          link: "/services/identite-visuelle"
         }
       ]
     },
@@ -103,13 +110,15 @@ const Services = () => {
           name: "Référencement SEO",
           icon: <TrendingUp className="w-5 h-5" />,
           description: "Améliorez durablement votre positionnement sur les moteurs de recherche",
-          features: ["Optimisation on-page", "Stratégie contenu", "Netlinking", "Suivi positions"]
+          features: ["Optimisation on-page", "Stratégie contenu", "Netlinking", "Suivi positions"],
+          link: "/services/referencement-seo"
         },
         {
           name: "Audit SEO",
           icon: <ClipboardCheck className="w-5 h-5" />,
           description: "Analyse complète de votre visibilité actuelle et axes d'amélioration",
-          features: ["Rapport détaillé", "Analyse concurrence", "Recommandations", "Plan d'action"]
+          features: ["Rapport détaillé", "Analyse concurrence", "Recommandations", "Plan d'action"],
+          link: "/services/audit-seo"
         }
       ]
     },
@@ -128,13 +137,15 @@ const Services = () => {
           name: "Google Ads",
           icon: <Search className="w-5 h-5" />,
           description: "Campagnes Search, Display et Shopping pour capter vos clients au bon moment",
-          features: ["Campagnes Search", "Google Shopping", "Display", "Remarketing"]
+          features: ["Campagnes Search", "Google Shopping", "Display", "Remarketing"],
+          link: "/services/google-ads"
         },
         {
           name: "Meta Ads",
           icon: <Fingerprint className="w-5 h-5" />,
           description: "Publicités Facebook et Instagram pour toucher votre audience idéale",
-          features: ["Facebook Ads", "Instagram Ads", "Ciblage précis", "Créatifs optimisés"]
+          features: ["Facebook Ads", "Instagram Ads", "Ciblage précis", "Créatifs optimisés"],
+          link: "/services/meta-ads"
         }
       ]
     }
@@ -263,15 +274,23 @@ const Services = () => {
                       </div>
 
                       {/* CTA */}
-                      <Button 
-                        onClick={scrollToContact}
-                        variant="ghost" 
-                        size="sm"
-                        className={`p-0 h-auto ${category.accentColor} hover:${category.accentColor} font-medium group/btn`}
-                      >
-                        Demander un devis
-                        <ArrowRight className="ml-1 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </Button>
+                      <div className="flex items-center gap-4">
+                        <Button 
+                          onClick={scrollToContact}
+                          variant="ghost" 
+                          size="sm"
+                          className={`p-0 h-auto ${category.accentColor} hover:${category.accentColor} font-medium group/btn`}
+                        >
+                          Demander un devis
+                          <ArrowRight className="ml-1 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                        </Button>
+                        <Link 
+                          to={service.link}
+                          className="text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2"
+                        >
+                          En savoir plus
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 ))}
