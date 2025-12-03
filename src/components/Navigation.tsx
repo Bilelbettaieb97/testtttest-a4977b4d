@@ -24,8 +24,8 @@ const Navigation = () => {
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
-      const offset = 80; // Account for fixed header
-      const elementPosition = element.offsetTop - offset;
+      const offset = 100; // Account for fixed header + promo banner
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
