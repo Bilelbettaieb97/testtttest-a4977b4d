@@ -11,12 +11,21 @@ const Footer = () => {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const services = [
-    { name: "Design Web Créatif", href: "#services" },
-    { name: "Développement Expert", href: "#services" },
-    { name: "Site E-commerce", href: "#offers" },
-    { name: "Application Web", href: "#offers" },
-    { name: "Optimisation SEO", href: "#services" },
-    { name: "Maintenance Web", href: "#services" }
+    { name: "Design Web Créatif", href: "/services" },
+    { name: "Développement Expert", href: "/services" },
+    { name: "Site E-commerce", href: "/services" },
+    { name: "Application Web", href: "/services" },
+    { name: "Optimisation SEO", href: "/services" },
+    { name: "Maintenance Web", href: "/services" }
+  ];
+
+  const quickLinks = [
+    { name: "Accueil", href: "/" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Services", href: "/services" },
+    { name: "À propos", href: "/a-propos" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" }
   ];
 
   const sectors = [
@@ -28,16 +37,20 @@ const Footer = () => {
     { name: "Startups Tech", icon: Smartphone }
   ];
 
-  const scrollToSection = (href: string) => {
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.offsetTop - offset;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
+  const handleNavigation = (href: string) => {
+    if (href.startsWith('#')) {
+      const targetId = href.replace('#', '');
+      const element = document.getElementById(targetId);
+      if (element) {
+        const offset = 80;
+        const elementPosition = element.offsetTop - offset;
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      navigate(href);
     }
   };
 
@@ -108,7 +121,7 @@ const Footer = () => {
       <div className="absolute top-20 right-10 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
       
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 mb-12 sm:mb-16">
           
           {/* Brand & Description */}
           <div className="space-y-4 lg:col-span-1">
@@ -157,11 +170,32 @@ const Footer = () => {
               {services.map((service, index) => (
                 <li key={index}>
                   <button
-                    onClick={() => scrollToSection(service.href)}
+                    onClick={() => handleNavigation(service.href)}
                     className="text-gray-300 hover:text-purple-400 transition-colors cursor-pointer text-sm flex items-center group"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {service.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h4 className="text-lg sm:text-xl font-semibold text-white mb-6 flex items-center">
+              <ArrowRight className="w-5 h-5 mr-2 text-purple-400" />
+              Liens rapides
+            </h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <button
+                    onClick={() => handleNavigation(link.href)}
+                    className="text-gray-300 hover:text-purple-400 transition-colors cursor-pointer text-sm flex items-center group"
+                  >
+                    <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {link.name}
                   </button>
                 </li>
               ))}
@@ -222,7 +256,7 @@ const Footer = () => {
             {/* CTA Footer */}
             <div className="pt-4">
               <Button 
-                onClick={() => scrollToSection('#contact')}
+                onClick={() => handleNavigation('/contact')}
                 className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 text-sm"
               >
                 Devis Gratuit

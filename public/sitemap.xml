@@ -8,36 +8,38 @@
     <lastmod>2025-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/example-site-artisan.jpg</image:loc>
-      <image:title>Exemple site artisan ConvertiLab</image:title>
-      <image:caption>Création de site web pour artisan par ConvertiLab</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/example-site-coach.jpg</image:loc>
-      <image:title>Exemple site coach ConvertiLab</image:title>
-      <image:caption>Création de site web pour coach par ConvertiLab</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/example-site-restaurant.jpg</image:loc>
-      <image:title>Exemple site restaurant ConvertiLab</image:title>
-      <image:caption>Création de site web pour restaurant par ConvertiLab</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/portfolio-ecommerce.jpg</image:loc>
-      <image:title>Portfolio e-commerce ConvertiLab</image:title>
-      <image:caption>Réalisation site e-commerce par ConvertiLab</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/portfolio-restaurant.jpg</image:loc>
-      <image:title>Portfolio restaurant ConvertiLab</image:title>
-      <image:caption>Réalisation site restaurant par ConvertiLab</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/portfolio-immobilier.jpg</image:loc>
-      <image:title>Portfolio immobilier ConvertiLab</image:title>
-      <image:caption>Réalisation site immobilier par ConvertiLab</image:caption>
-    </image:image>
+  </url>
+  
+  <!-- Services -->
+  <url>
+    <loc>https://convertilab.fr/services</loc>
+    <lastmod>2025-12-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Portfolio -->
+  <url>
+    <loc>https://convertilab.fr/portfolio</loc>
+    <lastmod>2025-12-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Contact -->
+  <url>
+    <loc>https://convertilab.fr/contact</loc>
+    <lastmod>2025-12-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- À propos -->
+  <url>
+    <loc>https://convertilab.fr/a-propos</loc>
+    <lastmod>2025-12-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   
   <!-- Blog -->
@@ -54,11 +56,6 @@
     <lastmod>2024-12-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-pourquoi-site-web.jpg</image:loc>
-      <image:title>Pourquoi un site web est indispensable en 2024</image:title>
-      <image:caption>Guide complet sur l'importance d'un site web professionnel</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -66,11 +63,6 @@
     <lastmod>2024-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-erreurs-site-web.jpg</image:loc>
-      <image:title>Erreurs à éviter sur un site web</image:title>
-      <image:caption>Les erreurs courantes à éviter lors de la création d'un site web</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -78,11 +70,6 @@
     <lastmod>2024-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-seo-local.jpg</image:loc>
-      <image:title>Guide SEO local complet</image:title>
-      <image:caption>Optimisation SEO local pour les entreprises</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -90,11 +77,6 @@
     <lastmod>2024-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-cout-site-web.jpg</image:loc>
-      <image:title>Combien coûte un site web</image:title>
-      <image:caption>Guide des prix pour la création de site web</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -102,11 +84,6 @@
     <lastmod>2024-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-tendances-webdesign.jpg</image:loc>
-      <image:title>Tendances web design 2024</image:title>
-      <image:caption>Les dernières tendances en web design pour 2024</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -114,11 +91,6 @@
     <lastmod>2024-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-vitesse-site.jpg</image:loc>
-      <image:title>Optimiser la vitesse d'un site web</image:title>
-      <image:caption>Guide d'optimisation des performances web</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -126,11 +98,6 @@
     <lastmod>2024-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-google-my-business.jpg</image:loc>
-      <image:title>Guide Google My Business 2024</image:title>
-      <image:caption>Optimiser votre fiche Google My Business</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -138,11 +105,6 @@
     <lastmod>2024-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-wordpress-vs-surmesure.jpg</image:loc>
-      <image:title>WordPress vs site sur mesure</image:title>
-      <image:caption>Comparatif WordPress et développement sur mesure</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -150,11 +112,6 @@
     <lastmod>2024-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-landing-page.jpg</image:loc>
-      <image:title>Landing page qui convertit</image:title>
-      <image:caption>Guide création landing page à fort taux de conversion</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -162,11 +119,6 @@
     <lastmod>2024-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-reseaux-sociaux.jpg</image:loc>
-      <image:title>Réseaux sociaux vs site web</image:title>
-      <image:caption>Pourquoi un site web est plus important que les réseaux sociaux</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -174,11 +126,6 @@
     <lastmod>2024-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-formulaire-contact.jpg</image:loc>
-      <image:title>Formulaire de contact optimisé</image:title>
-      <image:caption>Guide optimisation formulaire de contact</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -186,11 +133,6 @@
     <lastmod>2024-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/blog-nom-domaine.jpg</image:loc>
-      <image:title>Choisir le nom de domaine parfait</image:title>
-      <image:caption>Guide pour choisir son nom de domaine</image:caption>
-    </image:image>
   </url>
   
   <!-- Offre Spéciale -->
@@ -199,11 +141,6 @@
     <lastmod>2025-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/example-site-artisan.jpg</image:loc>
-      <image:title>Offre spéciale création site web</image:title>
-      <image:caption>Offre promotionnelle création de site web professionnel</image:caption>
-    </image:image>
   </url>
   
   <!-- Case Studies -->
@@ -212,11 +149,6 @@
     <lastmod>2025-12-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/portfolio-ecommerce.jpg</image:loc>
-      <image:title>Étude de cas Boutique Élégance</image:title>
-      <image:caption>Création site e-commerce pour Boutique Élégance</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -224,11 +156,6 @@
     <lastmod>2025-12-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/portfolio-restaurant.jpg</image:loc>
-      <image:title>Étude de cas Le Gourmet</image:title>
-      <image:caption>Création site restaurant pour Le Gourmet</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -236,11 +163,6 @@
     <lastmod>2025-12-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/portfolio-immobilier.jpg</image:loc>
-      <image:title>Étude de cas Prestige Habitat</image:title>
-      <image:caption>Création site immobilier pour Prestige Habitat</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -248,11 +170,6 @@
     <lastmod>2025-12-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/portfolio-fitness.jpg</image:loc>
-      <image:title>Étude de cas FitZone Studio</image:title>
-      <image:caption>Création site fitness pour FitZone Studio</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -260,11 +177,6 @@
     <lastmod>2025-12-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/portfolio-beaute.jpg</image:loc>
-      <image:title>Étude de cas Institut Belle Vie</image:title>
-      <image:caption>Création site institut beauté pour Belle Vie</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -272,11 +184,6 @@
     <lastmod>2025-12-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/portfolio-formation.jpg</image:loc>
-      <image:title>Étude de cas SkillsUp Academy</image:title>
-      <image:caption>Création site formation pour SkillsUp Academy</image:caption>
-    </image:image>
   </url>
   
   <url>
@@ -284,19 +191,6 @@
     <lastmod>2025-12-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://convertilab.fr/assets/portfolio-b2b.jpg</image:loc>
-      <image:title>Étude de cas ConsultPro</image:title>
-      <image:caption>Création site B2B pour ConsultPro</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- Newsletter Confirmation -->
-  <url>
-    <loc>https://convertilab.fr/newsletter-confirmation</loc>
-    <lastmod>2025-12-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
 
 </urlset>
