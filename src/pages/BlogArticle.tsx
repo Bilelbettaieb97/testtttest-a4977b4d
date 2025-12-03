@@ -3,6 +3,7 @@ import { ArrowLeft, Calendar, Clock, Share2, Linkedin, Twitter, Facebook } from 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import BlogCard from "@/components/blog/BlogCard";
+import RelatedServices from "@/components/blog/RelatedServices";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -211,69 +212,106 @@ const BlogArticle = () => {
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-          <div className="py-12">
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              {article.tags.map(tag => (
-                <Badge key={tag} variant="outline" className="text-gray-600">
-                  #{tag}
-                </Badge>
-              ))}
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Main Content */}
+            <div className="lg:col-span-2">
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {article.tags.map(tag => (
+                  <Badge key={tag} variant="outline" className="text-gray-600">
+                    #{tag}
+                  </Badge>
+                ))}
+              </div>
+
+              {/* Article Content */}
+              <article className="prose prose-lg max-w-none">
+                {formatContent(article.content)}
+              </article>
+
+              {/* Share */}
+              <Card className="mt-12 p-6 bg-gray-50 border-0">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="flex items-center gap-2 text-gray-600">
+                    <Share2 className="w-5 h-5" />
+                    <span className="font-medium">Partager cet article</span>
+                  </div>
+                  <div className="flex gap-3">
+                    <a 
+                      href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-[#0077b5] text-white rounded-lg hover:opacity-90 transition"
+                    >
+                      <Linkedin className="w-5 h-5" />
+                    </a>
+                    <a 
+                      href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-[#1da1f2] text-white rounded-lg hover:opacity-90 transition"
+                    >
+                      <Twitter className="w-5 h-5" />
+                    </a>
+                    <a 
+                      href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-[#1877f2] text-white rounded-lg hover:opacity-90 transition"
+                    >
+                      <Facebook className="w-5 h-5" />
+                    </a>
+                  </div>
+                </div>
+              </Card>
+
+              {/* CTA */}
+              <div className="mt-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-center text-white">
+                <h3 className="text-2xl font-bold mb-3">Besoin d'un site web professionnel ?</h3>
+                <p className="text-lg opacity-90 mb-6">
+                  Discutons de votre projet et obtenez un devis gratuit sous 24h
+                </p>
+                <Link to="/contact">
+                  <Button className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-3">
+                    Demander un devis gratuit
+                  </Button>
+                </Link>
+              </div>
             </div>
 
-            {/* Article Content */}
-            <article className="prose prose-lg max-w-none">
-              {formatContent(article.content)}
-            </article>
-
-            {/* Share */}
-            <Card className="mt-12 p-6 bg-gray-50 border-0">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-2 text-gray-600">
-                  <Share2 className="w-5 h-5" />
-                  <span className="font-medium">Partager cet article</span>
-                </div>
-                <div className="flex gap-3">
-                  <a 
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-[#0077b5] text-white rounded-lg hover:opacity-90 transition"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                  <a 
-                    href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-[#1da1f2] text-white rounded-lg hover:opacity-90 transition"
-                  >
-                    <Twitter className="w-5 h-5" />
-                  </a>
-                  <a 
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-[#1877f2] text-white rounded-lg hover:opacity-90 transition"
-                  >
-                    <Facebook className="w-5 h-5" />
-                  </a>
-                </div>
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-24 space-y-6">
+                <RelatedServices category={article.category} />
+                
+                {/* Quick Links */}
+                <Card className="p-6 border-gray-200">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">Liens utiles</h3>
+                  <ul className="space-y-3">
+                    <li>
+                      <Link to="/portfolio" className="text-purple-600 hover:text-purple-800 text-sm flex items-center gap-2">
+                        → Voir nos réalisations
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/services" className="text-purple-600 hover:text-purple-800 text-sm flex items-center gap-2">
+                        → Découvrir nos offres
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/a-propos" className="text-purple-600 hover:text-purple-800 text-sm flex items-center gap-2">
+                        → En savoir plus sur nous
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/blog" className="text-purple-600 hover:text-purple-800 text-sm flex items-center gap-2">
+                        → Tous les articles
+                      </Link>
+                    </li>
+                  </ul>
+                </Card>
               </div>
-            </Card>
-
-            {/* CTA */}
-            <div className="mt-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-center text-white">
-              <h3 className="text-2xl font-bold mb-3">Besoin d'un site web professionnel ?</h3>
-              <p className="text-lg opacity-90 mb-6">
-                Discutons de votre projet et obtenez un devis gratuit sous 24h
-              </p>
-              <Link to="/#contact">
-                <Button className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-3">
-                  Demander un devis gratuit
-                </Button>
-              </Link>
             </div>
           </div>
         </div>

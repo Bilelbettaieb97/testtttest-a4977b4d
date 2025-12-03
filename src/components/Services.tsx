@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -124,6 +125,17 @@ const Services = () => {
             </article>)}
         </div>
 
+        {/* Portfolio Link */}
+        <div className="text-center mb-12">
+          <p className="text-gray-600 mb-4">
+            Découvrez comment nous avons aidé nos clients à développer leur activité
+          </p>
+          <Link to="/portfolio" className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-800 font-semibold transition-colors">
+            Voir nos réalisations
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
         {/* CTA Section simplifiée */}
         <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute inset-0 bg-black/10"></div>
@@ -135,10 +147,17 @@ const Services = () => {
               Demandez votre devis personnalisé gratuit
             </p>
             
-            <Button onClick={scrollToContact} size="lg" className="bg-white text-purple-600 hover:bg-gray-50 px-10 py-6 text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl">
-              Obtenir un devis
-              <ArrowRight className="ml-3 w-6 h-6" />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button onClick={scrollToContact} size="lg" className="bg-white text-purple-600 hover:bg-gray-50 px-10 py-6 text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl">
+                Obtenir un devis
+                <ArrowRight className="ml-3 w-6 h-6" />
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold">
+                <Link to="/blog">
+                  Lire nos conseils
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
