@@ -88,33 +88,44 @@ const Navigation = () => {
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-2 p-4 bg-white">
-                      {serviceCategories.map((service) => (
+                    <ul className="grid w-[420px] gap-1 p-3 bg-white">
+                      {serviceCategories.map((service, index) => (
                         <li key={service.href}>
                           <NavigationMenuLink asChild>
                             <Link
                               to={service.href}
                               className={cn(
-                                "flex items-center gap-3 select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-purple-50 hover:text-purple-600",
-                                location.pathname === service.href && "bg-purple-50 text-purple-600"
+                                "group flex items-center gap-4 select-none rounded-lg p-3 leading-none no-underline outline-none transition-all duration-300 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:shadow-md hover:translate-x-1",
+                                location.pathname === service.href && "bg-gradient-to-r from-purple-50 to-pink-50 shadow-md"
                               )}
+                              style={{ animationDelay: `${index * 50}ms` }}
                             >
-                              <service.icon className="h-5 w-5 text-purple-500" />
-                              <div>
-                                <div className="text-sm font-medium">{service.label}</div>
-                                <p className="text-xs text-gray-500 mt-0.5">{service.description}</p>
+                              <div className={cn(
+                                "flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-purple-100 to-pink-100 transition-all duration-300 group-hover:from-purple-500 group-hover:to-pink-500 group-hover:scale-110 group-hover:rotate-3",
+                                location.pathname === service.href && "from-purple-500 to-pink-500"
+                              )}>
+                                <service.icon className={cn(
+                                  "h-5 w-5 text-purple-600 transition-all duration-300 group-hover:text-white group-hover:scale-110",
+                                  location.pathname === service.href && "text-white"
+                                )} />
                               </div>
+                              <div className="flex-1">
+                                <div className="text-sm font-semibold text-gray-800 group-hover:text-purple-700 transition-colors duration-300">{service.label}</div>
+                                <p className="text-xs text-gray-500 mt-0.5 group-hover:text-gray-600 transition-colors duration-300">{service.description}</p>
+                              </div>
+                              <ChevronDown className="w-4 h-4 -rotate-90 text-gray-300 group-hover:text-purple-500 group-hover:translate-x-1 transition-all duration-300" />
                             </Link>
                           </NavigationMenuLink>
                         </li>
                       ))}
-                      <li className="border-t pt-2 mt-2">
+                      <li className="border-t border-purple-100 pt-2 mt-2">
                         <NavigationMenuLink asChild>
                           <Link
                             to="/services"
-                            className="flex items-center justify-center gap-2 text-sm font-medium text-purple-600 hover:text-purple-700 p-2 rounded-md hover:bg-purple-50 transition-colors"
+                            className="group flex items-center justify-center gap-2 text-sm font-semibold text-purple-600 hover:text-purple-700 p-3 rounded-lg hover:bg-purple-50 transition-all duration-300"
                           >
                             Voir tous les services
+                            <ChevronDown className="w-4 h-4 -rotate-90 group-hover:translate-x-1 transition-transform duration-300" />
                           </Link>
                         </NavigationMenuLink>
                       </li>
