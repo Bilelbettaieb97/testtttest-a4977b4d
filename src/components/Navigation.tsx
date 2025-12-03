@@ -53,10 +53,6 @@ const Navigation = () => {
     { label: "Contact", href: "/contact" }
   ];
 
-  // Separate Portfolio from other nav items for ordering
-  const portfolioItem = navItems.find(item => item.label === "Portfolio");
-  const otherNavItems = navItems.filter(item => item.label !== "Portfolio");
-
   const openCalendly = () => {
     window.open('https://calendly.com/convertilab-5bsc/30min', '_blank');
   };
@@ -75,23 +71,12 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6">
-            {/* Portfolio Link */}
-            {portfolioItem && (
-              <Link
-                to={portfolioItem.href}
-                className={`text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium cursor-pointer relative group ${location.pathname === portfolioItem.href ? 'text-purple-600' : ''}`}
-              >
-                {portfolioItem.label}
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 ${location.pathname === portfolioItem.href ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-              </Link>
-            )}
-
-            {/* Services Dropdown */}
+          <div className="hidden lg:flex items-center space-x-5">
+            {/* Services Dropdown - FIRST */}
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`text-gray-700 hover:text-purple-600 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent font-medium ${location.pathname.startsWith('/services') ? 'text-purple-600' : ''}`}>
+                  <NavigationMenuTrigger className={`h-auto px-0 py-1 text-sm text-gray-700 hover:text-purple-600 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent font-medium ${location.pathname.startsWith('/services') ? 'text-purple-600' : ''}`}>
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -142,11 +127,11 @@ const Navigation = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            {otherNavItems.map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
-                className={`text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium cursor-pointer relative group flex items-center gap-1 ${location.pathname === item.href ? 'text-purple-600' : ''}`}
+                className={`text-sm text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium cursor-pointer relative group flex items-center gap-1 ${location.pathname === item.href ? 'text-purple-600' : ''}`}
               >
                 {item.label === 'Blog' && <BookOpen className="w-4 h-4" />}
                 {item.label}
@@ -192,15 +177,7 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-sm">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link
-                to="/portfolio"
-                onClick={() => setIsMenuOpen(false)}
-                className={`flex items-center gap-2 w-full px-3 py-2 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium ${location.pathname === '/portfolio' ? 'text-purple-600 bg-purple-50' : 'text-gray-700'}`}
-              >
-                Portfolio
-              </Link>
-
-              {/* Mobile Services Dropdown */}
+              {/* Mobile Services Dropdown - FIRST */}
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
@@ -233,12 +210,12 @@ const Navigation = () => {
                 )}
               </div>
 
-              {otherNavItems.map((item) => (
+              {navItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`flex items-center gap-2 w-full px-3 py-2 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium ${location.pathname === item.href ? 'text-purple-600 bg-purple-50' : 'text-gray-700'}`}
+                  className={`flex items-center gap-2 w-full px-3 py-2.5 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium text-sm ${location.pathname === item.href ? 'text-purple-600 bg-purple-50' : 'text-gray-700'}`}
                 >
                   {item.label === 'Blog' && <BookOpen className="w-4 h-4" />}
                   {item.label}
