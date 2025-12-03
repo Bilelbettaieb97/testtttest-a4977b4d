@@ -196,6 +196,56 @@ const DesignPage = () => {
           </div>
         </section>
 
+        {/* Testimonials */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-foreground mb-4">Ce que nos clients disent</h2>
+              <p className="text-muted-foreground">Des identités visuelles qui ont transformé leur image</p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="p-6 rounded-2xl bg-card border border-border">
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-4 italic">
+                  "Notre nouveau logo et notre charte graphique ont complètement transformé notre image. Nos clients nous perçoivent maintenant comme une entreprise premium."
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white font-bold">
+                    J
+                  </div>
+                  <div>
+                    <p className="font-medium text-foreground">Julie R.</p>
+                    <p className="text-sm text-muted-foreground">Directrice, Cabinet Conseil</p>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 rounded-2xl bg-card border border-border">
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-4 italic">
+                  "Le design UX de notre application a fait chuter notre taux de rebond de 60%. Les utilisateurs restent et convertissent. Excellent travail !"
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white font-bold">
+                    T
+                  </div>
+                  <div>
+                    <p className="font-medium text-foreground">Thomas B.</p>
+                    <p className="text-sm text-muted-foreground">CEO, AppMobile</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-20 bg-gradient-to-r from-pink-500 to-rose-600">
           <div className="container mx-auto px-4 sm:px-6 text-center">
@@ -217,5 +267,8 @@ const DesignPage = () => {
     </>
   );
 };
+
+// Add Star import
+import { Star } from 'lucide-react';
 
 export default DesignPage;

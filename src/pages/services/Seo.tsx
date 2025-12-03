@@ -212,6 +212,56 @@ const SeoPage = () => {
           </div>
         </section>
 
+        {/* Testimonials */}
+        <section className="py-20 bg-card border-y border-border">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-foreground mb-4">Ce que nos clients disent</h2>
+              <p className="text-muted-foreground">Des résultats SEO concrets et mesurables</p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="p-6 rounded-2xl bg-muted/50 border border-border">
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-4 italic">
+                  "Nous sommes passés de la page 5 à la 1ère position sur nos mots-clés principaux en 6 mois. Notre trafic organique a augmenté de 340%."
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-bold">
+                    A
+                  </div>
+                  <div>
+                    <p className="font-medium text-foreground">Antoine C.</p>
+                    <p className="text-sm text-muted-foreground">Directeur, Agence Immo</p>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 rounded-2xl bg-muted/50 border border-border">
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-4 italic">
+                  "L'audit SEO a révélé des problèmes techniques qu'on ignorait. Après les corrections, notre taux de conversion a doublé."
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-bold">
+                    L
+                  </div>
+                  <div>
+                    <p className="font-medium text-foreground">Laura P.</p>
+                    <p className="text-sm text-muted-foreground">E-commerce Manager</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-20 bg-gradient-to-r from-emerald-500 to-teal-600">
           <div className="container mx-auto px-4 sm:px-6 text-center">
@@ -233,5 +283,8 @@ const SeoPage = () => {
     </>
   );
 };
+
+// Add Star import
+import { Star } from 'lucide-react';
 
 export default SeoPage;
