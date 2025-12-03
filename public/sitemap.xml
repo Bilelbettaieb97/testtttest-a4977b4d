@@ -61,6 +61,48 @@
     <priority>0.8</priority>
   </url>
   
+  <url>
+    <loc>https://convertilab.fr/blog/google-my-business-guide-2024</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://convertilab.fr/blog/wordpress-vs-site-sur-mesure</loc>
+    <lastmod>2024-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://convertilab.fr/blog/landing-page-convertit</loc>
+    <lastmod>2024-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://convertilab.fr/blog/reseaux-sociaux-vs-site-web</loc>
+    <lastmod>2024-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://convertilab.fr/blog/formulaire-contact-optimise</loc>
+    <lastmod>2024-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://convertilab.fr/blog/choisir-nom-domaine-parfait</loc>
+    <lastmod>2024-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
   <!-- Offre Spéciale -->
   <url>
     <loc>https://convertilab.fr/offre-speciale</loc>
