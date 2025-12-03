@@ -7,6 +7,8 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Check, Clock, Users, Zap, Star, ArrowRight, Phone, Sparkles, Shield, Award, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from "@/components/SEO";
+import { ProductSchema, BreadcrumbSchema } from "@/components/seo/StructuredData";
 import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
 import portfolioRestaurant from '@/assets/portfolio-restaurant.jpg';
 import portfolioBeaute from '@/assets/portfolio-beaute.jpg';
@@ -171,6 +173,28 @@ const OffreSpeciale = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+      <SEO 
+        url="/offre-speciale"
+        title="Offre Spéciale - Site Web Pro à 300€"
+        description="Offre limitée : obtenez un site web professionnel pour seulement 300€. Design personnalisé, livraison en 7 jours, hébergement 1 an inclus. Places limitées !"
+        keywords="offre spéciale site web, site web pas cher, site internet 300 euros, création site web promotion, site vitrine pas cher"
+      />
+      <ProductSchema 
+        offer={{
+          name: "Site Web Professionnel - Offre Spéciale",
+          description: "Site web moderne et responsive avec design personnalisé, livré en 7 jours. Hébergement 1 an inclus, support 30 jours.",
+          price: "300",
+          currency: "EUR",
+          availability: "https://schema.org/LimitedAvailability"
+        }}
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Accueil', url: '/' },
+          { name: 'Offre Spéciale', url: '/offre-speciale' }
+        ]}
+      />
+      
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex justify-between items-center">
