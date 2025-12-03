@@ -274,23 +274,13 @@ const Services = () => {
                       </div>
 
                       {/* CTA */}
-                      <div className="flex items-center gap-4">
-                        <Button 
-                          onClick={scrollToContact}
-                          variant="ghost" 
-                          size="sm"
-                          className={`p-0 h-auto ${category.accentColor} hover:${category.accentColor} font-medium group/btn`}
-                        >
-                          Demander un devis
-                          <ArrowRight className="ml-1 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                        </Button>
-                        <Link 
-                          to={service.link}
-                          className="text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2"
-                        >
-                          En savoir plus
-                        </Link>
-                      </div>
+                      <Link 
+                        to={service.link}
+                        className={`inline-flex items-center gap-1 text-sm font-medium ${category.accentColor} hover:opacity-80 transition-opacity group/btn`}
+                      >
+                        En savoir plus
+                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </Link>
                     </div>
                   </div>
                 ))}
