@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Calendar, FileText, BookOpen, Globe, Palette, Search, Target, ChevronDown } from "lucide-react";
+import { Menu, X, Calendar, FileText, BookOpen, Globe, Palette, Search, Target, ChevronDown, Rocket, Store, Code, RefreshCw, PenTool, Fingerprint, TrendingUp, ClipboardCheck, type LucideIcon } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,36 +13,68 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
+interface SubService {
+  name: string;
+  icon: LucideIcon;
+}
+
+interface ServiceCategory {
+  label: string;
+  href: string;
+  icon: LucideIcon;
+  description: string;
+  subServices: SubService[];
+}
+
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
 
-  const serviceCategories = [
+  const serviceCategories: ServiceCategory[] = [
     { 
       label: "Sites Web", 
       href: "/services/sites-web", 
       icon: Globe,
-      description: "Sites vitrines, e-commerce et applications web"
+      description: "Sites vitrines, e-commerce et applications web",
+      subServices: [
+        { name: "Landing Page", icon: Rocket },
+        { name: "Site Vitrine", icon: FileText },
+        { name: "Site E-commerce", icon: Store },
+        { name: "Application Web", icon: Code },
+        { name: "Refonte de Site", icon: RefreshCw },
+      ]
     },
     { 
       label: "Design", 
       href: "/services/design", 
       icon: Palette,
-      description: "Identité visuelle, UI/UX et création graphique"
+      description: "Identité visuelle, UI/UX et création graphique",
+      subServices: [
+        { name: "Design UI/UX", icon: PenTool },
+        { name: "Identité Visuelle", icon: Fingerprint },
+      ]
     },
     { 
       label: "SEO", 
       href: "/services/seo", 
       icon: Search,
-      description: "Référencement naturel et optimisation"
+      description: "Référencement naturel et optimisation",
+      subServices: [
+        { name: "Référencement SEO", icon: TrendingUp },
+        { name: "Audit SEO", icon: ClipboardCheck },
+      ]
     },
     { 
       label: "SEA", 
       href: "/services/sea", 
       icon: Target,
-      description: "Publicité Google Ads et campagnes payantes"
+      description: "Publicité Google Ads et campagnes payantes",
+      subServices: [
+        { name: "Google Ads", icon: Search },
+        { name: "Meta Ads", icon: Fingerprint },
+      ]
     },
   ];
 
@@ -56,6 +88,10 @@ const Navigation = () => {
   const openCalendly = () => {
     window.open('https://calendly.com/convertilab-5bsc/30min', '_blank');
   };
+
+  const activeCategory = hoveredCategory 
+    ? serviceCategories.find(c => c.label === hoveredCategory) 
+    : serviceCategories[0];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
@@ -80,48 +116,87 @@ const Navigation = () => {
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[420px] gap-1 p-3 bg-white">
-                      {serviceCategories.map((service, index) => (
-                        <li key={service.href}>
+                    <div className="flex w-[650px] bg-white">
+                      {/* Categories Column */}
+                      <ul className="w-[280px] gap-1 p-3 border-r border-gray-100">
+                        {serviceCategories.map((service) => (
+                          <li key={service.href}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                to={service.href}
+                                onMouseEnter={() => setHoveredCategory(service.label)}
+                                className={cn(
+                                  "group flex items-center gap-3 select-none rounded-lg p-3 leading-none no-underline outline-none transition-all duration-200",
+                                  (hoveredCategory === service.label || (!hoveredCategory && service.label === "Sites Web")) 
+                                    ? "bg-gradient-to-r from-purple-50 to-pink-50 shadow-sm" 
+                                    : "hover:bg-gray-50",
+                                  location.pathname === service.href && "bg-purple-50"
+                                )}
+                              >
+                                <div className={cn(
+                                  "flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-200",
+                                  (hoveredCategory === service.label || (!hoveredCategory && service.label === "Sites Web"))
+                                    ? "bg-gradient-to-br from-purple-500 to-pink-500"
+                                    : "bg-gradient-to-br from-purple-100 to-pink-100 group-hover:from-purple-200 group-hover:to-pink-200"
+                                )}>
+                                  <service.icon className={cn(
+                                    "h-4 w-4 transition-all duration-200",
+                                    (hoveredCategory === service.label || (!hoveredCategory && service.label === "Sites Web"))
+                                      ? "text-white"
+                                      : "text-purple-600"
+                                  )} />
+                                </div>
+                                <div className="flex-1">
+                                  <div className="text-sm font-semibold text-gray-800">{service.label}</div>
+                                  <p className="text-xs text-gray-500 mt-0.5 line-clamp-1">{service.description}</p>
+                                </div>
+                                <ChevronDown className={cn(
+                                  "w-4 h-4 -rotate-90 transition-all duration-200",
+                                  (hoveredCategory === service.label || (!hoveredCategory && service.label === "Sites Web"))
+                                    ? "text-purple-500"
+                                    : "text-gray-300"
+                                )} />
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                        <li className="border-t border-purple-100 pt-2 mt-2">
                           <NavigationMenuLink asChild>
                             <Link
-                              to={service.href}
-                              className={cn(
-                                "group flex items-center gap-4 select-none rounded-lg p-3 leading-none no-underline outline-none transition-all duration-300 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:shadow-md hover:translate-x-1",
-                                location.pathname === service.href && "bg-gradient-to-r from-purple-50 to-pink-50 shadow-md"
-                              )}
-                              style={{ animationDelay: `${index * 50}ms` }}
+                              to="/services"
+                              className="group flex items-center justify-center gap-2 text-sm font-semibold text-purple-600 hover:text-purple-700 p-2 rounded-lg hover:bg-purple-50 transition-all duration-200"
                             >
-                              <div className={cn(
-                                "flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-purple-100 to-pink-100 transition-all duration-300 group-hover:from-purple-500 group-hover:to-pink-500 group-hover:scale-110 group-hover:rotate-3",
-                                location.pathname === service.href && "from-purple-500 to-pink-500"
-                              )}>
-                                <service.icon className={cn(
-                                  "h-5 w-5 text-purple-600 transition-all duration-300 group-hover:text-white group-hover:scale-110",
-                                  location.pathname === service.href && "text-white"
-                                )} />
-                              </div>
-                              <div className="flex-1">
-                                <div className="text-sm font-semibold text-gray-800 group-hover:text-purple-700 transition-colors duration-300">{service.label}</div>
-                                <p className="text-xs text-gray-500 mt-0.5 group-hover:text-gray-600 transition-colors duration-300">{service.description}</p>
-                              </div>
-                              <ChevronDown className="w-4 h-4 -rotate-90 text-gray-300 group-hover:text-purple-500 group-hover:translate-x-1 transition-all duration-300" />
+                              Voir tous les services
+                              <ChevronDown className="w-4 h-4 -rotate-90 group-hover:translate-x-1 transition-transform duration-200" />
                             </Link>
                           </NavigationMenuLink>
                         </li>
-                      ))}
-                      <li className="border-t border-purple-100 pt-2 mt-2">
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to="/services"
-                            className="group flex items-center justify-center gap-2 text-sm font-semibold text-purple-600 hover:text-purple-700 p-3 rounded-lg hover:bg-purple-50 transition-all duration-300"
-                          >
-                            Voir tous les services
-                            <ChevronDown className="w-4 h-4 -rotate-90 group-hover:translate-x-1 transition-transform duration-300" />
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
+                      </ul>
+
+                      {/* Sub-services Column */}
+                      <div className="flex-1 p-4 bg-gray-50/50">
+                        <div className="mb-3">
+                          <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                            {activeCategory?.label} - Nos services
+                          </h4>
+                        </div>
+                        <ul className="space-y-1">
+                          {activeCategory?.subServices.map((subService) => (
+                            <li key={subService.name}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  to={activeCategory.href}
+                                  className="group flex items-center gap-3 p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200"
+                                >
+                                  <subService.icon className="w-4 h-4 text-purple-500 group-hover:text-purple-600 transition-colors" />
+                                  <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium">{subService.name}</span>
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
