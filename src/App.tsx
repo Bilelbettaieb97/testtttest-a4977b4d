@@ -14,6 +14,10 @@ import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 import ServicesPage from "./pages/Services";
+import SitesWebPage from "./pages/services/SitesWeb";
+import DesignPage from "./pages/services/Design";
+import SeoPage from "./pages/services/Seo";
+import SeaPage from "./pages/services/Sea";
 import PortfolioPage from "./pages/PortfolioPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
@@ -30,6 +34,10 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/sites-web" element={<SitesWebPage />} />
+            <Route path="/services/design" element={<DesignPage />} />
+            <Route path="/services/seo" element={<SeoPage />} />
+            <Route path="/services/sea" element={<SeaPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/a-propos" element={<AboutPage />} />
