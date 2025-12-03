@@ -238,6 +238,96 @@ const SitesWebPage = () => {
           </div>
         </section>
 
+        {/* Case Studies */}
+        <section className="py-20 bg-card border-y border-border">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-foreground mb-4">Études de cas</h2>
+              <p className="text-muted-foreground">Des projets concrets avec des résultats mesurables</p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {/* Case Study 1 */}
+              <div className="rounded-2xl border border-border overflow-hidden bg-background hover:shadow-lg transition-shadow">
+                <div className="h-48 bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                  <Store className="w-16 h-16 text-white/80" />
+                </div>
+                <div className="p-6">
+                  <span className="text-xs font-medium text-violet-600 bg-violet-100 dark:bg-violet-900/30 px-2 py-1 rounded-full">E-commerce</span>
+                  <h3 className="text-xl font-bold text-foreground mt-3 mb-2">Boutique Mode Éthique</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Création d'une boutique e-commerce complète avec gestion des stocks et paiements sécurisés.
+                  </p>
+                  <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border">
+                    <div>
+                      <p className="text-2xl font-bold text-violet-600">+280%</p>
+                      <p className="text-xs text-muted-foreground">Ventes en ligne</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-violet-600">21 jours</p>
+                      <p className="text-xs text-muted-foreground">Délai livraison</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Case Study 2 */}
+              <div className="rounded-2xl border border-border overflow-hidden bg-background hover:shadow-lg transition-shadow">
+                <div className="h-48 bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
+                  <FileText className="w-16 h-16 text-white/80" />
+                </div>
+                <div className="p-6">
+                  <span className="text-xs font-medium text-blue-600 bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded-full">Site Vitrine</span>
+                  <h3 className="text-xl font-bold text-foreground mt-3 mb-2">Cabinet d'Architectes</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Site vitrine premium avec galerie de projets et prise de rendez-vous intégrée.
+                  </p>
+                  <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border">
+                    <div>
+                      <p className="text-2xl font-bold text-blue-600">+150%</p>
+                      <p className="text-xs text-muted-foreground">Demandes devis</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-blue-600">12 jours</p>
+                      <p className="text-xs text-muted-foreground">Délai livraison</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Case Study 3 */}
+              <div className="rounded-2xl border border-border overflow-hidden bg-background hover:shadow-lg transition-shadow">
+                <div className="h-48 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                  <Rocket className="w-16 h-16 text-white/80" />
+                </div>
+                <div className="p-6">
+                  <span className="text-xs font-medium text-green-600 bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded-full">Landing Page</span>
+                  <h3 className="text-xl font-bold text-foreground mt-3 mb-2">Startup SaaS B2B</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Landing page haute conversion pour le lancement d'un nouveau produit tech.
+                  </p>
+                  <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border">
+                    <div>
+                      <p className="text-2xl font-bold text-green-600">8.5%</p>
+                      <p className="text-xs text-muted-foreground">Taux conversion</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-green-600">5 jours</p>
+                      <p className="text-xs text-muted-foreground">Délai livraison</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center mt-10">
+              <Link to="/portfolio" className="inline-flex items-center gap-2 text-violet-600 hover:text-violet-700 font-medium">
+                Voir toutes nos réalisations
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Testimonials */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6">
