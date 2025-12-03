@@ -5,7 +5,6 @@ import {
   Globe, 
   Palette, 
   Search, 
-  HeadphonesIcon, 
   ArrowRight, 
   Rocket,
   FileText,
@@ -16,8 +15,6 @@ import {
   Fingerprint,
   TrendingUp,
   ClipboardCheck,
-  Wrench,
-  GraduationCap,
   Sparkles
 } from "lucide-react";
 
@@ -114,26 +111,26 @@ const Services = () => {
       ]
     },
     {
-      id: "accompagnement",
-      icon: <HeadphonesIcon className="w-5 h-5" />,
-      label: "Accompagnement",
-      title: "Accompagnement & Support",
-      description: "Un partenaire durable pour votre croissance digitale",
+      id: "sea",
+      icon: <TrendingUp className="w-5 h-5" />,
+      label: "SEA",
+      title: "Publicité en ligne",
+      description: "Boostez votre visibilité avec des campagnes publicitaires ciblées",
       gradient: "from-amber-500 to-orange-600",
       lightGradient: "from-amber-50 to-orange-50",
       accentColor: "text-amber-600",
       services: [
         {
-          name: "Maintenance & Support",
-          icon: <Wrench className="w-5 h-5" />,
-          description: "Gardez votre site performant, sécurisé et à jour",
-          features: ["Mises à jour", "Sauvegardes auto", "Monitoring", "Support réactif"]
+          name: "Google Ads",
+          icon: <Search className="w-5 h-5" />,
+          description: "Campagnes Search, Display et Shopping pour capter vos clients au bon moment",
+          features: ["Campagnes Search", "Google Shopping", "Display", "Remarketing"]
         },
         {
-          name: "Formation",
-          icon: <GraduationCap className="w-5 h-5" />,
-          description: "Maîtrisez vos outils digitaux en toute autonomie",
-          features: ["Formation admin", "Bonnes pratiques", "Documentation", "Support post-formation"]
+          name: "Meta Ads",
+          icon: <Fingerprint className="w-5 h-5" />,
+          description: "Publicités Facebook et Instagram pour toucher votre audience idéale",
+          features: ["Facebook Ads", "Instagram Ads", "Ciblage précis", "Créatifs optimisés"]
         }
       ]
     }
