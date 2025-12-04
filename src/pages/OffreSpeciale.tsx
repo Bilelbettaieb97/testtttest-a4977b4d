@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Check, Clock, Users, Zap, Star, ArrowRight, Phone, Sparkles, Shield, Award, TrendingUp, ChevronsUpDown } from 'lucide-react';
 import { countryCodes } from '@/data/countryCodes';
+import confetti from 'canvas-confetti';
 import { SEO } from "@/components/SEO";
 import { ProductSchema, BreadcrumbSchema } from "@/components/seo/StructuredData";
 import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
@@ -117,6 +118,32 @@ const OffreSpeciale = () => {
         if (typeof window !== 'undefined' && (window as any).trackFormConversion) {
           (window as any).trackFormConversion();
         }
+
+        // Trigger confetti celebration
+        const duration = 3000;
+        const end = Date.now() + duration;
+
+        const frame = () => {
+          confetti({
+            particleCount: 3,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: ['#8b5cf6', '#ec4899', '#a855f7', '#f472b6']
+          });
+          confetti({
+            particleCount: 3,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: ['#8b5cf6', '#ec4899', '#a855f7', '#f472b6']
+          });
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        };
+        frame();
         
         setIsReserved(true);
         toast({
