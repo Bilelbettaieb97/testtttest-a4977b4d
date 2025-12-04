@@ -5,10 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Check, Clock, Users, Zap, Star, ArrowRight, Phone, Sparkles, Shield, Award, TrendingUp } from 'lucide-react';
+import { Check, Clock, Users, Zap, Star, ArrowRight, Phone, Sparkles, Shield, Award, TrendingUp, ChevronsUpDown } from 'lucide-react';
 import { countryCodes } from '@/data/countryCodes';
 import { SEO } from "@/components/SEO";
 import { ProductSchema, BreadcrumbSchema } from "@/components/seo/StructuredData";
@@ -33,6 +34,7 @@ const OffreSpeciale = () => {
     company: ''
   });
   const [isReserved, setIsReserved] = useState(false);
+  const [countryCodeOpen, setCountryCodeOpen] = useState(false);
 
   // Fetch remaining spots
   useEffect(() => {
@@ -356,28 +358,55 @@ const OffreSpeciale = () => {
                       <div>
                         <Label htmlFor="phone" className="text-gray-300 text-sm sm:text-base">Téléphone *</Label>
                         <div className="flex gap-2">
-                          <Select
-                            value={formData.countryCode}
-                            onValueChange={(value) => setFormData({ ...formData, countryCode: value })}
-                          >
-                            <SelectTrigger className="w-[140px] sm:w-[160px] bg-white/10 border-white/20 text-white h-10 sm:h-11">
-                              <SelectValue />
-                            </SelectTrigger>
-                            <SelectContent className="max-h-[300px] bg-gray-900 border-white/20">
-                              {countryCodes.map((country) => (
-                                <SelectItem 
-                                  key={`${country.code}-${country.country}`} 
-                                  value={country.code}
-                                  className="text-white hover:bg-white/10 focus:bg-white/10"
-                                >
-                                  <span className="flex items-center gap-2">
-                                    <span>{country.flag}</span>
-                                    <span className="text-xs sm:text-sm">{country.code}</span>
-                                  </span>
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
+                          <Popover open={countryCodeOpen} onOpenChange={setCountryCodeOpen}>
+                            <PopoverTrigger asChild>
+                              <Button
+                                variant="outline"
+                                role="combobox"
+                                aria-expanded={countryCodeOpen}
+                                className="w-[130px] sm:w-[160px] justify-between bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white h-10 sm:h-11"
+                              >
+                                {(() => {
+                                  const selected = countryCodes.find(c => c.code === formData.countryCode);
+                                  return selected ? `${selected.flag} ${selected.code}` : '+33';
+                                })()}
+                                <ChevronsUpDown className="ml-1 h-4 w-4 shrink-0 opacity-50" />
+                              </Button>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-[280px] p-0 bg-gray-900 border-white/20 z-50">
+                              <Command className="bg-transparent">
+                                <CommandInput 
+                                  placeholder="Rechercher pays ou code..." 
+                                  className="text-white placeholder:text-gray-400"
+                                />
+                                <CommandList className="max-h-[250px]">
+                                  <CommandEmpty className="text-gray-400 py-4 text-center text-sm">Aucun pays trouvé</CommandEmpty>
+                                  <CommandGroup>
+                                    {countryCodes.map((country) => (
+                                      <CommandItem
+                                        key={`${country.code}-${country.country}`}
+                                        value={`${country.country} ${country.code}`}
+                                        onSelect={() => {
+                                          setFormData({ ...formData, countryCode: country.code });
+                                          setCountryCodeOpen(false);
+                                        }}
+                                        className="text-white hover:bg-white/10 cursor-pointer"
+                                      >
+                                        <span className="flex items-center gap-2 w-full">
+                                          <span>{country.flag}</span>
+                                          <span className="flex-1">{country.country}</span>
+                                          <span className="text-gray-400">{country.code}</span>
+                                        </span>
+                                        {formData.countryCode === country.code && (
+                                          <Check className="ml-2 h-4 w-4 text-green-400" />
+                                        )}
+                                      </CommandItem>
+                                    ))}
+                                  </CommandGroup>
+                                </CommandList>
+                              </Command>
+                            </PopoverContent>
+                          </Popover>
                           <Input
                             id="phone"
                             type="tel"
