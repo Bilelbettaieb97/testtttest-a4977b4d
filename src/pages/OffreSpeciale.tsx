@@ -5,9 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Check, Clock, Users, Zap, Star, ArrowRight, Phone, Sparkles, Shield, Award, TrendingUp } from 'lucide-react';
+import { countryCodes } from '@/data/countryCodes';
 import { SEO } from "@/components/SEO";
 import { ProductSchema, BreadcrumbSchema } from "@/components/seo/StructuredData";
 import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
@@ -26,6 +28,7 @@ const OffreSpeciale = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    countryCode: '+33',
     phone: '',
     company: ''
   });
@@ -76,12 +79,24 @@ const OffreSpeciale = () => {
     setIsSubmitting(true);
 
     try {
+      // Validate phone number (at least 6 digits)
+      const phoneDigits = formData.phone.replace(/\D/g, '');
+      if (phoneDigits.length < 6) {
+        toast({
+          title: "Numéro invalide",
+          description: "Veuillez entrer un numéro de téléphone valide (au moins 6 chiffres).",
+          variant: "destructive"
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
       const { error } = await supabase
         .from('offer_reservations')
         .insert({
           name: formData.name.trim(),
           email: formData.email.trim().toLowerCase(),
-          phone: formData.phone.trim(),
+          phone: `${formData.countryCode} ${phoneDigits}`,
           company: formData.company.trim()
         });
 
@@ -340,15 +355,39 @@ const OffreSpeciale = () => {
 
                       <div>
                         <Label htmlFor="phone" className="text-gray-300 text-sm sm:text-base">Téléphone *</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          required
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 text-sm sm:text-base h-10 sm:h-11"
-                          placeholder="06 12 34 56 78"
-                        />
+                        <div className="flex gap-2">
+                          <Select
+                            value={formData.countryCode}
+                            onValueChange={(value) => setFormData({ ...formData, countryCode: value })}
+                          >
+                            <SelectTrigger className="w-[140px] sm:w-[160px] bg-white/10 border-white/20 text-white h-10 sm:h-11">
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent className="max-h-[300px] bg-gray-900 border-white/20">
+                              {countryCodes.map((country) => (
+                                <SelectItem 
+                                  key={`${country.code}-${country.country}`} 
+                                  value={country.code}
+                                  className="text-white hover:bg-white/10 focus:bg-white/10"
+                                >
+                                  <span className="flex items-center gap-2">
+                                    <span>{country.flag}</span>
+                                    <span className="text-xs sm:text-sm">{country.code}</span>
+                                  </span>
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <Input
+                            id="phone"
+                            type="tel"
+                            required
+                            value={formData.phone}
+                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                            className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-gray-500 text-sm sm:text-base h-10 sm:h-11"
+                            placeholder="6 12 34 56 78"
+                          />
+                        </div>
                       </div>
 
                       <div>
