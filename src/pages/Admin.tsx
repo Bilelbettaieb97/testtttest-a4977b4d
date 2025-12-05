@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,7 +6,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { Lock, Download, RefreshCw, Users, Mail, Gift, LogOut } from 'lucide-react';
+import { Lock, Download, RefreshCw, Users, Mail, Gift, LogOut, Loader2 } from 'lucide-react';
+import { User, Session } from '@supabase/supabase-js';
 
 interface ContactSubmission {
   id: string;
@@ -45,80 +46,139 @@ interface AdminData {
 }
 
 const Admin = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<AdminData | null>(null);
+  const [authError, setAuthError] = useState<string | null>(null);
   const { toast } = useToast();
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
+  useEffect(() => {
+    // Set up auth state listener FIRST
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setSession(session);
+        setUser(session?.user ?? null);
+        setIsCheckingAuth(false);
+        
+        // Fetch admin data when session is established
+        if (session?.user) {
+          setTimeout(() => {
+            fetchAdminData();
+          }, 0);
+        }
+      }
+    );
+
+    // THEN check for existing session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      setIsCheckingAuth(false);
+      
+      if (session?.user) {
+        fetchAdminData();
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const fetchAdminData = async () => {
     setIsLoading(true);
-
+    setAuthError(null);
+    
     try {
-      const { data: responseData, error } = await supabase.functions.invoke('get-admin-data', {
-        body: { password }
-      });
+      const { data: responseData, error } = await supabase.functions.invoke('get-admin-data');
 
-      if (error) throw error;
+      if (error) {
+        console.error('Edge function error:', error);
+        if (error.message?.includes('403') || error.message?.includes('Accès refusé')) {
+          setAuthError('Vous n\'avez pas les droits administrateur');
+        } else if (error.message?.includes('401')) {
+          setAuthError('Session expirée. Veuillez vous reconnecter.');
+          await supabase.auth.signOut();
+        } else {
+          throw error;
+        }
+        return;
+      }
 
-      if (responseData.error) {
-        toast({
-          title: 'Erreur',
-          description: responseData.error,
-          variant: 'destructive'
-        });
+      if (responseData?.error) {
+        if (responseData.error.includes('administrateur') || responseData.error.includes('Accès refusé')) {
+          setAuthError('Vous n\'avez pas les droits administrateur');
+        } else {
+          setAuthError(responseData.error);
+        }
         return;
       }
 
       setData(responseData);
-      setIsAuthenticated(true);
-      toast({
-        title: 'Connecté',
-        description: 'Bienvenue dans l\'administration'
-      });
     } catch (error) {
-      console.error('Login error:', error);
+      console.error('Fetch admin data error:', error);
       toast({
         title: 'Erreur',
-        description: 'Impossible de se connecter',
+        description: 'Impossible de charger les données',
         variant: 'destructive'
       });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setAuthError(null);
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        if (error.message === 'Invalid login credentials') {
+          setAuthError('Email ou mot de passe incorrect');
+        } else {
+          setAuthError(error.message);
+        }
+        return;
+      }
+
+      if (data.user) {
+        toast({
+          title: 'Connecté',
+          description: 'Vérification des droits administrateur...'
+        });
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setAuthError('Impossible de se connecter');
     } finally {
       setIsLoading(false);
     }
   };
 
   const refreshData = async () => {
-    setIsLoading(true);
-    try {
-      const { data: responseData, error } = await supabase.functions.invoke('get-admin-data', {
-        body: { password }
-      });
-
-      if (error) throw error;
-
-      setData(responseData);
+    await fetchAdminData();
+    if (!authError) {
       toast({
         title: 'Données actualisées',
         description: 'Les données ont été rafraîchies'
       });
-    } catch (error) {
-      console.error('Refresh error:', error);
-      toast({
-        title: 'Erreur',
-        description: 'Impossible de rafraîchir les données',
-        variant: 'destructive'
-      });
-    } finally {
-      setIsLoading(false);
     }
   };
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    setPassword('');
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
     setData(null);
+    setAuthError(null);
+    setEmail('');
+    setPassword('');
   };
 
   const formatDate = (dateString: string) => {
@@ -169,7 +229,20 @@ const Admin = () => {
     });
   };
 
-  if (!isAuthenticated) {
+  // Loading state while checking auth
+  if (isCheckingAuth) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex items-center justify-center p-4">
+        <div className="flex items-center gap-2">
+          <Loader2 className="w-6 h-6 animate-spin text-primary" />
+          <span className="text-muted-foreground">Vérification de l'authentification...</span>
+        </div>
+      </div>
+    );
+  }
+
+  // Not authenticated - show login form
+  if (!user) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex items-center justify-center p-4">
         <Card className="w-full max-w-md">
@@ -178,23 +251,84 @@ const Admin = () => {
               <Lock className="w-6 h-6 text-primary" />
             </div>
             <CardTitle className="text-2xl">Administration</CardTitle>
-            <p className="text-muted-foreground">Entrez le mot de passe pour accéder au tableau de bord</p>
+            <p className="text-muted-foreground">Connectez-vous avec votre compte administrateur</p>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
-              <Input
-                type="password"
-                placeholder="Mot de passe"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+              <div className="space-y-2">
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  autoComplete="email"
+                />
+              </div>
+              <div className="space-y-2">
+                <Input
+                  type="password"
+                  placeholder="Mot de passe"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  autoComplete="current-password"
+                />
+              </div>
+              {authError && (
+                <p className="text-sm text-destructive">{authError}</p>
+              )}
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? 'Connexion...' : 'Se connecter'}
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Connexion...
+                  </>
+                ) : (
+                  'Se connecter'
+                )}
               </Button>
             </form>
           </CardContent>
         </Card>
+      </div>
+    );
+  }
+
+  // Authenticated but not admin
+  if (authError) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex items-center justify-center p-4">
+        <Card className="w-full max-w-md">
+          <CardHeader className="text-center">
+            <div className="mx-auto w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mb-4">
+              <Lock className="w-6 h-6 text-destructive" />
+            </div>
+            <CardTitle className="text-2xl">Accès refusé</CardTitle>
+            <p className="text-muted-foreground">{authError}</p>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground text-center mb-4">
+              Connecté en tant que: {user.email}
+            </p>
+            <Button variant="outline" className="w-full" onClick={handleLogout}>
+              <LogOut className="w-4 h-4 mr-2" />
+              Se déconnecter
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  // Loading data
+  if (isLoading && !data) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex items-center justify-center p-4">
+        <div className="flex items-center gap-2">
+          <Loader2 className="w-6 h-6 animate-spin text-primary" />
+          <span className="text-muted-foreground">Chargement des données...</span>
+        </div>
       </div>
     );
   }
@@ -206,7 +340,7 @@ const Admin = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
           <div>
             <h1 className="text-3xl font-bold">Tableau de bord</h1>
-            <p className="text-muted-foreground">Gérez vos soumissions et abonnements</p>
+            <p className="text-muted-foreground">Connecté: {user.email}</p>
           </div>
           <div className="flex gap-2">
             <Button variant="outline" onClick={refreshData} disabled={isLoading}>
