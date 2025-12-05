@@ -33,6 +33,7 @@ import PortfolioPage from "./pages/PortfolioPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import ScrollToTop from "./components/ScrollToTop";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +73,7 @@ const App = () => (
             <Route path="/admin" element={<Admin />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
+            <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
