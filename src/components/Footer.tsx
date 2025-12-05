@@ -309,7 +309,10 @@ const Footer = () => {
               <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors">
                 CGV
               </button>
-              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors">
+              <button 
+                onClick={() => handleNavigation('/politique-de-confidentialite')}
+                className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
+              >
                 Politique de confidentialité
               </button>
             </div>
