@@ -13,60 +13,35 @@ Deno.serve(async (req) => {
 
   try {
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!
-    const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')!
     const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+    const adminPassword = Deno.env.get('ADMIN_PASSWORD')
 
-    // Get the authorization header
-    const authHeader = req.headers.get('Authorization')
-    if (!authHeader) {
-      console.log('No authorization header provided')
+    // Get password from request body
+    const { password } = await req.json()
+
+    if (!password) {
+      console.log('No password provided')
       return new Response(
-        JSON.stringify({ error: 'Non autorisé - Veuillez vous connecter' }),
+        JSON.stringify({ error: 'Mot de passe requis' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    // Verify password
+    if (password !== adminPassword) {
+      console.log('Invalid password')
+      return new Response(
+        JSON.stringify({ error: 'Mot de passe incorrect' }),
         { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
 
-    // Create a client with the user's token to verify authentication
-    const supabaseUser = createClient(supabaseUrl, supabaseAnonKey, {
-      global: {
-        headers: { Authorization: authHeader }
-      }
-    })
+    console.log('Admin password verified')
 
-    // Get the authenticated user
-    const { data: { user }, error: userError } = await supabaseUser.auth.getUser()
-    
-    if (userError || !user) {
-      console.log('Authentication failed:', userError?.message)
-      return new Response(
-        JSON.stringify({ error: 'Non autorisé - Session invalide' }),
-        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      )
-    }
-
-    console.log(`User authenticated: ${user.id}`)
-
-    // Check if user has admin role using service client (to bypass RLS)
+    // Create service client to bypass RLS
     const supabaseService = createClient(supabaseUrl, supabaseServiceKey)
-    
-    const { data: roleData, error: roleError } = await supabaseService
-      .from('user_roles')
-      .select('role')
-      .eq('user_id', user.id)
-      .eq('role', 'admin')
-      .single()
 
-    if (roleError || !roleData) {
-      console.log(`User ${user.id} is not an admin`)
-      return new Response(
-        JSON.stringify({ error: 'Accès refusé - Vous n\'êtes pas administrateur' }),
-        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      )
-    }
-
-    console.log(`Admin access verified for user: ${user.id}`)
-
-    // Fetch all data from the tables using service client
+    // Fetch all data from the tables
     const [contactsResult, newsletterResult, offersResult] = await Promise.all([
       supabaseService
         .from('contact_submissions')
