@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 
 const ServicesPage = () => {
   const breadcrumbItems = [
-    { name: "Accueil", url: "https://convertilab.fr/" },
-    { name: "Services", url: "https://convertilab.fr/services" }
+    { name: "Accueil", url: "https://convertilab.com/" },
+    { name: "Services", url: "https://convertilab.com/services" }
   ];
 
   return (
@@ -18,10 +18,10 @@ const ServicesPage = () => {
         <title>Services Création Site Web | Landing Page, Vitrine, E-commerce | ConvertiLab</title>
         <meta name="description" content="Découvrez nos services de création de sites web : landing page dès 490€, site vitrine dès 990€, e-commerce dès 2490€. Prix fixes, délais garantis. Devis gratuit sous 24h." />
         <meta name="keywords" content="création site web, site vitrine, landing page, e-commerce, développement web, agence web Paris" />
-        <link rel="canonical" href="https://convertilab.fr/services" />
+        <link rel="canonical" href="https://convertilab.com/services" />
         <meta property="og:title" content="Services Création Site Web | ConvertiLab" />
         <meta property="og:description" content="Landing page, site vitrine ou e-commerce : des tarifs transparents et des délais garantis pour votre projet web." />
-        <meta property="og:url" content="https://convertilab.fr/services" />
+        <meta property="og:url" content="https://convertilab.com/services" />
         <meta property="og:type" content="website" />
       </Helmet>
       

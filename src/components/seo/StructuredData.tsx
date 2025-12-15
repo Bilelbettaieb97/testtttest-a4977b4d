@@ -6,8 +6,8 @@ export const OrganizationSchema = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "ConvertiLab",
-    "url": "https://convertilab.fr",
-    "logo": "https://convertilab.fr/favicon.png",
+    "url": "https://convertilab.com",
+    "logo": "https://convertilab.com/favicon.png",
     "description": "Agence web spécialisée dans la création de sites internet sur-mesure",
     "address": {
       "@type": "PostalAddress",
@@ -18,7 +18,7 @@ export const OrganizationSchema = () => {
       "@type": "ContactPoint",
       "telephone": "+33783494709",
       "contactType": "customer service",
-      "email": "contact@convertilab.fr",
+      "email": "contact@convertilab.com",
       "availableLanguage": ["French"]
     },
     "sameAs": [
@@ -41,12 +41,12 @@ export const LocalBusinessSchema = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "ConvertiLab",
-    "image": "https://convertilab.fr/favicon.png",
+    "image": "https://convertilab.com/favicon.png",
     "description": "Agence web spécialisée dans la création de sites internet sur-mesure",
-    "@id": "https://convertilab.fr",
-    "url": "https://convertilab.fr",
+    "@id": "https://convertilab.com",
+    "url": "https://convertilab.com",
     "telephone": "+33783494709",
-    "email": "contact@convertilab.fr",
+    "email": "contact@convertilab.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Paris",
@@ -79,7 +79,7 @@ export const ServicesSchema = () => {
     "provider": {
       "@type": "Organization",
       "name": "ConvertiLab",
-      "url": "https://convertilab.fr"
+      "url": "https://convertilab.com"
     },
     "areaServed": {
       "@type": "Country",
@@ -215,7 +215,7 @@ export const BreadcrumbSchema = ({ items }: { items: BreadcrumbItem[] }) => {
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://convertilab.fr${item.url}`
+      "item": `https://convertilab.com${item.url}`
     }))
   };
 
@@ -294,7 +294,7 @@ export const CaseStudySchema = ({ caseStudy }: { caseStudy: CaseStudyData }) => 
       "name": "ConvertiLab",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://convertilab.fr/favicon.png"
+        "url": "https://convertilab.com/favicon.png"
       }
     }
   };

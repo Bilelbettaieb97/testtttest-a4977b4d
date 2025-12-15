@@ -16,7 +16,7 @@ const defaultMeta = {
   description: "Agence web spécialisée dans la création de sites internet sur-mesure. Design unique, développement moderne, responsive. Devis gratuit pour votre projet digital.",
   keywords: "création site web, agence web, site internet sur mesure, développement web, design web, site responsive, e-commerce, site vitrine",
   image: "https://storage.googleapis.com/gpt-engineer-file-uploads/GexdTExH3INRxljHBMsWqAtBwGy2/social-images/social-1764690270670-Capture d'écran 2025-12-01 à 13.25.00.png",
-  url: "https://convertilab.fr"
+  url: "https://convertilab.com"
 };
 
 const SEO = ({

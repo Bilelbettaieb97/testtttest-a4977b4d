@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 
 const PortfolioPage = () => {
   const breadcrumbItems = [
-    { name: "Accueil", url: "https://convertilab.fr/" },
-    { name: "Portfolio", url: "https://convertilab.fr/portfolio" }
+    { name: "Accueil", url: "https://convertilab.com/" },
+    { name: "Portfolio", url: "https://convertilab.com/portfolio" }
   ];
 
   return (
@@ -18,10 +18,10 @@ const PortfolioPage = () => {
         <title>Portfolio Création Site Web | Nos Réalisations | ConvertiLab</title>
         <meta name="description" content="Découvrez nos réalisations : +150 sites créés, +280% de CA moyen pour nos clients. E-commerce, restaurants, immobilier, fitness. Résultats concrets garantis." />
         <meta name="keywords" content="portfolio web, réalisations sites web, exemples sites internet, case study, création site e-commerce, site restaurant" />
-        <link rel="canonical" href="https://convertilab.fr/portfolio" />
+        <link rel="canonical" href="https://convertilab.com/portfolio" />
         <meta property="og:title" content="Portfolio Création Site Web | ConvertiLab" />
         <meta property="og:description" content="Plus de 150 sites web créés avec des résultats concrets : +340% de ventes, +250% de réservations. Découvrez nos études de cas." />
-        <meta property="og:url" content="https://convertilab.fr/portfolio" />
+        <meta property="og:url" content="https://convertilab.com/portfolio" />
         <meta property="og:type" content="website" />
       </Helmet>
       

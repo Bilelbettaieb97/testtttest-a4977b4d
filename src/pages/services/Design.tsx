@@ -69,7 +69,7 @@ const DesignPage = () => {
       <Helmet>
         <title>Design UI/UX et Identité Visuelle | ConvertiLab</title>
         <meta name="description" content="Services de design UI/UX et création d'identité visuelle. Logo, charte graphique, prototypes interactifs. Devis gratuit sous 24h." />
-        <link rel="canonical" href="https://convertilab.fr/services/design" />
+        <link rel="canonical" href="https://convertilab.com/services/design" />
       </Helmet>
       
       <Navigation />

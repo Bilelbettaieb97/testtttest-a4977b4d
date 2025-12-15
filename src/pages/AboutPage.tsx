@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
   const breadcrumbItems = [
-    { name: "Accueil", url: "https://convertilab.fr/" },
-    { name: "À propos", url: "https://convertilab.fr/a-propos" }
+    { name: "Accueil", url: "https://convertilab.com/" },
+    { name: "À propos", url: "https://convertilab.com/a-propos" }
   ];
 
   return (
@@ -18,10 +18,10 @@ const AboutPage = () => {
         <title>À Propos | Agence Web Créative Paris | ConvertiLab</title>
         <meta name="description" content="ConvertiLab, agence web créative spécialisée en création de sites internet sur mesure. Excellence technique, créativité sur mesure, accompagnement complet." />
         <meta name="keywords" content="agence web Paris, création site internet, agence digitale, développement web, design web, équipe web" />
-        <link rel="canonical" href="https://convertilab.fr/a-propos" />
+        <link rel="canonical" href="https://convertilab.com/a-propos" />
         <meta property="og:title" content="À Propos | Agence Web Créative | ConvertiLab" />
         <meta property="og:description" content="Découvrez l'équipe ConvertiLab : designers et développeurs passionnés qui transforment vos idées en expériences digitales exceptionnelles." />
-        <meta property="og:url" content="https://convertilab.fr/a-propos" />
+        <meta property="og:url" content="https://convertilab.com/a-propos" />
         <meta property="og:type" content="website" />
       </Helmet>
       
