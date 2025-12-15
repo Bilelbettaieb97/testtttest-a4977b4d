@@ -235,8 +235,8 @@ const OffreSpeciale = () => {
       />
       <BreadcrumbSchema 
         items={[
-          { name: 'Accueil', url: 'https://convertilab.fr/' },
-          { name: 'Offre Spéciale', url: 'https://convertilab.fr/offre-speciale' }
+          { name: 'Accueil', url: 'https://convertilab.com/' },
+          { name: 'Offre Spéciale', url: 'https://convertilab.com/offre-speciale' }
         ]}
       />
       

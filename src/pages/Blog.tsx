@@ -39,8 +39,8 @@ const Blog = () => {
       />
       
       <BreadcrumbSchema items={[
-        { name: "Accueil", url: "https://convertilab.fr/" },
-        { name: "Blog", url: "https://convertilab.fr/blog" }
+        { name: "Accueil", url: "https://convertilab.com/" },
+        { name: "Blog", url: "https://convertilab.com/blog" }
       ]} />
       
       <Navigation />

@@ -365,14 +365,14 @@ const CaseStudy = () => {
         caseStudy={{
           title: `${caseStudy.client} - ${caseStudy.title}`,
           description: caseStudy.subtitle,
-          image: typeof caseStudy.image === 'string' ? caseStudy.image : 'https://convertilab.fr/favicon.png'
+          image: typeof caseStudy.image === 'string' ? caseStudy.image : 'https://convertilab.com/favicon.png'
         }}
       />
       <BreadcrumbSchema 
         items={[
-          { name: 'Accueil', url: 'https://convertilab.fr/' },
-          { name: 'Portfolio', url: 'https://convertilab.fr/portfolio' },
-          { name: caseStudy.client, url: `https://convertilab.fr/case-study/${slug}` }
+          { name: 'Accueil', url: 'https://convertilab.com/' },
+          { name: 'Portfolio', url: 'https://convertilab.com/portfolio' },
+          { name: caseStudy.client, url: `https://convertilab.com/case-study/${slug}` }
         ]}
       />
       

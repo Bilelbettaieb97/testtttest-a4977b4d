@@ -36,24 +36,24 @@ const BlogArticle = () => {
     "author": {
       "@type": "Organization",
       "name": article.author.name,
-      "url": "https://convertilab.fr"
+      "url": "https://convertilab.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "ConvertiLab",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://convertilab.fr/favicon.png"
+        "url": "https://convertilab.com/favicon.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://convertilab.fr/blog/${article.slug}`
+      "@id": `https://convertilab.com/blog/${article.slug}`
     },
     "keywords": article.tags.join(", ")
   };
 
-  const shareUrl = `https://convertilab.fr/blog/${article.slug}`;
+  const shareUrl = `https://convertilab.com/blog/${article.slug}`;
   const shareText = encodeURIComponent(article.title);
 
   // Convert markdown-like content to HTML

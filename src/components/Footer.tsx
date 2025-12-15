@@ -228,7 +228,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-sm font-medium">Email</div>
-                  <div className="text-xs">contact@convertilab.fr</div>
+                  <div className="text-xs">contact@convertilab.com</div>
                 </div>
               </div>
               

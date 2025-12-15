@@ -71,7 +71,7 @@ const SeoPage = () => {
       <Helmet>
         <title>Référencement SEO et Audit | Visibilité Google | ConvertiLab</title>
         <meta name="description" content="Services SEO : référencement naturel et audit complet. Améliorez votre visibilité sur Google et attirez des clients qualifiés. Devis gratuit." />
-        <link rel="canonical" href="https://convertilab.fr/services/seo" />
+        <link rel="canonical" href="https://convertilab.com/services/seo" />
       </Helmet>
       
       <Navigation />

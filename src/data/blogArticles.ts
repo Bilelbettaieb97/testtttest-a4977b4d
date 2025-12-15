@@ -892,7 +892,7 @@ Il doit évoquer votre activité ou votre marque.
 ## Nom de marque vs mots-clés
 
 ### Nom de marque
-Ex: convertilab.fr
+Ex: convertilab.com
 - Unique et mémorable
 - Protégeable légalement
 - Branding fort

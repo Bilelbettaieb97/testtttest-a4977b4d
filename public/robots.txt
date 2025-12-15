@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://convertilab.fr/sitemap.xml
+Sitemap: https://convertilab.com/sitemap.xml
 
 # Specific bot permissions
 User-agent: Googlebot

@@ -74,7 +74,7 @@ const SeaPage = () => {
       <Helmet>
         <title>Publicité Google Ads et Meta Ads | SEA | ConvertiLab</title>
         <meta name="description" content="Services de publicité en ligne : Google Ads et Meta Ads (Facebook, Instagram). Campagnes optimisées pour maximiser votre ROI. Devis gratuit." />
-        <link rel="canonical" href="https://convertilab.fr/services/sea" />
+        <link rel="canonical" href="https://convertilab.com/services/sea" />
       </Helmet>
       
       <Navigation />
