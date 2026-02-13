@@ -15,7 +15,14 @@ import {
   Fingerprint,
   TrendingUp,
   ClipboardCheck,
-  Sparkles
+  Sparkles,
+  Target,
+  Share2,
+  Mail,
+  BarChart3,
+  Megaphone,
+  Users,
+  PenLine
 } from "lucide-react";
 
 const Services = () => {
@@ -25,7 +32,7 @@ const Services = () => {
       icon: <Globe className="w-5 h-5" />,
       label: "Sites Web",
       title: "Création de Sites Web",
-      description: "Des solutions web sur-mesure adaptées à vos objectifs",
+      description: "Des solutions web sur-mesure adaptées à vos objectifs business",
       gradient: "from-violet-500 to-purple-600",
       lightGradient: "from-violet-50 to-purple-50",
       accentColor: "text-violet-600",
@@ -69,38 +76,11 @@ const Services = () => {
       ]
     },
     {
-      id: "design",
-      icon: <Palette className="w-5 h-5" />,
-      label: "Design",
-      title: "Design & Identité Visuelle",
-      description: "Une image de marque mémorable qui vous distingue",
-      gradient: "from-pink-500 to-rose-600",
-      lightGradient: "from-pink-50 to-rose-50",
-      accentColor: "text-pink-600",
-      link: "/services/design",
-      services: [
-        {
-          name: "Design UI/UX",
-          icon: <PenTool className="w-5 h-5" />,
-          description: "Interfaces intuitives qui optimisent l'expérience utilisateur",
-          features: ["Wireframes", "Prototypes interactifs", "Tests utilisateurs", "Design system"],
-          link: "/services/design/ui-ux"
-        },
-        {
-          name: "Identité Visuelle",
-          icon: <Fingerprint className="w-5 h-5" />,
-          description: "Logo et charte graphique pour une image cohérente",
-          features: ["Création logo", "Charte graphique", "Déclinaisons supports", "Guide d'utilisation"],
-          link: "/services/design/identite-visuelle"
-        }
-      ]
-    },
-    {
       id: "seo",
       icon: <Search className="w-5 h-5" />,
       label: "SEO",
-      title: "SEO & Visibilité",
-      description: "Soyez trouvé par vos clients potentiels sur Google",
+      title: "SEO & Référencement Naturel",
+      description: "Dominez les résultats Google et attirez du trafic qualifié",
       gradient: "from-emerald-500 to-teal-600",
       lightGradient: "from-emerald-50 to-teal-50",
       accentColor: "text-emerald-600",
@@ -109,25 +89,32 @@ const Services = () => {
         {
           name: "Référencement SEO",
           icon: <TrendingUp className="w-5 h-5" />,
-          description: "Améliorez durablement votre positionnement sur les moteurs de recherche",
+          description: "Stratégie SEO complète pour un positionnement durable sur Google",
           features: ["Optimisation on-page", "Stratégie contenu", "Netlinking", "Suivi positions"],
           link: "/services/seo/referencement"
         },
         {
           name: "Audit SEO",
           icon: <ClipboardCheck className="w-5 h-5" />,
-          description: "Analyse complète de votre visibilité actuelle et axes d'amélioration",
+          description: "Analyse complète de votre visibilité et plan d'action concret",
           features: ["Rapport détaillé", "Analyse concurrence", "Recommandations", "Plan d'action"],
           link: "/services/seo/audit"
+        },
+        {
+          name: "Content Marketing",
+          icon: <PenLine className="w-5 h-5" />,
+          description: "Création de contenu optimisé SEO qui attire et convertit",
+          features: ["Articles de blog", "Pages piliers", "Stratégie éditoriale", "Maillage interne"],
+          link: "/services/seo/referencement"
         }
       ]
     },
     {
       id: "sea",
-      icon: <TrendingUp className="w-5 h-5" />,
-      label: "SEA",
-      title: "Publicité en ligne",
-      description: "Boostez votre visibilité avec des campagnes publicitaires ciblées",
+      icon: <Target className="w-5 h-5" />,
+      label: "Publicité",
+      title: "Publicité Digitale (SEA)",
+      description: "Générez des leads et des ventes avec des campagnes publicitaires ciblées",
       gradient: "from-amber-500 to-orange-600",
       lightGradient: "from-amber-50 to-orange-50",
       accentColor: "text-amber-600",
@@ -142,10 +129,71 @@ const Services = () => {
         },
         {
           name: "Meta Ads",
-          icon: <Fingerprint className="w-5 h-5" />,
+          icon: <Megaphone className="w-5 h-5" />,
           description: "Publicités Facebook et Instagram pour toucher votre audience idéale",
           features: ["Facebook Ads", "Instagram Ads", "Ciblage précis", "Créatifs optimisés"],
           link: "/services/sea/meta-ads"
+        }
+      ]
+    },
+    {
+      id: "social-media",
+      icon: <Share2 className="w-5 h-5" />,
+      label: "Social Media",
+      title: "Social Media & Community Management",
+      description: "Développez votre communauté et engagez votre audience sur les réseaux sociaux",
+      gradient: "from-pink-500 to-rose-600",
+      lightGradient: "from-pink-50 to-rose-50",
+      accentColor: "text-pink-600",
+      link: "/services/social-media",
+      services: [
+        {
+          name: "Community Management",
+          icon: <Users className="w-5 h-5" />,
+          description: "Gestion quotidienne de vos réseaux sociaux avec du contenu engageant",
+          features: ["Calendrier éditorial", "Création de contenu", "Modération", "Reporting mensuel"],
+          link: "/services/social-media"
+        },
+        {
+          name: "Stratégie Social Media",
+          icon: <BarChart3 className="w-5 h-5" />,
+          description: "Plan stratégique pour développer votre présence et votre influence",
+          features: ["Audit réseaux", "Benchmark concurrence", "Ligne éditoriale", "KPIs & objectifs"],
+          link: "/services/social-media"
+        },
+        {
+          name: "Email Marketing",
+          icon: <Mail className="w-5 h-5" />,
+          description: "Campagnes email et automation pour fidéliser et convertir",
+          features: ["Séquences automatisées", "Newsletters", "Segmentation", "A/B testing"],
+          link: "/services/social-media"
+        }
+      ]
+    },
+    {
+      id: "design",
+      icon: <Palette className="w-5 h-5" />,
+      label: "Branding",
+      title: "Branding & Identité Visuelle",
+      description: "Une image de marque forte et mémorable qui vous distingue",
+      gradient: "from-indigo-500 to-blue-600",
+      lightGradient: "from-indigo-50 to-blue-50",
+      accentColor: "text-indigo-600",
+      link: "/services/design",
+      services: [
+        {
+          name: "Design UI/UX",
+          icon: <PenTool className="w-5 h-5" />,
+          description: "Interfaces intuitives qui optimisent l'expérience utilisateur",
+          features: ["Wireframes", "Prototypes interactifs", "Tests utilisateurs", "Design system"],
+          link: "/services/design/ui-ux"
+        },
+        {
+          name: "Identité Visuelle",
+          icon: <Fingerprint className="w-5 h-5" />,
+          description: "Logo et charte graphique pour une image cohérente sur tous vos canaux",
+          features: ["Création logo", "Charte graphique", "Déclinaisons supports", "Guide d'utilisation"],
+          link: "/services/design/identite-visuelle"
         }
       ]
     }
@@ -169,50 +217,32 @@ const Services = () => {
         <header className="text-center mb-16 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-100 to-pink-100 dark:from-violet-900/30 dark:to-pink-900/30 mb-6">
             <Sparkles className="w-4 h-4 text-violet-600 dark:text-violet-400" />
-            <span className="text-sm font-medium text-violet-700 dark:text-violet-300">Nos services</span>
+            <span className="text-sm font-medium text-violet-700 dark:text-violet-300">Nos expertises</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold text-foreground mb-4 tracking-tight">
-            Ce que nous{" "}
+            Solutions de{" "}
             <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              faisons
+              Marketing Digital
             </span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Des solutions digitales complètes, un accompagnement personnalisé
+            De la stratégie à l'exécution, un accompagnement 360° pour votre croissance digitale
           </p>
         </header>
 
         {/* Tabs */}
         <Tabs defaultValue="sites-web" className="w-full">
-          <TabsList className="w-full max-w-2xl mx-auto grid grid-cols-4 mb-12 h-auto p-1.5 bg-muted/70 backdrop-blur-sm rounded-2xl">
-            <TabsTrigger 
-              value="sites-web"
-              className="flex items-center justify-center gap-2 py-3 px-4 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-violet-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
-            >
-              <Globe className="w-5 h-5" />
-              <span className="hidden sm:inline font-medium">Sites Web</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="design"
-              className="flex items-center justify-center gap-2 py-3 px-4 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-pink-500 data-[state=active]:to-rose-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
-            >
-              <Palette className="w-5 h-5" />
-              <span className="hidden sm:inline font-medium">Design</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="seo"
-              className="flex items-center justify-center gap-2 py-3 px-4 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-emerald-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
-            >
-              <Search className="w-5 h-5" />
-              <span className="hidden sm:inline font-medium">SEO</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="sea"
-              className="flex items-center justify-center gap-2 py-3 px-4 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
-            >
-              <TrendingUp className="w-5 h-5" />
-              <span className="hidden sm:inline font-medium">SEA</span>
-            </TabsTrigger>
+          <TabsList className="w-full max-w-3xl mx-auto grid grid-cols-5 mb-12 h-auto p-1.5 bg-muted/70 backdrop-blur-sm rounded-2xl">
+            {serviceCategories.map((cat) => (
+              <TabsTrigger 
+                key={cat.id}
+                value={cat.id}
+                className={`flex items-center justify-center gap-2 py-3 px-3 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:${cat.gradient.replace('from-', 'from-').replace('to-', 'to-')} data-[state=active]:text-white data-[state=active]:shadow-lg`}
+              >
+                {cat.icon}
+                <span className="hidden sm:inline font-medium">{cat.label}</span>
+              </TabsTrigger>
+            ))}
           </TabsList>
 
           {serviceCategories.map((category) => (
@@ -223,7 +253,7 @@ const Services = () => {
             >
               {/* Category header */}
               <div className="text-center mb-12">
-                <h3 className={`text-2xl sm:text-3xl font-bold text-foreground mb-3`}>
+                <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
                   {category.title}
                 </h3>
                 <p className="text-muted-foreground text-lg">
@@ -239,16 +269,13 @@ const Services = () => {
                     className="group relative p-6 rounded-2xl border border-border bg-card hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    {/* Gradient overlay on hover */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${category.lightGradient} dark:from-transparent dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
                     
                     <div className="relative z-10">
-                      {/* Icon */}
                       <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                         {service.icon}
                       </div>
                       
-                      {/* Content */}
                       <h4 className="text-lg font-semibold text-foreground mb-2 group-hover:text-foreground/90">
                         {service.name}
                       </h4>
@@ -256,7 +283,6 @@ const Services = () => {
                         {service.description}
                       </p>
                       
-                      {/* Features */}
                       <div className="flex flex-wrap gap-2 mb-4">
                         {service.features.slice(0, 3).map((feature, featureIndex) => (
                           <span 
@@ -273,7 +299,6 @@ const Services = () => {
                         )}
                       </div>
 
-                      {/* CTA */}
                       <Link 
                         to={service.link}
                         className={`inline-flex items-center gap-1 text-sm font-medium ${category.accentColor} hover:opacity-80 transition-opacity group/btn`}
@@ -286,13 +311,12 @@ const Services = () => {
                 ))}
               </div>
               
-              {/* En savoir plus link */}
               <div className="text-center mt-8">
                 <Link 
                   to={category.link}
                   className={`inline-flex items-center gap-2 ${category.accentColor} hover:opacity-80 font-medium transition-opacity`}
                 >
-                  En savoir plus sur nos services {category.label}
+                  En savoir plus sur {category.label}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -303,15 +327,14 @@ const Services = () => {
         {/* Bottom CTA */}
         <div className="mt-20 text-center">
           <div className="inline-block p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 relative overflow-hidden">
-            {/* Animated background */}
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-50"></div>
             
             <div className="relative z-10">
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-                Vous ne trouvez pas ce que vous cherchez ?
+                Besoin d'une stratégie digitale complète ?
               </h3>
               <p className="text-white/80 mb-8 max-w-lg mx-auto">
-                Discutons ensemble de votre projet sur-mesure
+                Obtenez un audit gratuit de votre présence en ligne et un plan d'action personnalisé
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button 
@@ -319,14 +342,14 @@ const Services = () => {
                   size="lg"
                   className="bg-white text-purple-600 hover:bg-white/90 px-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
-                  Discutons de votre projet
+                  Demander un audit gratuit
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
                 <Link 
                   to="/portfolio" 
                   className="text-sm text-white/90 hover:text-white transition-colors underline underline-offset-4"
                 >
-                  Voir nos réalisations
+                  Voir nos résultats clients
                 </Link>
               </div>
             </div>

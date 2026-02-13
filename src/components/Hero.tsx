@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Rocket, Users, Shield, Calendar, Star, Zap } from "lucide-react";
+import { ArrowRight, Rocket, Shield, Calendar, Star, Zap, TrendingUp, BarChart3, Target } from "lucide-react";
 import ContactForm from "./contact/ContactForm";
 
 const Hero = () => {
@@ -25,38 +25,38 @@ const Hero = () => {
             {/* Badge */}
             <div className="inline-flex items-center px-4 py-2 mb-6 text-sm glass border border-purple-200 text-purple-800 rounded-full animate-fade-in hover:scale-105 transition-transform duration-300 cursor-default shadow-lg">
               <Rocket className="w-4 h-4 mr-2 text-purple-600" />
-              <span className="font-semibold">Agence Web Startup • Agile & Créative</span>
+              <span className="font-semibold">Agence Marketing Digital • Paris</span>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-slide-up">
-              Des Sites Web Modernes
+              Accélérez Votre Croissance
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 animate-gradient-shift">
-                qui Font Grandir Votre Business
+                avec le Marketing Digital
               </span>
             </h1>
 
             {/* Subheading */}
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed animate-fade-in">
-              Nous créons des sites web <strong className="text-purple-700">sur-mesure, rapides et optimisés</strong> pour transformer vos visiteurs en clients.
-              <span className="block mt-2 text-gray-500">Une approche startup : agile, design, orientée résultats.</span>
+              SEO, Google Ads, Social Media, Email Marketing — nous créons des <strong className="text-purple-700">stratégies digitales sur-mesure</strong> qui génèrent du trafic, des leads et des ventes.
+              <span className="block mt-2 text-gray-500">Une approche data-driven pour des résultats mesurables.</span>
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8 animate-scale-in">
               <div className="group text-center p-3 sm:p-4 glass rounded-xl border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                 <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-1">
-                  100%
+                  +300%
                 </div>
-                <div className="text-xs sm:text-sm text-gray-700 font-semibold">Sur-Mesure</div>
-                <div className="text-[10px] text-gray-400 mt-0.5 hidden sm:block">Design unique pour vous</div>
+                <div className="text-xs sm:text-sm text-gray-700 font-semibold">ROI Moyen</div>
+                <div className="text-[10px] text-gray-400 mt-0.5 hidden sm:block">Sur nos campagnes</div>
               </div>
               <div className="group text-center p-3 sm:p-4 glass rounded-xl border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                 <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-1">
-                  2-4
+                  150+
                 </div>
-                <div className="text-xs sm:text-sm text-gray-700 font-semibold">Semaines</div>
-                <div className="text-[10px] text-gray-400 mt-0.5 hidden sm:block">Méthode agile</div>
+                <div className="text-xs sm:text-sm text-gray-700 font-semibold">Clients</div>
+                <div className="text-[10px] text-gray-400 mt-0.5 hidden sm:block">Tous secteurs</div>
               </div>
               <div className="group text-center p-3 sm:p-4 glass rounded-xl border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                 <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-1">
@@ -75,7 +75,7 @@ const Hero = () => {
                 className="group w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl"
               >
                 <Zap className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                Estimer mon projet
+                Audit gratuit
               </Button>
 
               <Button 
@@ -92,9 +92,9 @@ const Hero = () => {
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 text-sm text-gray-600 animate-fade-in">
               <div className="glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-purple-200 flex items-center gap-2 shadow-lg">
-                <Star className="w-4 h-4 text-purple-600 fill-purple-600" />
+                <BarChart3 className="w-4 h-4 text-purple-600" />
                 <span className="font-semibold">
-                  <span className="text-purple-600">150+</span> sites créés
+                  <span className="text-purple-600">5M€+</span> de CA généré
                 </span>
               </div>
               <div className="glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-green-200 flex items-center gap-2 shadow-lg">

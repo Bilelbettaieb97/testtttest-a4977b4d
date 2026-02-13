@@ -12,9 +12,9 @@ interface SEOProps {
 }
 
 const defaultMeta = {
-  title: "ConvertiLab - Création de Sites Web Sur-Mesure | Agence Web Professionnelle",
-  description: "Agence web spécialisée dans la création de sites internet sur-mesure. Design unique, développement moderne, responsive. Devis gratuit pour votre projet digital.",
-  keywords: "création site web, agence web, site internet sur mesure, développement web, design web, site responsive, e-commerce, site vitrine",
+  title: "ConvertiLab - Agence Marketing Digital Paris | SEO, Ads, Social Media",
+  description: "Agence de marketing digital à Paris. SEO, Google Ads, Meta Ads, Social Media, Email Marketing, création de sites web. Stratégies data-driven pour booster votre croissance.",
+  keywords: "agence marketing digital, SEO, Google Ads, Meta Ads, social media, email marketing, création site web, marketing digital Paris",
   image: "https://storage.googleapis.com/gpt-engineer-file-uploads/GexdTExH3INRxljHBMsWqAtBwGy2/social-images/social-1764690270670-Capture d'écran 2025-12-01 à 13.25.00.png",
   url: "https://convertilab.com"
 };

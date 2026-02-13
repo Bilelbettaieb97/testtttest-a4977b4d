@@ -17,114 +17,111 @@ const ProcessTimeline = () => {
     {
       icon: MessageSquare,
       number: "01",
-      title: "Consultation Gratuite",
-      description: "On discute de votre projet, vos objectifs et votre budget",
-      duration: "30 min",
+      title: "Audit & Stratégie",
+      description: "On analyse votre marché, vos concurrents et vos objectifs pour définir la meilleure stratégie",
+      duration: "Gratuit",
       gradient: "from-violet-600 via-purple-600 to-indigo-600",
       glowColor: "shadow-violet-500/20",
       delay: "delay-0",
       details: {
-        fullDescription: "Une session découverte pour comprendre vos besoins et définir ensemble la meilleure stratégie pour votre projet web.",
+        fullDescription: "Un audit complet de votre présence digitale et de votre marché pour définir une stratégie sur-mesure.",
         deliverables: [
-          "Analyse de vos besoins et objectifs business",
-          "Étude de votre audience cible",
-          "Recommandations techniques personnalisées",
-          "Estimation du délai et du budget",
-          "Plan d'action détaillé"
+          "Audit de votre présence digitale actuelle",
+          "Analyse de vos concurrents et du marché",
+          "Identification des meilleurs leviers (SEO, Ads, Social...)",
+          "Estimation du budget et du ROI attendu",
+          "Plan d'action détaillé et chiffré"
         ],
-        tools: ["Google Meet", "Miro", "Notion"],
-        process: "Nous commençons par une discussion ouverte où vous nous partagez votre vision. Nous analysons ensemble vos objectifs, votre audience, et vos contraintes. À la fin de cet échange, vous recevez un document récapitulatif avec nos recommandations et un devis personnalisé."
+        tools: ["Google Analytics", "SEMrush", "Meta Business Suite"],
+        process: "Nous analysons en profondeur votre écosystème digital : site web, SEO, réseaux sociaux, publicité. On identifie les quick wins et les opportunités de croissance. Vous recevez un rapport complet avec nos recommandations."
       }
     },
     {
       icon: Lightbulb,
       number: "02",
-      title: "Design & Maquette",
-      description: "On crée des maquettes personnalisées qui reflètent votre vision",
-      duration: "2-3 jours",
+      title: "Plan d'Action",
+      description: "On construit votre stratégie marketing digitale personnalisée avec des objectifs clairs",
+      duration: "3-5 jours",
       gradient: "from-purple-600 via-pink-600 to-rose-600",
       glowColor: "shadow-pink-500/20",
       delay: "delay-100",
       details: {
-        fullDescription: "Conception visuelle complète de votre site avec des maquettes haute-fidélité pour tous les écrans.",
+        fullDescription: "Création d'un plan marketing complet avec les leviers à activer, le calendrier et les KPIs à suivre.",
         deliverables: [
-          "Planche de style (couleurs, typographies, éléments)",
-          "Maquettes desktop haute-fidélité",
-          "Maquettes mobile et tablette",
-          "Prototype interactif cliquable",
-          "Guide de style complet"
+          "Stratégie marketing digitale complète",
+          "Calendrier éditorial et publicitaire",
+          "Définition des KPIs et objectifs mensuels",
+          "Setup du tracking (Analytics, pixels, UTMs)",
+          "Brief créatif pour les supports"
         ],
-        tools: ["Figma", "Adobe XD", "Illustrator"],
-        process: "Nous créons d'abord une planche de style basée sur votre identité de marque. Puis, nous concevons les maquettes de toutes les pages en version desktop et mobile. Vous pouvez tester un prototype interactif et demander jusqu'à 2 révisions gratuites."
+        tools: ["Google Analytics", "Google Tag Manager", "Notion"],
+        process: "Nous élaborons votre stratégie en croisant les données de l'audit avec vos objectifs business. Chaque levier est détaillé avec son budget, son calendrier et ses KPIs de performance."
       }
     },
     {
       icon: Code,
       number: "03",
-      title: "Développement",
-      description: "On code votre site avec les meilleures technologies",
+      title: "Mise en Place",
+      description: "On déploie les campagnes, crée les contenus et configure les outils",
       duration: "1-2 semaines",
       gradient: "from-orange-600 via-amber-600 to-yellow-600",
       glowColor: "shadow-orange-500/20",
       delay: "delay-200",
       details: {
-        fullDescription: "Développement technique de votre site avec les technologies les plus performantes et les meilleures pratiques du web.",
+        fullDescription: "Exécution de la stratégie : lancement des campagnes, création de contenu, configuration technique.",
         deliverables: [
-          "Code propre et optimisé",
-          "Site 100% responsive (mobile, tablette, desktop)",
-          "Optimisation SEO technique",
-          "Performance maximale (score 90+ sur PageSpeed)",
-          "Animations et interactions fluides",
-          "Formulaires et fonctionnalités métier"
+          "Lancement des campagnes publicitaires (Google/Meta)",
+          "Optimisation SEO technique et contenu",
+          "Création des contenus social media",
+          "Mise en place des séquences email",
+          "Configuration du tracking et des dashboards"
         ],
-        tools: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-        process: "Nous transformons les maquettes en code avec une attention particulière à la performance et à l'accessibilité. Le site est testé sur tous les navigateurs et appareils. Vous recevez des mises à jour régulières et pouvez suivre l'avancement en temps réel."
+        tools: ["Google Ads", "Meta Business Suite", "Mailchimp", "Canva"],
+        process: "Notre équipe déploie chaque levier selon le plan validé. Les campagnes sont lancées, les contenus publiés, le SEO optimisé. Vous suivez l'avancement en temps réel sur un dashboard partagé."
       }
     },
     {
       icon: CheckCircle,
       number: "04",
-      title: "Tests & Ajustements",
-      description: "On teste tout et on ajuste selon vos retours",
-      duration: "2-3 jours",
+      title: "Optimisation Continue",
+      description: "On analyse les résultats et on optimise pour maximiser votre ROI",
+      duration: "Continu",
       gradient: "from-emerald-600 via-green-600 to-teal-600",
       glowColor: "shadow-emerald-500/20",
       delay: "delay-300",
       details: {
-        fullDescription: "Phase de tests rigoureux et d'ajustements pour garantir un site parfait avant la mise en ligne.",
+        fullDescription: "Suivi des performances et optimisation continue basée sur les données réelles.",
         deliverables: [
-          "Tests sur tous les navigateurs (Chrome, Firefox, Safari, Edge)",
-          "Tests responsive sur tous les appareils",
-          "Vérification SEO complète",
-          "Tests de performance et vitesse",
-          "Correction de tous les bugs identifiés",
-          "Ajustements selon vos retours"
+          "Analyse hebdomadaire des performances",
+          "Optimisation des campagnes et budgets",
+          "A/B testing des créatifs et landing pages",
+          "Ajustement de la stratégie selon les résultats",
+          "Rapport mensuel détaillé avec recommandations"
         ],
-        tools: ["BrowserStack", "Google Lighthouse", "GTmetrix"],
-        process: "Nous testons méticuleusement chaque fonctionnalité et chaque page. Vous recevez un accès à une version de pré-production pour tester vous-même. Nous intégrons vos retours et effectuons jusqu'à 2 cycles de révisions pour atteindre la perfection."
+        tools: ["Google Analytics", "Google Ads", "Hotjar", "Data Studio"],
+        process: "Chaque semaine, nous analysons les données et optimisons vos campagnes. Les budgets sont réalloués vers les leviers les plus performants. Vous recevez un rapport mensuel complet avec les KPIs, les apprentissages et les prochaines actions."
       }
     },
     {
       icon: Rocket,
       number: "05",
-      title: "Mise en Ligne",
-      description: "Votre site est en ligne et on vous forme à son utilisation",
-      duration: "1 jour",
+      title: "Scale & Croissance",
+      description: "On développe les leviers qui fonctionnent pour accélérer votre croissance",
+      duration: "Long terme",
       gradient: "from-blue-600 via-cyan-600 to-sky-600",
       glowColor: "shadow-blue-500/20",
       delay: "delay-[400ms]",
       details: {
-        fullDescription: "Déploiement de votre site en production avec formation complète et support continu.",
+        fullDescription: "Scaling des campagnes performantes et exploration de nouveaux leviers de croissance.",
         deliverables: [
-          "Mise en ligne sur serveur haute performance",
-          "Configuration du nom de domaine",
-          "Certificat SSL (HTTPS)",
-          "Formation à l'administration du site",
-          "Documentation complète",
-          "3 à 6 mois de support inclus"
+          "Scaling des campagnes les plus rentables",
+          "Exploration de nouveaux canaux d'acquisition",
+          "Stratégie de fidélisation et rétention",
+          "Automatisation du marketing",
+          "Recommandations stratégiques trimestrielles"
         ],
-        tools: ["Vercel", "Netlify", "Cloudflare"],
-        process: "Nous déployons votre site sur une infrastructure performante et sécurisée. Vous recevez une formation personnalisée pour gérer votre contenu en toute autonomie. Nous restons disponibles pour vous accompagner dans les premiers mois et répondre à toutes vos questions."
+        tools: ["HubSpot", "Zapier", "Google Data Studio"],
+        process: "Une fois les leviers validés, on passe en mode croissance. On augmente les budgets sur ce qui fonctionne, on explore de nouveaux canaux, et on met en place des automations pour maximiser votre ROI à long terme."
       }
     }
   ];
@@ -146,13 +143,13 @@ const ProcessTimeline = () => {
             Notre Processus
           </div>
           <h2 className="text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight">
-            De l'idée au{" "}
+            De l'audit au{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 animate-pulse">
               succès
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Un processus simple et transparent en 5 étapes pour créer votre site web parfait
+            Un processus éprouvé en 5 étapes pour booster votre croissance digitale
           </p>
         </div>
 
@@ -250,7 +247,7 @@ const ProcessTimeline = () => {
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-violet-500/10 to-purple-500/10 backdrop-blur-sm border border-violet-500/20 px-8 py-4 rounded-2xl">
             <div className="w-2 h-2 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full animate-pulse"></div>
             <p className="text-slate-300 text-base sm:text-lg">
-              <span className="font-bold text-white">Délai moyen : 2-4 semaines</span> de consultation à mise en ligne
+              <span className="font-bold text-white">Premiers résultats dès le 1er mois</span> — optimisation continue pour une croissance durable
             </p>
           </div>
         </div>

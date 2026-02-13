@@ -8,7 +8,7 @@ export const OrganizationSchema = () => {
     "name": "ConvertiLab",
     "url": "https://convertilab.com",
     "logo": "https://convertilab.com/favicon.png",
-    "description": "Agence web spécialisée dans la création de sites internet sur-mesure",
+    "description": "Agence de marketing digital spécialisée en SEO, publicité en ligne, social media et création de sites web",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Paris",
@@ -42,7 +42,7 @@ export const LocalBusinessSchema = () => {
     "@type": "LocalBusiness",
     "name": "ConvertiLab",
     "image": "https://convertilab.com/favicon.png",
-    "description": "Agence web spécialisée dans la création de sites internet sur-mesure",
+    "description": "Agence de marketing digital spécialisée en SEO, publicité en ligne, social media et création de sites web",
     "@id": "https://convertilab.com",
     "url": "https://convertilab.com",
     "telephone": "+33783494709",
@@ -75,7 +75,7 @@ export const ServicesSchema = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Création de sites web",
+    "serviceType": "Marketing Digital",
     "provider": {
       "@type": "Organization",
       "name": "ConvertiLab",
@@ -87,30 +87,38 @@ export const ServicesSchema = () => {
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Services Web ConvertiLab",
+      "name": "Services Marketing Digital ConvertiLab",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Site Vitrine",
-            "description": "Site web professionnel pour présenter votre activité"
+            "name": "SEO & Référencement Naturel",
+            "description": "Stratégie SEO complète pour dominer les résultats Google"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Site E-commerce",
-            "description": "Boutique en ligne complète avec paiement sécurisé"
+            "name": "Publicité Google Ads & Meta Ads",
+            "description": "Campagnes publicitaires ciblées pour générer des leads et des ventes"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Site Sur-Mesure",
-            "description": "Application web personnalisée selon vos besoins"
+            "name": "Social Media Management",
+            "description": "Gestion et stratégie réseaux sociaux pour développer votre communauté"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Création de Sites Web",
+            "description": "Sites web performants optimisés pour la conversion"
           }
         }
       ]

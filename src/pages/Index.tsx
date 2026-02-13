@@ -24,32 +24,32 @@ import {
 
 const faqData = [
   {
+    question: "Quels services de marketing digital proposez-vous ?",
+    answer: "Nous proposons une offre 360° : création de sites web, SEO, Google Ads & Meta Ads, gestion des réseaux sociaux, email marketing, content marketing, branding et identité visuelle."
+  },
+  {
     question: "Combien de temps avant de voir les premiers résultats ?",
-    answer: "En moyenne, nos clients voient une amélioration significative dès la 1ère semaine après la mise en ligne. Les résultats complets sont généralement atteints entre 15 et 30 jours selon votre trafic."
+    answer: "La publicité (Google/Meta Ads) génère des résultats dès les premières semaines. Le SEO prend 3 à 6 mois. Le social media commence à porter ses fruits après 1 à 3 mois."
   },
   {
-    question: "Que se passe-t-il après la livraison de mon site ?",
-    answer: "Nous incluons 3 mois de support et d'optimisation gratuits. Cela comprend : suivi des performances, ajustements basés sur les données réelles, support technique, et formation de votre équipe."
-  },
-  {
-    question: "Comment êtes-vous sûrs que ça va fonctionner pour mon secteur ?",
-    answer: "Nous avons travaillé avec +150 entreprises dans 25 secteurs différents. Notre méthodologie est basée sur des principes de psychologie cognitive universels qui fonctionnent quel que soit le secteur."
+    question: "Comment mesurez-vous le ROI de vos actions ?",
+    answer: "Tracking complet dès le départ (Google Analytics, pixels, UTMs). Rapports mensuels avec KPIs clés : trafic, leads, conversions, coût par acquisition, ROI."
   },
   {
     question: "Quelle est la différence avec une agence web classique ?",
-    answer: "Nous nous spécialisons exclusivement sur l'optimisation des conversions. Nos pages sont conçues avec une approche scientifique : tests A/B, analyse comportementale, optimisation continue."
+    answer: "Notre approche couvre l'ensemble du tunnel d'acquisition digital : attirer (SEO, Ads), convertir (landing pages, UX), fidéliser (email, social). Chaque action est pensée pour générer du business."
   },
   {
-    question: "Puis-je voir des exemples concrets de vos réalisations ?",
-    answer: "Bien sûr ! Nous avons une section portfolio avec des cas clients détaillés, incluant les métriques avant/après."
+    question: "Quel budget prévoir pour une stratégie marketing digitale ?",
+    answer: "Nos accompagnements démarrent à partir de 500€/mois. Le budget dépend de vos objectifs, votre secteur et les leviers activés."
   }
 ];
 
 const reviewsData = [
-  { author: "Sophie Martineau", reviewBody: "Notre boutique en ligne génère maintenant plus que notre magasin physique !", rating: 5 },
-  { author: "Pierre Dubois", reviewBody: "Le site nous a littéralement sauvés pendant les fermetures !", rating: 5 },
-  { author: "Catherine Moreau", reviewBody: "Nous sommes passés d'une petite agence locale à LA référence de la région.", rating: 5 },
-  { author: "Marc Leroy", reviewBody: "La digitalisation a complètement révolutionné notre salle !", rating: 5 }
+  { author: "Marie Dubois", reviewBody: "Notre chiffre d'affaires en ligne a augmenté de 250% grâce à leur stratégie digitale !", rating: 5 },
+  { author: "Thomas Laurent", reviewBody: "50+ leads qualifiés par mois grâce aux Meta Ads et au social media.", rating: 5 },
+  { author: "Sophie Martin", reviewBody: "On est passé de 5 à 30 demandes de devis par semaine avec le SEO + Google Ads.", rating: 5 },
+  { author: "Alexandre Chen", reviewBody: "Notre coût par acquisition a baissé de 60% grâce à leur approche data-driven.", rating: 5 }
 ];
 
 const Index = () => {
@@ -57,9 +57,9 @@ const Index = () => {
     <div className="min-h-screen">
       <SEO 
         url="/"
-        title="Création de Sites Web Sur-Mesure"
-        description="Agence web spécialisée dans la création de sites internet sur-mesure. Design unique, développement moderne, responsive. Devis gratuit pour votre projet digital."
-        keywords="création site web, agence web, site internet sur mesure, développement web, design web, site responsive, e-commerce, site vitrine"
+        title="Agence Marketing Digital Paris | SEO, Ads, Social Media"
+        description="Agence de marketing digital à Paris. SEO, Google Ads, Meta Ads, Social Media, Email Marketing, création de sites web. Stratégies data-driven pour booster votre croissance."
+        keywords="agence marketing digital, SEO, Google Ads, Meta Ads, social media, email marketing, création site web, marketing digital Paris"
       />
       <OrganizationSchema />
       <LocalBusinessSchema />
