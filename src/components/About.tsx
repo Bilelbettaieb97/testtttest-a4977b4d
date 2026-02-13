@@ -1,4 +1,4 @@
-import { Award, Code, Shield, Target, Users, Zap, TrendingUp, Heart, Sparkles, CheckCircle2 } from "lucide-react";
+import { Award, BarChart3, Shield, Target, Users, Zap, TrendingUp, Heart, Sparkles } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const About = () => {
@@ -8,46 +8,42 @@ const About = () => {
 
   const values = [
     {
-      icon: Award,
-      title: "Excellence technique",
-      description: "Technologies modernes et performantes pour des sites web qui se démarquent",
+      icon: BarChart3,
+      title: "Approche Data-Driven",
+      description: "Chaque décision est guidée par les données : analytics, A/B testing, tracking avancé pour des résultats mesurables",
       gradient: "from-violet-600 via-purple-600 to-indigo-600",
       glowColor: "shadow-violet-500/20"
     },
     {
-      icon: Code,
-      title: "Créativité sur mesure",
-      description: "Chaque projet est unique et reflète parfaitement votre identité de marque",
+      icon: Target,
+      title: "Stratégie Sur-Mesure",
+      description: "Pas de solutions toutes faites — nous construisons une stratégie marketing adaptée à votre marché et vos objectifs",
       gradient: "from-blue-600 via-cyan-600 to-sky-600",
       glowColor: "shadow-blue-500/20"
     },
     {
       icon: Shield,
-      title: "Accompagnement complet",
-      description: "De l'idée au lancement, nous sommes à vos côtés à chaque étape",
+      title: "Accompagnement 360°",
+      description: "SEO, publicité, social media, email, branding — un seul interlocuteur pour toute votre stratégie digitale",
       gradient: "from-emerald-600 via-green-600 to-teal-600",
       glowColor: "shadow-emerald-500/20"
     }
   ];
 
   const highlights = [
-    { icon: Target, text: "Vision claire de vos objectifs" },
-    { icon: Users, text: "Équipe dédiée et passionnée" },
-    { icon: Zap, text: "Livraison rapide et efficace" },
+    { icon: TrendingUp, text: "ROI mesurable sur chaque action" },
+    { icon: Users, text: "Équipe d'experts pluridisciplinaire" },
+    { icon: Zap, text: "Exécution rapide et agile" },
     { icon: Heart, text: "Relation client privilégiée" },
   ];
 
   return (
     <section className="py-20 sm:py-32 relative overflow-hidden">
-      {/* Background avec gradient animé */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-900/20 via-transparent to-transparent"></div>
-      
-      {/* Grille de fond */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {/* Header */}
         <div 
           ref={headerRef}
           className={`text-center mb-16 transition-all duration-700 ${
@@ -65,13 +61,12 @@ const About = () => {
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-            Agence web créative spécialisée dans la création de sites internet sur mesure. 
-            Notre équipe de designers et développeurs passionnés transforme vos idées en 
-            expériences digitales exceptionnelles qui marquent les esprits.
+            Agence de marketing digital spécialisée dans l'acquisition et la conversion. 
+            Notre équipe d'experts en SEO, publicité, social media et création web transforme 
+            votre présence digitale en machine à générer du business.
           </p>
         </div>
 
-        {/* Values Grid */}
         <div 
           ref={valuesRef}
           className={`mb-20 transition-all duration-700 delay-200 ${
@@ -89,12 +84,8 @@ const About = () => {
                   key={index}
                   className="group relative bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-8 hover:border-slate-700/50 transition-all duration-500 overflow-hidden"
                 >
-                  {/* Effet de brillance au hover */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                  
-                  {/* Glow effect */}
                   <div className={`absolute -inset-0.5 bg-gradient-to-r ${value.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 -z-10`}></div>
-
                   <div className="relative text-center">
                     <div className={`w-16 h-16 bg-gradient-to-br ${value.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl ${value.glowColor} group-hover:shadow-2xl group-hover:scale-110 transition-all duration-500`}>
                       <IconComponent className="w-8 h-8 text-white" strokeWidth={2.5} />
@@ -110,7 +101,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Highlights */}
         <div 
           ref={statsRef}
           className={`transition-all duration-700 delay-300 ${
@@ -119,17 +109,15 @@ const About = () => {
         >
           <div className="relative bg-gradient-to-br from-violet-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-xl border border-violet-500/20 rounded-2xl p-8 sm:p-12 max-w-4xl mx-auto overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-violet-600/5 to-pink-600/5"></div>
-            
             <div className="relative">
               <div className="text-center mb-8">
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
                   Ce qui nous différencie
                 </h3>
                 <p className="text-slate-300">
-                  Une expertise technique combinée à une approche humaine
+                  Une expertise marketing combinée à une exécution technique sans faille
                 </p>
               </div>
-
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {highlights.map((highlight, idx) => {
                   const IconComponent = highlight.icon;

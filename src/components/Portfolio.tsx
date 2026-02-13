@@ -17,15 +17,15 @@ const Portfolio = () => {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
       sector: "E-commerce",
       client: "Boutique Élégance",
-      title: "Site e-commerce haute conversion",
-      description: "Refonte complète avec optimisation du tunnel de vente et paiement sécurisé.",
+      title: "Stratégie digitale e-commerce complète",
+      description: "SEO + Google Shopping + Meta Ads + refonte site pour une boutique de mode en ligne.",
       image: portfolioEcommerce,
       metrics: [
-        { label: "Ventes", value: "+340%", icon: TrendingUp },
-        { label: "Conversion", value: "4.8%", icon: Star },
-        { label: "Temps", value: "1.2s", icon: Clock }
+        { label: "CA en ligne", value: "+340%", icon: TrendingUp },
+        { label: "ROAS", value: "x4.8", icon: Star },
+        { label: "CPA", value: "-55%", icon: Clock }
       ],
-      technologies: ["React", "Stripe"],
+      technologies: ["SEO", "Google Ads", "Meta Ads"],
       results: "CA multiplié par 3 en 6 mois",
       testimonial: "Notre boutique en ligne génère plus que notre magasin physique !",
       author: "Sophie Martineau",
@@ -35,17 +35,17 @@ const Portfolio = () => {
       icon: <Utensils className="w-6 h-6 text-purple-600" />,
       sector: "Restaurant",
       client: "Le Gourmet",
-      title: "Site gastronomique avec commande",
-      description: "Site vitrine avec menu interactif et réservations en ligne.",
+      title: "Acquisition locale multi-canal",
+      description: "Google Ads local + SEO + gestion réseaux sociaux pour un restaurant gastronomique.",
       image: portfolioRestaurant,
       metrics: [
         { label: "Réservations", value: "+250%", icon: Users },
-        { label: "Commandes", value: "+400%", icon: ShoppingCart },
-        { label: "Avis", value: "4.9★", icon: Star }
+        { label: "Visibilité", value: "Top 3", icon: Star },
+        { label: "Avis Google", value: "4.9★", icon: Star }
       ],
-      technologies: ["WordPress", "WooCommerce"],
-      results: "60% de CA en plus pendant Covid",
-      testimonial: "Le site nous a sauvés pendant les fermetures !",
+      technologies: ["SEO Local", "Google Ads", "Social Media"],
+      results: "60% de CA en plus",
+      testimonial: "On ne pouvait plus gérer toutes les réservations !",
       author: "Pierre Dubois",
       slug: "le-gourmet"
     },
@@ -53,15 +53,15 @@ const Portfolio = () => {
       icon: <Sparkles className="w-6 h-6 text-pink-600" />,
       sector: "Beauté & Bien-être",
       client: "Institut Belle Vie",
-      title: "Site spa avec réservation en ligne",
-      description: "Plateforme élégante avec booking, packages et programme de fidélité.",
+      title: "Social Media + Meta Ads + SEO",
+      description: "Stratégie Instagram/Facebook + publicité Meta + référencement local.",
       image: portfolioBeaute,
       metrics: [
         { label: "Réservations", value: "+280%", icon: Users },
-        { label: "Packages", value: "+190%", icon: ShoppingCart },
-        { label: "Satisfaction", value: "9.6/10", icon: Star }
+        { label: "Abonnés IG", value: "+5K", icon: Star },
+        { label: "Engagement", value: "8.5%", icon: TrendingUp }
       ],
-      technologies: ["WordPress", "Bookly"],
+      technologies: ["Meta Ads", "Instagram", "SEO Local"],
       results: "Carnet complet 3 semaines à l'avance",
       testimonial: "Nous n'avons plus jamais de créneaux vides !",
       author: "Émilie Bernard",
@@ -71,17 +71,17 @@ const Portfolio = () => {
       icon: <Dumbbell className="w-6 h-6 text-red-600" />,
       sector: "Sport & Fitness",
       client: "FitZone Studio",
-      title: "Plateforme fitness avec abonnements",
-      description: "Site avec réservation de cours, suivi d'entraînement et paiement en ligne.",
+      title: "Funnel d'acquisition complet",
+      description: "Landing page + Google Ads + Meta Ads + email marketing pour acquisition d'abonnés.",
       image: portfolioFitness,
       metrics: [
         { label: "Membres", value: "+420%", icon: Users },
-        { label: "Réservations", value: "95%", icon: TrendingUp },
+        { label: "Coût/Lead", value: "3.20€", icon: TrendingUp },
         { label: "Rétention", value: "89%", icon: Star }
       ],
-      technologies: ["React", "Stripe"],
+      technologies: ["Google Ads", "Meta Ads", "Email"],
       results: "3x plus de membres actifs",
-      testimonial: "La digitalisation a révolutionné notre salle !",
+      testimonial: "Le marketing digital a révolutionné notre salle !",
       author: "Marc Leroy",
       slug: "fitzone-studio"
     },
@@ -89,17 +89,17 @@ const Portfolio = () => {
       icon: <Briefcase className="w-6 h-6 text-cyan-600" />,
       sector: "Services B2B",
       client: "ConsultPro",
-      title: "Site corporate avec génération de leads",
-      description: "Site vitrine optimisé SEO avec formulaires intelligents et tunnel de conversion.",
+      title: "Génération de leads B2B",
+      description: "SEO + LinkedIn + Google Ads + site optimisé conversion pour un cabinet de conseil.",
       image: portfolioB2B,
       metrics: [
         { label: "Leads", value: "+460%", icon: Users },
         { label: "Conversion", value: "12.3%", icon: Star },
         { label: "ROI", value: "850%", icon: TrendingUp }
       ],
-      technologies: ["Next.js", "HubSpot"],
+      technologies: ["SEO", "LinkedIn Ads", "Google Ads"],
       results: "Pipeline commercial multiplié par 5",
-      testimonial: "Le meilleur investissement de l'année !",
+      testimonial: "Le meilleur investissement marketing de l'année !",
       author: "Laurent Dupuis",
       slug: "consultpro"
     }

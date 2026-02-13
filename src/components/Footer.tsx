@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Globe, Code, Smartphone, ShoppingCart, Star, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Globe, Code, Smartphone, ShoppingCart, Star, ArrowRight, Target, Search, Share2, BarChart3 } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -10,13 +10,15 @@ const Footer = () => {
   const navigate = useNavigate();
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const services = [
-    { name: "Design Web Créatif", href: "/services" },
-    { name: "Développement Expert", href: "/services" },
-    { name: "Site E-commerce", href: "/services" },
-    { name: "Application Web", href: "/services" },
-    { name: "Optimisation SEO", href: "/services" },
-    { name: "Maintenance Web", href: "/services" }
+    { name: "Création de Sites Web", href: "/services/sites-web" },
+    { name: "SEO & Référencement", href: "/services/seo" },
+    { name: "Google Ads", href: "/services/sea/google-ads" },
+    { name: "Meta Ads (Facebook/Instagram)", href: "/services/sea/meta-ads" },
+    { name: "Social Media Management", href: "/services/social-media" },
+    { name: "Email Marketing", href: "/services/social-media" },
+    { name: "Branding & Design", href: "/services/design" }
   ];
 
   const quickLinks = [
@@ -29,12 +31,12 @@ const Footer = () => {
   ];
 
   const sectors = [
-    { name: "E-commerce & Mode", icon: ShoppingCart },
-    { name: "Santé & Médical", icon: Globe },
-    { name: "Restauration", icon: Star },
+    { name: "E-commerce & Retail", icon: ShoppingCart },
+    { name: "SaaS & Tech", icon: Code },
+    { name: "Services B2B", icon: Target },
     { name: "Immobilier", icon: Globe },
-    { name: "Services B2B", icon: Code },
-    { name: "Startups Tech", icon: Smartphone }
+    { name: "Santé & Bien-être", icon: Star },
+    { name: "Restauration & Hôtellerie", icon: Smartphone }
   ];
 
   const handleNavigation = (href: string) => {
@@ -57,58 +59,34 @@ const Footer = () => {
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!newsletterEmail.trim()) {
-      toast({
-        title: "Erreur",
-        description: "Veuillez entrer votre email",
-        variant: "destructive",
-      });
+      toast({ title: "Erreur", description: "Veuillez entrer votre email", variant: "destructive" });
       return;
     }
-    
     if (!emailRegex.test(newsletterEmail)) {
-      toast({
-        title: "Erreur",
-        description: "Veuillez entrer un email valide",
-        variant: "destructive",
-      });
+      toast({ title: "Erreur", description: "Veuillez entrer un email valide", variant: "destructive" });
       return;
     }
 
     setIsSubmitting(true);
-
     try {
-      const { error } = await supabase
-        .from('newsletter_subscriptions')
-        .insert([{ email: newsletterEmail.trim() }]);
-
+      const { error } = await supabase.from('newsletter_subscriptions').insert([{ email: newsletterEmail.trim() }]);
       if (error) {
-        // Si l'email existe déjà, on redirige quand même vers la page de confirmation
         if ((error as any).code === '23505') {
           setNewsletterEmail("");
           navigate("/newsletter-confirmation");
           return;
         }
-
         console.error('Newsletter submission error:', error);
-        toast({
-          title: "Erreur",
-          description: "Une erreur s'est produite. Veuillez réessayer.",
-          variant: "destructive",
-        });
+        toast({ title: "Erreur", description: "Une erreur s'est produite. Veuillez réessayer.", variant: "destructive" });
       } else {
         setNewsletterEmail("");
         navigate("/newsletter-confirmation");
       }
     } catch (error) {
       console.error('Newsletter submission error:', error);
-      toast({
-        title: "Erreur",
-        description: "Une erreur s'est produite. Veuillez réessayer.",
-        variant: "destructive",
-      });
+      toast({ title: "Erreur", description: "Une erreur s'est produite. Veuillez réessayer.", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
@@ -116,7 +94,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white pt-16 sm:pt-20 pb-8 sm:pb-10 relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-pink-900/20"></div>
       <div className="absolute top-20 right-10 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
       
@@ -129,10 +106,9 @@ const Footer = () => {
               ConvertiLab
             </h3>
             <p className="text-gray-300 text-base leading-relaxed">
-              Agence web spécialisée dans la création de sites performants qui convertissent vraiment. Design unique et développement expert.
+              Agence de marketing digital spécialisée dans l'acquisition client, le SEO, la publicité en ligne et la création de sites web performants.
             </p>
             
-            {/* Social Links */}
             <div className="flex space-x-4 pt-2">
               <div className="p-2 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 cursor-pointer transition-colors duration-300">
                 <Linkedin className="w-5 h-5 text-purple-400 hover:text-purple-300" />
@@ -145,16 +121,15 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Quick Stats */}
             <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 rounded-xl p-4 border border-purple-500/20">
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div>
                   <div className="text-xl font-bold text-purple-400">150+</div>
-                  <div className="text-xs text-gray-400">Sites créés</div>
+                  <div className="text-xs text-gray-400">Clients accompagnés</div>
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-green-400">98%</div>
-                  <div className="text-xs text-gray-400">Clients satisfaits</div>
+                  <div className="text-xl font-bold text-green-400">+300%</div>
+                  <div className="text-xs text-gray-400">ROI moyen</div>
                 </div>
               </div>
             </div>
@@ -163,7 +138,7 @@ const Footer = () => {
           {/* Services */}
           <div className="space-y-4">
             <h4 className="text-lg sm:text-xl font-semibold text-white mb-6 flex items-center">
-              <Code className="w-5 h-5 mr-2 text-purple-400" />
+              <BarChart3 className="w-5 h-5 mr-2 text-purple-400" />
               Nos Services
             </h4>
             <ul className="space-y-3">
@@ -202,7 +177,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Secteurs d'expertise */}
+          {/* Secteurs */}
           <div className="space-y-4">
             <h4 className="text-lg sm:text-xl font-semibold text-white mb-6 flex items-center">
               <Globe className="w-5 h-5 mr-2 text-purple-400" />
@@ -231,7 +206,6 @@ const Footer = () => {
                   <div className="text-xs">contact@convertilab.com</div>
                 </div>
               </div>
-              
               <div className="flex items-center hover:text-purple-400 transition-colors group cursor-pointer">
                 <div className="p-2 bg-purple-600/20 rounded-lg mr-3 group-hover:bg-purple-600/30 transition-colors">
                   <Phone className="w-4 h-4 text-purple-400" />
@@ -241,7 +215,6 @@ const Footer = () => {
                   <div className="text-xs">07 83 49 47 09</div>
                 </div>
               </div>
-              
               <div className="flex items-center hover:text-purple-400 transition-colors group">
                 <div className="p-2 bg-purple-600/20 rounded-lg mr-3 group-hover:bg-purple-600/30 transition-colors">
                   <MapPin className="w-4 h-4 text-purple-400" />
@@ -253,27 +226,26 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* CTA Footer */}
             <div className="pt-4">
               <Button 
                 onClick={() => handleNavigation('/contact')}
                 className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 text-sm"
               >
-                Devis Gratuit
+                Audit Gratuit
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Newsletter - Enhanced */}
+        {/* Newsletter */}
         <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 rounded-2xl p-8 sm:p-10 mb-8 sm:mb-12 backdrop-blur-sm border border-purple-500/20">
           <div className="text-center max-w-3xl mx-auto">
             <h4 className="text-xl sm:text-2xl font-bold mb-4 text-white">
-              📧 Conseils création web gratuits
+              📧 Conseils marketing digital gratuits
             </h4>
             <p className="text-gray-300 mb-6 text-sm sm:text-base">
-              Recevez nos meilleures stratégies, tendances design et conseils techniques pour optimiser votre présence digitale
+              Recevez nos meilleures stratégies SEO, Ads et social media pour booster votre croissance digitale
             </p>
             <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
               <input 
@@ -303,12 +275,8 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">&copy; 2024 ConvertiLab. Tous droits réservés.</p>
             <div className="flex space-x-6 mt-4 sm:mt-0">
-              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors">
-                Mentions légales
-              </button>
-              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors">
-                CGV
-              </button>
+              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors">Mentions légales</button>
+              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors">CGV</button>
               <button 
                 onClick={() => handleNavigation('/politique-de-confidentialite')}
                 className="text-gray-400 hover:text-purple-400 text-sm transition-colors"

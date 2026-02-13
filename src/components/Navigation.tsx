@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Calendar, FileText, BookOpen, Globe, Palette, Search, Target, ChevronDown, Rocket, Store, Code, RefreshCw, PenTool, Fingerprint, TrendingUp, ClipboardCheck, type LucideIcon } from "lucide-react";
+import { Menu, X, Calendar, FileText, BookOpen, Globe, Palette, Search, Target, ChevronDown, Rocket, Store, Code, RefreshCw, PenTool, Fingerprint, TrendingUp, ClipboardCheck, Mail, Share2, BarChart3, Megaphone, type LucideIcon } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -48,33 +48,43 @@ const Navigation = () => {
       ]
     },
     { 
-      label: "Design", 
-      href: "/services/design", 
-      icon: Palette,
-      description: "Identité visuelle, UI/UX et création graphique",
-      subServices: [
-        { name: "Design UI/UX", icon: PenTool, href: "/services/design/ui-ux" },
-        { name: "Identité Visuelle", icon: Fingerprint, href: "/services/design/identite-visuelle" },
-      ]
-    },
-    { 
       label: "SEO", 
       href: "/services/seo", 
       icon: Search,
-      description: "Référencement naturel et optimisation",
+      description: "Référencement naturel et visibilité Google",
       subServices: [
         { name: "Référencement SEO", icon: TrendingUp, href: "/services/seo/referencement" },
         { name: "Audit SEO", icon: ClipboardCheck, href: "/services/seo/audit" },
       ]
     },
     { 
-      label: "SEA", 
+      label: "Publicité", 
       href: "/services/sea", 
       icon: Target,
-      description: "Publicité Google Ads et campagnes payantes",
+      description: "Google Ads, Meta Ads et campagnes payantes",
       subServices: [
         { name: "Google Ads", icon: Search, href: "/services/sea/google-ads" },
-        { name: "Meta Ads", icon: Fingerprint, href: "/services/sea/meta-ads" },
+        { name: "Meta Ads", icon: Megaphone, href: "/services/sea/meta-ads" },
+      ]
+    },
+    { 
+      label: "Social Media", 
+      href: "/services/social-media", 
+      icon: Share2,
+      description: "Gestion et stratégie réseaux sociaux",
+      subServices: [
+        { name: "Community Management", icon: Share2, href: "/services/social-media" },
+        { name: "Stratégie Social Media", icon: BarChart3, href: "/services/social-media" },
+      ]
+    },
+    { 
+      label: "Design", 
+      href: "/services/design", 
+      icon: Palette,
+      description: "Identité visuelle, UI/UX et branding",
+      subServices: [
+        { name: "Design UI/UX", icon: PenTool, href: "/services/design/ui-ux" },
+        { name: "Identité Visuelle", icon: Fingerprint, href: "/services/design/identite-visuelle" },
       ]
     },
   ];
@@ -117,9 +127,9 @@ const Navigation = () => {
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="flex w-[650px] bg-white">
+                    <div className="flex w-[700px] bg-white">
                       {/* Categories Column */}
-                      <ul className="w-[280px] gap-1 p-3 border-r border-gray-100">
+                      <ul className="w-[300px] gap-1 p-3 border-r border-gray-100">
                         {serviceCategories.map((service) => (
                           <li key={service.href}>
                             <NavigationMenuLink asChild>
@@ -236,7 +246,7 @@ const Navigation = () => {
             >
               <Link to="/contact">
                 <FileText className="mr-2 w-4 h-4" />
-                Obtenir un devis
+                Audit gratuit
               </Link>
             </Button>
             
@@ -316,7 +326,7 @@ const Navigation = () => {
                 >
                   <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
                     <FileText className="mr-2 w-4 h-4" />
-                    Obtenir un devis
+                    Audit gratuit
                   </Link>
                 </Button>
                 
