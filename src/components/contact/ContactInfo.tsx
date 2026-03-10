@@ -32,7 +32,7 @@ const ContactInfo = () => {
         <Card className="shadow-lg">
           <CardContent className="p-3 sm:p-4 text-center">
             <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mx-auto mb-1 sm:mb-2" />
-            <p className="text-xs sm:text-sm font-medium" itemProp="email">contact@convertilab.com</p>
+            <p className="text-xs sm:text-sm font-medium" itemProp="email">Contact@convertilab.com</p>
           </CardContent>
         </Card>
       </div>
