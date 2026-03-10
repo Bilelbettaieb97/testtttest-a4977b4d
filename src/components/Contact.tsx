@@ -93,12 +93,12 @@ const Contact = () => {
               {/* Contact Quick Info */}
               <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 shadow-lg border border-slate-200 dark:border-slate-800">
                 <div className="space-y-4">
-                  <a href="mailto:contact@convertilab.com" className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                  <a href="mailto:Contact@convertilab.com" className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
                     <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
                       <Mail className="w-5 h-5 text-purple-600" />
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-900 dark:text-white text-sm">contact@convertilab.com</p>
+                      <p className="font-semibold text-slate-900 dark:text-white text-sm">Contact@convertilab.com</p>
                       <p className="text-xs text-slate-500">Réponse sous 2h</p>
                     </div>
                   </a>
