@@ -16,9 +16,9 @@ export const OrganizationSchema = () => {
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+33783494709",
+      "telephone": "+33616477245",
       "contactType": "customer service",
-      "email": "contact@convertilab.com",
+      "email": "Contact@convertilab.com",
       "availableLanguage": ["French"]
     },
     "sameAs": [
