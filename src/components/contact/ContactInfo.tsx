@@ -25,7 +25,7 @@ const ContactInfo = () => {
         <Card className="shadow-lg">
           <CardContent className="p-3 sm:p-4 text-center">
             <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mx-auto mb-1 sm:mb-2" />
-            <p className="text-xs sm:text-sm font-medium" itemProp="telephone">+33 6 11 80 45 03 </p>
+            <p className="text-xs sm:text-sm font-medium" itemProp="telephone">+33 6 16 47 72 45</p>
           </CardContent>
         </Card>
         
