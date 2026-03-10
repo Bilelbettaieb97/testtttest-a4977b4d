@@ -203,7 +203,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-sm font-medium">Email</div>
-                  <div className="text-xs">contact@convertilab.com</div>
+                  <div className="text-xs">Contact@convertilab.com</div>
                 </div>
               </div>
               <div className="flex items-center hover:text-purple-400 transition-colors group cursor-pointer">
@@ -212,7 +212,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-sm font-medium">Téléphone</div>
-                  <div className="text-xs">07 83 49 47 09</div>
+                  <div className="text-xs">+33 6 16 47 72 45</div>
                 </div>
               </div>
               <div className="flex items-center hover:text-purple-400 transition-colors group">
