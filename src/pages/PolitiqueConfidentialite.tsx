@@ -132,7 +132,7 @@ const PolitiqueConfidentialite = () => {
                 <li>Droit d'opposition</li>
               </ul>
               <p className="text-muted-foreground mt-4">
-                Pour exercer ces droits, contactez-nous à : <a href="mailto:contact@convertilab.com" className="text-primary hover:underline">contact@convertilab.com</a>
+                Pour exercer ces droits, contactez-nous à : <a href="mailto:Contact@convertilab.com" className="text-primary hover:underline">Contact@convertilab.com</a>
               </p>
             </section>
 
