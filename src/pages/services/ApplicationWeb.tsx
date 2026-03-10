@@ -37,8 +37,8 @@ const ApplicationWebService = () => {
   return (
     <>
       <Helmet>
-        <title>Développement Application Web | Solutions Sur-Mesure | ConvertiLab</title>
-        <meta name="description" content="Développement d'applications web sur-mesure : portails clients, SaaS, outils métiers. Solutions scalables et sécurisées. Devis gratuit." />
+        <title>Application Web Sur-Mesure | ConvertiLab - Agence Marketing Digital</title>
+        <meta name="description" content="Développement d'applications web sur-mesure par notre agence marketing digital : SaaS, portails clients, outils métiers. Architecture scalable et sécurisée." />
       </Helmet>
 
       <Navigation />

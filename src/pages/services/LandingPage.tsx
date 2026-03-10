@@ -37,8 +37,8 @@ const LandingPageService = () => {
   return (
     <>
       <Helmet>
-        <title>Création de Landing Page | Conversion Optimisée | ConvertiLab</title>
-        <meta name="description" content="Création de landing pages optimisées pour la conversion. Transformez vos visiteurs en clients avec une page d'atterrissage professionnelle. Devis gratuit." />
+        <title>Landing Page Haute Conversion | ConvertiLab - Agence Marketing Digital</title>
+        <meta name="description" content="Création de landing pages optimisées pour vos campagnes Google Ads et Meta Ads. Maximisez votre ROI avec notre agence marketing digital." />
       </Helmet>
 
       <Navigation />

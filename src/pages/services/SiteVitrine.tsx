@@ -37,8 +37,8 @@ const SiteVitrineService = () => {
   return (
     <>
       <Helmet>
-        <title>Création de Site Vitrine | Présentation Professionnelle | ConvertiLab</title>
-        <meta name="description" content="Création de sites vitrines professionnels pour présenter votre activité. Design sur-mesure, SEO optimisé, responsive. Devis gratuit." />
+        <title>Site Vitrine Professionnel | ConvertiLab - Agence Marketing Digital</title>
+        <meta name="description" content="Création de sites vitrines optimisés pour la conversion et le SEO. Design sur-mesure par notre agence marketing digital à Paris. Devis gratuit." />
       </Helmet>
 
       <Navigation />
