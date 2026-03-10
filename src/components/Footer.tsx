@@ -203,7 +203,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-sm font-medium">Email</div>
-                  <div className="text-xs">contact@convertilab.com</div>
+                  <div className="text-xs">Contact@convertilab.com</div>
                 </div>
               </div>
               <div className="flex items-center hover:text-purple-400 transition-colors group cursor-pointer">
