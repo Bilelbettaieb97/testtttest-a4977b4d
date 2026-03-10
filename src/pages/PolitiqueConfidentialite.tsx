@@ -149,7 +149,7 @@ const PolitiqueConfidentialite = () => {
                 Pour toute question concernant cette politique de confidentialité, vous pouvez nous contacter :
               </p>
               <ul className="list-none text-muted-foreground space-y-2">
-                <li>Email : <a href="mailto:contact@convertilab.com" className="text-primary hover:underline">contact@convertilab.com</a></li>
+                <li>Email : <a href="mailto:Contact@convertilab.com" className="text-primary hover:underline">Contact@convertilab.com</a></li>
                 <li>Via notre <a href="/contact" className="text-primary hover:underline">formulaire de contact</a></li>
               </ul>
             </section>

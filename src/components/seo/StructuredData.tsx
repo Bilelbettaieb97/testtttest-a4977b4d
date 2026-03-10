@@ -45,8 +45,8 @@ export const LocalBusinessSchema = () => {
     "description": "Agence de marketing digital spécialisée en SEO, publicité en ligne, social media et création de sites web",
     "@id": "https://convertilab.com",
     "url": "https://convertilab.com",
-    "telephone": "+33783494709",
-    "email": "contact@convertilab.com",
+    "telephone": "+33616477245",
+    "email": "Contact@convertilab.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Paris",
