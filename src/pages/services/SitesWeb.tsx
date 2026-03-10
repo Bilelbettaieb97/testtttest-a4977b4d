@@ -106,8 +106,8 @@ const SitesWebPage = () => {
   return (
     <>
       <Helmet>
-        <title>Création de Sites Web | Landing Page, Vitrine, E-commerce | ConvertiLab</title>
-        <meta name="description" content="Services de création de sites web : landing page, site vitrine, e-commerce, application web et refonte. Solutions sur-mesure avec devis gratuit sous 24h." />
+        <title>Création de Sites Web | ConvertiLab - Agence Marketing Digital</title>
+        <meta name="description" content="Création de sites web par notre agence marketing digital : landing pages, sites vitrines, e-commerce, applications web. Optimisés pour la conversion et le SEO." />
         <link rel="canonical" href="https://convertilab.com/services/sites-web" />
       </Helmet>
       

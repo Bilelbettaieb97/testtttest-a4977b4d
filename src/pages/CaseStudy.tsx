@@ -359,7 +359,7 @@ const CaseStudy = () => {
         description={caseStudy.subtitle}
         image={typeof caseStudy.image === 'string' ? caseStudy.image : undefined}
         type="article"
-        keywords={`étude de cas, ${caseStudy.sector}, ${caseStudy.client}, création site web, ${caseStudy.technologies.join(', ')}`}
+        keywords={`étude de cas, ${caseStudy.sector}, ${caseStudy.client}, marketing digital, agence marketing, ${caseStudy.technologies.join(', ')}`}
       />
       <CaseStudySchema 
         caseStudy={{
