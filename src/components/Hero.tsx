@@ -25,21 +25,21 @@ const Hero = () => {
             {/* Badge */}
             <div className="inline-flex items-center px-4 py-2 mb-6 text-sm glass border border-purple-200 text-purple-800 rounded-full animate-fade-in hover:scale-105 transition-transform duration-300 cursor-default shadow-lg">
               <Rocket className="w-4 h-4 mr-2 text-purple-600" />
-              <span className="font-semibold">Agence Marketing Digital • Paris</span>
+              <span className="font-semibold">Agence de création de site web • Paris</span>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-slide-up">
-              Accélérez Votre Croissance
+              Création de Sites Web
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 animate-gradient-shift">
-                avec le Marketing Digital
+                Performants & Sur-Mesure
               </span>
             </h1>
 
             {/* Subheading */}
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed animate-fade-in">
-              SEO, Google Ads, Social Media, Email Marketing — nous créons des <strong className="text-purple-700">stratégies digitales sur-mesure</strong> qui génèrent du trafic, des leads et des ventes.
-              <span className="block mt-2 text-gray-500">Une approche data-driven pour des résultats mesurables.</span>
+              Sites vitrines, e-commerce et applications web — nous concevons des <strong className="text-purple-700">solutions digitales sur-mesure</strong> qui convertissent vos visiteurs en clients.
+              <span className="block mt-2 text-gray-500">Design professionnel, référencement optimisé, responsive mobile.</span>
             </p>
 
             {/* Stats */}
