@@ -229,10 +229,10 @@
   
   @keyframes glow {
     0%, 100% {
-      box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+      opacity: 0.7;
     }
     50% {
-      box-shadow: 0 0 40px rgba(236, 72, 153, 0.6);
+      opacity: 1;
     }
   }
 
