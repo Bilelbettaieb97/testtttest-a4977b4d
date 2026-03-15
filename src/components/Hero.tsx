@@ -39,7 +39,7 @@ const Hero = () => {
             {/* Subheading */}
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed animate-fade-in">
               Sites vitrines, e-commerce et applications web — nous concevons des <strong className="text-purple-700">solutions digitales sur-mesure</strong> qui convertissent vos visiteurs en clients.
-              <span className="block mt-2 text-gray-500">Design professionnel, référencement optimisé, responsive mobile.</span>
+              <span className="block mt-2 text-gray-600">Design professionnel, référencement optimisé, responsive mobile.</span>
             </p>
 
             {/* Stats */}
