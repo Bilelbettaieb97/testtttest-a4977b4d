@@ -57,8 +57,12 @@ const CaseStudyHero = ({ title, subtitle, image, sector, client, icon }: CaseStu
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl"></div>
             <img
               src={image}
-              alt={title}
+              alt={`Étude de cas ${client} - ${title} | ConvertiLab`}
               className="relative rounded-2xl shadow-2xl w-full h-auto border-4 border-background"
+              loading="lazy"
+              decoding="async"
+              width={600}
+              height={400}
             />
           </div>
         </div>

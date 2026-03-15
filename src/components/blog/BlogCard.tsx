@@ -30,9 +30,12 @@ const BlogCard = ({ article, featured = false }: BlogCardProps) => {
         <div className={`relative overflow-hidden ${featured ? 'md:w-1/2' : 'aspect-[16/10]'}`}>
           <img
             src={article.image}
-            alt={article.title}
+            alt={`${article.title} - ${article.category} | Blog ConvertiLab`}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             loading="lazy"
+            decoding="async"
+            width={800}
+            height={500}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground border-0">

@@ -38,7 +38,7 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
         <AspectRatio ratio={16 / 9}>
           <img 
             src={caseStudy.image} 
-            alt={`Site ${caseStudy.client}`}
+            alt={`${caseStudy.title} - ${caseStudy.client} | Portfolio ConvertiLab`}
             className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
             width={371}

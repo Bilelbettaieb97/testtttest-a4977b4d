@@ -570,8 +570,12 @@ const OffreSpeciale = () => {
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={site.image}
-                    alt={site.title}
+                    alt={`${site.title} - Exemple de réalisation ConvertiLab`}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                    decoding="async"
+                    width={400}
+                    height={225}
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 sm:p-6">
