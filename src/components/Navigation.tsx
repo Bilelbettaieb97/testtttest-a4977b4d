@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logoConvertilab from '@/assets/logo_convertilab.jpg';
 import { Button } from "@/components/ui/button";
 import { Menu, X, Calendar, FileText, BookOpen, Globe, Palette, Search, Target, ChevronDown, Rocket, Store, Code, RefreshCw, PenTool, Fingerprint, TrendingUp, ClipboardCheck, Mail, Share2, BarChart3, Megaphone, type LucideIcon } from "lucide-react";
 import {
@@ -111,9 +112,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="cursor-pointer">
-              <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                ConvertiLab
-              </span>
+              <img src={logoConvertilab} alt="ConvertiLab - Agence de Marketing Digital" className="h-10 w-auto" />
             </Link>
           </div>
 
