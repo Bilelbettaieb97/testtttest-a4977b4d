@@ -671,7 +671,7 @@ Une landing page efficace combine psychologie, design et copywriting. Testez, me
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
     category: "Business",
     readTime: "6 min",
-    publishedAt: "2024-09-30",
+    publishedAt: "2025-12-30",
     author: { name: "ConvertiLab" },
     tags: ["réseaux sociaux", "site web", "stratégie digitale", "marketing"],
     content: `## Introduction
