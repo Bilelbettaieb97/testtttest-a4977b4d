@@ -74,7 +74,7 @@ Investir dans un site web professionnel n'est plus une option, c'est une nécess
     image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&q=80",
     category: "Web Design",
     readTime: "8 min",
-    publishedAt: "2024-11-25",
+    publishedAt: "2026-02-25",
     author: { name: "ConvertiLab" },
     tags: ["web design", "UX", "conversion", "erreurs"],
     content: `## Introduction
