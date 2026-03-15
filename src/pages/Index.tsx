@@ -1,15 +1,6 @@
 import { lazy, Suspense } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
-import Testimonials from "@/components/Testimonials";
-import SimplifiedContact from "@/components/SimplifiedContact";
-import Footer from "@/components/Footer";
-import PromoBanner from "@/components/PromoBanner";
-import ProcessTimeline from "@/components/ProcessTimeline";
-import About from "@/components/About";
-import FAQ from "@/components/FAQ";
 import AnimatedSection from "@/components/AnimatedSection";
 import { SEO } from "@/components/SEO";
 import { 
@@ -20,7 +11,16 @@ import {
   ReviewsSchema 
 } from "@/components/seo/StructuredData";
 
-// Lazy load non-critical components
+// Lazy load below-fold and non-critical components
+const Portfolio = lazy(() => import("@/components/Portfolio"));
+const Services = lazy(() => import("@/components/Services"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const SimplifiedContact = lazy(() => import("@/components/SimplifiedContact"));
+const Footer = lazy(() => import("@/components/Footer"));
+const PromoBanner = lazy(() => import("@/components/PromoBanner"));
+const ProcessTimeline = lazy(() => import("@/components/ProcessTimeline"));
+const About = lazy(() => import("@/components/About"));
+const FAQ = lazy(() => import("@/components/FAQ"));
 const ChatBot = lazy(() => import("@/components/ChatBot"));
 const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
 const StickyMobileCTA = lazy(() => import("@/components/StickyMobileCTA"));
