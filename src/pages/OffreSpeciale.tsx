@@ -45,7 +45,7 @@ const OffreSpeciale = () => {
         .select('*', { count: 'exact', head: true });
       
       if (count !== null) {
-        setSpotsRemaining(Math.max(0, TOTAL_SPOTS - count));
+        setSpotsRemaining(Math.max(2, TOTAL_SPOTS - count));
       }
     };
     fetchSpots();
