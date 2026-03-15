@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ContactComponent from '@/components/Contact';
-import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { BreadcrumbSchema, LocalBusinessSchema } from '@/components/seo/StructuredData';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Link } from 'react-router-dom';
 
@@ -26,6 +26,7 @@ const ContactPage = () => {
       </Helmet>
       
       <BreadcrumbSchema items={breadcrumbItems} />
+      <LocalBusinessSchema />
       
       <Navigation />
       

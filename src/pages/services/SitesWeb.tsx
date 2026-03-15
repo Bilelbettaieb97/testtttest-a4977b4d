@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { LocalBusinessSchema, ServicesSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import SitesWebHero from '@/components/sites-web/SitesWebHero';
 import SitesWebServices from '@/components/sites-web/SitesWebServices';
@@ -24,6 +25,14 @@ const SitesWebPage = () => {
         <meta property="og:url" content="https://convertilab.com/services/sites-web" />
         <meta property="og:type" content="website" />
       </Helmet>
+
+      <LocalBusinessSchema />
+      <ServicesSchema />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Sites Web", url: "/services/sites-web" }
+      ]} />
 
       <Navigation />
 

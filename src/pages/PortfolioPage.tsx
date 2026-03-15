@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import PortfolioComponent from '@/components/Portfolio';
-import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { BreadcrumbSchema, LocalBusinessSchema, ReviewsSchema } from '@/components/seo/StructuredData';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -28,6 +28,12 @@ const PortfolioPage = () => {
       </Helmet>
       
       <BreadcrumbSchema items={breadcrumbItems} />
+      <LocalBusinessSchema />
+      <ReviewsSchema reviews={[
+        { author: "Marie L.", reviewBody: "ConvertiLab a transformé notre présence en ligne. +180% de trafic en 6 mois.", rating: 5 },
+        { author: "Thomas D.", reviewBody: "Un accompagnement professionnel et des résultats concrets sur nos campagnes Ads.", rating: 5 },
+        { author: "Sophie M.", reviewBody: "Notre site e-commerce génère maintenant 3x plus de ventes.", rating: 5 }
+      ]} />
       
       <Navigation />
       
