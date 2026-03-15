@@ -29,12 +29,6 @@ const projectTypes = [
   { value: "audit", label: "Audit", icon: Search, desc: "Analyser & optimiser" },
 ];
 
-const budgets = [
-  { value: "<1k", label: "< 1 000€", icon: Sparkles, desc: "Projet simple", popular: false },
-  { value: "1k-1.5k", label: "1 000 - 1 500€", icon: Rocket, desc: "Site complet", popular: true },
-  { value: "1.5k-2k", label: "1 500 - 2 000€", icon: Gem, desc: "Sur-mesure", popular: false },
-  { value: "2k+", label: "> 2 000€", icon: Trophy, desc: "Premium", popular: false },
-];
 
 const timelines = [
   { value: "urgent", label: "< 1 semaine", icon: Zap, desc: "Express", recommended: false },
