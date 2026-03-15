@@ -90,6 +90,7 @@ const NavigationMenuViewport = React.forwardRef<
         className
       )}
       ref={ref}
+      style={{ willChange: 'width, height', containIntrinsicSize: '700px 350px', contentVisibility: 'visible' } as React.CSSProperties}
       {...props}
     />
   </div>
