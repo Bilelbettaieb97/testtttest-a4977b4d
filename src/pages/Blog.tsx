@@ -11,13 +11,18 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Search } from "lucide-react";
+import { Search, ArrowRight, Rocket, CheckCircle } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const categories = ["Tous", "Business", "Web Design", "SEO", "Technique"];
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("Tous");
   const [searchQuery, setSearchQuery] = useState("");
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const { toast } = useToast();
 
   const filteredArticles = blogArticles.filter(article => {
     const matchesCategory = selectedCategory === "Tous" || article.category === selectedCategory;
@@ -29,12 +34,28 @@ const Blog = () => {
   const featuredArticle = filteredArticles[0];
   const otherArticles = filteredArticles.slice(1);
 
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setIsSubscribing(true);
+    try {
+      const { error } = await supabase.from("newsletter_subscriptions").insert({ email: newsletterEmail });
+      if (error) throw error;
+      toast({ title: "✅ Inscription réussie !", description: "Vous recevrez nos prochains articles par email." });
+      setNewsletterEmail("");
+    } catch {
+      toast({ title: "Erreur", description: "Veuillez réessayer.", variant: "destructive" });
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50/50 to-white">
+    <div className="min-h-screen bg-background">
       <SEO 
         url="/blog"
         title="Blog - Conseils Web, SEO et Business"
-        description="Articles et guides sur la création de sites web, le SEO, le marketing digital et les stratégies pour développer votre business en ligne."
+        description="Articles et guides pratiques sur la création de sites web, le SEO et le marketing digital. Conseils d'experts pour développer votre business en ligne."
         keywords="blog web design, conseils SEO, création site web, marketing digital, business en ligne"
       />
       
@@ -51,9 +72,7 @@ const Blog = () => {
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/">Accueil</Link>
-                </BreadcrumbLink>
+                <BreadcrumbLink asChild><Link to="/">Accueil</Link></BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
@@ -67,13 +86,13 @@ const Blog = () => {
           {/* Search & Filters */}
           <div className="flex flex-col sm:flex-row gap-4 mb-12 max-w-4xl mx-auto">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <Input
                 type="text"
                 placeholder="Rechercher un article..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-white border-gray-200 focus:border-purple-500"
+                className="pl-10"
               />
             </div>
             <div className="flex flex-wrap gap-2">
@@ -83,10 +102,7 @@ const Blog = () => {
                   variant={selectedCategory === category ? "default" : "outline"}
                   size="sm"
                   onClick={() => setSelectedCategory(category)}
-                  className={selectedCategory === category 
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 border-0" 
-                    : "border-gray-200 hover:border-purple-300"
-                  }
+                  className={selectedCategory === category ? "bg-primary text-primary-foreground border-0" : ""}
                 >
                   {category}
                 </Button>
@@ -96,11 +112,11 @@ const Blog = () => {
 
           {filteredArticles.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-gray-500 text-lg">Aucun article trouvé pour cette recherche.</p>
+              <p className="text-muted-foreground text-lg">Aucun article trouvé pour cette recherche.</p>
               <Button 
                 variant="link" 
                 onClick={() => { setSearchQuery(""); setSelectedCategory("Tous"); }}
-                className="text-purple-600 mt-2"
+                className="text-primary mt-2"
               >
                 Réinitialiser les filtres
               </Button>
@@ -110,42 +126,114 @@ const Blog = () => {
               {/* Featured Article */}
               {featuredArticle && (
                 <div className="mb-12">
-                  <Badge className="mb-4 bg-yellow-100 text-yellow-800 border-0">
+                  <Badge className="mb-4 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 border-0">
                     ⭐ Article à la une
                   </Badge>
                   <BlogCard article={featuredArticle} featured />
                 </div>
               )}
 
+              {/* Inline CTA — Service promotion after featured */}
+              <div className="mb-12 p-6 sm:p-8 rounded-2xl border border-primary/20 bg-primary/5">
+                <div className="flex flex-col md:flex-row items-center gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                    <Rocket className="w-7 h-7" />
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-xl font-bold text-foreground mb-1">
+                      Besoin d'un site web qui convertit ?
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      Landing page dès 490€, site vitrine dès 990€. Prix fixe, livraison garantie, satisfaction assurée.
+                    </p>
+                  </div>
+                  <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground flex-shrink-0">
+                    <Link to="/contact">
+                      Devis gratuit
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+
               {/* Articles Grid */}
               {otherArticles.length > 0 && (
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {otherArticles.map(article => (
-                    <BlogCard key={article.slug} article={article} />
+                  {otherArticles.map((article, index) => (
+                    <>
+                      <BlogCard key={article.slug} article={article} />
+                      {/* Lead magnet after 3rd article */}
+                      {index === 2 && otherArticles.length > 3 && (
+                        <div key="lead-magnet" className="md:col-span-2 lg:col-span-3 p-6 sm:p-8 rounded-2xl bg-muted/50 border border-border my-4">
+                          <div className="max-w-2xl mx-auto text-center">
+                            <h3 className="text-xl font-bold text-foreground mb-2">
+                              📥 Guide gratuit : 10 erreurs qui tuent la conversion de votre site
+                            </h3>
+                            <p className="text-muted-foreground text-sm mb-4">
+                              Rejoignez +2 000 entrepreneurs et recevez notre guide + nos meilleurs articles chaque semaine.
+                            </p>
+                            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                              <Input
+                                type="email"
+                                placeholder="Votre email professionnel"
+                                value={newsletterEmail}
+                                onChange={(e) => setNewsletterEmail(e.target.value)}
+                                required
+                              />
+                              <Button type="submit" disabled={isSubscribing} className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 flex-shrink-0">
+                                {isSubscribing ? "..." : "Recevoir le guide"}
+                              </Button>
+                            </form>
+                            <div className="flex flex-wrap justify-center gap-4 mt-3 text-xs text-muted-foreground">
+                              <span className="flex items-center gap-1"><CheckCircle className="w-3 h-3 text-green-500" /> Gratuit</span>
+                              <span className="flex items-center gap-1"><CheckCircle className="w-3 h-3 text-green-500" /> Pas de spam</span>
+                              <span className="flex items-center gap-1"><CheckCircle className="w-3 h-3 text-green-500" /> Désinscription en 1 clic</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </>
                   ))}
                 </div>
               )}
             </>
           )}
 
-          {/* Newsletter CTA */}
-          <div className="mt-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-8 sm:p-12 text-center text-white">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-              Recevez nos meilleurs conseils
+          {/* Bottom Newsletter CTA */}
+          <div className="mt-16 bg-primary rounded-3xl p-8 sm:p-12 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-4">
+              Ne manquez aucun conseil
             </h2>
-            <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
-              Inscrivez-vous à notre newsletter pour recevoir des conseils exclusifs sur le web et le business.
+            <p className="text-lg text-primary-foreground/80 mb-6 max-w-2xl mx-auto">
+              Recevez nos meilleurs articles et guides exclusifs directement dans votre boîte mail. Rejoignez +2 000 entrepreneurs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <Input 
                 type="email" 
                 placeholder="Votre email" 
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/70"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                required
+                className="bg-background text-foreground"
               />
-              <Button className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8">
-                S'inscrire
+              <Button type="submit" disabled={isSubscribing} className="bg-background text-foreground hover:bg-background/90 font-semibold px-8">
+                {isSubscribing ? "..." : "S'inscrire gratuitement"}
               </Button>
-            </div>
+            </form>
+            <p className="text-primary-foreground/60 text-xs mt-4">
+              ✅ Gratuit · 🔒 Pas de spam · 1 email/semaine max
+            </p>
+          </div>
+
+          {/* Service CTA bottom */}
+          <div className="mt-12 text-center">
+            <p className="text-muted-foreground mb-4">Vous avez un projet web en tête ?</p>
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Link to="/contact">
+                Demander un devis gratuit
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </main>
