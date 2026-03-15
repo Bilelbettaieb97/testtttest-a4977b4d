@@ -13,7 +13,7 @@ interface ContactFormData {
   company: string;
   phone: string;
   project: string;
-  budget: string;
+  
   main_challenge: string;
   timeline: string;
   message: string;
