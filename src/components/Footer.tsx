@@ -183,9 +183,9 @@ const Footer = () => {
               <Globe className="w-5 h-5 mr-2 text-purple-400" />
               Secteurs d'expertise
             </h4>
-            <div className="space-y-3">
+            <div className="space-y-1">
               {sectors.map((sector, index) => (
-                <div key={index} className="flex items-center text-gray-300 hover:text-purple-400 transition-colors text-sm group cursor-pointer">
+                <div key={index} className="flex items-center text-gray-300 hover:text-purple-400 transition-colors text-sm group cursor-pointer py-2">
                   <sector.icon className="w-4 h-4 mr-3 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                   {sector.name}
                 </div>
