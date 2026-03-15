@@ -28,6 +28,12 @@ const PortfolioPage = () => {
       </Helmet>
       
       <BreadcrumbSchema items={breadcrumbItems} />
+      <LocalBusinessSchema />
+      <ReviewsSchema reviews={[
+        { author: "Marie L.", reviewBody: "ConvertiLab a transformé notre présence en ligne. +180% de trafic en 6 mois.", rating: 5 },
+        { author: "Thomas D.", reviewBody: "Un accompagnement professionnel et des résultats concrets sur nos campagnes Ads.", rating: 5 },
+        { author: "Sophie M.", reviewBody: "Notre site e-commerce génère maintenant 3x plus de ventes.", rating: 5 }
+      ]} />
       
       <Navigation />
       
