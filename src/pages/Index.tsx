@@ -70,41 +70,45 @@ const Index = () => {
       <FAQSchema faqs={faqData} />
       <ReviewsSchema reviews={reviewsData} />
       
-      <PromoBanner />
+      <Suspense fallback={null}>
+        <PromoBanner />
+      </Suspense>
       <Navigation />
       <section id="hero">
         <Hero />
       </section>
-      <AnimatedSection animation="fade-up">
-        <section id="portfolio" className="-mt-4">
-          <Portfolio />
-        </section>
-      </AnimatedSection>
-      <AnimatedSection animation="fade-up" delay={100}>
-        <ProcessTimeline />
-      </AnimatedSection>
-      <AnimatedSection animation="fade-up">
-        <section id="services" className="-mt-4">
-          <Services />
-        </section>
-      </AnimatedSection>
-      <AnimatedSection animation="fade-up" delay={100}>
-        <section id="testimonials" className="-mt-4">
-          <Testimonials />
-        </section>
-      </AnimatedSection>
-      <AnimatedSection animation="scale">
-        <About />
-      </AnimatedSection>
-      <AnimatedSection animation="fade-up">
-        <FAQ />
-      </AnimatedSection>
-      <AnimatedSection animation="fade-up">
-        <section id="contact" className="-mt-4">
-          <SimplifiedContact />
-        </section>
-      </AnimatedSection>
-      <Footer />
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <AnimatedSection animation="fade-up">
+          <section id="portfolio" className="-mt-4">
+            <Portfolio />
+          </section>
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up" delay={100}>
+          <ProcessTimeline />
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up">
+          <section id="services" className="-mt-4">
+            <Services />
+          </section>
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up" delay={100}>
+          <section id="testimonials" className="-mt-4">
+            <Testimonials />
+          </section>
+        </AnimatedSection>
+        <AnimatedSection animation="scale">
+          <About />
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up">
+          <FAQ />
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up">
+          <section id="contact" className="-mt-4">
+            <SimplifiedContact />
+          </section>
+        </AnimatedSection>
+        <Footer />
+      </Suspense>
       <Suspense fallback={null}>
         <StickyMobileCTA />
         <ExitIntentPopup />
