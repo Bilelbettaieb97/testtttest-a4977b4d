@@ -117,6 +117,8 @@ const Index = () => {
       <Suspense fallback={null}>
         <ExitIntentPopup />
         <ChatBot />
+        <SocialProofToast />
+        <StickyMobileCTA />
       </Suspense>
     </div>
   );
