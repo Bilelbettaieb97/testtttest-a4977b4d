@@ -45,7 +45,6 @@ const ContactForm = () => {
     company: "",
     phone: "",
     project: "",
-    budget: "",
     main_challenge: "non_specifie",
     timeline: "",
     message: "",
