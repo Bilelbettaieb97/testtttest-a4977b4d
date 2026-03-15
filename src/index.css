@@ -144,6 +144,7 @@
   .animate-gradient-shift {
     background-size: 200% 200%;
     animation: gradientShift 4s ease-in-out infinite;
+    will-change: transform;
   }
   
   .animate-float {
@@ -151,7 +152,18 @@
   }
   
   .animate-glow {
+    position: relative;
+    animation: none;
+  }
+  .animate-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
     animation: glow 2s ease-in-out infinite;
+    pointer-events: none;
+    will-change: opacity;
   }
 
   @keyframes fadeIn {
@@ -211,9 +223,11 @@
 
   @keyframes gradientShift {
     0%, 100% { 
+      transform: translateX(0%);
       background-position: 0% 50%; 
     }
     50% { 
+      transform: translateX(-1px);
       background-position: 100% 50%; 
     }
   }
@@ -229,10 +243,10 @@
   
   @keyframes glow {
     0%, 100% {
-      box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+      opacity: 0.7;
     }
     50% {
-      box-shadow: 0 0 40px rgba(236, 72, 153, 0.6);
+      opacity: 1;
     }
   }
 
