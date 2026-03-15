@@ -72,6 +72,7 @@ const ExitIntentPopup = () => {
           <button
             onClick={handleClose}
             className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white/80 hover:text-white transition-colors z-10"
+            aria-label="Fermer la popup"
           >
             <X className="w-5 h-5" />
           </button>
