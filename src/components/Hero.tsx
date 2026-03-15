@@ -49,9 +49,13 @@ const Hero = () => {
 
             {/* Main Heading - Benefit-focused */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-slide-up">
-              Votre Site Web Prêt
+              Votre{" "}
+              <span className={`inline-block transition-all duration-300 ${isAnimating ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"}`}>
+                {rotatingWords[wordIndex]}
+              </span>
+              {" "}Prêt
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                en 7 Jours Chrono
+                 en 7 Jours Chrono
               </span>
             </h1>
 
