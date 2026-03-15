@@ -28,6 +28,8 @@ const ServicesPage = () => {
       </Helmet>
       
       <BreadcrumbSchema items={breadcrumbItems} />
+      <LocalBusinessSchema />
+      <ServicesSchema />
       
       <Navigation />
       

@@ -26,6 +26,7 @@ const ContactPage = () => {
       </Helmet>
       
       <BreadcrumbSchema items={breadcrumbItems} />
+      <LocalBusinessSchema />
       
       <Navigation />
       

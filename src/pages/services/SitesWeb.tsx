@@ -26,6 +26,14 @@ const SitesWebPage = () => {
         <meta property="og:type" content="website" />
       </Helmet>
 
+      <LocalBusinessSchema />
+      <ServicesSchema />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Sites Web", url: "/services/sites-web" }
+      ]} />
+
       <Navigation />
 
       <main className="pt-16">
