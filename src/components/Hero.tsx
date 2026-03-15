@@ -35,7 +35,7 @@ const Hero = () => {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-slide-up">
               Votre Site Web Prêt
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                en 7 Jours, Dès 490€
+                en 7 Jours, Dès 300€
               </span>
             </h1>
 
