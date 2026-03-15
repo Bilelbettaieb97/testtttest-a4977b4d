@@ -3,32 +3,42 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9NTVTE0R6"></script>
+    <!-- Google tag (gtag.js) - deferred until user interaction -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-N9NTVTE0R6');
-      
-      // Google Ads conversion tracking helper
-      function gtagSendEvent(url) {
-        var callback = function () {
-          if (typeof url === 'string') {
-            window.location = url;
-          }
+    (function() {
+      var loaded = false;
+      function loadGtag() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-N9NTVTE0R6';
+        document.head.appendChild(s);
+        s.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-N9NTVTE0R6');
         };
-        gtag('event', 'ads_conversion_Envoi_de_formulaire_pou_1', {
-          'event_callback': callback,
+      }
+      // Expose helpers immediately (they queue until gtag loads)
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);};
+      window.gtagSendEvent = function(url) {
+        window.gtag('event', 'ads_conversion_Envoi_de_formulaire_pou_1', {
+          'event_callback': function() { if (typeof url === 'string') window.location = url; },
           'event_timeout': 2000
         });
         return false;
-      }
-      
-      // Track form submission conversion
-      function trackFormConversion() {
-        gtag('event', 'ads_conversion_Envoi_de_formulaire_pou_1', {});
-      }
+      };
+      window.trackFormConversion = function() {
+        window.gtag('event', 'ads_conversion_Envoi_de_formulaire_pou_1', {});
+      };
+      ['scroll','click','touchstart','keydown'].forEach(function(e) {
+        window.addEventListener(e, loadGtag, {once: true, passive: true});
+      });
+    })();
     </script>
     
     <!-- Google AdSense - deferred until user interaction -->
