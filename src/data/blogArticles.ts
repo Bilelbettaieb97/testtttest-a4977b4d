@@ -845,7 +845,7 @@ Un formulaire optimisé peut littéralement tripler vos leads. Testez ces modifi
     image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80",
     category: "Technique",
     readTime: "6 min",
-    publishedAt: "2024-09-15",
+    publishedAt: "2025-12-15",
     author: { name: "ConvertiLab" },
     tags: ["nom de domaine", "branding", "SEO", "création entreprise"],
     content: `## Introduction
