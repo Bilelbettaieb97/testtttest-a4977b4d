@@ -37,8 +37,8 @@ const DesignUiUxService = () => {
   return (
     <>
       <Helmet>
-        <title>Design UI/UX | Interfaces Utilisateur | ConvertiLab</title>
-        <meta name="description" content="Design UI/UX professionnel. Wireframes, prototypes, tests utilisateurs. Créez des interfaces intuitives qui convertissent. Devis gratuit." />
+        <title>Design UI/UX | Interfaces Web | ConvertiLab</title>
+        <meta name="description" content="Design UI/UX professionnel : wireframes, prototypes Figma, tests utilisateurs. Interfaces qui convertissent. Devis gratuit." />
       </Helmet>
 
       <Navigation />

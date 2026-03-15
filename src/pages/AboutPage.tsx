@@ -15,8 +15,8 @@ const AboutPage = () => {
   return (
     <>
       <Helmet>
-        <title>À Propos | Agence Web Créative Paris | ConvertiLab</title>
-        <meta name="description" content="ConvertiLab, agence web créative spécialisée en création de sites internet sur mesure. Excellence technique, créativité sur mesure, accompagnement complet." />
+        <title>À Propos | Agence Web Paris | ConvertiLab</title>
+        <meta name="description" content="Découvrez ConvertiLab, agence web à Paris. +50 clients accompagnés, +280% de CA moyen. Expertise en sites web, SEO et Ads." />
         <meta name="keywords" content="agence web Paris, création site internet, agence digitale, développement web, design web, équipe web" />
         <link rel="canonical" href="https://convertilab.com/a-propos" />
         <meta property="og:title" content="À Propos | Agence Web Créative | ConvertiLab" />

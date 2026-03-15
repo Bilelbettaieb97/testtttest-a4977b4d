@@ -14,7 +14,7 @@ const PolitiqueConfidentialite = () => {
     <>
       <Helmet>
         <title>Politique de Confidentialité | ConvertiLab</title>
-        <meta name="description" content="Découvrez notre politique de confidentialité et comment nous protégeons vos données personnelles chez ConvertiLab." />
+        <meta name="description" content="Politique de confidentialité ConvertiLab. Comment nous protégeons vos données personnelles conformément au RGPD." />
         <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href="https://convertilab.com/politique-de-confidentialite" />
       </Helmet>

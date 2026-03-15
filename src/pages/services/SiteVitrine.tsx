@@ -76,8 +76,8 @@ const SiteVitrineService = () => {
   return (
     <>
       <Helmet>
-        <title>Création Site Vitrine dès 990€ | Design Sur-Mesure & SEO | ConvertiLab</title>
-        <meta name="description" content="Site vitrine professionnel livré en 10-15 jours. Design sur-mesure, SEO optimisé, jusqu'à 5 pages. +50 clients satisfaits. Prix fixe, satisfaction garantie. Devis gratuit." />
+        <title>Site Vitrine dès 990€ | ConvertiLab Paris</title>
+        <meta name="description" content="Site vitrine professionnel en 10-15 jours. Design sur-mesure, SEO optimisé, prix fixe garanti. Devis gratuit." />
         <link rel="canonical" href="https://convertilab.com/services/sites-web/site-vitrine" />
         <meta property="og:title" content="Site Vitrine Professionnel dès 990€ | ConvertiLab" />
         <meta property="og:description" content="Site vitrine sur-mesure, optimisé SEO, livré en 10-15 jours. Prix fixe, satisfaction garantie." />

@@ -37,8 +37,8 @@ const IdentiteVisuelleService = () => {
   return (
     <>
       <Helmet>
-        <title>Identité Visuelle | Logo & Charte Graphique | ConvertiLab</title>
-        <meta name="description" content="Création d'identité visuelle complète : logo, charte graphique, univers de marque. Démarquez-vous avec une image forte. Devis gratuit." />
+        <title>Identité Visuelle | Logo & Branding | ConvertiLab</title>
+        <meta name="description" content="Création de logo et charte graphique sur-mesure. Démarquez-vous avec une identité visuelle forte et mémorable. Devis gratuit." />
       </Helmet>
 
       <Navigation />

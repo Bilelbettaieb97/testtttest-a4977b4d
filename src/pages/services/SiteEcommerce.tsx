@@ -37,8 +37,8 @@ const SiteEcommerceService = () => {
   return (
     <>
       <Helmet>
-        <title>Site E-commerce Performant | ConvertiLab - Agence Marketing Digital</title>
-        <meta name="description" content="Création de boutiques e-commerce optimisées pour la conversion. Paiement sécurisé, SEO, stratégie marketing digital intégrée. Devis gratuit." />
+        <title>Site E-commerce dès 2490€ | ConvertiLab</title>
+        <meta name="description" content="Boutique en ligne performante avec paiement sécurisé, gestion des stocks et SEO intégré. Devis gratuit sous 24h." />
       </Helmet>
 
       <Navigation />

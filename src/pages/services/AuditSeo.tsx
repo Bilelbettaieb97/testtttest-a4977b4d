@@ -37,8 +37,8 @@ const AuditSeoService = () => {
   return (
     <>
       <Helmet>
-        <title>Audit SEO Complet | Analyse de Site | ConvertiLab</title>
-        <meta name="description" content="Audit SEO complet de votre site web. Analyse technique, contenu, concurrence. Rapport détaillé avec plan d'action. Audit gratuit disponible." />
+        <title>Audit SEO Complet | ConvertiLab Paris</title>
+        <meta name="description" content="Audit SEO complet : technique, contenu, concurrence. Rapport détaillé + plan d'action priorisé. Premier audit gratuit." />
       </Helmet>
 
       <Navigation />

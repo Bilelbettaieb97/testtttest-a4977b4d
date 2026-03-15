@@ -37,8 +37,8 @@ const MetaAdsService = () => {
   return (
     <>
       <Helmet>
-        <title>Meta Ads | Facebook & Instagram Ads | ConvertiLab</title>
-        <meta name="description" content="Gestion de campagnes Meta Ads : Facebook et Instagram. Ciblage précis, créatifs optimisés, ROI maximisé. Audit gratuit." />
+        <title>Meta Ads | Facebook & Instagram | ConvertiLab</title>
+        <meta name="description" content="Publicités Facebook et Instagram : ciblage précis, créatifs optimisés, ROI maximisé. Audit de compte gratuit." />
       </Helmet>
 
       <Navigation />

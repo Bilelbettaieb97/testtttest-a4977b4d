@@ -37,8 +37,8 @@ const GoogleAdsService = () => {
   return (
     <>
       <Helmet>
-        <title>Google Ads | Publicité Google | ConvertiLab</title>
-        <meta name="description" content="Gestion de campagnes Google Ads : Search, Shopping, Display, Remarketing. Maximisez votre ROI publicitaire. Audit gratuit." />
+        <title>Google Ads | x4.8 ROAS Moyen | ConvertiLab</title>
+        <meta name="description" content="Campagnes Google Ads optimisées : Search, Shopping, Display, Remarketing. x4.8 ROAS moyen. Audit gratuit." />
       </Helmet>
 
       <Navigation />

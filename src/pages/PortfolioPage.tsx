@@ -17,8 +17,8 @@ const PortfolioPage = () => {
   return (
     <>
       <Helmet>
-        <title>Portfolio & Résultats Clients | +280% de CA Moyen | ConvertiLab</title>
-        <meta name="description" content="Découvrez nos études de cas : +50 clients accompagnés, +280% de CA moyen. E-commerce, restaurants, B2B, beauté. Résultats concrets et mesurables." />
+        <title>Portfolio | +50 Projets Web Réussis | ConvertiLab</title>
+        <meta name="description" content="+50 clients, +280% de CA moyen. Études de cas e-commerce, restaurants, B2B. Découvrez nos résultats concrets." />
         <meta name="keywords" content="portfolio web, réalisations sites web, études de cas, résultats clients, création site web" />
         <link rel="canonical" href="https://convertilab.com/portfolio" />
         <meta property="og:title" content="Portfolio & Résultats Clients | ConvertiLab" />

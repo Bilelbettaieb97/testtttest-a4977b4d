@@ -17,8 +17,8 @@ const ServicesPage = () => {
   return (
     <>
       <Helmet>
-        <title>Services Marketing Digital | Sites Web, SEO, Ads | ConvertiLab</title>
-        <meta name="description" content="Agence marketing digital : création de sites web dès 490€, SEO, Google Ads, Meta Ads, Social Media. +50 clients accompagnés, +280% de CA moyen. Devis gratuit sous 24h." />
+        <title>Services Marketing Digital | ConvertiLab Paris</title>
+        <meta name="description" content="Sites web dès 490€, SEO, Google Ads, Meta Ads. +50 clients, +280% de CA moyen. Devis gratuit sous 24h, sans engagement." />
         <meta name="keywords" content="création site web, SEO, Google Ads, Meta Ads, social media, marketing digital, agence web Paris" />
         <link rel="canonical" href="https://convertilab.com/services" />
         <meta property="og:title" content="Services Marketing Digital | ConvertiLab" />
