@@ -5,7 +5,23 @@ import { lazy, Suspense, useState, useEffect } from "react";
 // Lazy load ContactForm (imports supabase + canvas-confetti)
 const ContactForm = lazy(() => import("./contact/ContactForm"));
 
+const rotatingWords = ["Site Web", "Application", "Landing Page"];
+
 const Hero = () => {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+        setIsAnimating(false);
+      }, 300);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   const openPriceEstimator = () => {
     window.open("https://estimationdesiteweb.lovable.app/", "_blank");
   };
