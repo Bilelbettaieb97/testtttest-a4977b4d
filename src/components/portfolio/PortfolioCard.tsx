@@ -41,6 +41,9 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
             alt={`Site ${caseStudy.client}`}
             className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
+            width={371}
+            height={278}
+            decoding="async"
             onError={(e) => {
               e.currentTarget.src = "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60";
             }}
