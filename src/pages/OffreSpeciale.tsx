@@ -14,12 +14,12 @@ import { countryCodes } from '@/data/countryCodes';
 import confetti from 'canvas-confetti';
 import { SEO } from "@/components/SEO";
 import { ProductSchema, BreadcrumbSchema } from "@/components/seo/StructuredData";
-import portfolioEcommerce from '@/assets/portfolio-ecommerce.jpg';
-import portfolioRestaurant from '@/assets/portfolio-restaurant.jpg';
-import portfolioBeaute from '@/assets/portfolio-beaute.jpg';
-import portfolioFitness from '@/assets/portfolio-fitness.jpg';
-import portfolioB2B from '@/assets/portfolio-b2b.jpg';
-import portfolioImmobilier from '@/assets/portfolio-immobilier.jpg';
+import portfolioEcommerce from '@/assets/portfolio-ecommerce.webp';
+import portfolioRestaurant from '@/assets/portfolio-restaurant.webp';
+import portfolioBeaute from '@/assets/portfolio-beaute.webp';
+import portfolioFitness from '@/assets/portfolio-fitness.webp';
+import portfolioB2B from '@/assets/portfolio-b2b.webp';
+import portfolioImmobilier from '@/assets/portfolio-immobilier.webp';
 
 const TOTAL_SPOTS = 10;
 
