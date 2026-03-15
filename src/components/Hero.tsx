@@ -5,7 +5,7 @@ import { lazy, Suspense, useState, useEffect } from "react";
 // Lazy load ContactForm (imports supabase + canvas-confetti)
 const ContactForm = lazy(() => import("./contact/ContactForm"));
 
-const rotatingWords = ["Site Web", "Application", "Landing Page"];
+const rotatingWords = ["Site Web", "Application", "Landing Page", "MVP"];
 
 const Hero = () => {
   const [wordIndex, setWordIndex] = useState(0);
