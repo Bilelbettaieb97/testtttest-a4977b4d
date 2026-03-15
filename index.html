@@ -31,17 +31,23 @@
       }
     </script>
     
-    <!-- Google AdSense - deferred -->
+    <!-- Google AdSense - deferred until user interaction -->
     <script>
-    window.addEventListener('load', function() {
-      setTimeout(function() {
+    (function() {
+      var loaded = false;
+      function loadAdSense() {
+        if (loaded) return;
+        loaded = true;
         var s = document.createElement('script');
         s.async = true;
         s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5844925774606937';
         s.crossOrigin = 'anonymous';
         document.head.appendChild(s);
-      }, 3000);
-    });
+      }
+      ['scroll','click','touchstart','keydown'].forEach(function(e) {
+        window.addEventListener(e, loadAdSense, {once: true, passive: true});
+      });
+    })();
     </script>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
