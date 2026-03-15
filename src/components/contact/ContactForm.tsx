@@ -438,8 +438,6 @@ const ContactForm = () => {
                   <div>
                     <p className="font-semibold text-slate-900 dark:text-white">{projectTypes.find(p => p.value === formData.project)?.label}</p>
                     <p className="text-slate-500 text-[10px] sm:text-xs">
-                      {formData.budget && budgets.find(b => b.value === formData.budget)?.label}
-                      {formData.budget && formData.timeline && ' • '}
                       {formData.timeline && timelines.find(t => t.value === formData.timeline)?.label}
                     </p>
                   </div>
