@@ -103,6 +103,9 @@ const Index = () => {
           <FAQ />
         </AnimatedSection>
         <AnimatedSection animation="fade-up">
+          <SuggestedArticles title="Derniers articles du blog" max={3} />
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up">
           <section id="contact" className="-mt-4">
             <SimplifiedContact />
           </section>
