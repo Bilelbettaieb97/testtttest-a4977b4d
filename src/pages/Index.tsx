@@ -23,6 +23,7 @@ const About = lazy(() => import("@/components/About"));
 const FAQ = lazy(() => import("@/components/FAQ"));
 const ChatBot = lazy(() => import("@/components/ChatBot"));
 const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
+const SuggestedArticles = lazy(() => import("@/components/internal-links/SuggestedArticles"));
 
 const faqData = [
   {
