@@ -340,7 +340,7 @@ Adoptez les tendances qui servent vos objectifs business, pas celles qui vous pl
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
     category: "Technique",
     readTime: "9 min",
-    publishedAt: "2024-10-28",
+    publishedAt: "2026-01-28",
     author: { name: "ConvertiLab" },
     tags: ["performance", "vitesse", "technique", "SEO"],
     content: `## Introduction
