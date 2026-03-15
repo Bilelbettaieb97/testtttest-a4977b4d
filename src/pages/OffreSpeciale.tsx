@@ -57,7 +57,7 @@ const OffreSpeciale = () => {
         'postgres_changes',
         { event: 'INSERT', schema: 'public', table: 'offer_reservations' },
         () => {
-          setSpotsRemaining(prev => Math.max(0, prev - 1));
+          setSpotsRemaining(prev => Math.max(2, prev - 1));
         }
       )
       .subscribe();
