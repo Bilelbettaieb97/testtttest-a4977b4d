@@ -598,7 +598,7 @@ const ContactForm = () => {
                   onClick={() => {
                     setFormData({
                       name: "", email: "", company: "", phone: "",
-                      project: "", budget: "", main_challenge: "non_specifie",
+                      project: "", main_challenge: "non_specifie",
                       timeline: "", message: "", urgency: ""
                     });
                     setStep(1);
