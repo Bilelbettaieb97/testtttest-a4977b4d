@@ -570,12 +570,6 @@ const ContactForm = () => {
                     <Globe className="w-4 h-4 text-purple-500" />
                     <span>{projectTypes.find(p => p.value === formData.project)?.label}</span>
                   </div>
-                  {formData.budget && (
-                    <div className="flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-purple-500" />
-                      <span>Budget : {budgets.find(b => b.value === formData.budget)?.label}</span>
-                    </div>
-                  )}
                   {formData.timeline && (
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-purple-500" />
