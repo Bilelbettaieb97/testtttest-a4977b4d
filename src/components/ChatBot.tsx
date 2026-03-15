@@ -224,6 +224,7 @@ const ChatBot = () => {
             size="icon"
             onClick={() => setIsMinimized(!isMinimized)}
             className="text-white hover:bg-white/20"
+            aria-label="Minimiser le chat"
           >
             <Minimize2 className="h-4 w-4" />
           </Button>
@@ -232,7 +233,6 @@ const ChatBot = () => {
             size="icon"
             onClick={() => {
               setIsOpen(false);
-              // Mark conversation as completed when closing
               if (conversationId) {
                 supabase
                   .from("chat_conversations")
@@ -241,6 +241,7 @@ const ChatBot = () => {
               }
             }}
             className="text-white hover:bg-white/20"
+            aria-label="Fermer le chat"
           >
             <X className="h-4 w-4" />
           </Button>
