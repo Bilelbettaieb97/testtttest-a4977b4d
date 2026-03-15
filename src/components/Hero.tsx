@@ -39,7 +39,7 @@ const Hero = () => {
             {/* Subheading */}
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed animate-fade-in">
               Sites vitrines, e-commerce et applications web — nous concevons des <strong className="text-purple-700">solutions digitales sur-mesure</strong> qui convertissent vos visiteurs en clients.
-              <span className="block mt-2 text-gray-500">Design professionnel, référencement optimisé, responsive mobile.</span>
+              <span className="block mt-2 text-gray-600">Design professionnel, référencement optimisé, responsive mobile.</span>
             </p>
 
             {/* Stats */}
@@ -49,21 +49,21 @@ const Hero = () => {
                   +300%
                 </div>
                 <div className="text-xs sm:text-sm text-gray-700 font-semibold">ROI Moyen</div>
-                <div className="text-[10px] text-gray-400 mt-0.5 hidden sm:block">Sur nos campagnes</div>
+                <div className="text-[10px] text-gray-500 mt-0.5 hidden sm:block">Sur nos campagnes</div>
               </div>
               <div className="group text-center p-3 sm:p-4 glass rounded-xl border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                 <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-1">
                   150+
                 </div>
                 <div className="text-xs sm:text-sm text-gray-700 font-semibold">Clients</div>
-                <div className="text-[10px] text-gray-400 mt-0.5 hidden sm:block">Tous secteurs</div>
+                <div className="text-[10px] text-gray-500 mt-0.5 hidden sm:block">Tous secteurs</div>
               </div>
               <div className="group text-center p-3 sm:p-4 glass rounded-xl border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                 <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-1">
                   24/7
                 </div>
                 <div className="text-xs sm:text-sm text-gray-700 font-semibold">Support</div>
-                <div className="text-[10px] text-gray-400 mt-0.5 hidden sm:block">Réactif & humain</div>
+                <div className="text-[10px] text-gray-500 mt-0.5 hidden sm:block">Réactif & humain</div>
               </div>
             </div>
 

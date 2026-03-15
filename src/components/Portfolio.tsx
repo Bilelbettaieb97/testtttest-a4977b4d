@@ -3,13 +3,13 @@ import { ShoppingCart, Utensils, Home, Users, TrendingUp, Clock, Star, ChevronLe
 import PortfolioCard from "./portfolio/PortfolioCard";
 import PortfolioHeader from "./portfolio/PortfolioHeader";
 import PortfolioCTA from "./portfolio/PortfolioCTA";
-import portfolioEcommerce from "@/assets/portfolio-ecommerce.jpg";
-import portfolioRestaurant from "@/assets/portfolio-restaurant.jpg";
-import portfolioImmobilier from "@/assets/portfolio-immobilier.jpg";
-import portfolioFitness from "@/assets/portfolio-fitness.jpg";
-import portfolioBeaute from "@/assets/portfolio-beaute.jpg";
-import portfolioFormation from "@/assets/portfolio-formation.jpg";
-import portfolioB2B from "@/assets/portfolio-b2b.jpg";
+import portfolioEcommerce from "@/assets/portfolio-ecommerce.webp";
+import portfolioRestaurant from "@/assets/portfolio-restaurant.webp";
+import portfolioImmobilier from "@/assets/portfolio-immobilier.webp";
+import portfolioFitness from "@/assets/portfolio-fitness.webp";
+import portfolioBeaute from "@/assets/portfolio-beaute.webp";
+import portfolioFormation from "@/assets/portfolio-formation.webp";
+import portfolioB2B from "@/assets/portfolio-b2b.webp";
 
 const Portfolio = () => {
   const cases = [
