@@ -15,8 +15,8 @@ const ContactPage = () => {
   return (
     <>
       <Helmet>
-        <title>Contact | Devis Gratuit Création Site Web | ConvertiLab</title>
-        <meta name="description" content="Demandez votre devis gratuit pour la création de votre site web. Réponse sous 24h. Consultation gratuite de 30 min. Tel: +33 6 16 47 72 45" />
+        <title>Contact | Devis Gratuit sous 24h | ConvertiLab</title>
+        <meta name="description" content="Demandez votre devis gratuit. Réponse sous 24h, consultation de 30 min offerte. Tel : +33 6 16 47 72 45." />
         <meta name="keywords" content="contact agence web, devis site internet, devis création site web, consultation gratuite, agence web Paris" />
         <link rel="canonical" href="https://convertilab.com/contact" />
         <meta property="og:title" content="Contact | Devis Gratuit | ConvertiLab" />

@@ -37,8 +37,8 @@ const RefonteSiteService = () => {
   return (
     <>
       <Helmet>
-        <title>Refonte de Site Web | ConvertiLab - Agence Marketing Digital</title>
-        <meta name="description" content="Refonte de site web avec stratégie marketing digital intégrée. Design moderne, SEO préservé, conversion optimisée. Audit gratuit par notre agence." />
+        <title>Refonte de Site Web | ConvertiLab Paris</title>
+        <meta name="description" content="Modernisez votre site web : design actuel, SEO préservé, conversion optimisée. Audit gratuit et devis sous 24h." />
       </Helmet>
 
       <Navigation />

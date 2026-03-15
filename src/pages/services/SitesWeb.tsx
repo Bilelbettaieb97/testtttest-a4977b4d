@@ -17,8 +17,8 @@ const SitesWebPage = () => {
   return (
     <>
       <Helmet>
-        <title>Création Sites Web | Landing Page, Vitrine, E-commerce dès 490€ | ConvertiLab</title>
-        <meta name="description" content="Création de sites web optimisés conversion : landing page dès 490€, site vitrine dès 990€, e-commerce dès 2490€. Prix fixes, délais garantis. Devis gratuit sous 24h." />
+        <title>Création Sites Web dès 490€ | ConvertiLab</title>
+        <meta name="description" content="Landing page dès 490€, site vitrine dès 990€, e-commerce dès 2490€. Prix fixes, délais garantis. Devis gratuit sous 24h." />
         <link rel="canonical" href="https://convertilab.com/services/sites-web" />
         <meta property="og:title" content="Création Sites Web dès 490€ | ConvertiLab" />
         <meta property="og:description" content="Sites web qui convertissent : landing pages, vitrines, e-commerce. +50 clients satisfaits, prix fixes, livraison garantie." />
