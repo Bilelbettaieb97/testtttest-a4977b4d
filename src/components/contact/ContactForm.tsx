@@ -340,55 +340,6 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              {/* Budget Section */}
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <label className="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-200">💰 Budget estimé</label>
-                  <span className="text-[10px] sm:text-xs text-slate-400">Optionnel</span>
-                </div>
-                <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                  {budgets.map((b) => {
-                    const IconComponent = b.icon;
-                    const isSelected = formData.budget === b.value;
-                    return (
-                      <button
-                        key={b.value}
-                        type="button"
-                        onClick={() => setFormData({ ...formData, budget: b.value })}
-                        className={`relative p-3 sm:p-4 rounded-xl text-left transition-all duration-300 group ${
-                          isSelected
-                            ? 'bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25 scale-[1.02]'
-                            : 'bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-purple-300 hover:shadow-md hover:scale-[1.01]'
-                        }`}
-                      >
-                        {b.popular && (
-                          <span className={`absolute -top-2 right-2 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                            isSelected ? 'bg-white text-purple-600' : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
-                          }`}>
-                            Populaire
-                          </span>
-                        )}
-                        <div className="flex items-start gap-2 sm:gap-3">
-                          <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                            isSelected ? 'bg-white/20' : 'bg-purple-100 dark:bg-purple-900/30'
-                          }`}>
-                            <IconComponent className={`w-4 h-4 sm:w-5 sm:h-5 ${isSelected ? 'text-white' : 'text-purple-600 dark:text-purple-400'}`} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className={`font-bold text-sm sm:text-base ${isSelected ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
-                              {b.label}
-                            </p>
-                            <p className={`text-[10px] sm:text-xs ${isSelected ? 'text-white/80' : 'text-slate-500'}`}>
-                              {b.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
               {/* Timeline Section */}
               <div>
                 <div className="flex items-center justify-between mb-3">
