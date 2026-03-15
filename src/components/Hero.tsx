@@ -114,7 +114,7 @@ const Hero = () => {
           {/* Right - Contact Form (lazy loaded) */}
           <div className="animate-fade-in">
             <Suspense fallback={
-              <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 p-8 min-h-[400px] flex items-center justify-center">
+              <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 p-8 min-h-[520px] sm:min-h-[580px] flex items-center justify-center" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 580px' } as React.CSSProperties}>
                 <div className="w-8 h-8 border-4 border-purple-600 border-t-transparent rounded-full animate-spin" />
               </div>
             }>

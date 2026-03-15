@@ -237,7 +237,7 @@ const Services = () => {
               <TabsTrigger 
                 key={cat.id}
                 value={cat.id}
-                className={`flex items-center justify-center gap-2 py-3 px-3 text-sm rounded-xl transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:${cat.gradient.replace('from-', 'from-').replace('to-', 'to-')} data-[state=active]:text-white data-[state=active]:shadow-lg`}
+                className={`flex items-center justify-center gap-2 py-3 sm:py-3 px-2 sm:px-3 text-sm rounded-xl transition-all duration-300 min-h-[48px] data-[state=active]:bg-gradient-to-r data-[state=active]:${cat.gradient.replace('from-', 'from-').replace('to-', 'to-')} data-[state=active]:text-white data-[state=active]:shadow-lg`}
               >
                 {cat.icon}
                 <span className="hidden sm:inline font-medium">{cat.label}</span>

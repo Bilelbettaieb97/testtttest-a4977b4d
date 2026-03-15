@@ -109,16 +109,16 @@ const Footer = () => {
               Agence de marketing digital spécialisée dans l'acquisition client, le SEO, la publicité en ligne et la création de sites web performants.
             </p>
             
-            <div className="flex space-x-4 pt-2">
-              <div className="p-2 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 cursor-pointer transition-colors duration-300">
+            <div className="flex space-x-3 pt-2">
+              <a href="#" aria-label="LinkedIn" className="p-3 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 transition-colors duration-300">
                 <Linkedin className="w-5 h-5 text-purple-400 hover:text-purple-300" />
-              </div>
-              <div className="p-2 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 cursor-pointer transition-colors duration-300">
+              </a>
+              <a href="#" aria-label="Twitter" className="p-3 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 transition-colors duration-300">
                 <Twitter className="w-5 h-5 text-purple-400 hover:text-purple-300" />
-              </div>
-              <div className="p-2 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 cursor-pointer transition-colors duration-300">
+              </a>
+              <a href="#" aria-label="Facebook" className="p-3 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 transition-colors duration-300">
                 <Facebook className="w-5 h-5 text-purple-400 hover:text-purple-300" />
-              </div>
+              </a>
             </div>
 
             <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 rounded-xl p-4 border border-purple-500/20">
@@ -141,12 +141,12 @@ const Footer = () => {
               <BarChart3 className="w-5 h-5 mr-2 text-purple-400" />
               Nos Services
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {services.map((service, index) => (
                 <li key={index}>
                   <button
                     onClick={() => handleNavigation(service.href)}
-                    className="text-gray-300 hover:text-purple-400 transition-colors cursor-pointer text-sm flex items-center group"
+                    className="text-gray-300 hover:text-purple-400 transition-colors cursor-pointer text-sm flex items-center group py-2"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {service.name}
@@ -162,12 +162,12 @@ const Footer = () => {
               <ArrowRight className="w-5 h-5 mr-2 text-purple-400" />
               Liens rapides
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button
                     onClick={() => handleNavigation(link.href)}
-                    className="text-gray-300 hover:text-purple-400 transition-colors cursor-pointer text-sm flex items-center group"
+                    className="text-gray-300 hover:text-purple-400 transition-colors cursor-pointer text-sm flex items-center group py-2"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {link.name}
@@ -183,9 +183,9 @@ const Footer = () => {
               <Globe className="w-5 h-5 mr-2 text-purple-400" />
               Secteurs d'expertise
             </h4>
-            <div className="space-y-3">
+            <div className="space-y-1">
               {sectors.map((sector, index) => (
-                <div key={index} className="flex items-center text-gray-300 hover:text-purple-400 transition-colors text-sm group cursor-pointer">
+                <div key={index} className="flex items-center text-gray-300 hover:text-purple-400 transition-colors text-sm group cursor-pointer py-2">
                   <sector.icon className="w-4 h-4 mr-3 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                   {sector.name}
                 </div>
@@ -274,12 +274,12 @@ const Footer = () => {
         <div className="border-t border-gray-700 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">&copy; 2024 ConvertiLab. Tous droits réservés.</p>
-            <div className="flex space-x-6 mt-4 sm:mt-0">
-              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors">Mentions légales</button>
-              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors">CGV</button>
+            <div className="flex flex-wrap gap-2 sm:gap-6 mt-4 sm:mt-0">
+              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors py-2 px-1">Mentions légales</button>
+              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors py-2 px-1">CGV</button>
               <button 
                 onClick={() => handleNavigation('/politique-de-confidentialite')}
-                className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
+                className="text-gray-400 hover:text-purple-400 text-sm transition-colors py-2 px-1"
               >
                 Politique de confidentialité
               </button>

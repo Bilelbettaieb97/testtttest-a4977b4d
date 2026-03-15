@@ -263,7 +263,7 @@ const Navigation = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-purple-600 transition-colors"
+              className="flex items-center justify-center w-11 h-11 rounded-lg text-gray-700 hover:text-purple-600 hover:bg-gray-100 transition-colors"
               aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
               aria-expanded={isMenuOpen}
             >
@@ -280,28 +280,28 @@ const Navigation = () => {
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className={`flex items-center justify-between w-full px-3 py-2 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium ${location.pathname.startsWith('/services') ? 'text-purple-600 bg-purple-50' : 'text-gray-700'}`}
+                  className={`flex items-center justify-between w-full px-3 py-3 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium text-base ${location.pathname.startsWith('/services') ? 'text-purple-600 bg-purple-50' : 'text-gray-700'}`}
                 >
                   Services
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-5 h-5 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {isServicesOpen && (
-                  <div className="pl-4 mt-1 space-y-1">
+                  <div className="pl-4 mt-1 space-y-0.5">
                     {serviceCategories.map((service) => (
                       <Link
                         key={service.href}
                         to={service.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`flex items-center gap-2 w-full px-3 py-2 text-sm hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 ${location.pathname === service.href ? 'text-purple-600 bg-purple-50' : 'text-gray-600'}`}
+                        className={`flex items-center gap-3 w-full px-3 py-3 text-base hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 ${location.pathname === service.href ? 'text-purple-600 bg-purple-50' : 'text-gray-600'}`}
                       >
-                        <service.icon className="w-4 h-4" />
+                        <service.icon className="w-5 h-5" />
                         {service.label}
                       </Link>
                     ))}
                     <Link
                       to="/services"
                       onClick={() => setIsMenuOpen(false)}
-                      className="flex items-center gap-2 w-full px-3 py-2 text-sm text-purple-600 hover:bg-purple-50 rounded-md transition-colors duration-200 font-medium"
+                      className="flex items-center gap-3 w-full px-3 py-3 text-base text-purple-600 hover:bg-purple-50 rounded-md transition-colors duration-200 font-medium"
                     >
                       Tous les services
                     </Link>
@@ -314,9 +314,9 @@ const Navigation = () => {
                   key={item.label}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`flex items-center gap-2 w-full px-3 py-2.5 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium text-sm ${location.pathname === item.href ? 'text-purple-600 bg-purple-50' : 'text-gray-700'}`}
+                  className={`flex items-center gap-3 w-full px-3 py-3 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium text-base ${location.pathname === item.href ? 'text-purple-600 bg-purple-50' : 'text-gray-700'}`}
                 >
-                  {item.label === 'Blog' && <BookOpen className="w-4 h-4" />}
+                  {item.label === 'Blog' && <BookOpen className="w-5 h-5" />}
                   {item.label}
                 </Link>
               ))}
