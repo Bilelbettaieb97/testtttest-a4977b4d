@@ -415,7 +415,7 @@ Chaque seconde gagnée améliore vos conversions de 7%. L'optimisation de la vit
     image: "https://images.unsplash.com/photo-1553835973-dec43bfddbeb?w=800&q=80",
     category: "SEO",
     readTime: "8 min",
-    publishedAt: "2024-10-20",
+    publishedAt: "2026-01-20",
     author: { name: "ConvertiLab" },
     tags: ["Google My Business", "SEO local", "visibilité locale", "marketing"],
     content: `## Introduction
