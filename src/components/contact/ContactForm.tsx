@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { User, Mail, Building2, Phone, ArrowRight, ArrowLeft, CheckCircle2, Send, Globe, ShoppingCart, FileText, Search, Sparkles, Rocket, Gem, Trophy, Zap, Calendar, Target, Waves } from "lucide-react";
+import { User, Mail, Building2, Phone, ArrowRight, ArrowLeft, CheckCircle2, Send, Globe, ShoppingCart, FileText, Search, Zap, Calendar, Target, Waves } from "lucide-react";
 import confetti from "canvas-confetti";
 
 interface ContactFormData {
@@ -13,7 +13,7 @@ interface ContactFormData {
   company: string;
   phone: string;
   project: string;
-  budget: string;
+  
   main_challenge: string;
   timeline: string;
   message: string;
@@ -29,12 +29,6 @@ const projectTypes = [
   { value: "audit", label: "Audit", icon: Search, desc: "Analyser & optimiser" },
 ];
 
-const budgets = [
-  { value: "<1k", label: "< 1 000€", icon: Sparkles, desc: "Projet simple", popular: false },
-  { value: "1k-1.5k", label: "1 000 - 1 500€", icon: Rocket, desc: "Site complet", popular: true },
-  { value: "1.5k-2k", label: "1 500 - 2 000€", icon: Gem, desc: "Sur-mesure", popular: false },
-  { value: "2k+", label: "> 2 000€", icon: Trophy, desc: "Premium", popular: false },
-];
 
 const timelines = [
   { value: "urgent", label: "< 1 semaine", icon: Zap, desc: "Express", recommended: false },
@@ -51,7 +45,6 @@ const ContactForm = () => {
     company: "",
     phone: "",
     project: "",
-    budget: "",
     main_challenge: "non_specifie",
     timeline: "",
     message: "",
@@ -329,7 +322,7 @@ const ContactForm = () => {
             <div className="space-y-4 sm:space-y-5 animate-fade-in">
               <div className="text-center mb-4 sm:mb-6">
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Détails du projet</h3>
-                <p className="text-slate-500 text-xs sm:text-sm mt-1">Budget et délai souhaités</p>
+                <p className="text-slate-500 text-xs sm:text-sm mt-1">Délai souhaité</p>
               </div>
 
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 rounded-xl p-3 mb-4">
@@ -344,55 +337,6 @@ const ContactForm = () => {
                     <p className="font-semibold text-slate-900 dark:text-white">{projectTypes.find(p => p.value === formData.project)?.label || "Type de site"}</p>
                     <p className="text-slate-500 text-[10px] sm:text-xs">{projectTypes.find(p => p.value === formData.project)?.desc}</p>
                   </div>
-                </div>
-              </div>
-
-              {/* Budget Section */}
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <label className="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-200">💰 Budget estimé</label>
-                  <span className="text-[10px] sm:text-xs text-slate-400">Optionnel</span>
-                </div>
-                <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                  {budgets.map((b) => {
-                    const IconComponent = b.icon;
-                    const isSelected = formData.budget === b.value;
-                    return (
-                      <button
-                        key={b.value}
-                        type="button"
-                        onClick={() => setFormData({ ...formData, budget: b.value })}
-                        className={`relative p-3 sm:p-4 rounded-xl text-left transition-all duration-300 group ${
-                          isSelected
-                            ? 'bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25 scale-[1.02]'
-                            : 'bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-purple-300 hover:shadow-md hover:scale-[1.01]'
-                        }`}
-                      >
-                        {b.popular && (
-                          <span className={`absolute -top-2 right-2 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                            isSelected ? 'bg-white text-purple-600' : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
-                          }`}>
-                            Populaire
-                          </span>
-                        )}
-                        <div className="flex items-start gap-2 sm:gap-3">
-                          <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                            isSelected ? 'bg-white/20' : 'bg-purple-100 dark:bg-purple-900/30'
-                          }`}>
-                            <IconComponent className={`w-4 h-4 sm:w-5 sm:h-5 ${isSelected ? 'text-white' : 'text-purple-600 dark:text-purple-400'}`} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className={`font-bold text-sm sm:text-base ${isSelected ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
-                              {b.label}
-                            </p>
-                            <p className={`text-[10px] sm:text-xs ${isSelected ? 'text-white/80' : 'text-slate-500'}`}>
-                              {b.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </button>
-                    );
-                  })}
                 </div>
               </div>
 
@@ -494,8 +438,6 @@ const ContactForm = () => {
                   <div>
                     <p className="font-semibold text-slate-900 dark:text-white">{projectTypes.find(p => p.value === formData.project)?.label}</p>
                     <p className="text-slate-500 text-[10px] sm:text-xs">
-                      {formData.budget && budgets.find(b => b.value === formData.budget)?.label}
-                      {formData.budget && formData.timeline && ' • '}
                       {formData.timeline && timelines.find(t => t.value === formData.timeline)?.label}
                     </p>
                   </div>
@@ -628,12 +570,6 @@ const ContactForm = () => {
                     <Globe className="w-4 h-4 text-purple-500" />
                     <span>{projectTypes.find(p => p.value === formData.project)?.label}</span>
                   </div>
-                  {formData.budget && (
-                    <div className="flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-purple-500" />
-                      <span>Budget : {budgets.find(b => b.value === formData.budget)?.label}</span>
-                    </div>
-                  )}
                   {formData.timeline && (
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-purple-500" />
@@ -662,7 +598,7 @@ const ContactForm = () => {
                   onClick={() => {
                     setFormData({
                       name: "", email: "", company: "", phone: "",
-                      project: "", budget: "", main_challenge: "non_specifie",
+                      project: "", main_challenge: "non_specifie",
                       timeline: "", message: "", urgency: ""
                     });
                     setStep(1);
