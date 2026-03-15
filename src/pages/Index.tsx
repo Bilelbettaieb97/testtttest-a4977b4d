@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -5,13 +6,10 @@ import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 import SimplifiedContact from "@/components/SimplifiedContact";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import PromoBanner from "@/components/PromoBanner";
 import ProcessTimeline from "@/components/ProcessTimeline";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
-import ChatBot from "@/components/ChatBot";
 import AnimatedSection from "@/components/AnimatedSection";
 import { SEO } from "@/components/SEO";
 import { 
@@ -21,6 +19,11 @@ import {
   FAQSchema, 
   ReviewsSchema 
 } from "@/components/seo/StructuredData";
+
+// Lazy load non-critical components
+const ChatBot = lazy(() => import("@/components/ChatBot"));
+const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
+const StickyMobileCTA = lazy(() => import("@/components/StickyMobileCTA"));
 
 const faqData = [
   {
@@ -102,9 +105,11 @@ const Index = () => {
         </section>
       </AnimatedSection>
       <Footer />
-      <StickyMobileCTA />
-      <ExitIntentPopup />
-      <ChatBot />
+      <Suspense fallback={null}>
+        <StickyMobileCTA />
+        <ExitIntentPopup />
+        <ChatBot />
+      </Suspense>
     </div>
   );
 };
