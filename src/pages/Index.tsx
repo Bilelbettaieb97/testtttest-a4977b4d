@@ -1,15 +1,6 @@
 import { lazy, Suspense } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
-import Testimonials from "@/components/Testimonials";
-import SimplifiedContact from "@/components/SimplifiedContact";
-import Footer from "@/components/Footer";
-import PromoBanner from "@/components/PromoBanner";
-import ProcessTimeline from "@/components/ProcessTimeline";
-import About from "@/components/About";
-import FAQ from "@/components/FAQ";
 import AnimatedSection from "@/components/AnimatedSection";
 import { SEO } from "@/components/SEO";
 import { 
@@ -20,7 +11,16 @@ import {
   ReviewsSchema 
 } from "@/components/seo/StructuredData";
 
-// Lazy load non-critical components
+// Lazy load below-fold and non-critical components
+const Portfolio = lazy(() => import("@/components/Portfolio"));
+const Services = lazy(() => import("@/components/Services"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const SimplifiedContact = lazy(() => import("@/components/SimplifiedContact"));
+const Footer = lazy(() => import("@/components/Footer"));
+const PromoBanner = lazy(() => import("@/components/PromoBanner"));
+const ProcessTimeline = lazy(() => import("@/components/ProcessTimeline"));
+const About = lazy(() => import("@/components/About"));
+const FAQ = lazy(() => import("@/components/FAQ"));
 const ChatBot = lazy(() => import("@/components/ChatBot"));
 const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
 const StickyMobileCTA = lazy(() => import("@/components/StickyMobileCTA"));
@@ -70,41 +70,45 @@ const Index = () => {
       <FAQSchema faqs={faqData} />
       <ReviewsSchema reviews={reviewsData} />
       
-      <PromoBanner />
+      <Suspense fallback={null}>
+        <PromoBanner />
+      </Suspense>
       <Navigation />
       <section id="hero">
         <Hero />
       </section>
-      <AnimatedSection animation="fade-up">
-        <section id="portfolio" className="-mt-4">
-          <Portfolio />
-        </section>
-      </AnimatedSection>
-      <AnimatedSection animation="fade-up" delay={100}>
-        <ProcessTimeline />
-      </AnimatedSection>
-      <AnimatedSection animation="fade-up">
-        <section id="services" className="-mt-4">
-          <Services />
-        </section>
-      </AnimatedSection>
-      <AnimatedSection animation="fade-up" delay={100}>
-        <section id="testimonials" className="-mt-4">
-          <Testimonials />
-        </section>
-      </AnimatedSection>
-      <AnimatedSection animation="scale">
-        <About />
-      </AnimatedSection>
-      <AnimatedSection animation="fade-up">
-        <FAQ />
-      </AnimatedSection>
-      <AnimatedSection animation="fade-up">
-        <section id="contact" className="-mt-4">
-          <SimplifiedContact />
-        </section>
-      </AnimatedSection>
-      <Footer />
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <AnimatedSection animation="fade-up">
+          <section id="portfolio" className="-mt-4">
+            <Portfolio />
+          </section>
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up" delay={100}>
+          <ProcessTimeline />
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up">
+          <section id="services" className="-mt-4">
+            <Services />
+          </section>
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up" delay={100}>
+          <section id="testimonials" className="-mt-4">
+            <Testimonials />
+          </section>
+        </AnimatedSection>
+        <AnimatedSection animation="scale">
+          <About />
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up">
+          <FAQ />
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up">
+          <section id="contact" className="-mt-4">
+            <SimplifiedContact />
+          </section>
+        </AnimatedSection>
+        <Footer />
+      </Suspense>
       <Suspense fallback={null}>
         <StickyMobileCTA />
         <ExitIntentPopup />
