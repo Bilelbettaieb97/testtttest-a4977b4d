@@ -56,7 +56,7 @@ const Hero = () => {
                   150+
                 </div>
                 <div className="text-xs sm:text-sm text-gray-700 font-semibold">Clients</div>
-                <div className="text-[10px] text-gray-400 mt-0.5 hidden sm:block">Tous secteurs</div>
+                <div className="text-[10px] text-gray-500 mt-0.5 hidden sm:block">Tous secteurs</div>
               </div>
               <div className="group text-center p-3 sm:p-4 glass rounded-xl border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                 <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-1">
