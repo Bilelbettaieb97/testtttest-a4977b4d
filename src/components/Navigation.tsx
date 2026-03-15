@@ -112,7 +112,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="cursor-pointer">
-              <img src={logoConvertilab} alt="ConvertiLab - Agence de Marketing Digital" className="h-14 w-auto" />
+              <img src={logoConvertilab} alt="ConvertiLab - Agence de Marketing Digital" className="h-25 w-auto" />
             </Link>
           </div>
 
