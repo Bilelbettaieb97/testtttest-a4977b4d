@@ -27,7 +27,6 @@ export default defineConfig(({ mode }) => ({
           'ui-nav': ['@radix-ui/react-navigation-menu'],
           'ui-overlay': ['@radix-ui/react-dialog', '@radix-ui/react-tooltip'],
           'ui-content': ['@radix-ui/react-accordion', '@radix-ui/react-tabs'],
-          'framer': ['framer-motion'],
         },
       },
     },
