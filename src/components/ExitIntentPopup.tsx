@@ -23,13 +23,13 @@ const ExitIntentPopup = () => {
       }
     }
 
-    // Timer: Show popup after 3 seconds
+    // Timer: Show popup after 15 seconds to avoid impacting LCP
     const timeoutTimer = setTimeout(() => {
       if (!hasShown) {
         setIsOpen(true);
         setHasShown(true);
       }
-    }, 3000);
+    }, 15000);
 
     // Exit intent: Show popup when mouse leaves viewport at top
     const handleMouseLeave = (e: MouseEvent) => {
