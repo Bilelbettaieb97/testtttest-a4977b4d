@@ -575,7 +575,7 @@ Il n'y a pas de mauvais choix, seulement le choix adapté à VOTRE situation. [C
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     category: "Web Design",
     readTime: "9 min",
-    publishedAt: "2024-10-08",
+    publishedAt: "2026-01-08",
     author: { name: "ConvertiLab" },
     tags: ["landing page", "conversion", "copywriting", "design"],
     content: `## Introduction
