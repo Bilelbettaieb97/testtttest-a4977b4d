@@ -274,7 +274,7 @@ Le prix d'un site web dépend de vos besoins spécifiques. [Contactez-nous](/con
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
     category: "Web Design",
     readTime: "6 min",
-    publishedAt: "2024-11-05",
+    publishedAt: "2026-02-05",
     author: { name: "ConvertiLab" },
     tags: ["web design", "tendances", "UX", "conversion"],
     content: `## Introduction
