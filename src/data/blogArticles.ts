@@ -15,7 +15,7 @@ export const blogArticles: FullBlogArticle[] = [
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     category: "Business",
     readTime: "5 min",
-    publishedAt: "2024-12-01",
+    publishedAt: "2026-03-01",
     author: { name: "ConvertiLab" },
     tags: ["business", "site web", "visibilité", "marketing digital"],
     content: `## Introduction
@@ -74,7 +74,7 @@ Investir dans un site web professionnel n'est plus une option, c'est une nécess
     image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&q=80",
     category: "Web Design",
     readTime: "8 min",
-    publishedAt: "2024-11-25",
+    publishedAt: "2026-02-25",
     author: { name: "ConvertiLab" },
     tags: ["web design", "UX", "conversion", "erreurs"],
     content: `## Introduction
@@ -138,7 +138,7 @@ Corrigez ces erreurs et vous verrez vos conversions augmenter significativement.
     image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80",
     category: "SEO",
     readTime: "10 min",
-    publishedAt: "2024-11-18",
+    publishedAt: "2026-02-18",
     author: { name: "ConvertiLab" },
     tags: ["SEO", "référencement local", "Google My Business", "visibilité"],
     content: `## Introduction
@@ -210,7 +210,7 @@ Le SEO local prend du temps mais les résultats sont durables. Commencez par Goo
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
     category: "Business",
     readTime: "7 min",
-    publishedAt: "2024-11-10",
+    publishedAt: "2026-02-10",
     author: { name: "ConvertiLab" },
     tags: ["prix", "budget", "site web", "investissement"],
     content: `## Introduction
@@ -274,7 +274,7 @@ Le prix d'un site web dépend de vos besoins spécifiques. [Contactez-nous](/con
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
     category: "Web Design",
     readTime: "6 min",
-    publishedAt: "2024-11-05",
+    publishedAt: "2026-02-05",
     author: { name: "ConvertiLab" },
     tags: ["web design", "tendances", "UX", "conversion"],
     content: `## Introduction
@@ -340,7 +340,7 @@ Adoptez les tendances qui servent vos objectifs business, pas celles qui vous pl
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
     category: "Technique",
     readTime: "9 min",
-    publishedAt: "2024-10-28",
+    publishedAt: "2026-01-28",
     author: { name: "ConvertiLab" },
     tags: ["performance", "vitesse", "technique", "SEO"],
     content: `## Introduction
@@ -415,7 +415,7 @@ Chaque seconde gagnée améliore vos conversions de 7%. L'optimisation de la vit
     image: "https://images.unsplash.com/photo-1553835973-dec43bfddbeb?w=800&q=80",
     category: "SEO",
     readTime: "8 min",
-    publishedAt: "2024-10-20",
+    publishedAt: "2026-01-20",
     author: { name: "ConvertiLab" },
     tags: ["Google My Business", "SEO local", "visibilité locale", "marketing"],
     content: `## Introduction
@@ -499,7 +499,7 @@ Google My Business est le levier SEO local le plus puissant et il est gratuit. N
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
     category: "Technique",
     readTime: "7 min",
-    publishedAt: "2024-10-15",
+    publishedAt: "2026-01-15",
     author: { name: "ConvertiLab" },
     tags: ["WordPress", "développement", "CMS", "site sur-mesure"],
     content: `## Introduction
@@ -575,7 +575,7 @@ Il n'y a pas de mauvais choix, seulement le choix adapté à VOTRE situation. [C
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     category: "Web Design",
     readTime: "9 min",
-    publishedAt: "2024-10-08",
+    publishedAt: "2026-01-08",
     author: { name: "ConvertiLab" },
     tags: ["landing page", "conversion", "copywriting", "design"],
     content: `## Introduction
@@ -671,7 +671,7 @@ Une landing page efficace combine psychologie, design et copywriting. Testez, me
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
     category: "Business",
     readTime: "6 min",
-    publishedAt: "2024-09-30",
+    publishedAt: "2025-12-30",
     author: { name: "ConvertiLab" },
     tags: ["réseaux sociaux", "site web", "stratégie digitale", "marketing"],
     content: `## Introduction
@@ -755,7 +755,7 @@ Les réseaux sociaux sont un excellent complément, mais ne remplaceront jamais 
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
     category: "Web Design",
     readTime: "5 min",
-    publishedAt: "2024-09-22",
+    publishedAt: "2025-12-22",
     author: { name: "ConvertiLab" },
     tags: ["formulaire", "conversion", "UX", "leads"],
     content: `## Introduction
@@ -845,7 +845,7 @@ Un formulaire optimisé peut littéralement tripler vos leads. Testez ces modifi
     image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80",
     category: "Technique",
     readTime: "6 min",
-    publishedAt: "2024-09-15",
+    publishedAt: "2025-12-15",
     author: { name: "ConvertiLab" },
     tags: ["nom de domaine", "branding", "SEO", "création entreprise"],
     content: `## Introduction
