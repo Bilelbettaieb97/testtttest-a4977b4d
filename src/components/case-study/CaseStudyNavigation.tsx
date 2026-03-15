@@ -51,8 +51,12 @@ const CaseStudyNavigation = ({ previousProject, nextProject }: CaseStudyNavigati
                   <div className="relative aspect-video overflow-hidden">
                     <img
                       src={previousProject.image}
-                      alt={previousProject.title}
+                      alt={`Projet ${previousProject.client} - ${previousProject.title}`}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
+                      width={400}
+                      height={225}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute top-4 left-4">
@@ -92,8 +96,12 @@ const CaseStudyNavigation = ({ previousProject, nextProject }: CaseStudyNavigati
                   <div className="relative aspect-video overflow-hidden">
                     <img
                       src={nextProject.image}
-                      alt={nextProject.title}
+                      alt={`Projet ${nextProject.client} - ${nextProject.title}`}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
+                      width={400}
+                      height={225}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute top-4 right-4">

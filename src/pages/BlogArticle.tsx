@@ -166,8 +166,13 @@ const BlogArticle = () => {
         <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
           <img 
             src={article.image} 
-            alt={article.title}
+            alt={`${article.title} - Blog ConvertiLab`}
             className="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+            width={1200}
+            height={600}
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
           
