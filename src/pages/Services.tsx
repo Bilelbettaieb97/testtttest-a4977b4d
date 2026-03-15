@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ServicesComponent from '@/components/Services';
-import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { BreadcrumbSchema, LocalBusinessSchema, ServicesSchema } from '@/components/seo/StructuredData';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
