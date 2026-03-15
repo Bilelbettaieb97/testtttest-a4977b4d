@@ -23,6 +23,7 @@ const About = lazy(() => import("@/components/About"));
 const FAQ = lazy(() => import("@/components/FAQ"));
 const ChatBot = lazy(() => import("@/components/ChatBot"));
 const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
+const SuggestedArticles = lazy(() => import("@/components/internal-links/SuggestedArticles"));
 
 const faqData = [
   {
@@ -100,6 +101,9 @@ const Index = () => {
         </AnimatedSection>
         <AnimatedSection animation="fade-up">
           <FAQ />
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up">
+          <SuggestedArticles title="Derniers articles du blog" max={3} />
         </AnimatedSection>
         <AnimatedSection animation="fade-up">
           <section id="contact" className="-mt-4">

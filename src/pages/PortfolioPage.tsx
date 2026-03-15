@@ -7,6 +7,8 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Users, Award } from 'lucide-react';
+import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
+import SuggestedArticles from '@/components/internal-links/SuggestedArticles';
 
 const PortfolioPage = () => {
   const breadcrumbItems = [
@@ -96,6 +98,12 @@ const PortfolioPage = () => {
         </section>
         
         <PortfolioComponent />
+
+        {/* Related services */}
+        <RelatedServicesSection title="Nos services pour booster votre business" max={4} />
+
+        {/* Suggested articles */}
+        <SuggestedArticles title="Articles pour aller plus loin" max={3} />
 
         {/* Bottom service CTA */}
         <section className="py-12 bg-muted/30">

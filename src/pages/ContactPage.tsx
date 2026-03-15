@@ -5,6 +5,7 @@ import ContactComponent from '@/components/Contact';
 import { BreadcrumbSchema, LocalBusinessSchema } from '@/components/seo/StructuredData';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Link } from 'react-router-dom';
+import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
 
 const ContactPage = () => {
   const breadcrumbItems = [
@@ -49,6 +50,8 @@ const ContactPage = () => {
         </div>
         
         <ContactComponent />
+
+        <RelatedServicesSection title="Nos services" max={4} />
       </main>
       
       <Footer />

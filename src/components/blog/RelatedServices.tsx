@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Rocket, FileText, Store, Wrench, Search, Palette } from "lucide-react";
+import { ArrowRight, Rocket, FileText, Store, Search, Palette, Megaphone } from "lucide-react";
 
 interface ServiceLink {
   icon: React.ReactNode;
@@ -12,20 +12,20 @@ interface ServiceLink {
 
 const servicesByCategory: Record<string, ServiceLink[]> = {
   "Business": [
-    { icon: <FileText className="w-5 h-5" />, title: "Site Vitrine", description: "Présentez votre activité professionnellement", href: "/services" },
-    { icon: <Rocket className="w-5 h-5" />, title: "Landing Page", description: "Convertissez vos visiteurs en clients", href: "/services" },
+    { icon: <FileText className="w-5 h-5" />, title: "Site Vitrine", description: "Présentez votre activité dès 990€", href: "/services/sites-web/site-vitrine" },
+    { icon: <Rocket className="w-5 h-5" />, title: "Landing Page", description: "Convertissez vos visiteurs dès 490€", href: "/services/sites-web/landing-page" },
   ],
   "Web Design": [
-    { icon: <Palette className="w-5 h-5" />, title: "Design Personnalisé", description: "Un design unique qui vous ressemble", href: "/services" },
-    { icon: <FileText className="w-5 h-5" />, title: "Site Vitrine", description: "Design moderne et responsive", href: "/services" },
+    { icon: <Palette className="w-5 h-5" />, title: "Design UI/UX", description: "Interfaces intuitives et esthétiques", href: "/services/design/design-ui-ux" },
+    { icon: <FileText className="w-5 h-5" />, title: "Identité Visuelle", description: "Logo et charte graphique sur-mesure", href: "/services/design/identite-visuelle" },
   ],
   "SEO": [
-    { icon: <Search className="w-5 h-5" />, title: "Optimisation SEO", description: "Améliorez votre visibilité Google", href: "/services" },
-    { icon: <FileText className="w-5 h-5" />, title: "Site Optimisé", description: "Sites conçus pour le référencement", href: "/services" },
+    { icon: <Search className="w-5 h-5" />, title: "Référencement SEO", description: "Page 1 Google durablement", href: "/services/seo/referencement-seo" },
+    { icon: <Search className="w-5 h-5" />, title: "Audit SEO", description: "Diagnostic complet de visibilité", href: "/services/seo/audit-seo" },
   ],
   "Technique": [
-    { icon: <Wrench className="w-5 h-5" />, title: "Maintenance Web", description: "Support et mises à jour régulières", href: "/services" },
-    { icon: <Store className="w-5 h-5" />, title: "E-commerce", description: "Solutions techniques performantes", href: "/services" },
+    { icon: <Store className="w-5 h-5" />, title: "Site E-commerce", description: "Boutique en ligne dès 2490€", href: "/services/sites-web/site-ecommerce" },
+    { icon: <Megaphone className="w-5 h-5" />, title: "Google Ads", description: "Campagnes publicitaires ciblées", href: "/services/sea/google-ads" },
   ],
 };
 
@@ -37,9 +37,9 @@ const RelatedServices = ({ category }: RelatedServicesProps) => {
   const services = servicesByCategory[category] || servicesByCategory["Business"];
 
   return (
-    <Card className="p-6 bg-gradient-to-br from-purple-50 to-pink-50 border-purple-100">
-      <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-        <Rocket className="w-5 h-5 text-purple-600" />
+    <Card className="p-6 bg-gradient-to-br from-primary/5 to-accent/5 border-primary/10">
+      <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+        <Rocket className="w-5 h-5 text-primary" />
         Services associés
       </h3>
       
@@ -48,24 +48,24 @@ const RelatedServices = ({ category }: RelatedServicesProps) => {
           <Link 
             key={index}
             to={service.href}
-            className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/80 transition-colors group"
+            className="flex items-start gap-3 p-3 rounded-lg hover:bg-card transition-colors group"
           >
-            <div className="p-2 bg-purple-100 rounded-lg text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+            <div className="p-2 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
               {service.icon}
             </div>
             <div className="flex-1">
-              <h4 className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
+              <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                 {service.title}
               </h4>
-              <p className="text-sm text-gray-600">{service.description}</p>
+              <p className="text-sm text-muted-foreground">{service.description}</p>
             </div>
-            <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-purple-600 transition-colors mt-1" />
+            <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors mt-1" />
           </Link>
         ))}
       </div>
 
-      <div className="mt-6 pt-4 border-t border-purple-200">
-        <Button asChild className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
+      <div className="mt-6 pt-4 border-t border-border">
+        <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
           <Link to="/contact">
             Demander un devis gratuit
             <ArrowRight className="w-4 h-4 ml-2" />

@@ -7,6 +7,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Users, Award, Shield, Clock, CheckCircle, TrendingUp } from 'lucide-react';
+import SuggestedArticles from '@/components/internal-links/SuggestedArticles';
 
 const ServicesPage = () => {
   const breadcrumbItems = [
@@ -148,6 +149,9 @@ const ServicesPage = () => {
             </div>
           </div>
         </section>
+
+        {/* Suggested articles */}
+        <SuggestedArticles title="Articles pour aller plus loin" max={3} />
 
         {/* Final CTA */}
         <section className="py-16 bg-primary">

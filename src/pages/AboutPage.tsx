@@ -5,6 +5,8 @@ import AboutComponent from '@/components/About';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Link } from 'react-router-dom';
+import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
+import SuggestedArticles from '@/components/internal-links/SuggestedArticles';
 
 const AboutPage = () => {
   const breadcrumbItems = [
@@ -48,6 +50,9 @@ const AboutPage = () => {
         </div>
         
         <AboutComponent />
+
+        <RelatedServicesSection title="Découvrez nos services" max={4} />
+        <SuggestedArticles title="Derniers articles du blog" max={3} />
       </main>
       
       <Footer />
