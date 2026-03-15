@@ -1,24 +1,36 @@
 import { Badge } from "@/components/ui/badge";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Users, TrendingUp } from "lucide-react";
 
 const BlogHeader = () => {
   return (
     <div className="text-center mb-12">
-      <Badge className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+      <Badge className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4 border-0">
         <BookOpen className="w-4 h-4 mr-2" />
         Blog & Ressources
       </Badge>
       
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-        Conseils pour{' '}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-          Booster Votre Business
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+        Conseils Concrets Pour{' '}
+        <span className="text-primary">
+          Développer Votre Business
         </span>
       </h1>
       
-      <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Découvrez nos articles sur la création de sites web, le design UX, le SEO et les stratégies digitales pour développer votre entreprise.
+      <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+        Des guides pratiques et actionnables sur la création de sites web, le SEO et le marketing digital. Par des experts, pour des entrepreneurs.
       </p>
+
+      {/* Social proof */}
+      <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2">
+          <Users className="w-4 h-4 text-primary" />
+          <span><strong className="text-foreground">+2 000</strong> lecteurs mensuels</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <TrendingUp className="w-4 h-4 text-primary" />
+          <span><strong className="text-foreground">Gratuit</strong> et sans inscription</span>
+        </div>
+      </div>
     </div>
   );
 };
