@@ -138,7 +138,7 @@ Corrigez ces erreurs et vous verrez vos conversions augmenter significativement.
     image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80",
     category: "SEO",
     readTime: "10 min",
-    publishedAt: "2024-11-18",
+    publishedAt: "2026-02-18",
     author: { name: "ConvertiLab" },
     tags: ["SEO", "référencement local", "Google My Business", "visibilité"],
     content: `## Introduction
