@@ -195,6 +195,7 @@ const ChatBot = () => {
         onClick={() => setIsOpen(true)}
         className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 h-12 w-12 sm:h-14 sm:w-14 rounded-full shadow-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 z-40 animate-glow"
         size="icon"
+        aria-label="Ouvrir le chat assistant"
       >
         <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
       </Button>
