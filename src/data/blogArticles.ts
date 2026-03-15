@@ -499,7 +499,7 @@ Google My Business est le levier SEO local le plus puissant et il est gratuit. N
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
     category: "Technique",
     readTime: "7 min",
-    publishedAt: "2024-10-15",
+    publishedAt: "2026-01-15",
     author: { name: "ConvertiLab" },
     tags: ["WordPress", "développement", "CMS", "site sur-mesure"],
     content: `## Introduction
