@@ -755,7 +755,7 @@ Les réseaux sociaux sont un excellent complément, mais ne remplaceront jamais 
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
     category: "Web Design",
     readTime: "5 min",
-    publishedAt: "2024-09-22",
+    publishedAt: "2025-12-22",
     author: { name: "ConvertiLab" },
     tags: ["formulaire", "conversion", "UX", "leads"],
     content: `## Introduction
