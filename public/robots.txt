@@ -1,11 +1,11 @@
-
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /chat-analytics
+Disallow: /newsletter-confirmation
 
-# Sitemap
 Sitemap: https://convertilab.com/sitemap.xml
 
-# Specific bot permissions
 User-agent: Googlebot
 Allow: /
 
@@ -18,5 +18,4 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-# Crawl-delay for all bots
 Crawl-delay: 1
