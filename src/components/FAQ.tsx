@@ -1,33 +1,33 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { HelpCircle, ArrowRight } from "lucide-react";
+import { HelpCircle, ArrowRight, Shield, Clock, Zap } from "lucide-react";
 
 const FAQ = () => {
   const faqs = [
     {
-      question: "Quels services de marketing digital proposez-vous ?",
-      answer: "Nous proposons une offre 360° : création de sites web, SEO (référencement naturel), publicité Google Ads & Meta Ads, gestion des réseaux sociaux, email marketing, content marketing, branding et identité visuelle. Chaque stratégie est adaptée à vos objectifs business."
+      question: "Combien coûte la création d'un site web ?",
+      answer: "Nos tarifs démarrent à 490€ pour une landing page et 990€ pour un site vitrine complet. Le prix dépend du nombre de pages, des fonctionnalités et du design souhaité. Nous vous fournissons un devis détaillé et transparent sous 24h."
     },
     {
-      question: "Combien de temps avant de voir les premiers résultats ?",
-      answer: "Cela dépend du levier : la publicité (Google/Meta Ads) génère des résultats dès les premières semaines. Le SEO prend généralement 3 à 6 mois pour des résultats significatifs. Le social media commence à porter ses fruits après 1 à 3 mois de régularité."
+      question: "En combien de temps mon site sera-t-il livré ?",
+      answer: "Une landing page est livrée en 5-7 jours, un site vitrine en 2-3 semaines, un site e-commerce en 3-4 semaines. Nous respectons toujours les délais annoncés — c'est notre garantie."
     },
     {
-      question: "Comment mesurez-vous le ROI de vos actions ?",
-      answer: "Nous mettons en place un tracking complet (Google Analytics, pixels, UTMs) dès le départ. Vous recevez des rapports mensuels détaillés avec les KPIs clés : trafic, leads, conversions, coût par acquisition, ROI. Transparence totale."
+      question: "Mon site sera-t-il optimisé pour Google (SEO) ?",
+      answer: "Oui ! Chaque site inclut une optimisation SEO de base : balises meta, vitesse de chargement, responsive mobile, sitemap, robots.txt. Pour un accompagnement SEO avancé (référencement continu), nous proposons des forfaits dédiés."
     },
     {
-      question: "Quelle est la différence avec une agence web classique ?",
-      answer: "Nous ne faisons pas que des sites web. Notre approche couvre l'ensemble du tunnel d'acquisition digital : attirer (SEO, Ads), convertir (landing pages, UX), fidéliser (email, social). Chaque action est pensée pour générer du business mesurable."
+      question: "Que comprend votre garantie satisfait ou remboursé ?",
+      answer: "Si le site livré ne correspond pas au brief validé ensemble, nous le modifions gratuitement. Si après 2 tours de révisions vous n'êtes pas satisfait, nous vous remboursons intégralement. Aucun risque pour vous."
     },
     {
-      question: "Quel budget prévoir pour une stratégie marketing digitale ?",
-      answer: "Nos accompagnements démarrent à partir de 500€/mois. Le budget dépend de vos objectifs, votre secteur et les leviers activés. Nous recommandons un budget publicitaire minimum de 500€/mois en plus de notre accompagnement pour des résultats significatifs."
+      question: "Est-ce que je pourrai modifier mon site moi-même ?",
+      answer: "Absolument ! Chaque site est livré avec une formation complète pour que vous puissiez modifier textes, images et contenu en toute autonomie. Notre support technique reste disponible 30 jours après la livraison."
     },
     {
-      question: "Travaillez-vous avec tous les secteurs d'activité ?",
-      answer: "Oui ! Nous avons travaillé avec +150 entreprises dans 25 secteurs différents (e-commerce, SaaS, services, immobilier, restauration, santé, formation...). Notre méthodologie s'adapte à chaque marché."
+      question: "Quels services de marketing digital proposez-vous en plus ?",
+      answer: "Au-delà de la création de sites, nous proposons : SEO (référencement naturel), Google Ads, Meta Ads (Facebook/Instagram), gestion des réseaux sociaux, email marketing et branding. Un accompagnement 360° pour votre croissance."
     }
   ];
 
@@ -51,7 +51,7 @@ const FAQ = () => {
             Questions fréquentes
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Toutes les réponses sur nos services de marketing digital
+            Tout ce que vous devez savoir avant de lancer votre projet
           </p>
         </div>
 
@@ -73,16 +73,41 @@ const FAQ = () => {
             </CardContent>
           </Card>
 
-          <div className="text-center mt-8 sm:mt-12 p-4 sm:p-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl text-white">
-            <h3 className="text-xl sm:text-3xl font-bold mb-3 sm:mb-4">D'autres questions ? Parlons-en !</h3>
-            <p className="text-sm sm:text-lg mb-4 sm:mb-6 opacity-90">
-              Réservez votre consultation stratégique gratuite de 30 minutes
-            </p>
-            <Button onClick={scrollToContact} size="lg" className="bg-white text-purple-600 hover:bg-gray-100 px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105">
-              <span className="hidden sm:inline">Consultation gratuite maintenant</span>
-              <span className="sm:hidden">Consultation gratuite</span>
-              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-            </Button>
+          {/* CTA - Urgency + Value + Objection handling */}
+          <div className="text-center mt-8 sm:mt-12 p-6 sm:p-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-50"></div>
+            
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full text-sm font-bold mb-4">
+                <Zap className="w-4 h-4" />
+                Consultation gratuite — 0€
+              </div>
+              
+              <h3 className="text-xl sm:text-3xl font-bold mb-3 sm:mb-4">
+                Encore une question ? Parlons-en directement
+              </h3>
+              <p className="text-sm sm:text-lg mb-4 sm:mb-6 opacity-90 max-w-lg mx-auto">
+                Obtenez une réponse personnalisée + un devis détaillé sous 24h
+              </p>
+              
+              <Button 
+                onClick={scrollToContact} 
+                size="lg" 
+                className="bg-white text-purple-600 hover:bg-gray-100 px-6 sm:px-10 py-4 sm:py-6 text-sm sm:text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl"
+              >
+                Demander mon devis gratuit
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              </Button>
+              
+              <div className="flex flex-wrap justify-center gap-4 mt-4 text-xs sm:text-sm text-white/80">
+                <span className="flex items-center gap-1.5">
+                  <Shield className="w-3 h-3 sm:w-4 sm:h-4" /> Satisfait ou remboursé
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="w-3 h-3 sm:w-4 sm:h-4" /> Réponse sous 24h
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
