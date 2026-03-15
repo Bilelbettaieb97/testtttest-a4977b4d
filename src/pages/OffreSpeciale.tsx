@@ -45,7 +45,7 @@ const OffreSpeciale = () => {
         .select('*', { count: 'exact', head: true });
       
       if (count !== null) {
-        setSpotsRemaining(Math.max(0, TOTAL_SPOTS - count));
+        setSpotsRemaining(Math.max(2, TOTAL_SPOTS - count));
       }
     };
     fetchSpots();
@@ -57,7 +57,7 @@ const OffreSpeciale = () => {
         'postgres_changes',
         { event: 'INSERT', schema: 'public', table: 'offer_reservations' },
         () => {
-          setSpotsRemaining(prev => Math.max(0, prev - 1));
+          setSpotsRemaining(prev => Math.max(2, prev - 1));
         }
       )
       .subscribe();
