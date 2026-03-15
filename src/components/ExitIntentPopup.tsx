@@ -7,9 +7,15 @@ import { useNavigate } from "react-router-dom";
 const ExitIntentPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hasShown, setHasShown] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Detect mobile - skip popup entirely on mobile for performance
+    const mobile = window.innerWidth < 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    setIsMobile(mobile);
+    if (mobile) return;
+
     // Check if popup was dismissed in the last 24 hours
     const dismissedAt = localStorage.getItem('exitPopupDismissedAt');
     if (dismissedAt) {
@@ -64,6 +70,9 @@ const ExitIntentPopup = () => {
       setIsOpen(false);
     }
   };
+
+  // Don't render anything on mobile
+  if (isMobile) return null;
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>

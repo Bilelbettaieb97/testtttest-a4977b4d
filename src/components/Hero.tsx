@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Rocket, Shield, Calendar, Star, Zap, TrendingUp, BarChart3, Target } from "lucide-react";
-import ContactForm from "./contact/ContactForm";
+import { ArrowRight, Rocket, Shield, Calendar, Star, Zap, BarChart3 } from "lucide-react";
+import { lazy, Suspense } from "react";
+
+// Lazy load ContactForm (imports supabase + canvas-confetti)
+const ContactForm = lazy(() => import("./contact/ContactForm"));
 
 const Hero = () => {
   const openPriceEstimator = () => {
@@ -31,7 +34,7 @@ const Hero = () => {
             {/* Main Heading */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-slide-up">
               Création de Sites Web
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 animate-gradient-shift">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
                 Performants & Sur-Mesure
               </span>
             </h1>
@@ -108,9 +111,15 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right - Contact Form */}
+          {/* Right - Contact Form (lazy loaded) */}
           <div className="animate-fade-in">
-            <ContactForm />
+            <Suspense fallback={
+              <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 p-8 min-h-[400px] flex items-center justify-center">
+                <div className="w-8 h-8 border-4 border-purple-600 border-t-transparent rounded-full animate-spin" />
+              </div>
+            }>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </div>

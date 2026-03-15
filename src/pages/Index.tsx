@@ -23,7 +23,6 @@ const About = lazy(() => import("@/components/About"));
 const FAQ = lazy(() => import("@/components/FAQ"));
 const ChatBot = lazy(() => import("@/components/ChatBot"));
 const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
-const StickyMobileCTA = lazy(() => import("@/components/StickyMobileCTA"));
 
 const faqData = [
   {
@@ -110,7 +109,6 @@ const Index = () => {
         <Footer />
       </Suspense>
       <Suspense fallback={null}>
-        <StickyMobileCTA />
         <ExitIntentPopup />
         <ChatBot />
       </Suspense>
