@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { LocalBusinessSchema, ServicesSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import SitesWebHero from '@/components/sites-web/SitesWebHero';
 import SitesWebServices from '@/components/sites-web/SitesWebServices';
