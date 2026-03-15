@@ -141,12 +141,12 @@ const Footer = () => {
               <BarChart3 className="w-5 h-5 mr-2 text-purple-400" />
               Nos Services
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {services.map((service, index) => (
                 <li key={index}>
                   <button
                     onClick={() => handleNavigation(service.href)}
-                    className="text-gray-300 hover:text-purple-400 transition-colors cursor-pointer text-sm flex items-center group"
+                    className="text-gray-300 hover:text-purple-400 transition-colors cursor-pointer text-sm flex items-center group py-2"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {service.name}
