@@ -15,7 +15,7 @@ export const blogArticles: FullBlogArticle[] = [
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     category: "Business",
     readTime: "5 min",
-    publishedAt: "2024-12-01",
+    publishedAt: "2026-03-01",
     author: { name: "ConvertiLab" },
     tags: ["business", "site web", "visibilité", "marketing digital"],
     content: `## Introduction
