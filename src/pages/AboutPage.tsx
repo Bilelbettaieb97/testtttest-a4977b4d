@@ -50,6 +50,9 @@ const AboutPage = () => {
         </div>
         
         <AboutComponent />
+
+        <RelatedServicesSection title="Découvrez nos services" max={4} />
+        <SuggestedArticles title="Derniers articles du blog" max={3} />
       </main>
       
       <Footer />

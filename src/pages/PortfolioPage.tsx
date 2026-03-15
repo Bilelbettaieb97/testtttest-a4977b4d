@@ -99,6 +99,12 @@ const PortfolioPage = () => {
         
         <PortfolioComponent />
 
+        {/* Related services */}
+        <RelatedServicesSection title="Nos services pour booster votre business" max={4} />
+
+        {/* Suggested articles */}
+        <SuggestedArticles title="Articles pour aller plus loin" max={3} />
+
         {/* Bottom service CTA */}
         <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 text-center">

@@ -150,6 +150,9 @@ const ServicesPage = () => {
           </div>
         </section>
 
+        {/* Suggested articles */}
+        <SuggestedArticles title="Articles pour aller plus loin" max={3} />
+
         {/* Final CTA */}
         <section className="py-16 bg-primary">
           <div className="container mx-auto px-4 sm:px-6 text-center">

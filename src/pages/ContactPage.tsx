@@ -50,6 +50,8 @@ const ContactPage = () => {
         </div>
         
         <ContactComponent />
+
+        <RelatedServicesSection title="Nos services" max={4} />
       </main>
       
       <Footer />
