@@ -2,132 +2,41 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import { ArrowRight, CheckCircle, Rocket, FileText, Store, Code, RefreshCw, Clock, Shield, Headphones } from 'lucide-react';
+import SitesWebHero from '@/components/sites-web/SitesWebHero';
+import SitesWebServices from '@/components/sites-web/SitesWebServices';
+import SitesWebProcess from '@/components/sites-web/SitesWebProcess';
+import SitesWebComparison from '@/components/sites-web/SitesWebComparison';
+import SitesWebGuarantee from '@/components/sites-web/SitesWebGuarantee';
+import SitesWebTestimonials from '@/components/sites-web/SitesWebTestimonials';
+import SitesWebFAQ from '@/components/sites-web/SitesWebFAQ';
+import SitesWebCTA from '@/components/sites-web/SitesWebCTA';
 
 const SitesWebPage = () => {
-  const services = [
-    {
-      id: 'landing-page',
-      icon: <Rocket className="w-8 h-8" />,
-      title: 'Landing Page',
-      subtitle: 'Page unique optimisée conversion',
-      description: 'Une landing page est une page web autonome, créée spécifiquement pour convertir vos visiteurs en prospects ou clients. Idéale pour le lancement de produits, les campagnes publicitaires ou la capture de leads.',
-      features: [
-        'Design 100% responsive',
-        'Optimisation pour la conversion (CRO)',
-        'Formulaire de contact intégré',
-        'Intégration analytics',
-        'Hébergement 1 an inclus',
-        'Support technique 1 mois'
-      ],
-      idealFor: ['Lancement de produit', 'Campagnes publicitaires', 'Capture de leads', 'Tests A/B'],
-      deliveryTime: '5-7 jours'
-    },
-    {
-      id: 'site-vitrine',
-      icon: <FileText className="w-8 h-8" />,
-      title: 'Site Vitrine',
-      subtitle: 'Présentation professionnelle complète',
-      description: 'Un site vitrine présente votre entreprise, vos services et vos valeurs de manière professionnelle. Il renforce votre crédibilité et permet à vos prospects de vous trouver facilement sur Google.',
-      features: [
-        'Jusqu\'à 5 pages personnalisées',
-        'Design sur-mesure unique',
-        'Optimisation SEO complète',
-        'Responsive tous appareils',
-        'Formulaire de contact + Google Maps',
-        'Blog intégré (optionnel)',
-        'Support technique 3 mois'
-      ],
-      idealFor: ['PME et artisans', 'Professions libérales', 'Associations', 'Restaurants et commerces'],
-      deliveryTime: '10-15 jours'
-    },
-    {
-      id: 'site-ecommerce',
-      icon: <Store className="w-8 h-8" />,
-      title: 'Site E-commerce',
-      subtitle: 'Boutique en ligne performante',
-      description: 'Vendez vos produits en ligne avec une boutique e-commerce professionnelle. Gestion des stocks, paiements sécurisés, et tableau de bord complet pour piloter votre activité.',
-      features: [
-        'Jusqu\'à 50 produits configurés',
-        'Paiement sécurisé (Stripe, PayPal)',
-        'Gestion des stocks automatisée',
-        'Tableau de bord analytique',
-        'Multi-devises et multi-langues',
-        'Formation administration incluse',
-        'Support technique 6 mois'
-      ],
-      idealFor: ['Commerces', 'Artisans créateurs', 'Marques de mode', 'Producteurs locaux'],
-      deliveryTime: '21-30 jours'
-    },
-    {
-      id: 'application-web',
-      icon: <Code className="w-8 h-8" />,
-      title: 'Application Web',
-      subtitle: 'Solutions sur-mesure complexes',
-      description: 'Pour des besoins spécifiques qui dépassent un site classique : portails clients, tableaux de bord, outils métiers, SaaS... Nous développons des applications web robustes et évolutives.',
-      features: [
-        'Développement sur-mesure',
-        'Architecture scalable',
-        'API et intégrations tierces',
-        'Base de données optimisée',
-        'Authentification sécurisée',
-        'Documentation technique',
-        'Maintenance évolutive'
-      ],
-      idealFor: ['Startups', 'Entreprises', 'Outils internes', 'SaaS'],
-      deliveryTime: 'Sur devis'
-    },
-    {
-      id: 'refonte-site',
-      icon: <RefreshCw className="w-8 h-8" />,
-      title: 'Refonte de Site',
-      subtitle: 'Modernisation de l\'existant',
-      description: 'Votre site actuel est obsolète ou ne convertit pas ? Nous le modernisons tout en préservant votre référencement et en améliorant l\'expérience utilisateur.',
-      features: [
-        'Audit complet de l\'existant',
-        'Nouveau design moderne',
-        'Migration des contenus',
-        'Préservation du SEO',
-        'Amélioration des performances',
-        'Redirection des URLs',
-        'Support post-refonte'
-      ],
-      idealFor: ['Sites vieillissants', 'Problèmes de performance', 'Mauvaise conversion', 'Image de marque à rafraîchir'],
-      deliveryTime: '15-25 jours'
-    }
-  ];
-
-  const scrollToContact = () => {
-    window.location.href = '/contact';
-  };
-
   return (
     <>
       <Helmet>
-        <title>Création de Sites Web | ConvertiLab - Agence Marketing Digital</title>
-        <meta name="description" content="Création de sites web par notre agence marketing digital : landing pages, sites vitrines, e-commerce, applications web. Optimisés pour la conversion et le SEO." />
+        <title>Création Sites Web | Landing Page, Vitrine, E-commerce dès 490€ | ConvertiLab</title>
+        <meta name="description" content="Création de sites web optimisés conversion : landing page dès 490€, site vitrine dès 990€, e-commerce dès 2490€. Prix fixes, délais garantis. Devis gratuit sous 24h." />
         <link rel="canonical" href="https://convertilab.com/services/sites-web" />
+        <meta property="og:title" content="Création Sites Web dès 490€ | ConvertiLab" />
+        <meta property="og:description" content="Sites web qui convertissent : landing pages, vitrines, e-commerce. +50 clients satisfaits, prix fixes, livraison garantie." />
+        <meta property="og:url" content="https://convertilab.com/services/sites-web" />
+        <meta property="og:type" content="website" />
       </Helmet>
-      
+
       <Navigation />
-      
+
       <main className="pt-16">
-        {/* Breadcrumb */}
         <div className="container mx-auto px-4 sm:px-6 py-4">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/">Accueil</Link>
-                </BreadcrumbLink>
+                <BreadcrumbLink asChild><Link to="/">Accueil</Link></BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/services">Services</Link>
-                </BreadcrumbLink>
+                <BreadcrumbLink asChild><Link to="/services">Services</Link></BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
@@ -137,199 +46,19 @@ const SitesWebPage = () => {
           </Breadcrumb>
         </div>
 
-        {/* Hero */}
-        <section className="py-16 sm:py-24 bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-950/20 dark:to-purple-950/20">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 dark:bg-violet-900/30 mb-6">
-                <Globe className="w-5 h-5 text-violet-600" />
-                <span className="text-sm font-medium text-violet-700 dark:text-violet-300">Création Web</span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-                Création de Sites Web
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                De la landing page à l'application web complexe, nous créons des sites performants qui convertissent vos visiteurs en clients.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button onClick={scrollToContact} size="lg" className="bg-gradient-to-r from-violet-600 to-purple-600">
-                  Demander un devis gratuit
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link to="/portfolio">Voir nos réalisations</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Services détaillés */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="space-y-24">
-              {services.map((service, index) => (
-                <div 
-                  key={service.id}
-                  id={service.id}
-                  className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}
-                >
-                  {/* Content */}
-                  <div className="flex-1 space-y-6">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white">
-                      {service.icon}
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-violet-600 mb-2">{service.subtitle}</p>
-                      <h2 className="text-3xl font-bold text-foreground mb-4">{service.title}</h2>
-                      <p className="text-muted-foreground text-lg leading-relaxed">{service.description}</p>
-                    </div>
-                    
-                    {/* Features */}
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      {service.features.map((feature, i) => (
-                        <div key={i} className="flex items-start gap-2">
-                          <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <Button onClick={scrollToContact} className="bg-gradient-to-r from-violet-600 to-purple-600">
-                      Demander un devis
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </div>
-
-                  {/* Card */}
-                  <div className="flex-1 w-full max-w-md">
-                    <div className="p-8 rounded-2xl border border-border bg-card shadow-lg">
-                      <div className="flex items-center gap-2 mb-6">
-                        <Clock className="w-5 h-5 text-violet-600" />
-                        <span className="font-medium">Délai: {service.deliveryTime}</span>
-                      </div>
-                      
-                      <div className="mb-6">
-                        <p className="text-sm font-medium text-muted-foreground mb-3">Idéal pour:</p>
-                        <div className="flex flex-wrap gap-2">
-                          {service.idealFor.map((item, i) => (
-                            <span key={i} className="text-xs px-3 py-1 rounded-full bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300">
-                              {item}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="pt-6 border-t border-border">
-                        <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                          <Shield className="w-4 h-4" />
-                          <span>Satisfaction garantie</span>
-                        </div>
-                        <div className="flex items-center gap-3 text-sm text-muted-foreground mt-2">
-                          <Headphones className="w-4 h-4" />
-                          <span>Support inclus</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">Ce que nos clients disent</h2>
-              <p className="text-muted-foreground">Des projets web qui ont transformé leur activité</p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="p-6 rounded-2xl bg-card border border-border">
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-4 italic">
-                  "Notre landing page a généré 150 leads en 2 semaines. Le ROI est incroyable. L'équipe a parfaitement compris nos besoins."
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white font-bold">
-                    M
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground">Marie L.</p>
-                    <p className="text-sm text-muted-foreground">Fondatrice, StartupTech</p>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6 rounded-2xl bg-card border border-border">
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-4 italic">
-                  "Notre site vitrine nous apporte désormais 80% de nos nouveaux clients. Un investissement qui a changé notre entreprise."
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white font-bold">
-                    P
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground">Pierre D.</p>
-                    <p className="text-sm text-muted-foreground">Artisan menuisier</p>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6 rounded-2xl bg-card border border-border">
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-4 italic">
-                  "Chiffre d'affaires multiplié par 3 depuis le lancement de notre e-commerce. L'équipe nous accompagne au quotidien."
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white font-bold">
-                    S
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground">Sophie M.</p>
-                    <p className="text-sm text-muted-foreground">Gérante, Boutique Mode</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-20 bg-gradient-to-r from-violet-600 to-purple-600">
-          <div className="container mx-auto px-4 sm:px-6 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Prêt à lancer votre projet web ?
-            </h2>
-            <p className="text-white/80 mb-8 max-w-xl mx-auto">
-              Discutons de vos besoins et obtenez un devis personnalisé sous 24h.
-            </p>
-            <Button onClick={scrollToContact} size="lg" className="bg-white text-violet-600 hover:bg-white/90">
-              Contactez-nous
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </div>
-        </section>
+        <SitesWebHero />
+        <SitesWebServices />
+        <SitesWebProcess />
+        <SitesWebComparison />
+        <SitesWebGuarantee />
+        <SitesWebTestimonials />
+        <SitesWebFAQ />
+        <SitesWebCTA />
       </main>
-      
+
       <Footer />
     </>
   );
 };
-
-// Add missing import
-import { Globe, Star } from 'lucide-react';
 
 export default SitesWebPage;
