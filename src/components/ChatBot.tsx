@@ -297,6 +297,7 @@ const ChatBot = () => {
                 disabled={!input.trim() || isLoading}
                 className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
                 size="icon"
+                aria-label="Envoyer le message"
               >
                 {isLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
