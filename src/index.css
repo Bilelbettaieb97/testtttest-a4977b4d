@@ -144,6 +144,7 @@
   .animate-gradient-shift {
     background-size: 200% 200%;
     animation: gradientShift 4s ease-in-out infinite;
+    will-change: transform;
   }
   
   .animate-float {
