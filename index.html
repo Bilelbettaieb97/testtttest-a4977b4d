@@ -31,9 +31,18 @@
       }
     </script>
     
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5844925774606937"
-     crossorigin="anonymous"></script>
+    <!-- Google AdSense - deferred -->
+    <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5844925774606937';
+        s.crossOrigin = 'anonymous';
+        document.head.appendChild(s);
+      }, 3000);
+    });
+    </script>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
