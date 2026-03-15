@@ -78,7 +78,7 @@ const Index = () => {
       </section>
       <Suspense fallback={<div className="min-h-[400px]" />}>
         <AnimatedSection animation="fade-up">
-          <section id="portfolio" className="-mt-4">
+          <section id="portfolio" className="-mt-4" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 600px' } as React.CSSProperties}>
             <Portfolio />
           </section>
         </AnimatedSection>
