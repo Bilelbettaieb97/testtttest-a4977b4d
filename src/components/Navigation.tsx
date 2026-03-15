@@ -314,9 +314,9 @@ const Navigation = () => {
                   key={item.label}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`flex items-center gap-2 w-full px-3 py-2.5 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium text-sm ${location.pathname === item.href ? 'text-purple-600 bg-purple-50' : 'text-gray-700'}`}
+                  className={`flex items-center gap-3 w-full px-3 py-3 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium text-base ${location.pathname === item.href ? 'text-purple-600 bg-purple-50' : 'text-gray-700'}`}
                 >
-                  {item.label === 'Blog' && <BookOpen className="w-4 h-4" />}
+                  {item.label === 'Blog' && <BookOpen className="w-5 h-5" />}
                   {item.label}
                 </Link>
               ))}

@@ -274,12 +274,12 @@ const Footer = () => {
         <div className="border-t border-gray-700 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">&copy; 2024 ConvertiLab. Tous droits réservés.</p>
-            <div className="flex space-x-6 mt-4 sm:mt-0">
-              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors">Mentions légales</button>
-              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors">CGV</button>
+            <div className="flex flex-wrap gap-2 sm:gap-6 mt-4 sm:mt-0">
+              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors py-2 px-1">Mentions légales</button>
+              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors py-2 px-1">CGV</button>
               <button 
                 onClick={() => handleNavigation('/politique-de-confidentialite')}
-                className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
+                className="text-gray-400 hover:text-purple-400 text-sm transition-colors py-2 px-1"
               >
                 Politique de confidentialité
               </button>

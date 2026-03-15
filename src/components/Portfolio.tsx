@@ -112,7 +112,7 @@ const Portfolio = () => {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <PortfolioHeader />
 
-        <div className="mb-8 relative">
+        <div className="mb-8 relative" style={{ minHeight: '420px', contentVisibility: 'auto', containIntrinsicSize: 'auto 420px' } as React.CSSProperties}>
           <Carousel className="w-full max-w-6xl mx-auto" opts={{ align: "start", loop: true, containScroll: "trimSnaps" }}>
             <CarouselContent className="-ml-2 md:-ml-4 items-stretch" style={{ willChange: 'transform' }}>
               {cases.map((caseStudy, index) => (

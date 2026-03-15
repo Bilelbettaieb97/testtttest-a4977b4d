@@ -288,11 +288,22 @@
     .container {
       @apply px-4;
     }
-    
-    /* Better touch targets */
-    button, a {
-      min-height: 48px;
-      min-width: 48px;
+  }
+
+  /* Better touch targets - mobile only, scoped to interactive standalone elements */
+  @media (max-width: 640px) {
+    /* Buttons always need good tap targets */
+    button:not([class*="accordion"]):not([class*="tabs"]) {
+      min-height: 44px;
+    }
+
+    /* Inline links inside paragraphs/lists should NOT have forced min-height */
+    nav a,
+    footer a,
+    footer button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
     }
   }
 
