@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Rocket, Shield, Calendar, Zap, BarChart3, Clock, CheckCircle, Users } from "lucide-react";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 
 // Lazy load ContactForm (imports supabase + canvas-confetti)
 const ContactForm = lazy(() => import("./contact/ContactForm"));
