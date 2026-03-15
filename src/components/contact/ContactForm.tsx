@@ -322,7 +322,7 @@ const ContactForm = () => {
             <div className="space-y-4 sm:space-y-5 animate-fade-in">
               <div className="text-center mb-4 sm:mb-6">
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Détails du projet</h3>
-                <p className="text-slate-500 text-xs sm:text-sm mt-1">Budget et délai souhaités</p>
+                <p className="text-slate-500 text-xs sm:text-sm mt-1">Délai souhaité</p>
               </div>
 
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 rounded-xl p-3 mb-4">
