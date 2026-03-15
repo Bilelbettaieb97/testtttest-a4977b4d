@@ -7,6 +7,8 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Users, Award } from 'lucide-react';
+import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
+import SuggestedArticles from '@/components/internal-links/SuggestedArticles';
 
 const PortfolioPage = () => {
   const breadcrumbItems = [
