@@ -210,7 +210,7 @@ Le SEO local prend du temps mais les résultats sont durables. Commencez par Goo
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
     category: "Business",
     readTime: "7 min",
-    publishedAt: "2024-11-10",
+    publishedAt: "2026-02-10",
     author: { name: "ConvertiLab" },
     tags: ["prix", "budget", "site web", "investissement"],
     content: `## Introduction
