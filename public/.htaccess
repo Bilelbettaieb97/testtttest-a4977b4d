@@ -15,7 +15,7 @@
   
   # Proxy bot requests to prerender.io
   RewriteRule ^(?!.*?(\.js|\.css|\.xml|\.less|\.png|\.jpg|\.jpeg|\.gif|\.pdf|\.doc|\.txt|\.ico|\.rss|\.zip|\.mp3|\.rar|\.exe|\.wmv|\.doc|\.avi|\.ppt|\.mpg|\.mpeg|\.tif|\.wav|\.mov|\.psd|\.ai|\.xls|\.mp4|\.m4a|\.swf|\.dat|\.dmg|\.iso|\.flv|\.m4v|\.torrent|\.ttf|\.woff|\.svg))(.*) https://service.prerender.io/https://convertilab.com/$2 [P,L]
-  RequestHeader set X-Prerender-Token "YOUR_PRERENDER_TOKEN"
+  RequestHeader set X-Prerender-Token "w1YtK7QRUEkAQRMqVtzd"
   # ===== END PRERENDER.IO =====
 
   # Standard SPA fallback for regular users
