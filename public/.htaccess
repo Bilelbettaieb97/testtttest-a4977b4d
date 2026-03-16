@@ -1,7 +1,24 @@
-# Enable rewrite engine for SPA routing
+# Enable rewrite engine for SPA routing + Prerendering for SEO
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # ===== PRERENDER.IO - Serve static HTML to search engine bots =====
+  # Replace YOUR_PRERENDER_TOKEN with your actual token from prerender.io
+  
+  # Don't prerender static files
+  RewriteCond %{REQUEST_URI} !\.(js|css|xml|less|png|jpg|jpeg|gif|pdf|txt|ico|rss|zip|mp3|rar|exe|wmv|doc|avi|ppt|mpg|mpeg|tif|wav|mov|psd|ai|xls|mp4|m4a|swf|dat|dmg|iso|flv|m4v|torrent|ttf|woff|woff2|svg|eot)$ [NC]
+  
+  # Only prerender for known bot user agents
+  RewriteCond %{HTTP_USER_AGENT} googlebot|bingbot|yandex|baiduspider|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora\ link\ preview|showyoubot|outbrain|pinterest\/0\.|pinterestbot|slackbot|vkShare|W3C_Validator|whatsapp|redditbot|applebot|Screaming\ Frog|DuckDuckBot [NC,OR]
+  RewriteCond %{QUERY_STRING} _escaped_fragment_
+  
+  # Proxy bot requests to prerender.io
+  RewriteRule ^(?!.*?(\.js|\.css|\.xml|\.less|\.png|\.jpg|\.jpeg|\.gif|\.pdf|\.doc|\.txt|\.ico|\.rss|\.zip|\.mp3|\.rar|\.exe|\.wmv|\.doc|\.avi|\.ppt|\.mpg|\.mpeg|\.tif|\.wav|\.mov|\.psd|\.ai|\.xls|\.mp4|\.m4a|\.swf|\.dat|\.dmg|\.iso|\.flv|\.m4v|\.torrent|\.ttf|\.woff|\.svg))(.*) https://service.prerender.io/https://convertilab.com/$2 [P,L]
+  RequestHeader set X-Prerender-Token "YOUR_PRERENDER_TOKEN"
+  # ===== END PRERENDER.IO =====
+
+  # Standard SPA fallback for regular users
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
