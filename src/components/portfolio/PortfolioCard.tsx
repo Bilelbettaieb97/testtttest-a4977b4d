@@ -32,8 +32,8 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
   const testimonialSentences = caseStudy.testimonial.match(/[^.!?]+[.!?]*/g) || [];
   const formattedTestimonial = testimonialSentences.slice(0, 2).join(" ").trim();
 
-  return (
-    <Card className="group bg-card border border-border shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+  const cardContent = (
+    <Card className={`group bg-card border border-border shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col ${caseStudy.slug ? 'cursor-pointer' : ''}`}>
       <div className="relative overflow-hidden rounded-t-lg">
         <AspectRatio ratio={16 / 9}>
           <img 
@@ -51,7 +51,6 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
             }}
           />
         </AspectRatio>
-        {/* Result badge overlay */}
         <div className="absolute top-3 right-3">
           <span className="px-3 py-1 rounded-full bg-green-500 text-white text-xs font-bold shadow-md">
             {caseStudy.results}
@@ -100,17 +99,25 @@ const PortfolioCard = ({ caseStudy }: PortfolioCardProps) => {
           </div>
 
           {caseStudy.slug && (
-            <Link to={`/case-study/${caseStudy.slug}`} className="block">
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group/btn">
-                Voir l'étude de cas
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-              </Button>
-            </Link>
+            <div className="w-full bg-primary text-primary-foreground group/btn inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2">
+              Voir l'étude de cas
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </div>
           )}
         </div>
       </CardContent>
     </Card>
   );
+
+  if (caseStudy.slug) {
+    return (
+      <Link to={`/case-study/${caseStudy.slug}`} className="block h-full">
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return cardContent;
 };
 
 export default PortfolioCard;
