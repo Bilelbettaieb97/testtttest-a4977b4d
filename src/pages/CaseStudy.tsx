@@ -62,6 +62,9 @@ import portfolioTemplezenHero from "@/assets/portfolio-templezen-hero.png";
 import portfolioInstitutNomadHero from "@/assets/portfolio-institut-nomad-hero.png";
 import portfolioAhstudioHero from "@/assets/portfolio-ahstudio-hero.png";
 import portfolioVinoboatHero from "@/assets/portfolio-vinoboat-hero.png";
+import galleryVinoboatFullpage1 from "@/assets/gallery-vinoboat-fullpage-1.jpg";
+import galleryVinoboatFullpage2 from "@/assets/gallery-vinoboat-fullpage-2.jpg";
+import galleryVinoboatFullpage3 from "@/assets/gallery-vinoboat-fullpage-3.jpg";
 import portfolioCouleursableHero from "@/assets/portfolio-couleursable-hero.png";
 import galleryCouleursableFullpage1 from "@/assets/gallery-couleursable-fullpage-1.jpg";
 import galleryCouleursableFullpage2 from "@/assets/gallery-couleursable-fullpage-2.jpg";
@@ -506,9 +509,9 @@ const CaseStudy = () => {
       subtitle: "Création d'une landing page immersive et haut de gamme pour une expérience nautique exclusive à Cannes",
       image: portfolioVinoboatHero,
       gallery: [
-        { src: portfolioVinoboatHero, alt: "Page d'accueil Vinoboat Prestige", caption: "Design premium avec immersion visuelle nautique" },
-        { src: portfolioVinoboatHero, alt: "Tarifs", caption: "Grille tarifaire claire et élégante" },
-        { src: portfolioVinoboatHero, alt: "Réservation", caption: "CTAs optimisés pour la réservation directe" }
+        { src: galleryVinoboatFullpage1, alt: "Page complète Vinoboat - Partie 1", caption: "Accueil, tarifs, design Riva et spécifications du bateau" },
+        { src: galleryVinoboatFullpage2, alt: "Page complète Vinoboat - Partie 2", caption: "Équipements, formules de réservation et options premium" },
+        { src: galleryVinoboatFullpage3, alt: "Page complète Vinoboat - Partie 3", caption: "Témoignages clients, conseils navigation et footer" }
       ],
       chartData: [
         { name: "Image premium", before: 30, after: 95 },
