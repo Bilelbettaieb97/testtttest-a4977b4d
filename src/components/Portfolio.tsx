@@ -17,6 +17,7 @@ import portfolioAcb from "@/assets/portfolio-acb-hero.png";
 import portfolioEleva from "@/assets/portfolio-eleva-hero.png";
 import portfolioAdsb from "@/assets/portfolio-adsb-hero.png";
 import portfolioAsi from "@/assets/portfolio-asi-hero.png";
+import portfolioTrievent from "@/assets/portfolio-trievent-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -145,6 +146,24 @@ const Portfolio = () => {
       testimonial: "Un site très professionnel qui reflète parfaitement notre expertise et nous aide à présenter efficacement nos services.",
       author: "Alliance Sécurité Incendie",
       slug: "alliance-securite-incendie"
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-green-600" />,
+      sector: "Recyclage / Événementiel",
+      client: "Tri Event",
+      title: "Site vitrine éco-responsable recyclage événementiel",
+      description: "Site moderne avec positionnement écologique, structuration de l'offre tri/recyclage et CTAs pour devis.",
+      image: portfolioTrievent,
+      metrics: [
+        { label: "Engagement", value: "Éco", icon: Star },
+        { label: "Services", value: "Complet", icon: TrendingUp },
+        { label: "Devis", value: "Gratuit", icon: Clock }
+      ],
+      technologies: ["Site Vitrine", "Design Éco", "UX"],
+      results: "Positionnement écologique",
+      testimonial: "Le site reflète parfaitement notre engagement écologique et notre activité. Le rendu est professionnel et clair.",
+      author: "Tri Event",
+      slug: "trievent"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
