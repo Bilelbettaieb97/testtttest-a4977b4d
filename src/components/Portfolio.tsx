@@ -444,19 +444,9 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
             })}
           </div>
         )}
-          <>
-            <p className="text-center text-muted-foreground mb-6 font-medium">
-              {cases.length} projets
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {cases.map((caseStudy, index) => (
-                <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 80}ms` }}>
-                  <PortfolioCard caseStudy={caseStudy} />
-                </div>
-              ))}
-            </div>
-          </>
-        ) : (
+
+        {/* Show grid when filtered, carousel when "all" on homepage */}
+        {(isHomepage && internalCategory === "all") ? (
           <div className="mb-8 relative" style={{ minHeight: '420px', contentVisibility: 'auto', containIntrinsicSize: 'auto 420px' } as React.CSSProperties}>
             <Carousel className="w-full max-w-6xl mx-auto" opts={{ align: "start", loop: true, containScroll: "trimSnaps" }}>
               <CarouselContent className="-ml-2 md:-ml-4 items-stretch" style={{ willChange: 'transform' }}>
@@ -481,6 +471,19 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
               <ChevronRight className="w-4 h-4 ml-1 text-purple-600" />
             </div>
           </div>
+        ) : (
+          <>
+            <p className="text-center text-muted-foreground mb-6 font-medium">
+              {filteredCases.length} projet{filteredCases.length > 1 ? 's' : ''} trouvé{filteredCases.length > 1 ? 's' : ''}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {filteredCases.map((caseStudy, index) => (
+                <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 80}ms` }}>
+                  <PortfolioCard caseStudy={caseStudy} />
+                </div>
+              ))}
+            </div>
+          </>
         )}
 
         <PortfolioCTA />
