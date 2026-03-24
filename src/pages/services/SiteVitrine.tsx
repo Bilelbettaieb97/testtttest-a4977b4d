@@ -76,10 +76,10 @@ const SiteVitrineService = () => {
   return (
     <>
       <Helmet>
-        <title>Site Vitrine dès 990€ | ConvertiLab Paris</title>
+        <title>Site Vitrine dès 300€ | ConvertiLab Paris</title>
         <meta name="description" content="Site vitrine professionnel en 10-15 jours. Design sur-mesure, SEO optimisé, prix fixe garanti. Devis gratuit." />
         <link rel="canonical" href="https://convertilab.com/services/sites-web/site-vitrine" />
-        <meta property="og:title" content="Site Vitrine Professionnel dès 990€ | ConvertiLab" />
+        <meta property="og:title" content="Site Vitrine Professionnel dès 300€ | ConvertiLab" />
         <meta property="og:description" content="Site vitrine sur-mesure, optimisé SEO, livré en 10-15 jours. Prix fixe, satisfaction garantie." />
         <meta property="og:url" content="https://convertilab.com/services/sites-web/site-vitrine" />
       </Helmet>
@@ -220,7 +220,7 @@ const SiteVitrineService = () => {
                     </span>
                   </div>
                   <div className="text-center mb-6">
-                    <p className="text-4xl font-black text-foreground">À partir de 990€</p>
+                    <p className="text-4xl font-black text-foreground">À partir de 300€</p>
                     <p className="text-sm text-muted-foreground mt-1">Prix fixe, sans surprise</p>
                   </div>
                   <div className="flex items-center justify-center gap-2 mb-4">

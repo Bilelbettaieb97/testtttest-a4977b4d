@@ -144,7 +144,7 @@ const Blog = () => {
                       Besoin d'un site web qui convertit ?
                     </h3>
                     <p className="text-muted-foreground text-sm">
-                      Landing page dès 490€, site vitrine dès 990€. Prix fixe, livraison garantie, satisfaction assurée.
+                      Landing page dès 490€, site vitrine dès 300€. Prix fixe, livraison garantie, satisfaction assurée.
                     </p>
                   </div>
                   <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground flex-shrink-0">
