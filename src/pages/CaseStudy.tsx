@@ -53,9 +53,10 @@ const CaseStudy = () => {
       subtitle: "Création d'un site web vitrine haut de gamme pour une marque d'arancini artisanaux",
       image: portfolioAranciniHero,
       gallery: [
-        { src: portfolioAranciniHero, alt: "Page d'accueil Monsieur Arancini", caption: "Page d'accueil avec mise en avant de l'authenticité sicilienne" },
-        { src: portfolioArancini, alt: "Catalogue produits", caption: "Présentation des 15+ saveurs d'arancini artisanaux" },
-        { src: portfolioArancini, alt: "Section partenaires", caption: "Espace dédié aux professionnels et partenaires B2B" }
+        { src: galleryArancini1, alt: "Mini Arancini - Catalogue produits", caption: "Gamme de Mini Arancini : Bolognese, Pistache, Truffe, Jambon, Épinard, Champignon" },
+        { src: galleryArancini2, alt: "Créations exclusives Monsieur Arancini", caption: "Créations siciliennes exclusives : Pâtes Carbonara et Pâtes Amatriciana" },
+        { src: galleryArancini3, alt: "Galerie Arancini en action", caption: "Nos arancini en action : moments de dégustation authentiques" },
+        { src: galleryArancini4, alt: "Footer et contact Monsieur Arancini", caption: "Section partenaires et contact avec gamme complète de produits" }
       ],
       chartData: [
         { name: "Crédibilité", before: 20, after: 95 },
