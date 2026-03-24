@@ -50,6 +50,10 @@ import galleryElevaFullpage4 from "@/assets/gallery-eleva-fullpage-4.jpg";
 import galleryElevaFullpage5 from "@/assets/gallery-eleva-fullpage-5.jpg";
 import portfolioAdsbHero from "@/assets/portfolio-adsb-hero.png";
 import portfolioAsiHero from "@/assets/portfolio-asi-hero.png";
+import galleryAsiFullpage1 from "@/assets/gallery-asi-fullpage-1.jpg";
+import galleryAsiFullpage2 from "@/assets/gallery-asi-fullpage-2.jpg";
+import galleryAsiFullpage3 from "@/assets/gallery-asi-fullpage-3.jpg";
+import galleryAsiFullpage4 from "@/assets/gallery-asi-fullpage-4.jpg";
 import portfolioTrieventHero from "@/assets/portfolio-trievent-hero.png";
 import galleryTrieventFullpage1 from "@/assets/gallery-trievent-fullpage-1.jpg";
 import galleryTrieventFullpage2 from "@/assets/gallery-trievent-fullpage-2.jpg";
@@ -313,9 +317,10 @@ const CaseStudy = () => {
       subtitle: "Création d'un site professionnel pour une entreprise de sécurité incendie en Île-de-France",
       image: portfolioAsiHero,
       gallery: [
-        { src: portfolioAsiHero, alt: "Page d'accueil ASI", caption: "Page d'accueil avec mise en avant de l'expertise et CTAs conversion" },
-        { src: portfolioAsiHero, alt: "Services ASI", caption: "Présentation structurée des services : inspection, conformité, ingénierie" },
-        { src: portfolioAsiHero, alt: "Contact ASI", caption: "Formulaire d'audit gratuit et contact direct" }
+        { src: galleryAsiFullpage1, alt: "Page complète ASI - Partie 1", caption: "Accueil, obligations sécurité incendie et méthode en 4 étapes" },
+        { src: galleryAsiFullpage2, alt: "Page complète ASI - Partie 2", caption: "Services, avantages et positionnement spécialiste copropriétés" },
+        { src: galleryAsiFullpage3, alt: "Page complète ASI - Partie 3", caption: "Expertise, offre diagnostic gratuit et formulaire de contact" },
+        { src: galleryAsiFullpage4, alt: "Page complète ASI - Partie 4", caption: "Footer et informations de contact" }
       ],
       chartData: [
         { name: "Crédibilité", before: 20, after: 90 },
