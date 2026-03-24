@@ -142,9 +142,11 @@ const CaseStudy = () => {
       subtitle: "Création d'une landing page avec tunnel de vente optimisé pour une formation destinée aux futurs papas",
       image: portfolioPapapretHero,
       gallery: [
-        { src: portfolioPapapretHero, alt: "Page d'accueil PapaPrêt", caption: "Landing page avec copywriting persuasif et preuve sociale" },
-        { src: portfolioPapapretHero, alt: "Section programme", caption: "Présentation structurée du programme de formation" },
-        { src: portfolioPapapretHero, alt: "Section témoignages", caption: "Preuves sociales et témoignages de papas formés" }
+        { src: galleryPapapretFullpage1, alt: "Page complète PapaPrêt - Partie 1", caption: "Accueil, promesse et statistiques : 15K+ papas formés, note 4.9/5" },
+        { src: galleryPapapretFullpage2, alt: "Page complète PapaPrêt - Partie 2", caption: "Transformation avant/après et contenu des 6 modules de formation" },
+        { src: galleryPapapretFullpage3, alt: "Page complète PapaPrêt - Partie 3", caption: "Programme détaillé des 7 heures de formation intensive" },
+        { src: galleryPapapretFullpage4, alt: "Page complète PapaPrêt - Partie 4", caption: "Témoignages vérifiés, garanties et section réservation" },
+        { src: galleryPapapretFullpage5, alt: "Page complète PapaPrêt - Partie 5", caption: "Tarif, calendrier de réservation et FAQ" }
       ],
       chartData: [
         { name: "Engagement", before: 15, after: 75 },
