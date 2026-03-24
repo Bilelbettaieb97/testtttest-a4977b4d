@@ -418,7 +418,6 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {!activeCategory && <PortfolioHeader />}
         {isHomepage && <PortfolioHeader />}
 
         {/* Category filter for homepage */}
