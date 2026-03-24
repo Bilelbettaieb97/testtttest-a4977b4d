@@ -25,6 +25,7 @@ import portfolioBeaute from "@/assets/portfolio-beaute.webp";
 import portfolioFormation from "@/assets/portfolio-formation.webp";
 import portfolioB2B from "@/assets/portfolio-b2b.webp";
 import portfolioArancini from "@/assets/portfolio-arancini.jpg";
+import portfolioAranciniHero from "@/assets/portfolio-arancini-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -43,9 +44,9 @@ const CaseStudy = () => {
       client: "Monsieur Arancini",
       title: "Site vitrine premium pour artisan sicilien",
       subtitle: "Création d'un site web vitrine haut de gamme pour une marque d'arancini artisanaux",
-      image: portfolioArancini,
+      image: portfolioAranciniHero,
       gallery: [
-        { src: portfolioArancini, alt: "Page d'accueil Monsieur Arancini", caption: "Page d'accueil avec mise en avant de l'authenticité sicilienne" },
+        { src: portfolioAranciniHero, alt: "Page d'accueil Monsieur Arancini", caption: "Page d'accueil avec mise en avant de l'authenticité sicilienne" },
         { src: portfolioArancini, alt: "Catalogue produits", caption: "Présentation des 15+ saveurs d'arancini artisanaux" },
         { src: portfolioArancini, alt: "Section partenaires", caption: "Espace dédié aux professionnels et partenaires B2B" }
       ],
