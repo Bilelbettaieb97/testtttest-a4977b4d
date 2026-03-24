@@ -14,6 +14,7 @@ import portfolioArancini from "@/assets/portfolio-arancini-hero.png";
 import portfolioFunestore from "@/assets/portfolio-funestore-hero.png";
 import portfolioPapapret from "@/assets/portfolio-papapret-hero.png";
 import portfolioAcb from "@/assets/portfolio-acb-hero.png";
+import portfolioEleva from "@/assets/portfolio-eleva-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -88,6 +89,24 @@ const Portfolio = () => {
       testimonial: "Réactivité impressionnante et compréhension de mes besoins. Le site a été fait dans la journée. Déjà 2 collègues vont travailler avec lui.",
       author: "ACB Rénovation",
       slug: "acb-renovation"
+    },
+    {
+      icon: <Home className="w-6 h-6 text-amber-700" />,
+      sector: "Conciergerie / Immobilier",
+      client: "Eleva Conciergerie",
+      title: "Site premium pour conciergerie locative",
+      description: "Site haut de gamme avec estimation gratuite, tunnel de conversion et design luxueux pour conciergerie de location courte durée.",
+      image: portfolioEleva,
+      metrics: [
+        { label: "Propriétaires", value: "+50", icon: Users },
+        { label: "Note", value: "4.9/5", icon: Star },
+        { label: "Réponse", value: "24h", icon: Clock }
+      ],
+      technologies: ["Site Vitrine", "UX Premium", "Conversion"],
+      results: "Positionnement premium",
+      testimonial: "Le site est incroyable, très professionnel et surtout pensé pour vendre. Le rendu est premium et optimisé pour convertir.",
+      author: "Eleva Conciergerie",
+      slug: "eleva-conciergerie"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
