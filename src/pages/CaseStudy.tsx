@@ -1,5 +1,5 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { ArrowLeft, ShoppingCart, Utensils, Home, Dumbbell, Sparkles, BookOpen, Briefcase } from "lucide-react";
+import { ArrowLeft, ShoppingCart, Utensils, Home, Dumbbell, Sparkles, BookOpen, Briefcase, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import Navigation from "@/components/Navigation";
@@ -30,6 +30,7 @@ import portfolioFunestoreHero from "@/assets/portfolio-funestore-hero.png";
 import portfolioPapapretHero from "@/assets/portfolio-papapret-hero.png";
 import portfolioAcbHero from "@/assets/portfolio-acb-hero.png";
 import portfolioElevaHero from "@/assets/portfolio-eleva-hero.png";
+import portfolioAdsbHero from "@/assets/portfolio-adsb-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -226,6 +227,43 @@ const CaseStudy = () => {
       testimonial: "Le site est incroyable, très professionnel et surtout pensé pour vendre. Le rendu est premium et on sent que tout a été optimisé pour convertir.",
       author: "Eleva Conciergerie",
       role: "Fondateur"
+    },
+    "adsb-wissembourg": {
+      icon: <Users className="w-8 h-8" />,
+      sector: "Association",
+      client: "ADSB Wissembourg",
+      title: "Site vitrine pour association de donneurs de sang bénévoles",
+      subtitle: "Création d'un site engageant pour promouvoir le don de sang et organiser les collectes",
+      image: portfolioAdsbHero,
+      gallery: [
+        { src: portfolioAdsbHero, alt: "Page d'accueil ADSB", caption: "Page d'accueil avec message impactant et appel au don" },
+        { src: portfolioAdsbHero, alt: "Collectes ADSB", caption: "Agenda des collectes de sang à venir" },
+        { src: portfolioAdsbHero, alt: "Contact ADSB", caption: "Formulaire pour devenir donneur bénévole" }
+      ],
+      chartData: [
+        { name: "Visibilité", before: 10, after: 75 },
+        { name: "Engagement", before: 15, after: 60 },
+        { name: "Inscriptions", before: 5, after: 30 }
+      ],
+      challenge: "L'Association des Donneurs de Sang Bénévoles de Wissembourg manquait de visibilité en ligne pour recruter de nouveaux donneurs et communiquer sur les collectes à venir. Sans site web, la communication se limitait au bouche-à-oreille.",
+      solution: "Nous avons créé un site engageant avec un message fort ('Chaque don sauve des vies'), un agenda des collectes, un formulaire d'inscription simplifié et des appels à l'action clairs pour encourager le don de sang.",
+      metrics: [
+        { label: "Mission", value: "Sauver des vies", description: "Message clair et impactant" },
+        { label: "Collectes", value: "Agenda en ligne", description: "Calendrier des prochaines collectes" },
+        { label: "Inscription", value: "En ligne", description: "Formulaire simplifié pour donneurs" },
+        { label: "Mobile", value: "100%", description: "Responsive et accessible" }
+      ],
+      technologies: ["Site Vitrine", "UX Design", "Engagement", "Responsive"],
+      timeline: [
+        { phase: "Échange", duration: "1 jour", description: "Compréhension de la mission et des besoins" },
+        { phase: "Design", duration: "3 jours", description: "Design engageant et émotionnel" },
+        { phase: "Développement", duration: "5 jours", description: "Intégration et optimisation" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne" }
+      ],
+      results: "L'ADSB Wissembourg dispose désormais d'un site moderne et engageant qui facilite le recrutement de donneurs et la communication sur les collectes de sang.",
+      testimonial: "Un travail très professionnel sur un projet technique complexe. Le site est clair, moderne et permet de présenter efficacement notre solution à nos clients.",
+      author: "ADSB Wissembourg",
+      role: "Président"
     },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
@@ -497,6 +535,7 @@ const CaseStudy = () => {
     "papapret",
     "acb-renovation",
     "eleva-conciergerie",
+    "adsb-wissembourg",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",

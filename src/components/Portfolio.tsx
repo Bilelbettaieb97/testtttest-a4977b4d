@@ -15,6 +15,7 @@ import portfolioFunestore from "@/assets/portfolio-funestore-hero.png";
 import portfolioPapapret from "@/assets/portfolio-papapret-hero.png";
 import portfolioAcb from "@/assets/portfolio-acb-hero.png";
 import portfolioEleva from "@/assets/portfolio-eleva-hero.png";
+import portfolioAdsb from "@/assets/portfolio-adsb-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -107,6 +108,24 @@ const Portfolio = () => {
       testimonial: "Le site est incroyable, très professionnel et surtout pensé pour vendre. Le rendu est premium et optimisé pour convertir.",
       author: "Eleva Conciergerie",
       slug: "eleva-conciergerie"
+    },
+    {
+      icon: <Users className="w-6 h-6 text-red-600" />,
+      sector: "Association",
+      client: "ADSB Wissembourg",
+      title: "Site vitrine pour association de donneurs de sang",
+      description: "Site web avec design engageant, structuration des collectes et appels à l'action pour le don de sang.",
+      image: portfolioAdsb,
+      metrics: [
+        { label: "Mission", value: "Sauver", icon: Star },
+        { label: "Collectes", value: "Agenda", icon: Clock },
+        { label: "Dons", value: "En ligne", icon: TrendingUp }
+      ],
+      technologies: ["Site Vitrine", "UX Design", "Engagement"],
+      results: "Visibilité digitale",
+      testimonial: "Un travail très professionnel sur un projet technique complexe. Le site est clair, moderne et permet de présenter efficacement notre solution.",
+      author: "ADSB Wissembourg",
+      slug: "adsb-wissembourg"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
