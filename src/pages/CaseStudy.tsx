@@ -1,5 +1,5 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { ArrowLeft, ShoppingCart, Utensils, Home, Dumbbell, Sparkles, BookOpen, Briefcase, Users } from "lucide-react";
+import { ArrowLeft, Utensils, ShoppingCart, Home, Sparkles, BookOpen, Briefcase, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import Navigation from "@/components/Navigation";
@@ -17,13 +17,6 @@ import CaseStudyTimeline from "@/components/case-study/CaseStudyTimeline";
 import CaseStudyTestimonial from "@/components/case-study/CaseStudyTestimonial";
 import CaseStudyCTA from "@/components/case-study/CaseStudyCTA";
 import CaseStudyNavigation from "@/components/case-study/CaseStudyNavigation";
-import portfolioEcommerce from "@/assets/portfolio-ecommerce.webp";
-import portfolioRestaurant from "@/assets/portfolio-restaurant.webp";
-import portfolioImmobilier from "@/assets/portfolio-immobilier.webp";
-import portfolioFitness from "@/assets/portfolio-fitness.webp";
-import portfolioBeaute from "@/assets/portfolio-beaute.webp";
-import portfolioFormation from "@/assets/portfolio-formation.webp";
-import portfolioB2B from "@/assets/portfolio-b2b.webp";
 import portfolioArancini from "@/assets/portfolio-arancini.jpg";
 import portfolioAranciniHero from "@/assets/portfolio-arancini-hero.png";
 import portfolioFunestoreHero from "@/assets/portfolio-funestore-hero.png";
@@ -42,12 +35,6 @@ import portfolioFilmreelHero from "@/assets/portfolio-filmreel-hero.png";
 import portfolioArtdesrosesHero from "@/assets/portfolio-artdesroses-hero.png";
 import portfolioSegermesHero from "@/assets/portfolio-segermes-hero.png";
 import portfolioSpectacleHero from "@/assets/portfolio-spectacle-hero.png";
-import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
-import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
-import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
-import galleryRestaurant2 from "@/assets/gallery-restaurant-2.jpg";
-import galleryImmobilier1 from "@/assets/gallery-immobilier-1.jpg";
-import galleryImmobilier2 from "@/assets/gallery-immobilier-2.jpg";
 
 const CaseStudy = () => {
   const { slug } = useParams();
@@ -683,265 +670,6 @@ const CaseStudy = () => {
       author: "Spectacle",
       role: "Organisateur"
     },
-    "boutique-elegance": {
-      icon: <ShoppingCart className="w-8 h-8" />,
-      sector: "E-commerce",
-      client: "Boutique Élégance",
-      title: "Site e-commerce haute conversion",
-      subtitle: "Refonte complète avec optimisation du tunnel de vente",
-      image: portfolioEcommerce,
-      gallery: [
-        { src: portfolioEcommerce, alt: "Page d'accueil", caption: "Page d'accueil élégante avec mise en avant des nouveautés" },
-        { src: galleryEcommerce1, alt: "Page produit", caption: "Fiche produit détaillée avec galerie et avis clients" },
-        { src: galleryEcommerce2, alt: "Tunnel de paiement", caption: "Processus de paiement sécurisé avec Stripe" }
-      ],
-      chartData: [
-        { name: "Ventes", before: 1000, after: 4400 },
-        { name: "Visiteurs", before: 5000, after: 15000 },
-        { name: "Conversion", before: 0.9, after: 4.8 }
-      ],
-      challenge: "Boutique Élégance faisait face à un taux d'abandon de panier de 82% et une expérience utilisateur confuse. Le site était lent, peu sécurisé et n'inspirait pas confiance aux clients potentiels.",
-      solution: "Nous avons créé une plateforme e-commerce moderne avec un design élégant, un tunnel de vente optimisé, l'intégration de Stripe pour les paiements sécurisés, et une navigation intuitive.",
-      metrics: [
-        { label: "Ventes en ligne", value: "+340%", description: "Augmentation du chiffre d'affaires" },
-        { label: "Taux de conversion", value: "4.8%", description: "Contre 0.9% avant" },
-        { label: "Temps de chargement", value: "1.2s", description: "Optimisation des performances" },
-        { label: "Panier moyen", value: "+67%", description: "Grâce aux recommandations" }
-      ],
-      technologies: ["React", "Stripe", "Tailwind CSS", "PostgreSQL"],
-      timeline: [
-        { phase: "Analyse", duration: "1 semaine", description: "Audit UX et analyse concurrentielle" },
-        { phase: "Design", duration: "2 semaines", description: "Maquettes et prototypes interactifs" },
-        { phase: "Développement", duration: "4 semaines", description: "Création de la plateforme" },
-        { phase: "Tests & Lancement", duration: "1 semaine", description: "Tests utilisateurs et mise en ligne" }
-      ],
-      results: "Le chiffre d'affaires en ligne a été multiplié par 3 en seulement 6 mois. La boutique génère maintenant plus de revenus en ligne que dans son magasin physique.",
-      testimonial: "Notre boutique en ligne génère maintenant plus que notre magasin physique ! L'équipe a su comprendre nos besoins et créer une expérience d'achat exceptionnelle.",
-      author: "Sophie Martineau",
-      role: "Fondatrice"
-    },
-    "le-gourmet": {
-      icon: <Utensils className="w-8 h-8" />,
-      sector: "Restaurant",
-      client: "Le Gourmet",
-      title: "Site gastronomique avec commande",
-      subtitle: "Transformation digitale d'un restaurant gastronomique",
-      image: portfolioRestaurant,
-      gallery: [
-        { src: portfolioRestaurant, alt: "Page d'accueil", caption: "Page d'accueil élégante avec ambiance gastronomique" },
-        { src: galleryRestaurant1, alt: "Menu interactif", caption: "Menu digital avec photos professionnelles des plats" },
-        { src: galleryRestaurant2, alt: "Réservation", caption: "Système de réservation en ligne simple et efficace" }
-      ],
-      chartData: [
-        { name: "Réservations", before: 400, after: 1400 },
-        { name: "Commandes", before: 200, after: 1000 },
-        { name: "Visiteurs", before: 2000, after: 7000 }
-      ],
-      challenge: "Le restaurant souffrait d'un manque de visibilité en ligne et avait perdu 60% de son chiffre d'affaires pendant la pandémie. Aucun système de commande en ligne n'était en place.",
-      solution: "Création d'un site élégant avec menu interactif, système de réservation en ligne, commande à emporter intégrée et galerie photo professionnelle pour mettre en valeur les plats.",
-      metrics: [
-        { label: "Réservations", value: "+250%", description: "Augmentation des réservations" },
-        { label: "Commandes en ligne", value: "+400%", description: "Nouveau canal de revenus" },
-        { label: "Note moyenne", value: "4.9★", description: "Satisfaction client" },
-        { label: "Taux de remplissage", value: "95%", description: "Tables occupées" }
-      ],
-      technologies: ["WordPress", "WooCommerce", "Bookly", "Google Maps"],
-      timeline: [
-        { phase: "Stratégie", duration: "1 semaine", description: "Définition de la vision digitale" },
-        { phase: "Création contenu", duration: "2 semaines", description: "Photos et descriptions de plats" },
-        { phase: "Développement", duration: "3 semaines", description: "Site et intégrations" },
-        { phase: "Formation", duration: "1 semaine", description: "Formation de l'équipe" }
-      ],
-      results: "Le restaurant a retrouvé 100% de son CA pré-Covid et a même augmenté de 60% grâce aux commandes en ligne qui représentent maintenant 35% du chiffre d'affaires.",
-      testimonial: "Le site nous a littéralement sauvés pendant les fermetures ! Aujourd'hui, c'est devenu un canal de vente essentiel qui complète parfaitement notre service en salle.",
-      author: "Pierre Dubois",
-      role: "Chef & Propriétaire"
-    },
-    "prestige-habitat": {
-      icon: <Home className="w-8 h-8" />,
-      sector: "Immobilier",
-      client: "Prestige Habitat",
-      title: "Plateforme immobilière moderne",
-      subtitle: "Transformation digitale d'une agence immobilière",
-      image: portfolioImmobilier,
-      gallery: [
-        { src: portfolioImmobilier, alt: "Page d'accueil", caption: "Interface moderne avec recherche avancée" },
-        { src: galleryImmobilier1, alt: "Fiche bien", caption: "Fiches détaillées avec visite virtuelle 360°" },
-        { src: galleryImmobilier2, alt: "Recherche", caption: "Recherche multicritères avec carte interactive" }
-      ],
-      chartData: [
-        { name: "Visiteurs", before: 5000, after: 20000 },
-        { name: "Demandes", before: 250, after: 700 },
-        { name: "Ventes", before: 12, after: 35 }
-      ],
-      challenge: "L'agence perdait des clients face aux plateformes nationales. Le site était obsolète, la recherche de biens difficile et aucune visite virtuelle n'était proposée.",
-      solution: "Développement d'une plateforme complète avec recherche avancée multicritères, visites virtuelles 360°, carte interactive et espace client personnalisé pour suivre les dossiers.",
-      metrics: [
-        { label: "Visiteurs uniques", value: "+300%", description: "Augmentation du trafic" },
-        { label: "Demandes qualifiées", value: "+180%", description: "Leads de qualité" },
-        { label: "Taux de conversion", value: "8.2%", description: "Visites vers ventes" },
-        { label: "Délai de vente", value: "-30%", description: "Vente plus rapide" }
-      ],
-      technologies: ["React", "Google Maps API", "Matterport", "CRM Integration"],
-      timeline: [
-        { phase: "Analyse", duration: "2 semaines", description: "Étude de marché et besoins" },
-        { phase: "UX/UI Design", duration: "3 semaines", description: "Design et wireframes" },
-        { phase: "Développement", duration: "6 semaines", description: "Plateforme complète" },
-        { phase: "Intégration CRM", duration: "2 semaines", description: "Connexion aux outils existants" }
-      ],
-      results: "L'agence est devenue la référence locale avec 30% de parts de marché en plus. Les biens se vendent en moyenne 30% plus rapidement grâce aux visites virtuelles.",
-      testimonial: "Nous sommes passés d'une petite agence locale à LA référence de la région. Le site nous donne une crédibilité et une visibilité incomparables.",
-      author: "Catherine Moreau",
-      role: "Directrice d'Agence"
-    },
-    "fitzone-studio": {
-      icon: <Dumbbell className="w-8 h-8" />,
-      sector: "Sport & Fitness",
-      client: "FitZone Studio",
-      title: "Plateforme fitness avec abonnements",
-      subtitle: "Digitalisation complète d'une salle de sport",
-      image: portfolioFitness,
-      gallery: [
-        { src: portfolioFitness, alt: "Page d'accueil", caption: "Interface dynamique avec réservation de cours" },
-        { src: portfolioFitness, alt: "Planning des cours", caption: "Calendrier interactif pour réserver les séances" },
-        { src: portfolioFitness, alt: "Espace membre", caption: "Dashboard personnel avec suivi d'entraînement" }
-      ],
-      chartData: [
-        { name: "Membres", before: 150, after: 780 },
-        { name: "Réservations", before: 500, after: 2800 },
-        { name: "Revenu mensuel", before: 8000, after: 35000 }
-      ],
-      challenge: "La salle perdait des membres face aux applications de fitness. La gestion des réservations était chaotique et le suivi des membres inexistant.",
-      solution: "Création d'une plateforme complète avec réservation de cours en temps réel, suivi personnalisé des entraînements, paiements d'abonnements automatisés et application mobile.",
-      metrics: [
-        { label: "Membres actifs", value: "+420%", description: "Croissance de la base" },
-        { label: "Taux de réservation", value: "95%", description: "Cours complets" },
-        { label: "Rétention", value: "89%", description: "Fidélisation membres" },
-        { label: "Satisfaction", value: "4.8/5", description: "Note moyenne" }
-      ],
-      technologies: ["React", "Stripe", "Firebase", "Progressive Web App"],
-      timeline: [
-        { phase: "Recherche", duration: "2 semaines", description: "Interviews utilisateurs" },
-        { phase: "Design", duration: "3 semaines", description: "App et interface web" },
-        { phase: "Développement", duration: "8 semaines", description: "Plateforme et app" },
-        { phase: "Beta test", duration: "2 semaines", description: "Tests avec membres" }
-      ],
-      results: "La salle a triplé son nombre de membres actifs et maintient un taux de rétention exceptionnel de 89%, bien au-dessus de la moyenne du secteur.",
-      testimonial: "La digitalisation a complètement révolutionné notre salle ! Nous offrons maintenant une expérience premium qui rivalise avec les grandes chaînes.",
-      author: "Marc Leroy",
-      role: "Fondateur FitZone"
-    },
-    "institut-belle-vie": {
-      icon: <Sparkles className="w-8 h-8" />,
-      sector: "Beauté & Bien-être",
-      client: "Institut Belle Vie",
-      title: "Site spa avec réservation en ligne",
-      subtitle: "Modernisation d'un institut de beauté",
-      image: portfolioBeaute,
-      gallery: [
-        { src: portfolioBeaute, alt: "Page d'accueil", caption: "Design élégant et apaisant pour l'institut" },
-        { src: portfolioBeaute, alt: "Réservation", caption: "Système de booking en ligne 24/7" },
-        { src: portfolioBeaute, alt: "Packages", caption: "Offres et forfaits personnalisables" }
-      ],
-      chartData: [
-        { name: "Réservations", before: 350, after: 1330 },
-        { name: "Packages vendus", before: 80, after: 232 },
-        { name: "Taux occupation", before: 65, after: 98 }
-      ],
-      challenge: "L'institut gérait tout manuellement avec un agenda papier. Les créneaux vides étaient fréquents et le suivi client inexistant.",
-      solution: "Site élégant avec système de réservation en ligne 24/7, packages personnalisables, programme de fidélité automatisé et rappels SMS.",
-      metrics: [
-        { label: "Réservations en ligne", value: "+280%", description: "Plus de réservations" },
-        { label: "Ventes de packages", value: "+190%", description: "Revenus supplémentaires" },
-        { label: "Satisfaction client", value: "9.6/10", description: "Expérience premium" },
-        { label: "Taux d'occupation", value: "98%", description: "Presque plus de créneaux vides" }
-      ],
-      technologies: ["WordPress", "Bookly Pro", "WooCommerce", "Mailchimp"],
-      timeline: [
-        { phase: "Audit", duration: "1 semaine", description: "Analyse des besoins" },
-        { phase: "Design", duration: "2 semaines", description: "Design luxueux" },
-        { phase: "Développement", duration: "3 semaines", description: "Site et booking" },
-        { phase: "Migration", duration: "1 semaine", description: "Import des données" }
-      ],
-      results: "L'institut affiche complet 3 semaines à l'avance et a augmenté son CA de 75% grâce aux packages et à l'optimisation des créneaux.",
-      testimonial: "Nous n'avons plus jamais de créneaux vides ! Le système de réservation en ligne a transformé notre gestion et nos clientes adorent la facilité.",
-      author: "Émilie Bernard",
-      role: "Gérante"
-    },
-    "skillsup-academy": {
-      icon: <BookOpen className="w-8 h-8" />,
-      sector: "Formation",
-      client: "SkillsUp Academy",
-      title: "Plateforme e-learning moderne",
-      subtitle: "Création d'une académie en ligne",
-      image: portfolioFormation,
-      gallery: [
-        { src: portfolioFormation, alt: "Page d'accueil", caption: "Plateforme e-learning avec catalogue de cours" },
-        { src: portfolioFormation, alt: "Interface cours", caption: "Lecteur vidéo avec quiz interactifs" },
-        { src: portfolioFormation, alt: "Dashboard étudiant", caption: "Suivi de progression et certificats" }
-      ],
-      chartData: [
-        { name: "Étudiants", before: 50, after: 325 },
-        { name: "Cours vendus", before: 180, after: 864 },
-        { name: "Revenu mensuel", before: 3500, after: 17500 }
-      ],
-      challenge: "Le formateur donnait uniquement des cours en présentiel, limitant sa capacité à 20 étudiants par session. Aucune présence en ligne n'existait.",
-      solution: "Plateforme e-learning complète avec hébergement vidéo, quiz interactifs, suivi de progression, forum communautaire et certifications automatisées.",
-      metrics: [
-        { label: "Étudiants actifs", value: "+550%", description: "Croissance exponentielle" },
-        { label: "Cours vendus", value: "+380%", description: "Revenus récurrents" },
-        { label: "Taux de complétion", value: "78%", description: "Engagement élevé" },
-        { label: "Revenus mensuels", value: "×5", description: "Multiplication des revenus" }
-      ],
-      technologies: ["React", "Vimeo", "Stripe", "Discord API"],
-      timeline: [
-        { phase: "Stratégie pédagogique", duration: "2 semaines", description: "Structure des cours" },
-        { phase: "Production contenu", duration: "4 semaines", description: "Vidéos et quiz" },
-        { phase: "Développement", duration: "6 semaines", description: "Plateforme LMS" },
-        { phase: "Lancement", duration: "2 semaines", description: "Marketing et lancement" }
-      ],
-      results: "Plus de 200 étudiants actifs quotidiennement, des revenus multipliés par 5, et une communauté engagée qui génère du bouche-à-oreille.",
-      testimonial: "Je ne pensais pas qu'il était possible de créer une plateforme qui rivalise avec les géants comme Udemy ! Aujourd'hui j'ai ma propre académie rentable.",
-      author: "Thomas Petit",
-      role: "Fondateur & Formateur"
-    },
-    "consultpro": {
-      icon: <Briefcase className="w-8 h-8" />,
-      sector: "Services B2B",
-      client: "ConsultPro",
-      title: "Site corporate avec génération de leads",
-      subtitle: "Optimisation de la génération de leads B2B",
-      image: portfolioB2B,
-      gallery: [
-        { src: portfolioB2B, alt: "Page d'accueil", caption: "Site corporate professionnel avec CTA clairs" },
-        { src: portfolioB2B, alt: "Formulaire lead", caption: "Formulaires intelligents pour qualifier les prospects" },
-        { src: portfolioB2B, alt: "Blog", caption: "Contenu de valeur pour le SEO et l'expertise" }
-      ],
-      chartData: [
-        { name: "Leads mensuels", before: 25, after: 140 },
-        { name: "Trafic organique", before: 800, after: 4200 },
-        { name: "Conversions", before: 3, after: 17 }
-      ],
-      challenge: "Le cabinet recevait très peu de demandes qualifiées via son site. Le positionnement était flou et le site peu professionnel.",
-      solution: "Site corporate premium avec SEO optimisé, tunnel de conversion intelligent, formulaires qualifiants, intégration CRM et contenu de valeur (blog, études de cas).",
-      metrics: [
-        { label: "Leads qualifiés", value: "+460%", description: "Demandes entrantes" },
-        { label: "Taux de conversion", value: "12.3%", description: "Visiteurs → leads" },
-        { label: "ROI marketing", value: "850%", description: "Retour sur investissement" },
-        { label: "Closing rate", value: "+85%", description: "Leads → clients" }
-      ],
-      technologies: ["Next.js", "HubSpot", "Google Analytics", "SEO Tools"],
-      timeline: [
-        { phase: "Stratégie", duration: "2 semaines", description: "Positionnement et SEO" },
-        { phase: "Content", duration: "3 semaines", description: "Rédaction et études de cas" },
-        { phase: "Développement", duration: "5 semaines", description: "Site et intégrations" },
-        { phase: "SEO & Launch", duration: "2 semaines", description: "Optimisation et lancement" }
-      ],
-      results: "Le pipeline commercial a été multiplié par 5. Le site génère maintenant 60% des nouveaux clients, contre moins de 10% avant le projet.",
-      testimonial: "C'est le meilleur investissement que nous ayons fait cette année ! Notre site est devenu notre meilleur commercial, disponible 24/7.",
-      author: "Laurent Dupuis",
-      role: "Directeur Général"
-    }
   };
 
   const caseStudy = slug ? caseStudies[slug as keyof typeof caseStudies] : null;
@@ -964,14 +692,7 @@ const CaseStudy = () => {
     "filmreel-gallery",
     "art-des-roses",
     "segermes",
-    "spectacle",
-    "boutique-elegance",
-    "le-gourmet",
-    "prestige-habitat",
-    "fitzone-studio",
-    "institut-belle-vie",
-    "skillsup-academy",
-    "consultpro"
+    "spectacle"
   ];
 
   // Get navigation projects
