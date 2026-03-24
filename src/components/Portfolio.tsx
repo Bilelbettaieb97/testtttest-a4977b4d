@@ -1,6 +1,6 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ShoppingCart, Utensils, Home, Users, TrendingUp, Clock, Star, ChevronLeft, ChevronRight, Sparkles, BookOpen, Briefcase } from "lucide-react";
+import { ShoppingCart, Utensils, Home, Users, TrendingUp, Clock, Star, ChevronLeft, ChevronRight, Sparkles, BookOpen, Briefcase, LayoutGrid, Globe, Rocket, Camera } from "lucide-react";
 import PortfolioCard from "./portfolio/PortfolioCard";
 import PortfolioHeader from "./portfolio/PortfolioHeader";
 import PortfolioCTA from "./portfolio/PortfolioCTA";
@@ -27,7 +27,18 @@ interface PortfolioProps {
   activeCategory?: string;
 }
 
-const Portfolio = ({ activeCategory }: PortfolioProps) => {
+const homepageCategories = [
+  { id: "all", label: "Tous", icon: LayoutGrid },
+  { id: "site-vitrine", label: "Sites Vitrine", icon: Globe },
+  { id: "e-commerce", label: "E-commerce", icon: ShoppingCart },
+  { id: "landing-page", label: "Landing Pages", icon: Rocket },
+  { id: "portfolio", label: "Portfolios", icon: Camera },
+];
+
+const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
+  const [internalCategory, setInternalCategory] = useState("all");
+  const isHomepage = externalCategory === undefined;
+  const activeCategory = isHomepage ? internalCategory : externalCategory;
   const cases = [
     {
       icon: <Utensils className="w-6 h-6 text-orange-600" />,
@@ -407,23 +418,34 @@ const Portfolio = ({ activeCategory }: PortfolioProps) => {
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {!activeCategory && <PortfolioHeader />}
+        {isHomepage && <PortfolioHeader />}
 
-        {/* Show all in grid when on portfolio page, carousel on homepage */}
-        {activeCategory !== undefined ? (
-          <>
-            <p className="text-center text-muted-foreground mb-6 font-medium">
-              {cases.length} projets
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {cases.map((caseStudy, index) => (
-                <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 80}ms` }}>
-                  <PortfolioCard caseStudy={caseStudy} />
-                </div>
-              ))}
-            </div>
-          </>
-        ) : (
+        {/* Category filter for homepage */}
+        {isHomepage && (
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6">
+            {homepageCategories.map((cat) => {
+              const Icon = cat.icon;
+              const isActive = internalCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setInternalCategory(cat.id)}
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border-2 ${
+                    isActive
+                      ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25 scale-105'
+                      : 'bg-background text-muted-foreground border-border hover:border-primary/40 hover:text-foreground hover:shadow-md'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  {cat.label}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Show grid when filtered, carousel when "all" on homepage */}
+        {(isHomepage && internalCategory === "all") ? (
           <div className="mb-8 relative" style={{ minHeight: '420px', contentVisibility: 'auto', containIntrinsicSize: 'auto 420px' } as React.CSSProperties}>
             <Carousel className="w-full max-w-6xl mx-auto" opts={{ align: "start", loop: true, containScroll: "trimSnaps" }}>
               <CarouselContent className="-ml-2 md:-ml-4 items-stretch" style={{ willChange: 'transform' }}>
@@ -448,6 +470,19 @@ const Portfolio = ({ activeCategory }: PortfolioProps) => {
               <ChevronRight className="w-4 h-4 ml-1 text-purple-600" />
             </div>
           </div>
+        ) : (
+          <>
+            <p className="text-center text-muted-foreground mb-6 font-medium">
+              {filteredCases.length} projet{filteredCases.length > 1 ? 's' : ''} trouvé{filteredCases.length > 1 ? 's' : ''}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {filteredCases.map((caseStudy, index) => (
+                <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 80}ms` }}>
+                  <PortfolioCard caseStudy={caseStudy} />
+                </div>
+              ))}
+            </div>
+          </>
         )}
 
         <PortfolioCTA />
