@@ -379,6 +379,7 @@ const CaseStudy = () => {
   // Order of projects for navigation
   const projectOrder = [
     "monsieur-arancini",
+    "funestore",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
