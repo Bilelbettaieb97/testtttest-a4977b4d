@@ -31,6 +31,11 @@ import galleryFunestoreFullpage1 from "@/assets/gallery-funestore-fullpage-1.jpg
 import galleryFunestoreFullpage2 from "@/assets/gallery-funestore-fullpage-2.jpg";
 import galleryFunestoreFullpage3 from "@/assets/gallery-funestore-fullpage-3.jpg";
 import portfolioPapapretHero from "@/assets/portfolio-papapret-hero.png";
+import galleryPapapretFullpage1 from "@/assets/gallery-papapret-fullpage-1.jpg";
+import galleryPapapretFullpage2 from "@/assets/gallery-papapret-fullpage-2.jpg";
+import galleryPapapretFullpage3 from "@/assets/gallery-papapret-fullpage-3.jpg";
+import galleryPapapretFullpage4 from "@/assets/gallery-papapret-fullpage-4.jpg";
+import galleryPapapretFullpage5 from "@/assets/gallery-papapret-fullpage-5.jpg";
 import portfolioAcbHero from "@/assets/portfolio-acb-hero.png";
 import portfolioElevaHero from "@/assets/portfolio-eleva-hero.png";
 import portfolioAdsbHero from "@/assets/portfolio-adsb-hero.png";
@@ -137,9 +142,11 @@ const CaseStudy = () => {
       subtitle: "Création d'une landing page avec tunnel de vente optimisé pour une formation destinée aux futurs papas",
       image: portfolioPapapretHero,
       gallery: [
-        { src: portfolioPapapretHero, alt: "Page d'accueil PapaPrêt", caption: "Landing page avec copywriting persuasif et preuve sociale" },
-        { src: portfolioPapapretHero, alt: "Section programme", caption: "Présentation structurée du programme de formation" },
-        { src: portfolioPapapretHero, alt: "Section témoignages", caption: "Preuves sociales et témoignages de papas formés" }
+        { src: galleryPapapretFullpage1, alt: "Page complète PapaPrêt - Partie 1", caption: "Accueil, promesse et statistiques : 15K+ papas formés, note 4.9/5" },
+        { src: galleryPapapretFullpage2, alt: "Page complète PapaPrêt - Partie 2", caption: "Transformation avant/après et contenu des 6 modules de formation" },
+        { src: galleryPapapretFullpage3, alt: "Page complète PapaPrêt - Partie 3", caption: "Programme détaillé des 7 heures de formation intensive" },
+        { src: galleryPapapretFullpage4, alt: "Page complète PapaPrêt - Partie 4", caption: "Témoignages vérifiés, garanties et section réservation" },
+        { src: galleryPapapretFullpage5, alt: "Page complète PapaPrêt - Partie 5", caption: "Tarif, calendrier de réservation et FAQ" }
       ],
       chartData: [
         { name: "Engagement", before: 15, after: 75 },
