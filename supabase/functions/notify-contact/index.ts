@@ -135,6 +135,14 @@ Deno.serve(async (req: Request) => {
       `,
     });
 
+    if (emailResponse.error) {
+      console.error("Resend send error:", emailResponse.error);
+      return new Response(
+        JSON.stringify({ success: false, error: emailResponse.error.message }),
+        { status: 502, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
     console.log("Notification email sent:", emailResponse);
 
     return new Response(JSON.stringify({ success: true }), {
