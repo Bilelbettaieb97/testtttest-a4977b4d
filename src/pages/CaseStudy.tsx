@@ -574,6 +574,7 @@ const CaseStudy = () => {
     "acb-renovation",
     "eleva-conciergerie",
     "adsb-wissembourg",
+    "alliance-securite-incendie",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
