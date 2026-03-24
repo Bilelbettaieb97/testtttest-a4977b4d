@@ -47,7 +47,7 @@ const services = [
     icon: <Store className="w-8 h-8" />,
     title: 'Site E-commerce',
     subtitle: 'Boutique en ligne performante',
-    price: 'À partir de 2 490€',
+    price: 'À partir de 800€',
     description: 'Vendez en ligne avec une boutique professionnelle. Paiements sécurisés et gestion complète de votre activité.',
     features: [
       'Jusqu\'à 50 produits configurés',
