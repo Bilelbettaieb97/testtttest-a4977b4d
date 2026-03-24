@@ -51,6 +51,9 @@ import galleryElevaFullpage5 from "@/assets/gallery-eleva-fullpage-5.jpg";
 import portfolioAdsbHero from "@/assets/portfolio-adsb-hero.png";
 import portfolioAsiHero from "@/assets/portfolio-asi-hero.png";
 import portfolioTrieventHero from "@/assets/portfolio-trievent-hero.png";
+import galleryTrieventFullpage1 from "@/assets/gallery-trievent-fullpage-1.jpg";
+import galleryTrieventFullpage2 from "@/assets/gallery-trievent-fullpage-2.jpg";
+import galleryTrieventFullpage3 from "@/assets/gallery-trievent-fullpage-3.jpg";
 import portfolioTemplezenHero from "@/assets/portfolio-templezen-hero.png";
 import portfolioInstitutNomadHero from "@/assets/portfolio-institut-nomad-hero.png";
 import portfolioAhstudioHero from "@/assets/portfolio-ahstudio-hero.png";
@@ -343,9 +346,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site engagé pour une entreprise spécialisée dans le tri et recyclage des déchets événementiels",
       image: portfolioTrieventHero,
       gallery: [
-        { src: portfolioTrieventHero, alt: "Page d'accueil Tri Event", caption: "Page d'accueil avec message écologique fort et CTAs" },
-        { src: portfolioTrieventHero, alt: "Services Tri Event", caption: "Présentation des services de collecte et recyclage" },
-        { src: portfolioTrieventHero, alt: "Contact Tri Event", caption: "Formulaire de devis et contact WhatsApp" }
+        { src: galleryTrieventFullpage1, alt: "Page complète Trievent - Partie 1", caption: "Accueil, services de collecte et avantages éco-responsables" },
+        { src: galleryTrieventFullpage2, alt: "Page complète Trievent - Partie 2", caption: "À propos, références clients et formulaire de contact" },
+        { src: galleryTrieventFullpage3, alt: "Page complète Trievent - Partie 3", caption: "Footer, navigation et informations de contact" }
       ],
       chartData: [
         { name: "Visibilité", before: 10, after: 70 },
