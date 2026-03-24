@@ -730,6 +730,7 @@ const CaseStudy = () => {
     "trievent",
     "temple-zen",
     "institut-nomad",
+    "ah-studio",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
