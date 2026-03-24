@@ -418,6 +418,7 @@ const CaseStudy = () => {
   const projectOrder = [
     "monsieur-arancini",
     "funestore",
+    "papapret",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
