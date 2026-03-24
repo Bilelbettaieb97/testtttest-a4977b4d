@@ -62,6 +62,10 @@ import portfolioCouleursableHero from "@/assets/portfolio-couleursable-hero.png"
 import portfolioFilmreelHero from "@/assets/portfolio-filmreel-hero.png";
 import portfolioArtdesrosesHero from "@/assets/portfolio-artdesroses-hero.png";
 import portfolioSegermesHero from "@/assets/portfolio-segermes-hero.png";
+import gallerySegermesFullpage1 from "@/assets/gallery-segermes-fullpage-1.jpg";
+import gallerySegermesFullpage2 from "@/assets/gallery-segermes-fullpage-2.jpg";
+import gallerySegermesFullpage3 from "@/assets/gallery-segermes-fullpage-3.jpg";
+import gallerySegermesFullpage4 from "@/assets/gallery-segermes-fullpage-4.jpg";
 import portfolioSpectacleHero from "@/assets/portfolio-spectacle-hero.png";
 
 const CaseStudy = () => {
@@ -642,9 +646,10 @@ const CaseStudy = () => {
       subtitle: "Création d'un site e-commerce luxe pour une marque d'huile d'olive bio familiale depuis 1950",
       image: portfolioSegermesHero,
       gallery: [
-        { src: portfolioSegermesHero, alt: "Page d'accueil Segermès", caption: "Design premium avec storytelling méditerranéen" },
-        { src: portfolioSegermesHero, alt: "Produits", caption: "Catalogue d'huiles d'olive premium avec fiches détaillées" },
-        { src: portfolioSegermesHero, alt: "Histoire", caption: "Storytelling de marque : tradition, terroir et savoir-faire" }
+        { src: gallerySegermesFullpage1, alt: "Page complète Segermès - Partie 1", caption: "Accueil, héritage méditerranéen et histoire du domaine" },
+        { src: gallerySegermesFullpage2, alt: "Page complète Segermès - Partie 2", caption: "Collection premium, catalogue produits et dégustation" },
+        { src: gallerySegermesFullpage3, alt: "Page complète Segermès - Partie 3", caption: "Processus artisanal, certifications et formulaire de contact" },
+        { src: gallerySegermesFullpage4, alt: "Page complète Segermès - Partie 4", caption: "Contact, horaires, visite du domaine et footer" }
       ],
       chartData: [
         { name: "Image premium", before: 25, after: 95 },
