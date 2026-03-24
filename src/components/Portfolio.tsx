@@ -25,6 +25,7 @@ import portfolioVinoboat from "@/assets/portfolio-vinoboat-hero.png";
 import portfolioCouleursable from "@/assets/portfolio-couleursable-hero.png";
 import portfolioFilmreel from "@/assets/portfolio-filmreel-hero.png";
 import portfolioArtdesroses from "@/assets/portfolio-artdesroses-hero.png";
+import portfolioSegermes from "@/assets/portfolio-segermes-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -297,6 +298,24 @@ const Portfolio = () => {
       testimonial: "Le site met parfaitement en valeur mes œuvres et me permet enfin de les vendre en ligne.",
       author: "Art des Roses",
       slug: "art-des-roses"
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-yellow-700" />,
+      sector: "E-commerce Premium",
+      client: "Segermès",
+      title: "E-commerce premium pour huile d'olive haut de gamme",
+      description: "Site e-commerce luxe avec storytelling de marque, catalogue produits et parcours d'achat premium.",
+      image: portfolioSegermes,
+      metrics: [
+        { label: "Depuis", value: "1950", icon: Star },
+        { label: "Qualité", value: "Bio", icon: TrendingUp },
+        { label: "Ventes", value: "En ligne", icon: Clock }
+      ],
+      technologies: ["E-commerce", "Design Luxe", "Storytelling"],
+      results: "Positionnement premium",
+      testimonial: "Le site reflète parfaitement la qualité et le positionnement premium de notre marque.",
+      author: "Segermès",
+      slug: "segermes"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
