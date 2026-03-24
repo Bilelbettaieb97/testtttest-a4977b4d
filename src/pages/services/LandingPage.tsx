@@ -76,10 +76,10 @@ const LandingPageService = () => {
   return (
     <>
       <Helmet>
-        <title>Création Landing Page dès 490€ | Optimisée Conversion | ConvertiLab</title>
+        <title>Création Landing Page dès 300€ | Optimisée Conversion | ConvertiLab</title>
         <meta name="description" content="Landing page haute conversion livrée en 5-7 jours. Optimisée pour Google Ads & Meta Ads. +50 clients satisfaits, prix fixe, satisfaction garantie. Devis gratuit." />
         <link rel="canonical" href="https://convertilab.com/services/sites-web/landing-page" />
-        <meta property="og:title" content="Landing Page Haute Conversion dès 490€ | ConvertiLab" />
+        <meta property="og:title" content="Landing Page Haute Conversion dès 300€ | ConvertiLab" />
         <meta property="og:description" content="Landing page optimisée conversion, livrée en 5-7 jours. Prix fixe, satisfaction garantie." />
         <meta property="og:url" content="https://convertilab.com/services/sites-web/landing-page" />
       </Helmet>
@@ -222,7 +222,7 @@ const LandingPageService = () => {
                     </span>
                   </div>
                   <div className="text-center mb-6">
-                    <p className="text-4xl font-black text-foreground">À partir de 490€</p>
+                    <p className="text-4xl font-black text-foreground">À partir de 300€</p>
                     <p className="text-sm text-muted-foreground mt-1">Prix fixe, sans surprise</p>
                   </div>
                   <div className="flex items-center justify-center gap-2 mb-4">

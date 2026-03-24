@@ -8,7 +8,7 @@ const services = [
     icon: <Rocket className="w-8 h-8" />,
     title: 'Landing Page',
     subtitle: 'Page unique optimisée conversion',
-    price: 'À partir de 490€',
+    price: 'À partir de 300€',
     description: 'Page web autonome créée pour convertir vos visiteurs en prospects. Idéale pour campagnes publicitaires et capture de leads.',
     features: [
       'Design 100% responsive',
