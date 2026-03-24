@@ -22,6 +22,7 @@ import portfolioTemplezen from "@/assets/portfolio-templezen-hero.png";
 import portfolioInstitutNomad from "@/assets/portfolio-institut-nomad-hero.png";
 import portfolioAhstudio from "@/assets/portfolio-ahstudio-hero.png";
 import portfolioVinoboat from "@/assets/portfolio-vinoboat-hero.png";
+import portfolioCouleursable from "@/assets/portfolio-couleursable-hero.png";
 
 const Portfolio = () => {
   const cases = [
