@@ -27,7 +27,7 @@ const services = [
     icon: <FileText className="w-8 h-8" />,
     title: 'Site Vitrine',
     subtitle: 'Présentation professionnelle complète',
-    price: 'À partir de 990€',
+    price: 'À partir de 300€',
     description: 'Présentez votre entreprise de manière professionnelle. Renforcez votre crédibilité et soyez visible sur Google.',
     features: [
       'Jusqu\'à 5 pages personnalisées',

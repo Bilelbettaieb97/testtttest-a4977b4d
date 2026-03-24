@@ -12,7 +12,7 @@ interface ServiceLink {
 
 const servicesByCategory: Record<string, ServiceLink[]> = {
   "Business": [
-    { icon: <FileText className="w-5 h-5" />, title: "Site Vitrine", description: "Présentez votre activité dès 990€", href: "/services/sites-web/site-vitrine" },
+    { icon: <FileText className="w-5 h-5" />, title: "Site Vitrine", description: "Présentez votre activité dès 300€", href: "/services/sites-web/site-vitrine" },
     { icon: <Rocket className="w-5 h-5" />, title: "Landing Page", description: "Convertissez vos visiteurs dès 490€", href: "/services/sites-web/landing-page" },
   ],
   "Web Design": [

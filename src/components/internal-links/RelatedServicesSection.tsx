@@ -10,7 +10,7 @@ interface ServiceLink {
 
 const allServices: ServiceLink[] = [
   { icon: <Rocket className="w-5 h-5" />, title: "Landing Page", description: "Page de conversion dès 490€, livrée en 5-7 jours", href: "/services/sites-web/landing-page" },
-  { icon: <FileText className="w-5 h-5" />, title: "Site Vitrine", description: "Jusqu'à 5 pages sur-mesure dès 990€", href: "/services/sites-web/site-vitrine" },
+  { icon: <FileText className="w-5 h-5" />, title: "Site Vitrine", description: "Jusqu'à 5 pages sur-mesure dès 300€", href: "/services/sites-web/site-vitrine" },
   { icon: <ShoppingCart className="w-5 h-5" />, title: "Site E-commerce", description: "Boutique en ligne performante dès 2490€", href: "/services/sites-web/site-ecommerce" },
   { icon: <Search className="w-5 h-5" />, title: "Référencement SEO", description: "Atteignez la page 1 de Google durablement", href: "/services/seo/referencement-seo" },
   { icon: <ClipboardCheck className="w-5 h-5" />, title: "Audit SEO", description: "Diagnostic complet de votre visibilité", href: "/services/seo/audit-seo" },

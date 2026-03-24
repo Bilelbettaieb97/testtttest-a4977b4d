@@ -25,7 +25,7 @@ INFORMATIONS CLÉS À CONNAÎTRE:
 - Délai de livraison: 2-4 semaines
 - Support 24/7 inclus pendant 3 mois
 - +150 sites créés avec 98% de satisfaction client
-- Tarif de base: 990€ pour un site vitrine complet
+- Tarif de base: 300€ pour un site vitrine complet
 
 SERVICES PROPOSÉS:
 - Design web créatif et personnalisé
