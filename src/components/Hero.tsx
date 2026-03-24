@@ -67,8 +67,8 @@ const Hero = () => {
             {/* Main Heading - Benefit-focused */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-slide-up">
               Lancez votre{" "}
-              <span className={`inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 will-change-transform transition-[opacity,transform] duration-300 ${isAnimating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"}`}>
-                {rotatingWords[wordIndex]}
+              <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 will-change-transform">
+                {displayedText}<span className="animate-pulse text-purple-600">|</span>
               </span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
                 en 7 Jours Chrono
