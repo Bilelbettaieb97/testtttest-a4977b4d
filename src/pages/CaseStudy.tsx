@@ -83,6 +83,10 @@ import gallerySegermesFullpage3 from "@/assets/gallery-segermes-fullpage-3.jpg";
 import gallerySegermesFullpage4 from "@/assets/gallery-segermes-fullpage-4.jpg";
 import portfolioSpectacleHero from "@/assets/portfolio-spectacle-hero.png";
 import portfolioEcrindeseoulHero from "@/assets/portfolio-ecrindeseoul-hero.png";
+import galleryEcrindeseoulFullpage1 from "@/assets/gallery-ecrindeseoul-fullpage-1.jpg";
+import galleryEcrindeseoulFullpage2 from "@/assets/gallery-ecrindeseoul-fullpage-2.jpg";
+import galleryEcrindeseoulFullpage3 from "@/assets/gallery-ecrindeseoul-fullpage-3.jpg";
+import galleryEcrindeseoulFullpage4 from "@/assets/gallery-ecrindeseoul-fullpage-4.jpg";
 
 const CaseStudy = () => {
   const { slug } = useParams();
@@ -737,9 +741,10 @@ const CaseStudy = () => {
       subtitle: "Création d'un site vitrine e-commerce moderne pour une boutique spécialisée en skincare coréenne à Neuilly-sur-Seine",
       image: portfolioEcrindeseoulHero,
       gallery: [
-        { src: portfolioEcrindeseoulHero, alt: "Page d'accueil L'Écrin de Séoul", caption: "Design élégant avec univers K-beauty immersif" },
-        { src: portfolioEcrindeseoulHero, alt: "Boutique", caption: "Catalogue de produits skincare coréenne" },
-        { src: portfolioEcrindeseoulHero, alt: "Routines beauté", caption: "Conseils personnalisés et routines skincare" }
+        { src: galleryEcrindeseoulFullpage1, alt: "Page complète L'Écrin de Séoul - Partie 1", caption: "Accueil, produits en vedette et collection K-beauty" },
+        { src: galleryEcrindeseoulFullpage2, alt: "Page complète L'Écrin de Séoul - Partie 2", caption: "Essentiels beauté, boutique et avantages cosmétiques coréens" },
+        { src: galleryEcrindeseoulFullpage3, alt: "Page complète L'Écrin de Séoul - Partie 3", caption: "Résultats avant/après, témoignages et univers skincare" },
+        { src: galleryEcrindeseoulFullpage4, alt: "Page complète L'Écrin de Séoul - Partie 4", caption: "Localisation, contact et footer" }
       ],
       chartData: [
         { name: "Image de marque", before: 25, after: 90 },
