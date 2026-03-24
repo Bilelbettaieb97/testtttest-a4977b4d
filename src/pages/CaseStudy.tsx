@@ -304,6 +304,43 @@ const CaseStudy = () => {
       author: "Alliance Sécurité Incendie",
       role: "Dirigeant"
     },
+    "trievent": {
+      icon: <Sparkles className="w-8 h-8" />,
+      sector: "Recyclage / Événementiel",
+      client: "Tri Event",
+      title: "Site vitrine éco-responsable pour recyclage événementiel",
+      subtitle: "Création d'un site engagé pour une entreprise spécialisée dans le tri et recyclage des déchets événementiels",
+      image: portfolioTrieventHero,
+      gallery: [
+        { src: portfolioTrieventHero, alt: "Page d'accueil Tri Event", caption: "Page d'accueil avec message écologique fort et CTAs" },
+        { src: portfolioTrieventHero, alt: "Services Tri Event", caption: "Présentation des services de collecte et recyclage" },
+        { src: portfolioTrieventHero, alt: "Contact Tri Event", caption: "Formulaire de devis et contact WhatsApp" }
+      ],
+      chartData: [
+        { name: "Visibilité", before: 10, after: 70 },
+        { name: "Crédibilité", before: 20, after: 85 },
+        { name: "Demandes", before: 5, after: 30 }
+      ],
+      challenge: "Tri Event, spécialiste de la collecte et du recyclage de déchets, avait besoin d'un site reflétant son engagement écologique et clarifiant son offre pour les professionnels et particuliers.",
+      solution: "Nous avons créé un site vitrine au design moderne et éco-responsable avec une mise en avant forte de la mission environnementale, une structuration claire des services (collecte, tri, recyclage), des CTAs pour devis gratuit et contact WhatsApp, le tout en version responsive.",
+      metrics: [
+        { label: "Mission", value: "Écologique", description: "Positionnement engagé" },
+        { label: "Services", value: "Complets", description: "Collecte, tri, recyclage" },
+        { label: "Devis", value: "Gratuit", description: "Contact simplifié" },
+        { label: "Mobile", value: "100%", description: "Responsive optimisé" }
+      ],
+      technologies: ["Site Vitrine", "Design Éco", "UX", "Responsive Design"],
+      timeline: [
+        { phase: "Échange", duration: "1 jour", description: "Compréhension de la mission et des services" },
+        { phase: "Design", duration: "3 jours", description: "Design moderne avec identité écologique" },
+        { phase: "Développement", duration: "5 jours", description: "Intégration et optimisation" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne" }
+      ],
+      results: "Tri Event dispose d'un site professionnel qui reflète son engagement écologique et facilite la compréhension de ses services auprès des organisateurs d'événements.",
+      testimonial: "Très satisfait du site réalisé, il reflète parfaitement notre engagement écologique et notre activité. Le rendu est professionnel et clair pour nos clients.",
+      author: "Tri Event",
+      role: "Fondateur"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -576,6 +613,7 @@ const CaseStudy = () => {
     "eleva-conciergerie",
     "adsb-wissembourg",
     "alliance-securite-incendie",
+    "trievent",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
