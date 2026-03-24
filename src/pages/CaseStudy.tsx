@@ -87,6 +87,8 @@ import galleryEcrindeseoulFullpage1 from "@/assets/gallery-ecrindeseoul-fullpage
 import galleryEcrindeseoulFullpage2 from "@/assets/gallery-ecrindeseoul-fullpage-2.jpg";
 import galleryEcrindeseoulFullpage3 from "@/assets/gallery-ecrindeseoul-fullpage-3.jpg";
 import galleryEcrindeseoulFullpage4 from "@/assets/gallery-ecrindeseoul-fullpage-4.jpg";
+import galleryEcrindeseoulBoutique from "@/assets/gallery-ecrindeseoul-boutique.png";
+import galleryEcrindeseoulProduit from "@/assets/gallery-ecrindeseoul-produit.png";
 
 const CaseStudy = () => {
   const { slug } = useParams();
@@ -744,7 +746,9 @@ const CaseStudy = () => {
         { src: galleryEcrindeseoulFullpage1, alt: "Page complète L'Écrin de Séoul - Partie 1", caption: "Accueil, produits en vedette et collection K-beauty" },
         { src: galleryEcrindeseoulFullpage2, alt: "Page complète L'Écrin de Séoul - Partie 2", caption: "Essentiels beauté, boutique et avantages cosmétiques coréens" },
         { src: galleryEcrindeseoulFullpage3, alt: "Page complète L'Écrin de Séoul - Partie 3", caption: "Résultats avant/après, témoignages et univers skincare" },
-        { src: galleryEcrindeseoulFullpage4, alt: "Page complète L'Écrin de Séoul - Partie 4", caption: "Localisation, contact et footer" }
+        { src: galleryEcrindeseoulFullpage4, alt: "Page complète L'Écrin de Séoul - Partie 4", caption: "Localisation, contact et footer" },
+        { src: galleryEcrindeseoulBoutique, alt: "Page boutique L'Écrin de Séoul", caption: "Catalogue produits avec filtres par catégorie" },
+        { src: galleryEcrindeseoulProduit, alt: "Page produit L'Écrin de Séoul", caption: "Fiche produit détaillée avec ingrédients et bienfaits" }
       ],
       chartData: [
         { name: "Image de marque", before: 25, after: 90 },
