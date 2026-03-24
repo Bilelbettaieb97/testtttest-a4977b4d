@@ -138,7 +138,7 @@ const Hero = () => {
               </div>
               <div className="glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-purple-200 flex items-center gap-2 shadow-lg">
                 <CheckCircle className="w-4 h-4 text-purple-600" />
-                <span className="font-semibold text-purple-700">Paiement après livraison</span>
+                <span className="font-semibold text-purple-700">Aucun abonnement</span>
               </div>
               <div className="glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-blue-200 flex items-center gap-2 shadow-lg">
                 <Users className="w-4 h-4 text-blue-600" />
