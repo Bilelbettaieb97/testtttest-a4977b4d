@@ -134,15 +134,15 @@ const Hero = () => {
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 text-sm text-gray-600 animate-fade-in">
               <div className="glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-green-200 flex items-center gap-2 shadow-lg">
                 <Shield className="w-4 h-4 text-green-600" />
-                <span className="font-semibold text-green-700">Satisfait ou remboursé</span>
+                <span className="font-semibold text-green-700">Garantie satisfait</span>
               </div>
               <div className="glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-purple-200 flex items-center gap-2 shadow-lg">
                 <CheckCircle className="w-4 h-4 text-purple-600" />
                 <span className="font-semibold text-purple-700">Paiement après livraison</span>
               </div>
               <div className="glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-blue-200 flex items-center gap-2 shadow-lg">
-                <BarChart3 className="w-4 h-4 text-blue-600" />
-                <span className="font-semibold text-blue-700">5M€+ CA généré</span>
+                <Users className="w-4 h-4 text-blue-600" />
+                <span className="font-semibold text-blue-700">Paris - Île-de-France</span>
               </div>
             </div>
           </div>
