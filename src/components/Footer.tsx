@@ -16,8 +16,6 @@ const Footer = () => {
     { name: "SEO & Référencement", href: "/services/seo" },
     { name: "Google Ads", href: "/services/sea/google-ads" },
     { name: "Meta Ads (Facebook/Instagram)", href: "/services/sea/meta-ads" },
-    { name: "Social Media Management", href: "/services/social-media" },
-    { name: "Email Marketing", href: "/services/social-media" },
     { name: "Branding & Design", href: "/services/design" }
   ];
 
@@ -110,13 +108,10 @@ const Footer = () => {
             </p>
             
             <div className="flex space-x-3 pt-2">
-              <a href="#" aria-label="LinkedIn" className="p-3 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 transition-colors duration-300">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-3 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 transition-colors duration-300">
                 <Linkedin className="w-5 h-5 text-purple-400 hover:text-purple-300" />
               </a>
-              <a href="#" aria-label="Twitter" className="p-3 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 transition-colors duration-300">
-                <Twitter className="w-5 h-5 text-purple-400 hover:text-purple-300" />
-              </a>
-              <a href="#" aria-label="Facebook" className="p-3 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 transition-colors duration-300">
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="p-3 bg-purple-600/20 rounded-lg hover:bg-purple-600/30 transition-colors duration-300">
                 <Facebook className="w-5 h-5 text-purple-400 hover:text-purple-300" />
               </a>
             </div>
@@ -275,8 +270,8 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">&copy; 2024 ConvertiLab. Tous droits réservés.</p>
             <div className="flex flex-wrap gap-2 sm:gap-6 mt-4 sm:mt-0">
-              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors py-2 px-1">Mentions légales</button>
-              <button className="text-gray-400 hover:text-purple-400 text-sm transition-colors py-2 px-1">CGV</button>
+              <button 
+                onClick={() => handleNavigation('/politique-de-confidentialite')}
               <button 
                 onClick={() => handleNavigation('/politique-de-confidentialite')}
                 className="text-gray-400 hover:text-purple-400 text-sm transition-colors py-2 px-1"
