@@ -31,6 +31,11 @@ import galleryFunestoreFullpage1 from "@/assets/gallery-funestore-fullpage-1.jpg
 import galleryFunestoreFullpage2 from "@/assets/gallery-funestore-fullpage-2.jpg";
 import galleryFunestoreFullpage3 from "@/assets/gallery-funestore-fullpage-3.jpg";
 import portfolioPapapretHero from "@/assets/portfolio-papapret-hero.png";
+import galleryPapapretFullpage1 from "@/assets/gallery-papapret-fullpage-1.jpg";
+import galleryPapapretFullpage2 from "@/assets/gallery-papapret-fullpage-2.jpg";
+import galleryPapapretFullpage3 from "@/assets/gallery-papapret-fullpage-3.jpg";
+import galleryPapapretFullpage4 from "@/assets/gallery-papapret-fullpage-4.jpg";
+import galleryPapapretFullpage5 from "@/assets/gallery-papapret-fullpage-5.jpg";
 import portfolioAcbHero from "@/assets/portfolio-acb-hero.png";
 import portfolioElevaHero from "@/assets/portfolio-eleva-hero.png";
 import portfolioAdsbHero from "@/assets/portfolio-adsb-hero.png";
