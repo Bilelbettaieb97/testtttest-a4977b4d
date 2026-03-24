@@ -31,6 +31,7 @@ import portfolioPapapretHero from "@/assets/portfolio-papapret-hero.png";
 import portfolioAcbHero from "@/assets/portfolio-acb-hero.png";
 import portfolioElevaHero from "@/assets/portfolio-eleva-hero.png";
 import portfolioAdsbHero from "@/assets/portfolio-adsb-hero.png";
+import portfolioAsiHero from "@/assets/portfolio-asi-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";

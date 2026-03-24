@@ -16,6 +16,7 @@ import portfolioPapapret from "@/assets/portfolio-papapret-hero.png";
 import portfolioAcb from "@/assets/portfolio-acb-hero.png";
 import portfolioEleva from "@/assets/portfolio-eleva-hero.png";
 import portfolioAdsb from "@/assets/portfolio-adsb-hero.png";
+import portfolioAsi from "@/assets/portfolio-asi-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -126,6 +127,24 @@ const Portfolio = () => {
       testimonial: "Un travail très professionnel sur un projet technique complexe. Le site est clair, moderne et permet de présenter efficacement notre solution.",
       author: "ADSB Wissembourg",
       slug: "adsb-wissembourg"
+    },
+    {
+      icon: <Briefcase className="w-6 h-6 text-red-600" />,
+      sector: "Sécurité Incendie",
+      client: "Alliance Sécurité Incendie",
+      title: "Site vitrine B2B sécurité incendie",
+      description: "Site professionnel avec structuration des services techniques, génération de leads et mise en avant de l'expertise.",
+      image: portfolioAsi,
+      metrics: [
+        { label: "Copropriétés", value: "150+", icon: Users },
+        { label: "Conformité", value: "98%", icon: Star },
+        { label: "Intervention", value: "24h", icon: Clock }
+      ],
+      technologies: ["Site Vitrine", "UX B2B", "Génération Leads"],
+      results: "Positionnement expert",
+      testimonial: "Un site très professionnel qui reflète parfaitement notre expertise et nous aide à présenter efficacement nos services.",
+      author: "Alliance Sécurité Incendie",
+      slug: "alliance-securite-incendie"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
