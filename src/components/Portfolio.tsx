@@ -23,6 +23,7 @@ import portfolioInstitutNomad from "@/assets/portfolio-institut-nomad-hero.png";
 import portfolioAhstudio from "@/assets/portfolio-ahstudio-hero.png";
 import portfolioVinoboat from "@/assets/portfolio-vinoboat-hero.png";
 import portfolioCouleursable from "@/assets/portfolio-couleursable-hero.png";
+import portfolioFilmreel from "@/assets/portfolio-filmreel-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -259,6 +260,24 @@ const Portfolio = () => {
       testimonial: "Le site reflète parfaitement l'image de mon salon. Il est élégant, clair et met vraiment en valeur mon travail.",
       author: "Couleur Sable by K",
       slug: "couleur-sable"
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-orange-500" />,
+      sector: "Production Vidéo",
+      client: "FilmReel Gallery",
+      title: "Site portfolio cinématographique pour agence créative",
+      description: "Site immersif avec design cinématographique, showreel vidéo et portfolio créatif premium.",
+      image: portfolioFilmreel,
+      metrics: [
+        { label: "Impact", value: "Wow", icon: Star },
+        { label: "Projets", value: "Portfolio", icon: TrendingUp },
+        { label: "Booking", value: "En ligne", icon: Clock }
+      ],
+      technologies: ["Site Portfolio", "Design Ciné", "Motion"],
+      results: "Image ultra premium",
+      testimonial: "Le site met parfaitement en valeur mon univers créatif. L'effet visuel est incroyable.",
+      author: "FilmReel Gallery",
+      slug: "filmreel-gallery"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
