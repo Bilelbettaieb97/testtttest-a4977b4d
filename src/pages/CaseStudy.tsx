@@ -87,6 +87,8 @@ import galleryEcrindeseoulFullpage1 from "@/assets/gallery-ecrindeseoul-fullpage
 import galleryEcrindeseoulFullpage2 from "@/assets/gallery-ecrindeseoul-fullpage-2.jpg";
 import galleryEcrindeseoulFullpage3 from "@/assets/gallery-ecrindeseoul-fullpage-3.jpg";
 import galleryEcrindeseoulFullpage4 from "@/assets/gallery-ecrindeseoul-fullpage-4.jpg";
+import galleryEcrindeseoulBoutique from "@/assets/gallery-ecrindeseoul-boutique.png";
+import galleryEcrindeseoulProduit from "@/assets/gallery-ecrindeseoul-produit.png";
 
 const CaseStudy = () => {
   const { slug } = useParams();
