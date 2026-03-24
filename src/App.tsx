@@ -11,9 +11,7 @@ import ScrollToTop from "./components/ScrollToTop";
 // Lazy load all non-homepage routes
 const NewsletterConfirmation = lazy(() => import("./pages/NewsletterConfirmation"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy"));
-const ChatAnalytics = lazy(() => import("./pages/ChatAnalytics"));
 const OffreSpeciale = lazy(() => import("./pages/OffreSpeciale"));
-const Admin = lazy(() => import("./pages/Admin"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
