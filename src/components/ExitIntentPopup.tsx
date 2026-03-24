@@ -35,7 +35,7 @@ const ExitIntentPopup = () => {
         setIsOpen(true);
         setHasShown(true);
       }
-    }, 15000);
+    }, 5000);
 
     // Exit intent: Show popup when mouse leaves viewport at top
     const handleMouseLeave = (e: MouseEvent) => {
