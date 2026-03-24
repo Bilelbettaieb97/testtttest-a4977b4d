@@ -49,6 +49,8 @@ import galleryElevaFullpage3 from "@/assets/gallery-eleva-fullpage-3.jpg";
 import galleryElevaFullpage4 from "@/assets/gallery-eleva-fullpage-4.jpg";
 import galleryElevaFullpage5 from "@/assets/gallery-eleva-fullpage-5.jpg";
 import portfolioAdsbHero from "@/assets/portfolio-adsb-hero.png";
+import galleryAdsbFullpage1 from "@/assets/gallery-adsb-fullpage-1.jpg";
+import galleryAdsbFullpage2 from "@/assets/gallery-adsb-fullpage-2.jpg";
 import portfolioAsiHero from "@/assets/portfolio-asi-hero.png";
 import galleryAsiFullpage1 from "@/assets/gallery-asi-fullpage-1.jpg";
 import galleryAsiFullpage2 from "@/assets/gallery-asi-fullpage-2.jpg";
@@ -289,9 +291,8 @@ const CaseStudy = () => {
       subtitle: "Création d'un site engageant pour promouvoir le don de sang et organiser les collectes",
       image: portfolioAdsbHero,
       gallery: [
-        { src: portfolioAdsbHero, alt: "Page d'accueil ADSB", caption: "Page d'accueil avec message impactant et appel au don" },
-        { src: portfolioAdsbHero, alt: "Collectes ADSB", caption: "Agenda des collectes de sang à venir" },
-        { src: portfolioAdsbHero, alt: "Contact ADSB", caption: "Formulaire pour devenir donneur bénévole" }
+        { src: galleryAdsbFullpage1, alt: "Page complète ADSB - Partie 1", caption: "Accueil, présentation de l'association et prochaines collectes" },
+        { src: galleryAdsbFullpage2, alt: "Page complète ADSB - Partie 2", caption: "Étapes du don, conditions et formulaire de contact" }
       ],
       chartData: [
         { name: "Visibilité", before: 10, after: 75 },
