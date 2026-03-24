@@ -44,9 +44,9 @@ const CaseStudy = () => {
       client: "Monsieur Arancini",
       title: "Site vitrine premium pour artisan sicilien",
       subtitle: "Création d'un site web vitrine haut de gamme pour une marque d'arancini artisanaux",
-      image: portfolioArancini,
+      image: portfolioAranciniHero,
       gallery: [
-        { src: portfolioArancini, alt: "Page d'accueil Monsieur Arancini", caption: "Page d'accueil avec mise en avant de l'authenticité sicilienne" },
+        { src: portfolioAranciniHero, alt: "Page d'accueil Monsieur Arancini", caption: "Page d'accueil avec mise en avant de l'authenticité sicilienne" },
         { src: portfolioArancini, alt: "Catalogue produits", caption: "Présentation des 15+ saveurs d'arancini artisanaux" },
         { src: portfolioArancini, alt: "Section partenaires", caption: "Espace dédié aux professionnels et partenaires B2B" }
       ],
