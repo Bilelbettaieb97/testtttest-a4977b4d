@@ -100,9 +100,9 @@ const CaseStudy = () => {
       subtitle: "Création d'une plateforme e-commerce professionnelle pour les articles funéraires",
       image: portfolioFunestoreHero,
       gallery: [
-        { src: portfolioFunestoreHero, alt: "Page d'accueil Funestore", caption: "Page d'accueil avec accès espace professionnel et catalogue" },
-        { src: portfolioFunestoreHero, alt: "Catalogue produits", caption: "Catalogue complet d'articles funéraires avec tarifs compétitifs" },
-        { src: portfolioFunestoreHero, alt: "Espace client", caption: "Espace client réservé aux professionnels du funéraire" }
+        { src: galleryFunestoreFullpage1, alt: "Page complète Funestore - Partie 1", caption: "Accueil, services, espace professionnel et sélection de produits" },
+        { src: galleryFunestoreFullpage2, alt: "Page complète Funestore - Partie 2", caption: "Catégories, essences de bois et espace communauté professionnelle" },
+        { src: galleryFunestoreFullpage3, alt: "Page complète Funestore - Partie 3", caption: "Catalogue complet et détails des articles funéraires" }
       ],
       chartData: [
         { name: "Visibilité", before: 15, after: 85 },
