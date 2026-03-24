@@ -10,9 +10,28 @@ import portfolioFitness from "@/assets/portfolio-fitness.webp";
 import portfolioBeaute from "@/assets/portfolio-beaute.webp";
 import portfolioFormation from "@/assets/portfolio-formation.webp";
 import portfolioB2B from "@/assets/portfolio-b2b.webp";
+import portfolioArancini from "@/assets/portfolio-arancini.jpg";
 
 const Portfolio = () => {
   const cases = [
+    {
+      icon: <Utensils className="w-6 h-6 text-orange-600" />,
+      sector: "Restauration",
+      client: "Monsieur Arancini",
+      title: "Site vitrine premium pour artisan sicilien",
+      description: "Création de site web vitrine avec design UI/UX premium, optimisation mobile et structuration de l'offre produit.",
+      image: portfolioArancini,
+      metrics: [
+        { label: "Crédibilité", value: "+100%", icon: TrendingUp },
+        { label: "Saveurs", value: "15+", icon: Star },
+        { label: "Certifié", value: "HACCP", icon: Star }
+      ],
+      technologies: ["Site Vitrine", "Design UI/UX", "Branding"],
+      results: "Image de marque premium",
+      testimonial: "Très sérieux et réactifs, ils m'ont fait un très joli site web avec de bons conseils et du professionnalisme. Je recommande vivement !",
+      author: "Monsieur Arancini",
+      slug: undefined
+    },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
       sector: "E-commerce",
