@@ -72,13 +72,14 @@ const Index = () => {
       <FAQSchema faqs={faqData} />
       <ReviewsSchema reviews={reviewsData} />
       
-      <Suspense fallback={null}>
-        <PromoBanner />
-      </Suspense>
-      <Navigation />
-      <section id="hero" style={{ marginTop: '64px' }}>
-        <Hero />
-      </section>
+      <div style={{ paddingTop: '64px' }}>
+        <Suspense fallback={null}>
+          <PromoBanner />
+        </Suspense>
+        <section id="hero">
+          <Hero />
+        </section>
+      </div>
       <Suspense fallback={<div className="min-h-[400px]" />}>
         <AnimatedSection animation="fade-up">
           <section id="portfolio" className="-mt-4" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 600px' } as React.CSSProperties}>
