@@ -108,13 +108,15 @@ const Hero = () => {
             {/* CTAs - Action-oriented with value */}
             <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 sm:gap-4 mb-6 animate-slide-up">
               <Button 
-                onClick={openPriceEstimator} 
+                asChild
                 size="lg" 
                 className="group w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl"
               >
-                <Zap className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                Estimer mon projet gratuitement
-                <ArrowRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                <a href="/portfolio">
+                  <Rocket className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+                  Découvrir nos réalisations
+                  <ArrowRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </a>
               </Button>
 
               <Button 
