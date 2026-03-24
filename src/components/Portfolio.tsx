@@ -18,6 +18,7 @@ import portfolioEleva from "@/assets/portfolio-eleva-hero.png";
 import portfolioAdsb from "@/assets/portfolio-adsb-hero.png";
 import portfolioAsi from "@/assets/portfolio-asi-hero.png";
 import portfolioTrievent from "@/assets/portfolio-trievent-hero.png";
+import portfolioTemplezen from "@/assets/portfolio-templezen-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -164,6 +165,24 @@ const Portfolio = () => {
       testimonial: "Le site reflète parfaitement notre engagement écologique et notre activité. Le rendu est professionnel et clair.",
       author: "Tri Event",
       slug: "trievent"
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-amber-600" />,
+      sector: "Bien-être / Massage",
+      client: "Le Temple de l'Énergie",
+      title: "Site vitrine immersif pour espace bien-être",
+      description: "Site apaisant avec design zen premium, structuration des prestations et optimisation pour la prise de rendez-vous.",
+      image: portfolioTemplezen,
+      metrics: [
+        { label: "Ambiance", value: "Premium", icon: Star },
+        { label: "Prestations", value: "Claires", icon: TrendingUp },
+        { label: "Réservation", value: "En ligne", icon: Clock }
+      ],
+      technologies: ["Site Vitrine", "Design Zen", "UX Booking"],
+      results: "Image haut de gamme",
+      testimonial: "Le site reflète parfaitement l'univers que je voulais transmettre. C'est élégant, apaisant et très professionnel.",
+      author: "Le Temple de l'Énergie",
+      slug: "temple-zen"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
