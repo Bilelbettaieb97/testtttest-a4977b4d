@@ -88,12 +88,12 @@ const CaseStudyGallery = ({ images }: CaseStudyGalleryProps) => {
 
         {/* Lightbox Dialog */}
         <Dialog open={selectedIndex !== null} onOpenChange={closeLightbox}>
-          <DialogContent className="max-w-5xl w-full p-0 bg-black/95 border-0">
-            <div className="relative">
+          <DialogContent className="max-w-5xl w-full p-0 bg-black/95 border-0 max-h-[90vh] flex flex-col">
+            <div className="relative flex flex-col h-full">
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute top-4 right-4 z-50 text-white hover:bg-white/20"
+                className="absolute top-4 right-4 z-50 text-white hover:bg-white/20 sticky"
                 onClick={closeLightbox}
               >
                 <X className="w-6 h-6" />
@@ -101,17 +101,17 @@ const CaseStudyGallery = ({ images }: CaseStudyGalleryProps) => {
 
               {selectedIndex !== null && (
                 <>
-                  <div className="relative">
+                  <div className="overflow-y-auto max-h-[85vh]">
                     <img
                       src={images[selectedIndex].src}
                       alt={images[selectedIndex].alt}
                       className="w-full h-auto"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                      <p className="text-white text-lg font-medium">
-                        {images[selectedIndex].caption}
-                      </p>
-                    </div>
+                  </div>
+                  <div className="bg-black/80 p-4 shrink-0">
+                    <p className="text-white text-lg font-medium">
+                      {images[selectedIndex].caption}
+                    </p>
                   </div>
 
                   {/* Navigation Buttons */}
