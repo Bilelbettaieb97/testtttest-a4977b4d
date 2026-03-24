@@ -82,6 +82,7 @@ import gallerySegermesFullpage2 from "@/assets/gallery-segermes-fullpage-2.jpg";
 import gallerySegermesFullpage3 from "@/assets/gallery-segermes-fullpage-3.jpg";
 import gallerySegermesFullpage4 from "@/assets/gallery-segermes-fullpage-4.jpg";
 import portfolioSpectacleHero from "@/assets/portfolio-spectacle-hero.png";
+import portfolioEcrindeseoulHero from "@/assets/portfolio-ecrindeseoul-hero.png";
 
 const CaseStudy = () => {
   const { slug } = useParams();
@@ -728,6 +729,43 @@ const CaseStudy = () => {
       author: "Spectacle",
       role: "Organisateur"
     },
+    "ecrin-de-seoul": {
+      icon: <Sparkles className="w-8 h-8" />,
+      sector: "Cosmétique / K-Beauty",
+      client: "L'Écrin de Séoul",
+      title: "Site e-commerce pour boutique de cosmétique coréenne",
+      subtitle: "Création d'un site vitrine e-commerce moderne pour une boutique spécialisée en skincare coréenne à Neuilly-sur-Seine",
+      image: portfolioEcrindeseoulHero,
+      gallery: [
+        { src: portfolioEcrindeseoulHero, alt: "Page d'accueil L'Écrin de Séoul", caption: "Design élégant avec univers K-beauty immersif" },
+        { src: portfolioEcrindeseoulHero, alt: "Boutique", caption: "Catalogue de produits skincare coréenne" },
+        { src: portfolioEcrindeseoulHero, alt: "Routines beauté", caption: "Conseils personnalisés et routines skincare" }
+      ],
+      chartData: [
+        { name: "Image de marque", before: 25, after: 90 },
+        { name: "Ventes en ligne", before: 10, after: 65 },
+        { name: "Engagement", before: 20, after: 80 }
+      ],
+      challenge: "L'Écrin de Séoul, boutique spécialisée en cosmétique coréenne à Neuilly-sur-Seine, avait besoin d'un site à la hauteur de l'univers K-beauty : moderne, esthétique et orienté vers la vente en ligne avec une expérience utilisateur premium.",
+      solution: "Nous avons créé un site vitrine e-commerce avec un design raffiné inspiré de l'univers K-beauty, une structuration claire des produits par routine skincare, des visuels immersifs, un branding cohérent et des CTAs optimisés pour la conversion (découverte → achat).",
+      metrics: [
+        { label: "Niche", value: "K-Beauty", description: "Positionnement tendance" },
+        { label: "Produits", value: "En ligne", description: "Catalogue complet" },
+        { label: "UX", value: "Premium", description: "Parcours client fluide" },
+        { label: "Mobile", value: "100%", description: "Responsive optimisé" }
+      ],
+      technologies: ["E-commerce", "Design Beauté", "UX Premium", "Branding K-Beauty"],
+      timeline: [
+        { phase: "Briefing", duration: "1 jour", description: "Immersion dans l'univers K-beauty" },
+        { phase: "Design", duration: "3 jours", description: "Création du design esthétique et moderne" },
+        { phase: "Développement", duration: "5 jours", description: "Intégration e-commerce et catalogue" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne et optimisation" }
+      ],
+      results: "L'Écrin de Séoul dispose d'un site moderne et immersif qui reflète parfaitement l'univers de la K-beauty, facilitant la découverte des produits et la conversion en achat.",
+      testimonial: "Le site reflète parfaitement l'univers de la K-beauty. Il est moderne, clair et donne vraiment envie de découvrir les produits. Très satisfait du rendu.",
+      author: "L'Écrin de Séoul",
+      role: "Fondatrice"
+    },
   };
 
   const caseStudy = slug ? caseStudies[slug as keyof typeof caseStudies] : null;
@@ -750,7 +788,8 @@ const CaseStudy = () => {
     "filmreel-gallery",
     "art-des-roses",
     "segermes",
-    "spectacle"
+    "spectacle",
+    "ecrin-de-seoul"
   ];
 
   // Get navigation projects
