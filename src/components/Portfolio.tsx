@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ShoppingCart, Utensils, Home, Users, TrendingUp, Clock, Star, ChevronLeft, ChevronRight, Sparkles, BookOpen, Briefcase } from "lucide-react";
 import PortfolioCard from "./portfolio/PortfolioCard";
@@ -21,7 +22,11 @@ import portfolioArtdesroses from "@/assets/portfolio-artdesroses-hero.png";
 import portfolioSegermes from "@/assets/portfolio-segermes-hero.png";
 import portfolioSpectacle from "@/assets/portfolio-spectacle-hero.png";
 
-const Portfolio = () => {
+interface PortfolioProps {
+  activeCategory?: string;
+}
+
+const Portfolio = ({ activeCategory }: PortfolioProps) => {
   const cases = [
     {
       icon: <Utensils className="w-6 h-6 text-orange-600" />,
@@ -39,7 +44,8 @@ const Portfolio = () => {
       results: "Image de marque premium",
       testimonial: "Très sérieux et réactifs, ils m'ont fait un très joli site web avec de bons conseils et du professionnalisme. Je recommande vivement !",
       author: "Monsieur Arancini",
-      slug: "monsieur-arancini"
+      slug: "monsieur-arancini",
+      category: "site-vitrine"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-purple-600" />,
@@ -57,7 +63,8 @@ const Portfolio = () => {
       results: "Digitalisation complète",
       testimonial: "Billel a pris le temps de bien comprendre notre écosystème et de proposer un magnifique site dans un domaine assez feutré et confidentiel.",
       author: "Funestore",
-      slug: "funestore"
+      slug: "funestore",
+      category: "e-commerce"
     },
     {
       icon: <BookOpen className="w-6 h-6 text-indigo-600" />,
@@ -75,7 +82,8 @@ const Portfolio = () => {
       results: "Tunnel de vente optimisé",
       testimonial: "Un vrai partenaire très réactif qui pense votre projet pour enclencher une compréhension immédiate et un passage à l'acte d'achat.",
       author: "Gilles",
-      slug: "papapret"
+      slug: "papapret",
+      category: "landing-page"
     },
     {
       icon: <Home className="w-6 h-6 text-orange-600" />,
@@ -93,7 +101,8 @@ const Portfolio = () => {
       results: "Présence digitale pro",
       testimonial: "Réactivité impressionnante et compréhension de mes besoins. Le site a été fait dans la journée. Déjà 2 collègues vont travailler avec lui.",
       author: "ACB Rénovation",
-      slug: "acb-renovation"
+      slug: "acb-renovation",
+      category: "site-vitrine"
     },
     {
       icon: <Home className="w-6 h-6 text-amber-700" />,
@@ -111,7 +120,8 @@ const Portfolio = () => {
       results: "Positionnement premium",
       testimonial: "Le site est incroyable, très professionnel et surtout pensé pour vendre. Le rendu est premium et optimisé pour convertir.",
       author: "Eleva Conciergerie",
-      slug: "eleva-conciergerie"
+      slug: "eleva-conciergerie",
+      category: "site-vitrine"
     },
     {
       icon: <Users className="w-6 h-6 text-red-600" />,
@@ -129,7 +139,8 @@ const Portfolio = () => {
       results: "Visibilité digitale",
       testimonial: "Un travail très professionnel sur un projet technique complexe. Le site est clair, moderne et permet de présenter efficacement notre solution.",
       author: "ADSB Wissembourg",
-      slug: "adsb-wissembourg"
+      slug: "adsb-wissembourg",
+      category: "site-vitrine"
     },
     {
       icon: <Briefcase className="w-6 h-6 text-red-600" />,
@@ -147,7 +158,8 @@ const Portfolio = () => {
       results: "Positionnement expert",
       testimonial: "Un site très professionnel qui reflète parfaitement notre expertise et nous aide à présenter efficacement nos services.",
       author: "Alliance Sécurité Incendie",
-      slug: "alliance-securite-incendie"
+      slug: "alliance-securite-incendie",
+      category: "site-vitrine"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-green-600" />,
@@ -165,7 +177,8 @@ const Portfolio = () => {
       results: "Positionnement écologique",
       testimonial: "Le site reflète parfaitement notre engagement écologique et notre activité. Le rendu est professionnel et clair.",
       author: "Tri Event",
-      slug: "trievent"
+      slug: "trievent",
+      category: "site-vitrine"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-amber-600" />,
@@ -183,7 +196,8 @@ const Portfolio = () => {
       results: "Image haut de gamme",
       testimonial: "Le site reflète parfaitement l'univers que je voulais transmettre. C'est élégant, apaisant et très professionnel.",
       author: "Le Temple de l'Énergie",
-      slug: "temple-zen"
+      slug: "temple-zen",
+      category: "site-vitrine"
     },
     {
       icon: <BookOpen className="w-6 h-6 text-yellow-600" />,
@@ -201,7 +215,8 @@ const Portfolio = () => {
       results: "Positionnement éducatif unique",
       testimonial: "Convertilab a compris rapidement ce que je souhaitais mettre en avant. Il a rendu mon site plus professionnel avec une grande autonomie de gestion.",
       author: "Institut Nomad",
-      slug: "institut-nomad"
+      slug: "institut-nomad",
+      category: "site-vitrine"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-rose-600" />,
@@ -219,7 +234,8 @@ const Portfolio = () => {
       results: "Image professionnelle renforcée",
       testimonial: "De l'idée à la finition, Bilel nous accompagne tout le long. Disponible et accessible, mon expérience client est plus que parfaite.",
       author: "AH Studio Caen",
-      slug: "ah-studio"
+      slug: "ah-studio",
+      category: "portfolio"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-blue-600" />,
@@ -237,7 +253,8 @@ const Portfolio = () => {
       results: "Positionnement premium exclusif",
       testimonial: "Le site est exactement à l'image de notre service : élégant, premium et immersif.",
       author: "Vinoboat Prestige",
-      slug: "vinoboat"
+      slug: "vinoboat",
+      category: "landing-page"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-amber-500" />,
@@ -255,7 +272,8 @@ const Portfolio = () => {
       results: "Image salon premium",
       testimonial: "Le site reflète parfaitement l'image de mon salon. Il est élégant, clair et met vraiment en valeur mon travail.",
       author: "Couleur Sable by K",
-      slug: "couleur-sable"
+      slug: "couleur-sable",
+      category: "site-vitrine"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-orange-500" />,
@@ -273,7 +291,8 @@ const Portfolio = () => {
       results: "Image ultra premium",
       testimonial: "Le site met parfaitement en valeur mon univers créatif. L'effet visuel est incroyable.",
       author: "FilmReel Gallery",
-      slug: "filmreel-gallery"
+      slug: "filmreel-gallery",
+      category: "portfolio"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-rose-700" />,
@@ -291,7 +310,8 @@ const Portfolio = () => {
       results: "Digitalisation des ventes",
       testimonial: "Le site met parfaitement en valeur mes œuvres et me permet enfin de les vendre en ligne.",
       author: "Art des Roses",
-      slug: "art-des-roses"
+      slug: "art-des-roses",
+      category: "e-commerce"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-yellow-700" />,
@@ -309,7 +329,8 @@ const Portfolio = () => {
       results: "Positionnement premium",
       testimonial: "Le site reflète parfaitement la qualité et le positionnement premium de notre marque.",
       author: "Segermès",
-      slug: "segermes"
+      slug: "segermes",
+      category: "e-commerce"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-pink-500" />,
@@ -327,41 +348,87 @@ const Portfolio = () => {
       results: "Promotion digitale réussie",
       testimonial: "Le site met parfaitement en valeur notre spectacle. Il est dynamique et donne immédiatement envie.",
       author: "Spectacle",
-      slug: "spectacle"
+      slug: "spectacle",
+      category: "landing-page"
     }
   ];
+
+  const isFiltered = activeCategory && activeCategory !== "all";
+
+  const filteredCases = useMemo(() => {
+    if (!isFiltered) return cases;
+    return cases.filter(c => c.category === activeCategory);
+  }, [activeCategory]);
+
+  // When filtered, show grid. Otherwise show carousel (homepage behavior)
+  if (isFiltered) {
+    return (
+      <section className="py-8 sm:py-12 bg-gradient-to-br from-slate-50 via-purple-50/30 to-pink-50/30 relative overflow-hidden" id="portfolio">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <p className="text-center text-muted-foreground mb-6 font-medium">
+            {filteredCases.length} projet{filteredCases.length > 1 ? 's' : ''} trouvé{filteredCases.length > 1 ? 's' : ''}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {filteredCases.map((caseStudy, index) => (
+              <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 80}ms` }}>
+                <PortfolioCard caseStudy={caseStudy} />
+              </div>
+            ))}
+          </div>
+          <PortfolioCTA />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="pt-4 sm:pt-6 pb-8 sm:pb-12 bg-gradient-to-br from-slate-50 via-purple-50/30 to-pink-50/30 relative overflow-hidden" id="portfolio">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <PortfolioHeader />
+        {!activeCategory && <PortfolioHeader />}
 
-        <div className="mb-8 relative" style={{ minHeight: '420px', contentVisibility: 'auto', containIntrinsicSize: 'auto 420px' } as React.CSSProperties}>
-          <Carousel className="w-full max-w-6xl mx-auto" opts={{ align: "start", loop: true, containScroll: "trimSnaps" }}>
-            <CarouselContent className="-ml-2 md:-ml-4 items-stretch" style={{ willChange: 'transform' }}>
+        {/* Show all in grid when on portfolio page, carousel on homepage */}
+        {activeCategory !== undefined ? (
+          <>
+            <p className="text-center text-muted-foreground mb-6 font-medium">
+              {cases.length} projets
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {cases.map((caseStudy, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 80}ms` }}>
                   <PortfolioCard caseStudy={caseStudy} />
-                </CarouselItem>
+                </div>
               ))}
-            </CarouselContent>
+            </div>
+          </>
+        ) : (
+          <div className="mb-8 relative" style={{ minHeight: '420px', contentVisibility: 'auto', containIntrinsicSize: 'auto 420px' } as React.CSSProperties}>
+            <Carousel className="w-full max-w-6xl mx-auto" opts={{ align: "start", loop: true, containScroll: "trimSnaps" }}>
+              <CarouselContent className="-ml-2 md:-ml-4 items-stretch" style={{ willChange: 'transform' }}>
+                {cases.map((caseStudy, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                    <PortfolioCard caseStudy={caseStudy} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              
+              <CarouselPrevious className="hidden md:flex -left-12 bg-white shadow-xl border-2 border-purple-200 text-purple-600 w-12 h-12 hover:bg-purple-50 hover:border-purple-300 transition-all duration-300 hover:scale-110">
+                <ChevronLeft className="h-6 w-6" />
+              </CarouselPrevious>
+              <CarouselNext className="hidden md:flex -right-12 bg-white shadow-xl border-2 border-purple-200 text-purple-600 w-12 h-12 hover:bg-purple-50 hover:border-purple-300 transition-all duration-300 hover:scale-110">
+                <ChevronRight className="h-6 w-6" />
+              </CarouselNext>
+            </Carousel>
             
-            <CarouselPrevious className="hidden md:flex -left-12 bg-white shadow-xl border-2 border-purple-200 text-purple-600 w-12 h-12 hover:bg-purple-50 hover:border-purple-300 transition-all duration-300 hover:scale-110">
-              <ChevronLeft className="h-6 w-6" />
-            </CarouselPrevious>
-            <CarouselNext className="hidden md:flex -right-12 bg-white shadow-xl border-2 border-purple-200 text-purple-600 w-12 h-12 hover:bg-purple-50 hover:border-purple-300 transition-all duration-300 hover:scale-110">
-              <ChevronRight className="h-6 w-6" />
-            </CarouselNext>
-          </Carousel>
-          
-          <div className="flex md:hidden justify-center mt-4 text-sm text-gray-600 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mx-auto w-fit shadow-lg border border-purple-100">
-            <ChevronLeft className="w-4 h-4 mr-1 text-purple-600" />
-            <span className="font-medium">Glissez pour voir plus d'exemples</span>
-            <ChevronRight className="w-4 h-4 ml-1 text-purple-600" />
+            <div className="flex md:hidden justify-center mt-4 text-sm text-gray-600 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mx-auto w-fit shadow-lg border border-purple-100">
+              <ChevronLeft className="w-4 h-4 mr-1 text-purple-600" />
+              <span className="font-medium">Glissez pour voir plus d'exemples</span>
+              <ChevronRight className="w-4 h-4 ml-1 text-purple-600" />
+            </div>
           </div>
-        </div>
+        )}
 
         <PortfolioCTA />
       </div>
