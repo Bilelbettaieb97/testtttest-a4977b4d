@@ -1,15 +1,8 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ShoppingCart, Utensils, Home, Users, TrendingUp, Clock, Star, ChevronLeft, ChevronRight, Dumbbell, Sparkles, BookOpen, Briefcase } from "lucide-react";
+import { ShoppingCart, Utensils, Home, Users, TrendingUp, Clock, Star, ChevronLeft, ChevronRight, Sparkles, BookOpen, Briefcase } from "lucide-react";
 import PortfolioCard from "./portfolio/PortfolioCard";
 import PortfolioHeader from "./portfolio/PortfolioHeader";
 import PortfolioCTA from "./portfolio/PortfolioCTA";
-import portfolioEcommerce from "@/assets/portfolio-ecommerce.webp";
-import portfolioRestaurant from "@/assets/portfolio-restaurant.webp";
-import portfolioImmobilier from "@/assets/portfolio-immobilier.webp";
-import portfolioFitness from "@/assets/portfolio-fitness.webp";
-import portfolioBeaute from "@/assets/portfolio-beaute.webp";
-import portfolioFormation from "@/assets/portfolio-formation.webp";
-import portfolioB2B from "@/assets/portfolio-b2b.webp";
 import portfolioArancini from "@/assets/portfolio-arancini-hero.png";
 import portfolioFunestore from "@/assets/portfolio-funestore-hero.png";
 import portfolioPapapret from "@/assets/portfolio-papapret-hero.png";

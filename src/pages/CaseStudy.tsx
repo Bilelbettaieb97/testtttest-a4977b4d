@@ -1,5 +1,5 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { ArrowLeft, ShoppingCart, Utensils, Home, Dumbbell, Sparkles, BookOpen, Briefcase, Users } from "lucide-react";
+import { ArrowLeft, Utensils, ShoppingCart, Home, Sparkles, BookOpen, Briefcase, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import Navigation from "@/components/Navigation";
@@ -17,13 +17,6 @@ import CaseStudyTimeline from "@/components/case-study/CaseStudyTimeline";
 import CaseStudyTestimonial from "@/components/case-study/CaseStudyTestimonial";
 import CaseStudyCTA from "@/components/case-study/CaseStudyCTA";
 import CaseStudyNavigation from "@/components/case-study/CaseStudyNavigation";
-import portfolioEcommerce from "@/assets/portfolio-ecommerce.webp";
-import portfolioRestaurant from "@/assets/portfolio-restaurant.webp";
-import portfolioImmobilier from "@/assets/portfolio-immobilier.webp";
-import portfolioFitness from "@/assets/portfolio-fitness.webp";
-import portfolioBeaute from "@/assets/portfolio-beaute.webp";
-import portfolioFormation from "@/assets/portfolio-formation.webp";
-import portfolioB2B from "@/assets/portfolio-b2b.webp";
 import portfolioArancini from "@/assets/portfolio-arancini.jpg";
 import portfolioAranciniHero from "@/assets/portfolio-arancini-hero.png";
 import portfolioFunestoreHero from "@/assets/portfolio-funestore-hero.png";
@@ -42,12 +35,6 @@ import portfolioFilmreelHero from "@/assets/portfolio-filmreel-hero.png";
 import portfolioArtdesrosesHero from "@/assets/portfolio-artdesroses-hero.png";
 import portfolioSegermesHero from "@/assets/portfolio-segermes-hero.png";
 import portfolioSpectacleHero from "@/assets/portfolio-spectacle-hero.png";
-import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
-import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
-import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
-import galleryRestaurant2 from "@/assets/gallery-restaurant-2.jpg";
-import galleryImmobilier1 from "@/assets/gallery-immobilier-1.jpg";
-import galleryImmobilier2 from "@/assets/gallery-immobilier-2.jpg";
 
 const CaseStudy = () => {
   const { slug } = useParams();
