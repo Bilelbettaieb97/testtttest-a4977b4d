@@ -29,6 +29,7 @@ import portfolioAranciniHero from "@/assets/portfolio-arancini-hero.png";
 import portfolioFunestoreHero from "@/assets/portfolio-funestore-hero.png";
 import portfolioPapapretHero from "@/assets/portfolio-papapret-hero.png";
 import portfolioAcbHero from "@/assets/portfolio-acb-hero.png";
+import portfolioElevaHero from "@/assets/portfolio-eleva-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
