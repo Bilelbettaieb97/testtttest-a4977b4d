@@ -37,6 +37,7 @@ import portfolioTemplezenHero from "@/assets/portfolio-templezen-hero.png";
 import portfolioInstitutNomadHero from "@/assets/portfolio-institut-nomad-hero.png";
 import portfolioAhstudioHero from "@/assets/portfolio-ahstudio-hero.png";
 import portfolioVinoboatHero from "@/assets/portfolio-vinoboat-hero.png";
+import portfolioCouleursableHero from "@/assets/portfolio-couleursable-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -493,6 +494,43 @@ const CaseStudy = () => {
       author: "Vinoboat Prestige",
       role: "Fondateur"
     },
+    "couleur-sable": {
+      icon: <Sparkles className="w-8 h-8" />,
+      sector: "Coiffure / Beauté",
+      client: "Couleur Sable by K",
+      title: "Site vitrine premium pour salon de coiffure & Head Spa",
+      subtitle: "Création d'un site élégant pour un salon de coiffure spécialisé avec 35 ans d'expérience à Haguenau",
+      image: portfolioCouleursableHero,
+      gallery: [
+        { src: portfolioCouleursableHero, alt: "Page d'accueil Couleur Sable", caption: "Design élégant mettant en valeur le savoir-faire capillaire" },
+        { src: portfolioCouleursableHero, alt: "Prestations", caption: "Structuration des services : coupe, coloration, Head Spa" },
+        { src: portfolioCouleursableHero, alt: "Réservation", caption: "Prise de rendez-vous en ligne optimisée" }
+      ],
+      chartData: [
+        { name: "Image pro", before: 35, after: 95 },
+        { name: "Compréhension", before: 30, after: 90 },
+        { name: "Réservations", before: 20, after: 60 }
+      ],
+      challenge: "Le salon Couleur Sable by K disposait de 35 ans d'expérience et d'un savoir-faire reconnu, mais n'avait pas de présence digitale à la hauteur de son expertise. Les prestations n'étaient pas clairement présentées en ligne et le potentiel de réservation était sous-exploité.",
+      solution: "Nous avons créé un site vitrine élégant et féminin avec une mise en valeur du savoir-faire (colorations naturelles, Head Spa japonais), une structuration claire des prestations, des CTAs de réservation optimisés et une identité visuelle premium reflétant l'univers du salon.",
+      metrics: [
+        { label: "Expérience", value: "35+ ans", description: "Savoir-faire reconnu" },
+        { label: "Études", value: "6 ans", description: "Formation spécialisée" },
+        { label: "Produits", value: "100%", description: "Naturels et sans ammoniaque" },
+        { label: "Réservation", value: "En ligne", description: "Prise de RDV simplifiée" }
+      ],
+      technologies: ["Site Vitrine", "Design Beauté", "UX Premium", "Responsive Design"],
+      timeline: [
+        { phase: "Découverte", duration: "1 jour", description: "Immersion dans l'univers du salon" },
+        { phase: "Design", duration: "3 jours", description: "Création du design élégant et féminin" },
+        { phase: "Développement", duration: "5 jours", description: "Intégration et fonctionnalités" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne et ajustements" }
+      ],
+      results: "Couleur Sable by K dispose d'un site à l'image de son salon : élégant, professionnel et mettant en valeur son savoir-faire unique en coiffure et Head Spa.",
+      testimonial: "Le site reflète parfaitement l'image de mon salon. Il est élégant, clair et met vraiment en valeur mon travail. Mes clientes adorent.",
+      author: "Couleur Sable by K",
+      role: "Fondatrice"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -770,6 +808,7 @@ const CaseStudy = () => {
     "institut-nomad",
     "ah-studio",
     "vinoboat",
+    "couleur-sable",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
