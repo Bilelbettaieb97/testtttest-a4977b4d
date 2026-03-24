@@ -89,6 +89,7 @@ const Portfolio = () => {
       author: "ACB Rénovation",
       slug: "acb-renovation"
     },
+    {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
       sector: "E-commerce",
       client: "Boutique Élégance",
