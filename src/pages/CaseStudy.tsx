@@ -27,6 +27,9 @@ import galleryArancini5 from "@/assets/gallery-arancini-5.png";
 import galleryAranciniFullpage1 from "@/assets/gallery-arancini-fullpage-1.jpg";
 import galleryAranciniFullpage2 from "@/assets/gallery-arancini-fullpage-2.jpg";
 import portfolioFunestoreHero from "@/assets/portfolio-funestore-hero.png";
+import galleryFunestoreFullpage1 from "@/assets/gallery-funestore-fullpage-1.jpg";
+import galleryFunestoreFullpage2 from "@/assets/gallery-funestore-fullpage-2.jpg";
+import galleryFunestoreFullpage3 from "@/assets/gallery-funestore-fullpage-3.jpg";
 import portfolioPapapretHero from "@/assets/portfolio-papapret-hero.png";
 import portfolioAcbHero from "@/assets/portfolio-acb-hero.png";
 import portfolioElevaHero from "@/assets/portfolio-eleva-hero.png";
@@ -97,9 +100,9 @@ const CaseStudy = () => {
       subtitle: "Création d'une plateforme e-commerce professionnelle pour les articles funéraires",
       image: portfolioFunestoreHero,
       gallery: [
-        { src: portfolioFunestoreHero, alt: "Page d'accueil Funestore", caption: "Page d'accueil avec accès espace professionnel et catalogue" },
-        { src: portfolioFunestoreHero, alt: "Catalogue produits", caption: "Catalogue complet d'articles funéraires avec tarifs compétitifs" },
-        { src: portfolioFunestoreHero, alt: "Espace client", caption: "Espace client réservé aux professionnels du funéraire" }
+        { src: galleryFunestoreFullpage1, alt: "Page complète Funestore - Partie 1", caption: "Accueil, services, espace professionnel et sélection de produits" },
+        { src: galleryFunestoreFullpage2, alt: "Page complète Funestore - Partie 2", caption: "Catégories, essences de bois et espace communauté professionnelle" },
+        { src: galleryFunestoreFullpage3, alt: "Page complète Funestore - Partie 3", caption: "Catalogue complet et détails des articles funéraires" }
       ],
       chartData: [
         { name: "Visibilité", before: 15, after: 85 },
