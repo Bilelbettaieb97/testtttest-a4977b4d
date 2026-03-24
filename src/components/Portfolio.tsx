@@ -21,6 +21,7 @@ import portfolioFilmreel from "@/assets/portfolio-filmreel-hero.png";
 import portfolioArtdesroses from "@/assets/portfolio-artdesroses-hero.png";
 import portfolioSegermes from "@/assets/portfolio-segermes-hero.png";
 import portfolioSpectacle from "@/assets/portfolio-spectacle-hero.png";
+import portfolioEcrindeseoul from "@/assets/portfolio-ecrindeseoul-hero.png";
 
 interface PortfolioProps {
   activeCategory?: string;
@@ -350,6 +351,25 @@ const Portfolio = ({ activeCategory }: PortfolioProps) => {
       author: "Spectacle",
       slug: "spectacle",
       category: "landing-page"
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-rose-400" />,
+      sector: "Cosmétique / K-Beauty",
+      client: "L'Écrin de Séoul",
+      title: "Site e-commerce pour boutique cosmétique coréenne",
+      description: "Site vitrine e-commerce avec design K-beauty raffiné, catalogue produits skincare et parcours d'achat optimisé.",
+      image: portfolioEcrindeseoul,
+      metrics: [
+        { label: "Niche", value: "K-Beauty", icon: Star },
+        { label: "Produits", value: "En ligne", icon: TrendingUp },
+        { label: "UX", value: "Premium", icon: Clock }
+      ],
+      technologies: ["E-commerce", "Design Beauté", "Branding K-Beauty"],
+      results: "Positionnement K-beauty moderne",
+      testimonial: "Le site reflète parfaitement l'univers de la K-beauty. Il est moderne, clair et donne vraiment envie de découvrir les produits.",
+      author: "L'Écrin de Séoul",
+      slug: "ecrin-de-seoul",
+      category: "e-commerce"
     }
   ];
 
