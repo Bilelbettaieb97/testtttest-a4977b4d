@@ -444,12 +444,12 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
           </div>
         )}
 
-        {/* Show grid when filtered, carousel when "all" on homepage */}
-        {(isHomepage && internalCategory === "all") ? (
+        {/* Always carousel on homepage, filtered or not */}
+        {isHomepage ? (
           <div className="mb-8 relative" style={{ minHeight: '420px', contentVisibility: 'auto', containIntrinsicSize: 'auto 420px' } as React.CSSProperties}>
             <Carousel className="w-full max-w-6xl mx-auto" opts={{ align: "start", loop: true, containScroll: "trimSnaps" }}>
               <CarouselContent className="-ml-2 md:-ml-4 items-stretch" style={{ willChange: 'transform' }}>
-                {cases.map((caseStudy, index) => (
+                {filteredCases.map((caseStudy, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                     <PortfolioCard caseStudy={caseStudy} />
                   </CarouselItem>
