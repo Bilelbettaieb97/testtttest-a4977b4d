@@ -190,6 +190,43 @@ const CaseStudy = () => {
       author: "ACB Rénovation",
       role: "Dirigeant"
     },
+    "eleva-conciergerie": {
+      icon: <Home className="w-8 h-8" />,
+      sector: "Conciergerie / Immobilier",
+      client: "Eleva Conciergerie",
+      title: "Site premium pour conciergerie locative haut de gamme",
+      subtitle: "Création d'un site luxueux pour une conciergerie de location courte durée avec tunnel de conversion",
+      image: portfolioElevaHero,
+      gallery: [
+        { src: portfolioElevaHero, alt: "Page d'accueil Eleva Conciergerie", caption: "Design premium avec estimation de revenus gratuite" },
+        { src: portfolioElevaHero, alt: "Services Eleva", caption: "Présentation des services de gestion locative haut de gamme" },
+        { src: portfolioElevaHero, alt: "Témoignages", caption: "Preuves sociales et résultats propriétaires" }
+      ],
+      chartData: [
+        { name: "Crédibilité", before: 20, after: 95 },
+        { name: "Leads", before: 5, after: 40 },
+        { name: "Conversion", before: 2, after: 15 }
+      ],
+      challenge: "Eleva Conciergerie avait besoin d'un site à la hauteur de son positionnement premium pour convaincre les propriétaires de lui confier la gestion de leurs biens en location courte durée. Le marché étant très concurrentiel, il fallait se démarquer visuellement et inspirer confiance.",
+      solution: "Nous avons créé un site au design luxueux avec un tunnel de conversion optimisé : estimation gratuite des revenus, preuves sociales (+50 propriétaires accompagnés, 4.9/5), copywriting persuasif et CTAs stratégiques. Le tout avec une expérience mobile impeccable.",
+      metrics: [
+        { label: "Propriétaires", value: "+50", description: "Accompagnés avec succès" },
+        { label: "Satisfaction", value: "4.9/5", description: "Sur +50 avis clients" },
+        { label: "Réponse", value: "24h", description: "Délai de réponse garanti" },
+        { label: "Engagement", value: "0", description: "Sans engagement" }
+      ],
+      technologies: ["Site Vitrine Premium", "UX Conversion", "Copywriting", "Responsive Design"],
+      timeline: [
+        { phase: "Stratégie", duration: "1 semaine", description: "Analyse du marché et positionnement luxe" },
+        { phase: "Design", duration: "2 semaines", description: "Création du design premium et branding" },
+        { phase: "Développement", duration: "3 semaines", description: "Intégration et tunnel de conversion" },
+        { phase: "Lancement", duration: "1 semaine", description: "Tests et mise en ligne" }
+      ],
+      results: "Eleva Conciergerie dispose d'un site premium qui reflète parfaitement son positionnement haut de gamme et génère des leads qualifiés de propriétaires souhaitant déléguer la gestion de leurs biens.",
+      testimonial: "Le site est incroyable, très professionnel et surtout pensé pour vendre. Le rendu est premium et on sent que tout a été optimisé pour convertir.",
+      author: "Eleva Conciergerie",
+      role: "Fondateur"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -459,6 +496,7 @@ const CaseStudy = () => {
     "funestore",
     "papapret",
     "acb-renovation",
+    "eleva-conciergerie",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
