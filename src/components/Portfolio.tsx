@@ -1,6 +1,6 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ShoppingCart, Utensils, Home, Users, TrendingUp, Clock, Star, ChevronLeft, ChevronRight, Sparkles, BookOpen, Briefcase } from "lucide-react";
+import { ShoppingCart, Utensils, Home, Users, TrendingUp, Clock, Star, ChevronLeft, ChevronRight, Sparkles, BookOpen, Briefcase, LayoutGrid, Globe, Rocket, Camera } from "lucide-react";
 import PortfolioCard from "./portfolio/PortfolioCard";
 import PortfolioHeader from "./portfolio/PortfolioHeader";
 import PortfolioCTA from "./portfolio/PortfolioCTA";
