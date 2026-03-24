@@ -38,6 +38,9 @@ import galleryPapapretFullpage2 from "@/assets/gallery-papapret-fullpage-2.jpg";
 import galleryPapapretFullpage3 from "@/assets/gallery-papapret-fullpage-3.jpg";
 import galleryPapapretFullpage4 from "@/assets/gallery-papapret-fullpage-4.jpg";
 import galleryPapapretFullpage5 from "@/assets/gallery-papapret-fullpage-5.jpg";
+import galleryAcbFullpage1 from "@/assets/gallery-acb-fullpage-1.jpg";
+import galleryAcbFullpage2 from "@/assets/gallery-acb-fullpage-2.jpg";
+import galleryAcbFullpage3 from "@/assets/gallery-acb-fullpage-3.jpg";
 import portfolioAcbHero from "@/assets/portfolio-acb-hero.png";
 import portfolioElevaHero from "@/assets/portfolio-eleva-hero.png";
 import portfolioAdsbHero from "@/assets/portfolio-adsb-hero.png";
@@ -185,9 +188,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site professionnel pour une entreprise de rénovation et construction dans le Grand Est",
       image: portfolioAcbHero,
       gallery: [
-        { src: portfolioAcbHero, alt: "Page d'accueil ACB Rénovation", caption: "Page d'accueil professionnelle avec mise en avant des services BTP" },
-        { src: portfolioAcbHero, alt: "Services ACB", caption: "Présentation structurée des services : charpente, couverture, zinguerie" },
-        { src: portfolioAcbHero, alt: "Formulaire devis", caption: "Formulaire de demande de devis gratuit optimisé conversion" }
+        { src: galleryAcbFullpage1, alt: "Page complète ACB - Partie 1", caption: "Accueil, services et présentation de l'entreprise" },
+        { src: galleryAcbFullpage2, alt: "Page complète ACB - Partie 2", caption: "Avantages, réalisations et présentation de l'équipe" },
+        { src: galleryAcbFullpage3, alt: "Page complète ACB - Partie 3", caption: "À propos, statistiques, formulaire de contact et footer" }
       ],
       chartData: [
         { name: "Visibilité", before: 10, after: 80 },
