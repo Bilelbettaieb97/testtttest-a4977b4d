@@ -152,6 +152,43 @@ const CaseStudy = () => {
       author: "Gilles",
       role: "Fondateur PapaPrêt"
     },
+    "acb-renovation": {
+      icon: <Home className="w-8 h-8" />,
+      sector: "BTP / Rénovation",
+      client: "ACB Rénovation",
+      title: "Site vitrine BTP avec génération de devis",
+      subtitle: "Création d'un site professionnel pour une entreprise de rénovation et construction dans le Grand Est",
+      image: portfolioAcbHero,
+      gallery: [
+        { src: portfolioAcbHero, alt: "Page d'accueil ACB Rénovation", caption: "Page d'accueil professionnelle avec mise en avant des services BTP" },
+        { src: portfolioAcbHero, alt: "Services ACB", caption: "Présentation structurée des services : charpente, couverture, zinguerie" },
+        { src: portfolioAcbHero, alt: "Formulaire devis", caption: "Formulaire de demande de devis gratuit optimisé conversion" }
+      ],
+      chartData: [
+        { name: "Visibilité", before: 10, after: 80 },
+        { name: "Demandes devis", before: 5, after: 35 },
+        { name: "Crédibilité", before: 25, after: 90 }
+      ],
+      challenge: "ACB Rénovation, entreprise spécialisée en couverture, charpente et rénovation avec plus de 12 ans d'expérience, n'avait aucune présence en ligne. Les clients potentiels ne pouvaient pas découvrir leurs services ni demander de devis facilement.",
+      solution: "Nous avons créé un site vitrine professionnel avec un design adapté au secteur BTP, une structuration claire des services, des appels à l'action optimisés pour la génération de devis, et une mise en avant de la garantie décennale et de l'expérience de l'entreprise.",
+      metrics: [
+        { label: "Expérience", value: "12+ ans", description: "Mise en avant du savoir-faire" },
+        { label: "Devis", value: "Gratuit", description: "Formulaire de contact optimisé" },
+        { label: "Garantie", value: "Décennale", description: "Gage de confiance affiché" },
+        { label: "Livraison", value: "1 jour", description: "Site créé en une journée" }
+      ],
+      technologies: ["Site Vitrine", "SEO Local", "UX Conversion", "Responsive Design"],
+      timeline: [
+        { phase: "Échange", duration: "1h", description: "Compréhension des besoins et du positionnement" },
+        { phase: "Design", duration: "4h", description: "Création du design professionnel BTP" },
+        { phase: "Développement", duration: "6h", description: "Intégration et optimisation" },
+        { phase: "Livraison", duration: "1h", description: "Mise en ligne et formation" }
+      ],
+      results: "ACB Rénovation dispose d'une présence digitale professionnelle qui génère des demandes de devis qualifiées et renforce la crédibilité de l'entreprise auprès des clients du Grand Est.",
+      testimonial: "Je viens de faire appel à ConvertiLab et c'est impressionnant la réactivité de cette entreprise et surtout la compréhension de mes besoins pour la création d'un site internet, qui a été fait dans la journée. Je vais donc lui faire confiance pour mon marketing digital et déjà 2 de mes collègues vont travailler avec lui.",
+      author: "ACB Rénovation",
+      role: "Dirigeant"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -420,6 +457,7 @@ const CaseStudy = () => {
     "monsieur-arancini",
     "funestore",
     "papapret",
+    "acb-renovation",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
