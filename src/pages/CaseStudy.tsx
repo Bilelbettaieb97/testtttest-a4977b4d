@@ -71,6 +71,9 @@ import galleryCouleursableFullpage2 from "@/assets/gallery-couleursable-fullpage
 import galleryCouleursableFullpage3 from "@/assets/gallery-couleursable-fullpage-3.jpg";
 import portfolioFilmreelHero from "@/assets/portfolio-filmreel-hero.png";
 import portfolioArtdesrosesHero from "@/assets/portfolio-artdesroses-hero.png";
+import galleryArtdesrosesFullpage1 from "@/assets/gallery-artdesroses-fullpage-1.jpg";
+import galleryArtdesrosesFullpage2 from "@/assets/gallery-artdesroses-fullpage-2.jpg";
+import galleryArtdesrosesFullpage3 from "@/assets/gallery-artdesroses-fullpage-3.jpg";
 import portfolioSegermesHero from "@/assets/portfolio-segermes-hero.png";
 import gallerySegermesFullpage1 from "@/assets/gallery-segermes-fullpage-1.jpg";
 import gallerySegermesFullpage2 from "@/assets/gallery-segermes-fullpage-2.jpg";
@@ -620,9 +623,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site e-commerce élégant pour une artiste peintre diplômée des Beaux-Arts",
       image: portfolioArtdesrosesHero,
       gallery: [
-        { src: portfolioArtdesrosesHero, alt: "Page d'accueil Art des Roses", caption: "Design artistique avec mise en valeur des œuvres" },
-        { src: portfolioArtdesrosesHero, alt: "Boutique", caption: "Catalogue d'œuvres avec parcours d'achat fluide" },
-        { src: portfolioArtdesrosesHero, alt: "Collections", caption: "Organisation par collections et styles artistiques" }
+        { src: galleryArtdesrosesFullpage1, alt: "Page complète Art des Roses - Partie 1", caption: "Accueil, héritage artistique et collections" },
+        { src: galleryArtdesrosesFullpage2, alt: "Page complète Art des Roses - Partie 2", caption: "Collections, processus créatif et témoignages" },
+        { src: galleryArtdesrosesFullpage3, alt: "Page complète Art des Roses - Partie 3", caption: "Expositions internationales, CTA et footer" }
       ],
       chartData: [
         { name: "Visibilité", before: 20, after: 85 },
