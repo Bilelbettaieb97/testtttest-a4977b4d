@@ -190,18 +190,18 @@ const ContactForm = () => {
   return (
     <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-800">
       {/* Header */}
-      <div className={`px-4 sm:px-6 py-3 sm:py-4 ${step === 4 ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 'bg-gradient-to-r from-purple-600 to-pink-600'}`}>
-        <h3 className="text-white font-bold text-lg sm:text-xl text-center">
+      <div className={`px-4 sm:px-5 py-2.5 sm:py-3 ${step === 4 ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 'bg-gradient-to-r from-purple-600 to-pink-600'}`}>
+        <h3 className="text-white font-bold text-base sm:text-lg text-center">
           {step === 4 ? 'Demande envoyée !' : 'Devis instantané'}
         </h3>
-        <p className="text-white/80 text-xs sm:text-sm text-center mt-1">
+        <p className="text-white/80 text-[10px] sm:text-xs text-center mt-0.5">
           {step === 4 ? 'Merci pour votre confiance' : 'On revient vers vous sous 24h'}
         </p>
       </div>
 
       {/* Progress Bar - hidden on confirmation */}
       {step <= totalSteps && (
-        <div className="px-4 sm:px-6 pt-4 sm:pt-5 pb-2">
+        <div className="px-4 sm:px-5 pt-3 pb-1">
           <div className="relative">
             {/* Background bar */}
             <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
@@ -217,15 +217,15 @@ const ContactForm = () => {
             </div>
             
             {/* Step indicators */}
-            <div className="flex justify-between mt-3">
+            <div className="flex justify-between mt-2">
               {[
                 { num: 1, label: "Projet" },
                 { num: 2, label: "Détails" },
                 { num: 3, label: "Contact" }
               ].map((s) => (
                 <div key={s.num} className="flex flex-col items-center">
-                  <div className={`
-                    w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm 
+                   <div className={`
+                    w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-xs
                     transition-all duration-500 ease-out transform
                     ${s.num < step 
                       ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white scale-100' 
@@ -239,7 +239,7 @@ const ContactForm = () => {
                       <span className={s.num === step ? 'animate-pulse' : ''}>{s.num}</span>
                     )}
                   </div>
-                  <span className={`mt-2 text-[10px] sm:text-xs font-medium transition-all duration-300 ${
+                  <span className={`mt-1 text-[9px] sm:text-[10px] font-medium transition-all duration-300 ${
                     s.num < step ? 'text-purple-500' : s.num === step ? 'text-purple-600 font-semibold' : 'text-slate-400'
                   }`}>
                     {s.label}
@@ -249,9 +249,8 @@ const ContactForm = () => {
             </div>
           </div>
           
-          {/* Step counter */}
-          <div className="text-center mt-3">
-            <span className="text-xs text-slate-500">
+          <div className="text-center mt-2">
+            <span className="text-[10px] text-slate-500">
               Étape <span className="font-bold text-purple-600">{step}</span> sur <span className="font-bold">{totalSteps}</span>
             </span>
           </div>
@@ -260,7 +259,7 @@ const ContactForm = () => {
 
       {/* Reassurance badges - hidden on confirmation */}
       {step <= totalSteps && (
-        <div className="px-4 sm:px-6 pb-3">
+        <div className="px-4 sm:px-5 pb-2">
           <div className="flex flex-wrap justify-center gap-2 text-[10px] sm:text-xs">
             <span className="bg-purple-50 text-purple-700 px-2 py-1 rounded-full font-medium">✓ 100% gratuit</span>
             <span className="bg-pink-50 text-pink-700 px-2 py-1 rounded-full font-medium">✓ Sans engagement</span>
@@ -269,14 +268,14 @@ const ContactForm = () => {
         </div>
       )}
 
-      <div className="p-4 sm:p-6 pt-2">
+      <div className="p-4 sm:p-5 pt-1">
         <form onSubmit={handleSubmit}>
           {/* Step 1: Project Type */}
           {step === 1 && (
-            <div className="space-y-4 sm:space-y-5 animate-fade-in">
-              <div className="text-center mb-4 sm:mb-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Votre projet</h3>
-                <p className="text-slate-500 text-xs sm:text-sm mt-1">Quel type de site recherchez-vous ?</p>
+            <div className="space-y-3 sm:space-y-4 animate-fade-in">
+              <div className="text-center mb-3 sm:mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Votre projet</h3>
+                <p className="text-slate-500 text-[10px] sm:text-xs mt-0.5">Quel type de site recherchez-vous ?</p>
               </div>
 
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
