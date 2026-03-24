@@ -24,6 +24,7 @@ import portfolioAhstudio from "@/assets/portfolio-ahstudio-hero.png";
 import portfolioVinoboat from "@/assets/portfolio-vinoboat-hero.png";
 import portfolioCouleursable from "@/assets/portfolio-couleursable-hero.png";
 import portfolioFilmreel from "@/assets/portfolio-filmreel-hero.png";
+import portfolioArtdesroses from "@/assets/portfolio-artdesroses-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -278,6 +279,24 @@ const Portfolio = () => {
       testimonial: "Le site met parfaitement en valeur mon univers créatif. L'effet visuel est incroyable.",
       author: "FilmReel Gallery",
       slug: "filmreel-gallery"
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-rose-700" />,
+      sector: "E-commerce / Art",
+      client: "Art des Roses",
+      title: "E-commerce artistique pour vente d'œuvres",
+      description: "Site e-commerce avec design artistique immersif, catalogue d'œuvres et parcours d'achat optimisé.",
+      image: portfolioArtdesroses,
+      metrics: [
+        { label: "Galerie", value: "24/7", icon: Clock },
+        { label: "Œuvres", value: "En ligne", icon: TrendingUp },
+        { label: "Ventes", value: "Direct", icon: Star }
+      ],
+      technologies: ["E-commerce", "Design Art", "UX Achat"],
+      results: "Digitalisation des ventes",
+      testimonial: "Le site met parfaitement en valeur mes œuvres et me permet enfin de les vendre en ligne.",
+      author: "Art des Roses",
+      slug: "art-des-roses"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
