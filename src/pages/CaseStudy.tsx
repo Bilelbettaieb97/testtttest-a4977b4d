@@ -346,9 +346,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site engagé pour une entreprise spécialisée dans le tri et recyclage des déchets événementiels",
       image: portfolioTrieventHero,
       gallery: [
-        { src: portfolioTrieventHero, alt: "Page d'accueil Tri Event", caption: "Page d'accueil avec message écologique fort et CTAs" },
-        { src: portfolioTrieventHero, alt: "Services Tri Event", caption: "Présentation des services de collecte et recyclage" },
-        { src: portfolioTrieventHero, alt: "Contact Tri Event", caption: "Formulaire de devis et contact WhatsApp" }
+        { src: galleryTrieventFullpage1, alt: "Page complète Trievent - Partie 1", caption: "Accueil, services de collecte et avantages éco-responsables" },
+        { src: galleryTrieventFullpage2, alt: "Page complète Trievent - Partie 2", caption: "À propos, références clients et formulaire de contact" },
+        { src: galleryTrieventFullpage3, alt: "Page complète Trievent - Partie 3", caption: "Footer, navigation et informations de contact" }
       ],
       chartData: [
         { name: "Visibilité", before: 10, after: 70 },
