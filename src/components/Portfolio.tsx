@@ -243,6 +243,24 @@ const Portfolio = () => {
       slug: "vinoboat"
     },
     {
+      icon: <Sparkles className="w-6 h-6 text-amber-500" />,
+      sector: "Coiffure / Beauté",
+      client: "Couleur Sable by K",
+      title: "Site vitrine premium pour salon de coiffure",
+      description: "Site élégant avec mise en valeur du savoir-faire, structuration des prestations et optimisation pour la prise de rendez-vous.",
+      image: portfolioCouleursable,
+      metrics: [
+        { label: "Expérience", value: "35+ ans", icon: Star },
+        { label: "Produits", value: "100% naturels", icon: TrendingUp },
+        { label: "Réservation", value: "En ligne", icon: Clock }
+      ],
+      technologies: ["Site Vitrine", "Design Beauté", "UX Booking"],
+      results: "Image salon premium",
+      testimonial: "Le site reflète parfaitement l'image de mon salon. Il est élégant, clair et met vraiment en valeur mon travail.",
+      author: "Couleur Sable by K",
+      slug: "couleur-sable"
+    },
+    {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
       sector: "E-commerce",
       client: "Boutique Élégance",
