@@ -41,6 +41,7 @@ import portfolioCouleursableHero from "@/assets/portfolio-couleursable-hero.png"
 import portfolioFilmreelHero from "@/assets/portfolio-filmreel-hero.png";
 import portfolioArtdesrosesHero from "@/assets/portfolio-artdesroses-hero.png";
 import portfolioSegermesHero from "@/assets/portfolio-segermes-hero.png";
+import portfolioSpectacleHero from "@/assets/portfolio-spectacle-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -645,6 +646,43 @@ const CaseStudy = () => {
       author: "Segermès",
       role: "Fondateur"
     },
+    "spectacle": {
+      icon: <Sparkles className="w-8 h-8" />,
+      sector: "Événementiel / Spectacle",
+      client: "Spectacle",
+      title: "Landing page événementielle pour spectacle vivant",
+      subtitle: "Création d'une landing page immersive et dynamique pour la promotion d'un spectacle et la billetterie en ligne",
+      image: portfolioSpectacleHero,
+      gallery: [
+        { src: portfolioSpectacleHero, alt: "Page d'accueil Spectacle", caption: "Design dynamique avec ambiance scénique immersive" },
+        { src: portfolioSpectacleHero, alt: "Programme", caption: "Présentation du spectacle et des dates" },
+        { src: portfolioSpectacleHero, alt: "Réservation", caption: "Système de réservation et billetterie en ligne" }
+      ],
+      chartData: [
+        { name: "Visibilité", before: 20, after: 85 },
+        { name: "Réservations", before: 15, after: 70 },
+        { name: "Engagement", before: 25, after: 90 }
+      ],
+      challenge: "Le spectacle avait besoin d'un support digital pour centraliser les informations (dates, lieu, concept), promouvoir l'événement et faciliter la réservation en ligne auprès d'un public large.",
+      solution: "Nous avons créé une landing page événementielle avec un design dynamique et immersif, une mise en avant du programme et des dates, des visuels attractifs créant l'envie, et des CTAs optimisés pour la réservation et la billetterie en ligne.",
+      metrics: [
+        { label: "Impact", value: "Immersif", description: "Effet wow immédiat" },
+        { label: "Réservation", value: "En ligne", description: "Billetterie intégrée" },
+        { label: "Promotion", value: "Digital", description: "Support marketing complet" },
+        { label: "Mobile", value: "100%", description: "Responsive optimisé" }
+      ],
+      technologies: ["Landing Page", "Design Événementiel", "UX Conversion", "Responsive"],
+      timeline: [
+        { phase: "Briefing", duration: "1 jour", description: "Compréhension de l'univers du spectacle" },
+        { phase: "Design", duration: "2 jours", description: "Création du design dynamique et immersif" },
+        { phase: "Développement", duration: "4 jours", description: "Intégration et billetterie" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne et promotion" }
+      ],
+      results: "Le spectacle dispose d'un support digital à la hauteur de l'événement, centralisant les informations et facilitant la réservation pour un public toujours plus large.",
+      testimonial: "Le site met parfaitement en valeur notre spectacle. Il est dynamique, clair et donne immédiatement envie de découvrir l'événement.",
+      author: "Spectacle",
+      role: "Organisateur"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -926,6 +964,7 @@ const CaseStudy = () => {
     "filmreel-gallery",
     "art-des-roses",
     "segermes",
+    "spectacle",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",

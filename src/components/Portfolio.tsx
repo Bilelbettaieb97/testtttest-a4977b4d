@@ -26,6 +26,7 @@ import portfolioCouleursable from "@/assets/portfolio-couleursable-hero.png";
 import portfolioFilmreel from "@/assets/portfolio-filmreel-hero.png";
 import portfolioArtdesroses from "@/assets/portfolio-artdesroses-hero.png";
 import portfolioSegermes from "@/assets/portfolio-segermes-hero.png";
+import portfolioSpectacle from "@/assets/portfolio-spectacle-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -316,6 +317,24 @@ const Portfolio = () => {
       testimonial: "Le site reflète parfaitement la qualité et le positionnement premium de notre marque.",
       author: "Segermès",
       slug: "segermes"
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-pink-500" />,
+      sector: "Événementiel / Spectacle",
+      client: "Spectacle",
+      title: "Landing page événementielle pour spectacle",
+      description: "Landing page immersive avec design dynamique, présentation du spectacle et optimisation pour la réservation.",
+      image: portfolioSpectacle,
+      metrics: [
+        { label: "Impact", value: "Immersif", icon: Star },
+        { label: "Réservation", value: "En ligne", icon: TrendingUp },
+        { label: "Promotion", value: "Digital", icon: Clock }
+      ],
+      technologies: ["Landing Page", "Design Événementiel", "UX Conversion"],
+      results: "Promotion digitale réussie",
+      testimonial: "Le site met parfaitement en valeur notre spectacle. Il est dynamique et donne immédiatement envie.",
+      author: "Spectacle",
+      slug: "spectacle"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
