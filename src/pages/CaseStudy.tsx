@@ -36,6 +36,7 @@ import portfolioTrieventHero from "@/assets/portfolio-trievent-hero.png";
 import portfolioTemplezenHero from "@/assets/portfolio-templezen-hero.png";
 import portfolioInstitutNomadHero from "@/assets/portfolio-institut-nomad-hero.png";
 import portfolioAhstudioHero from "@/assets/portfolio-ahstudio-hero.png";
+import portfolioVinoboatHero from "@/assets/portfolio-vinoboat-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -455,6 +456,43 @@ const CaseStudy = () => {
       author: "AH Studio Caen",
       role: "Photographe"
     },
+    "vinoboat": {
+      icon: <Sparkles className="w-8 h-8" />,
+      sector: "Tourisme de Luxe / Nautique",
+      client: "Vinoboat Prestige",
+      title: "Landing page premium pour expérience nautique de luxe",
+      subtitle: "Création d'une landing page immersive et haut de gamme pour une expérience nautique exclusive à Cannes",
+      image: portfolioVinoboatHero,
+      gallery: [
+        { src: portfolioVinoboatHero, alt: "Page d'accueil Vinoboat Prestige", caption: "Design premium avec immersion visuelle nautique" },
+        { src: portfolioVinoboatHero, alt: "Tarifs", caption: "Grille tarifaire claire et élégante" },
+        { src: portfolioVinoboatHero, alt: "Réservation", caption: "CTAs optimisés pour la réservation directe" }
+      ],
+      chartData: [
+        { name: "Image premium", before: 30, after: 95 },
+        { name: "Projection client", before: 20, after: 90 },
+        { name: "Réservations", before: 15, after: 65 }
+      ],
+      challenge: "Vinoboat Prestige proposait une expérience nautique haut de gamme mais manquait d'un support digital à la hauteur de son positionnement. L'offre n'était pas clairement présentée et le potentiel de réservation en ligne était sous-exploité.",
+      solution: "Nous avons créé une landing page immersive avec un design premium, un copywriting émotionnel orienté expérience (sensation, exclusivité), une grille tarifaire claire, des CTAs de réservation optimisés et des preuves sociales (avis, note 4.9/5, 500+ clients).",
+      metrics: [
+        { label: "Note clients", value: "4.9/5", description: "500+ clients satisfaits" },
+        { label: "Réservation", value: "En ligne", description: "WhatsApp + téléphone" },
+        { label: "Positionnement", value: "N°1", description: "Cannes sans permis" },
+        { label: "Immersion", value: "Premium", description: "Design luxe immersif" }
+      ],
+      technologies: ["Landing Page", "Design Premium", "Copywriting", "UX Booking"],
+      timeline: [
+        { phase: "Briefing", duration: "1 jour", description: "Immersion dans l'univers nautique luxe" },
+        { phase: "Design", duration: "3 jours", description: "Création du design premium immersif" },
+        { phase: "Développement", duration: "4 jours", description: "Intégration et optimisation conversion" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne et tests" }
+      ],
+      results: "Vinoboat Prestige dispose d'un site à l'image de son service : élégant, premium et immersif, permettant aux clients de se projeter immédiatement dans l'expérience nautique.",
+      testimonial: "Le site est exactement à l'image de notre service : élégant, premium et immersif. Il permet à nos clients de se projeter immédiatement dans l'expérience.",
+      author: "Vinoboat Prestige",
+      role: "Fondateur"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -731,6 +769,7 @@ const CaseStudy = () => {
     "temple-zen",
     "institut-nomad",
     "ah-studio",
+    "vinoboat",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
