@@ -30,6 +30,8 @@ import portfolioFunestoreHero from "@/assets/portfolio-funestore-hero.png";
 import galleryFunestoreFullpage1 from "@/assets/gallery-funestore-fullpage-1.jpg";
 import galleryFunestoreFullpage2 from "@/assets/gallery-funestore-fullpage-2.jpg";
 import galleryFunestoreFullpage3 from "@/assets/gallery-funestore-fullpage-3.jpg";
+import galleryFunestoreCatalogue from "@/assets/gallery-funestore-catalogue.png";
+import galleryFunestoreProduit from "@/assets/gallery-funestore-produit.png";
 import portfolioPapapretHero from "@/assets/portfolio-papapret-hero.png";
 import galleryPapapretFullpage1 from "@/assets/gallery-papapret-fullpage-1.jpg";
 import galleryPapapretFullpage2 from "@/assets/gallery-papapret-fullpage-2.jpg";
@@ -107,7 +109,9 @@ const CaseStudy = () => {
       gallery: [
         { src: galleryFunestoreFullpage1, alt: "Page complète Funestore - Partie 1", caption: "Accueil, services, espace professionnel et sélection de produits" },
         { src: galleryFunestoreFullpage2, alt: "Page complète Funestore - Partie 2", caption: "Catégories, essences de bois et espace communauté professionnelle" },
-        { src: galleryFunestoreFullpage3, alt: "Page complète Funestore - Partie 3", caption: "Catalogue complet et détails des articles funéraires" }
+        { src: galleryFunestoreFullpage3, alt: "Page complète Funestore - Partie 3", caption: "Catalogue complet et détails des articles funéraires" },
+        { src: galleryFunestoreCatalogue, alt: "Catalogue produits Funestore", caption: "Page catalogue avec 118 produits, filtres par catégories et recherche" },
+        { src: galleryFunestoreProduit, alt: "Fiche produit Funestore", caption: "Fiche produit détaillée avec description, stock et espace professionnel" }
       ],
       chartData: [
         { name: "Visibilité", before: 15, after: 85 },
