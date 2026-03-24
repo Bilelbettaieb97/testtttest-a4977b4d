@@ -56,10 +56,13 @@ const CaseStudy = () => {
       subtitle: "Création d'un site web vitrine haut de gamme pour une marque d'arancini artisanaux",
       image: portfolioAranciniHero,
       gallery: [
+        { src: galleryAranciniFullpage1, alt: "Page complète Monsieur Arancini - Partie 1", caption: "Vue complète du site : accueil, histoire, catalogue Mini Arancini" },
+        { src: galleryAranciniFullpage2, alt: "Page complète Monsieur Arancini - Partie 2", caption: "Vue complète : créations exclusives, galerie, contact et footer" },
         { src: galleryArancini1, alt: "Mini Arancini - Catalogue produits", caption: "Gamme de Mini Arancini : Bolognese, Pistache, Truffe, Jambon, Épinard, Champignon" },
         { src: galleryArancini2, alt: "Créations exclusives Monsieur Arancini", caption: "Créations siciliennes exclusives : Pâtes Carbonara et Pâtes Amatriciana" },
         { src: galleryArancini3, alt: "Galerie Arancini en action", caption: "Nos arancini en action : moments de dégustation authentiques" },
-        { src: galleryArancini4, alt: "Footer et contact Monsieur Arancini", caption: "Section partenaires et contact avec gamme complète de produits" }
+        { src: galleryArancini4, alt: "Footer et contact Monsieur Arancini", caption: "Section partenaires et contact avec gamme complète de produits" },
+        { src: galleryArancini5, alt: "Page contact Monsieur Arancini", caption: "Formulaire de contact et coordonnées avec localisation Le Pontet" }
       ],
       chartData: [
         { name: "Crédibilité", before: 20, after: 95 },
