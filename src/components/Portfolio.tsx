@@ -13,6 +13,7 @@ import portfolioB2B from "@/assets/portfolio-b2b.webp";
 import portfolioArancini from "@/assets/portfolio-arancini-hero.png";
 import portfolioFunestore from "@/assets/portfolio-funestore-hero.png";
 import portfolioPapapret from "@/assets/portfolio-papapret-hero.png";
+import portfolioAcb from "@/assets/portfolio-acb-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -71,6 +72,23 @@ const Portfolio = () => {
       slug: "papapret"
     },
     {
+      icon: <Home className="w-6 h-6 text-orange-600" />,
+      sector: "BTP / Rénovation",
+      client: "ACB Rénovation",
+      title: "Site vitrine BTP avec génération de devis",
+      description: "Site professionnel avec structuration des services, optimisation UX pour leads et appels à l'action devis gratuit.",
+      image: portfolioAcb,
+      metrics: [
+        { label: "Expérience", value: "12+ ans", icon: Star },
+        { label: "Devis", value: "Gratuit", icon: TrendingUp },
+        { label: "Garantie", value: "Décennale", icon: Star }
+      ],
+      technologies: ["Site Vitrine", "SEO Local", "UX Leads"],
+      results: "Présence digitale pro",
+      testimonial: "Réactivité impressionnante et compréhension de mes besoins. Le site a été fait dans la journée. Déjà 2 collègues vont travailler avec lui.",
+      author: "ACB Rénovation",
+      slug: "acb-renovation"
+    },
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
       sector: "E-commerce",
       client: "Boutique Élégance",
