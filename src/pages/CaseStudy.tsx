@@ -342,6 +342,43 @@ const CaseStudy = () => {
       author: "Tri Event",
       role: "Fondateur"
     },
+    "temple-zen": {
+      icon: <Sparkles className="w-8 h-8" />,
+      sector: "Bien-être / Massage",
+      client: "Le Temple de l'Énergie",
+      title: "Site vitrine immersif pour espace bien-être et massage",
+      subtitle: "Création d'un site apaisant et premium pour un espace dédié au bien-être, massage et coaching",
+      image: portfolioTemplezenHero,
+      gallery: [
+        { src: portfolioTemplezenHero, alt: "Page d'accueil Le Temple de l'Énergie", caption: "Design immersif avec ambiance zen et apaisante" },
+        { src: portfolioTemplezenHero, alt: "Prestations", caption: "Présentation des massages, soins et séances de coaching" },
+        { src: portfolioTemplezenHero, alt: "Réservation", caption: "Système de réservation en ligne simplifié" }
+      ],
+      chartData: [
+        { name: "Image de marque", before: 25, after: 95 },
+        { name: "Compréhension", before: 30, after: 90 },
+        { name: "Réservations", before: 10, after: 50 }
+      ],
+      challenge: "Le Temple de l'Énergie avait besoin d'un site qui transmette l'univers zen et apaisant de son espace bien-être, tout en présentant clairement ses prestations et en facilitant la prise de rendez-vous dans un secteur très concurrentiel.",
+      solution: "Nous avons créé un site au design immersif et apaisant avec une esthétique premium, une structuration claire des prestations (massages, soins, coaching), des CTAs optimisés pour la réservation en ligne et une expérience mobile impeccable.",
+      metrics: [
+        { label: "Ambiance", value: "Premium", description: "Design zen et élégant" },
+        { label: "Prestations", value: "Structurées", description: "Compréhension immédiate" },
+        { label: "Réservation", value: "En ligne", description: "Prise de RDV simplifiée" },
+        { label: "Mobile", value: "100%", description: "Responsive optimisé" }
+      ],
+      technologies: ["Site Vitrine", "Design Zen", "UX Premium", "Responsive Design"],
+      timeline: [
+        { phase: "Immersion", duration: "1 jour", description: "Découverte de l'univers et du positionnement" },
+        { phase: "Design", duration: "3 jours", description: "Création du design immersif et apaisant" },
+        { phase: "Développement", duration: "5 jours", description: "Intégration et fonctionnalités" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne et ajustements" }
+      ],
+      results: "Le Temple de l'Énergie dispose d'un site qui reflète parfaitement son univers zen et premium, renforçant sa crédibilité et facilitant la prise de rendez-vous.",
+      testimonial: "Le site reflète parfaitement l'univers que je voulais transmettre. C'est élégant, apaisant et très professionnel. Mes clients comprennent immédiatement mon offre.",
+      author: "Le Temple de l'Énergie",
+      role: "Fondatrice"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -615,6 +652,7 @@ const CaseStudy = () => {
     "adsb-wissembourg",
     "alliance-securite-incendie",
     "trievent",
+    "temple-zen",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
