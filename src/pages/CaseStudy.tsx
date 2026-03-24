@@ -109,7 +109,9 @@ const CaseStudy = () => {
       gallery: [
         { src: galleryFunestoreFullpage1, alt: "Page complète Funestore - Partie 1", caption: "Accueil, services, espace professionnel et sélection de produits" },
         { src: galleryFunestoreFullpage2, alt: "Page complète Funestore - Partie 2", caption: "Catégories, essences de bois et espace communauté professionnelle" },
-        { src: galleryFunestoreFullpage3, alt: "Page complète Funestore - Partie 3", caption: "Catalogue complet et détails des articles funéraires" }
+        { src: galleryFunestoreFullpage3, alt: "Page complète Funestore - Partie 3", caption: "Catalogue complet et détails des articles funéraires" },
+        { src: galleryFunestoreCatalogue, alt: "Catalogue produits Funestore", caption: "Page catalogue avec 118 produits, filtres par catégories et recherche" },
+        { src: galleryFunestoreProduit, alt: "Fiche produit Funestore", caption: "Fiche produit détaillée avec description, stock et espace professionnel" }
       ],
       chartData: [
         { name: "Visibilité", before: 15, after: 85 },
