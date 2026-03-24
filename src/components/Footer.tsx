@@ -272,8 +272,6 @@ const Footer = () => {
             <div className="flex flex-wrap gap-2 sm:gap-6 mt-4 sm:mt-0">
               <button 
                 onClick={() => handleNavigation('/politique-de-confidentialite')}
-              <button 
-                onClick={() => handleNavigation('/politique-de-confidentialite')}
                 className="text-gray-400 hover:text-purple-400 text-sm transition-colors py-2 px-1"
               >
                 Politique de confidentialité
