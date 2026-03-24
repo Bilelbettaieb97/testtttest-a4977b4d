@@ -63,6 +63,9 @@ import portfolioInstitutNomadHero from "@/assets/portfolio-institut-nomad-hero.p
 import portfolioAhstudioHero from "@/assets/portfolio-ahstudio-hero.png";
 import portfolioVinoboatHero from "@/assets/portfolio-vinoboat-hero.png";
 import portfolioCouleursableHero from "@/assets/portfolio-couleursable-hero.png";
+import galleryCouleursableFullpage1 from "@/assets/gallery-couleursable-fullpage-1.jpg";
+import galleryCouleursableFullpage2 from "@/assets/gallery-couleursable-fullpage-2.jpg";
+import galleryCouleursableFullpage3 from "@/assets/gallery-couleursable-fullpage-3.jpg";
 import portfolioFilmreelHero from "@/assets/portfolio-filmreel-hero.png";
 import portfolioArtdesrosesHero from "@/assets/portfolio-artdesroses-hero.png";
 import portfolioSegermesHero from "@/assets/portfolio-segermes-hero.png";
@@ -540,9 +543,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site élégant pour un salon de coiffure spécialisé avec 35 ans d'expérience à Haguenau",
       image: portfolioCouleursableHero,
       gallery: [
-        { src: portfolioCouleursableHero, alt: "Page d'accueil Couleur Sable", caption: "Design élégant mettant en valeur le savoir-faire capillaire" },
-        { src: portfolioCouleursableHero, alt: "Prestations", caption: "Structuration des services : coupe, coloration, Head Spa" },
-        { src: portfolioCouleursableHero, alt: "Réservation", caption: "Prise de rendez-vous en ligne optimisée" }
+        { src: galleryCouleursableFullpage1, alt: "Page complète Couleur Sable - Partie 1", caption: "Accueil, savoir-faire et expérience Head Spa japonais" },
+        { src: galleryCouleursableFullpage2, alt: "Page complète Couleur Sable - Partie 2", caption: "Tarifs Head Spa, prestations et réalisations" },
+        { src: galleryCouleursableFullpage3, alt: "Page complète Couleur Sable - Partie 3", caption: "Témoignages, localisation et footer" }
       ],
       chartData: [
         { name: "Image pro", before: 35, after: 95 },
