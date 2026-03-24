@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ArrowRight, CheckCircle, Rocket, Clock, Target, Zap, BarChart, Smartphone, Star, Users, Shield, RotateCcw, Lock, Headphones, Phone, TrendingUp } from 'lucide-react';
+import ServiceCaseStudies from '@/components/services/ServiceCaseStudies';
 
 const LandingPageService = () => {
   const features = [
@@ -293,6 +294,13 @@ const LandingPageService = () => {
             </div>
           </div>
         </section>
+
+        {/* Case Studies */}
+        <ServiceCaseStudies 
+          category="landing-page" 
+          title="Nos landing pages réalisées" 
+          subtitle="Découvrez les landing pages que nous avons créées pour nos clients"
+        />
 
         {/* Testimonials with results */}
         <section className="py-20">
