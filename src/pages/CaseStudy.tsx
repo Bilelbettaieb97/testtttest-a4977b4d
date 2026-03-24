@@ -35,6 +35,7 @@ import portfolioAsiHero from "@/assets/portfolio-asi-hero.png";
 import portfolioTrieventHero from "@/assets/portfolio-trievent-hero.png";
 import portfolioTemplezenHero from "@/assets/portfolio-templezen-hero.png";
 import portfolioInstitutNomadHero from "@/assets/portfolio-institut-nomad-hero.png";
+import portfolioAhstudioHero from "@/assets/portfolio-ahstudio-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
