@@ -24,6 +24,7 @@ import portfolioFitness from "@/assets/portfolio-fitness.webp";
 import portfolioBeaute from "@/assets/portfolio-beaute.webp";
 import portfolioFormation from "@/assets/portfolio-formation.webp";
 import portfolioB2B from "@/assets/portfolio-b2b.webp";
+import portfolioArancini from "@/assets/portfolio-arancini.jpg";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -36,6 +37,43 @@ const CaseStudy = () => {
   const navigate = useNavigate();
 
   const caseStudies = {
+    "monsieur-arancini": {
+      icon: <Utensils className="w-8 h-8" />,
+      sector: "Restauration",
+      client: "Monsieur Arancini",
+      title: "Site vitrine premium pour artisan sicilien",
+      subtitle: "Création d'un site web vitrine haut de gamme pour une marque d'arancini artisanaux",
+      image: portfolioArancini,
+      gallery: [
+        { src: portfolioArancini, alt: "Page d'accueil Monsieur Arancini", caption: "Page d'accueil avec mise en avant de l'authenticité sicilienne" },
+        { src: portfolioArancini, alt: "Catalogue produits", caption: "Présentation des 15+ saveurs d'arancini artisanaux" },
+        { src: portfolioArancini, alt: "Section partenaires", caption: "Espace dédié aux professionnels et partenaires B2B" }
+      ],
+      chartData: [
+        { name: "Crédibilité", before: 20, after: 95 },
+        { name: "Visibilité", before: 10, after: 70 },
+        { name: "Demandes", before: 5, after: 30 }
+      ],
+      challenge: "Monsieur Arancini, artisan spécialisé dans les arancini siciliens certifiés HACCP, n'avait aucune présence en ligne. L'entreprise avait besoin d'une image de marque premium pour se positionner auprès des professionnels et développer sa clientèle.",
+      solution: "Nous avons créé un site vitrine premium avec un design UI/UX orienté conversion, une structuration claire de l'offre produit (mini arancini, créations originales), une optimisation mobile complète et une intégration de contenu visuel mettant en valeur l'authenticité sicilienne.",
+      metrics: [
+        { label: "Image de marque", value: "Premium", description: "Positionnement haut de gamme" },
+        { label: "Offre structurée", value: "15+ saveurs", description: "Catalogue clair et attractif" },
+        { label: "Certification", value: "HACCP", description: "Mise en avant de la qualité" },
+        { label: "Mobile", value: "100%", description: "Responsive et optimisé" }
+      ],
+      technologies: ["Site Vitrine", "Design UI/UX", "Branding", "Responsive Design"],
+      timeline: [
+        { phase: "Stratégie", duration: "1 semaine", description: "Analyse du marché et positionnement de marque" },
+        { phase: "Design", duration: "2 semaines", description: "Création du design premium et de l'identité visuelle" },
+        { phase: "Développement", duration: "3 semaines", description: "Intégration du site et optimisation mobile" },
+        { phase: "Lancement", duration: "1 semaine", description: "Mise en ligne et accompagnement" }
+      ],
+      results: "Monsieur Arancini dispose désormais d'une image de marque premium et professionnelle, avec une présentation claire de son offre qui facilite le développement commercial auprès des partenaires B2B.",
+      testimonial: "Je suis très content d'avoir travaillé avec cette compagnie, très sérieux et réactifs. Ils m'ont fait un très joli site web avec de bons conseils et du professionnalisme. Je recommande vivement !",
+      author: "Monsieur Arancini",
+      role: "Fondateur"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -301,6 +339,7 @@ const CaseStudy = () => {
 
   // Order of projects for navigation
   const projectOrder = [
+    "monsieur-arancini",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",

@@ -30,7 +30,7 @@ const Portfolio = () => {
       results: "Image de marque premium",
       testimonial: "Très sérieux et réactifs, ils m'ont fait un très joli site web avec de bons conseils et du professionnalisme. Je recommande vivement !",
       author: "Monsieur Arancini",
-      slug: undefined
+      slug: "monsieur-arancini"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
