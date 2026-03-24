@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Globe, Code, Smartphone, ShoppingCart, Star, ArrowRight, Target, Search, Share2, BarChart3 } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Facebook, Globe, Code, Smartphone, ShoppingCart, Star, ArrowRight, Target, Search, Share2, BarChart3 } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
