@@ -458,6 +458,13 @@ const CaseStudy = () => {
         icon={caseStudy.icon}
       />
 
+      <CaseStudyTestimonial
+        testimonial={caseStudy.testimonial}
+        author={caseStudy.author}
+        role={caseStudy.role}
+        client={caseStudy.client}
+      />
+
       <CaseStudyOverview
         challenge={caseStudy.challenge}
         solution={caseStudy.solution}
@@ -475,13 +482,6 @@ const CaseStudy = () => {
       <CaseStudyMetrics metrics={caseStudy.metrics} />
 
       <CaseStudyTimeline timeline={caseStudy.timeline} />
-
-      <CaseStudyTestimonial
-        testimonial={caseStudy.testimonial}
-        author={caseStudy.author}
-        role={caseStudy.role}
-        client={caseStudy.client}
-      />
 
       <CaseStudyCTA results={caseStudy.results} />
 
