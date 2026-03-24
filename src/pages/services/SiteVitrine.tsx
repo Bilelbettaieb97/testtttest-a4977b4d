@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ArrowRight, CheckCircle, FileText, Clock, Search, Palette, Globe, Users, Star, Shield, RotateCcw, Lock, Headphones, Phone, TrendingUp, Award } from 'lucide-react';
+import ServiceCaseStudies from '@/components/services/ServiceCaseStudies';
 
 const SiteVitrineService = () => {
   const features = [
@@ -291,6 +292,14 @@ const SiteVitrineService = () => {
             </div>
           </div>
         </section>
+
+        {/* Case Studies */}
+        <ServiceCaseStudies 
+          category="site-vitrine" 
+          title="Nos sites vitrines réalisés" 
+          subtitle="Découvrez les sites vitrines que nous avons créés pour nos clients"
+          max={6}
+        />
 
         {/* Testimonials */}
         <section className="py-20">
