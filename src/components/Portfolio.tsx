@@ -19,6 +19,7 @@ import portfolioAdsb from "@/assets/portfolio-adsb-hero.png";
 import portfolioAsi from "@/assets/portfolio-asi-hero.png";
 import portfolioTrievent from "@/assets/portfolio-trievent-hero.png";
 import portfolioTemplezen from "@/assets/portfolio-templezen-hero.png";
+import portfolioInstitutNomad from "@/assets/portfolio-institut-nomad-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -183,6 +184,24 @@ const Portfolio = () => {
       testimonial: "Le site reflète parfaitement l'univers que je voulais transmettre. C'est élégant, apaisant et très professionnel.",
       author: "Le Temple de l'Énergie",
       slug: "temple-zen"
+    },
+    {
+      icon: <BookOpen className="w-6 h-6 text-yellow-600" />,
+      sector: "Éducation / Pédagogie",
+      client: "Institut Nomad",
+      title: "Site vitrine pour accompagnement éducatif alternatif",
+      description: "Site institutionnel moderne avec structuration d'une offre éducative complexe et optimisation UX pour prise de contact.",
+      image: portfolioInstitutNomad,
+      metrics: [
+        { label: "Pôles", value: "3", icon: Star },
+        { label: "Satisfaction", value: "95%", icon: TrendingUp },
+        { label: "Autonomie", value: "Admin", icon: Users }
+      ],
+      technologies: ["Site Vitrine", "Design Institutionnel", "UX Contact"],
+      results: "Positionnement éducatif unique",
+      testimonial: "Convertilab a compris rapidement ce que je souhaitais mettre en avant. Il a rendu mon site plus professionnel avec une grande autonomie de gestion.",
+      author: "Institut Nomad",
+      slug: "institut-nomad"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,

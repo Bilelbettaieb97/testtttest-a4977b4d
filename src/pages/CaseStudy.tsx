@@ -34,6 +34,7 @@ import portfolioAdsbHero from "@/assets/portfolio-adsb-hero.png";
 import portfolioAsiHero from "@/assets/portfolio-asi-hero.png";
 import portfolioTrieventHero from "@/assets/portfolio-trievent-hero.png";
 import portfolioTemplezenHero from "@/assets/portfolio-templezen-hero.png";
+import portfolioInstitutNomadHero from "@/assets/portfolio-institut-nomad-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -379,6 +380,43 @@ const CaseStudy = () => {
       author: "Le Temple de l'Énergie",
       role: "Fondatrice"
     },
+    "institut-nomad": {
+      icon: <BookOpen className="w-8 h-8" />,
+      sector: "Éducation / Pédagogie alternative",
+      client: "Institut Nomad",
+      title: "Site vitrine pour accompagnement éducatif alternatif",
+      subtitle: "Création d'un site institutionnel moderne pour un centre d'accompagnement des jeunes en difficulté scolaire",
+      image: portfolioInstitutNomadHero,
+      gallery: [
+        { src: portfolioInstitutNomadHero, alt: "Page d'accueil Institut Nomad", caption: "Design moderne et institutionnel avec mise en avant de la mission éducative" },
+        { src: portfolioInstitutNomadHero, alt: "Accompagnements", caption: "Présentation des pôles éducatifs et programmes d'accompagnement" },
+        { src: portfolioInstitutNomadHero, alt: "Contact", caption: "Formulaire de contact optimisé pour parents et élèves" }
+      ],
+      chartData: [
+        { name: "Crédibilité", before: 30, after: 90 },
+        { name: "Compréhension", before: 25, after: 85 },
+        { name: "Contacts", before: 10, after: 45 }
+      ],
+      challenge: "Institut Nomad proposait une offre éducative alternative riche mais difficile à comprendre en ligne. L'ancien site manquait de professionnalisme et ne reflétait pas la qualité de l'accompagnement proposé aux jeunes en difficulté.",
+      solution: "Nous avons créé un site institutionnel moderne avec une structuration claire des pôles éducatifs, une mise en avant de la pédagogie alternative, des CTAs optimisés pour la prise de contact (parents/élèves) et un back-office permettant une grande autonomie dans la gestion des contenus.",
+      metrics: [
+        { label: "Pôles éducatifs", value: "3", description: "Accompagnement structuré" },
+        { label: "Satisfaction", value: "95%", description: "Parents et jeunes satisfaits" },
+        { label: "Intervenants", value: "10+", description: "Experts mobilisés" },
+        { label: "Autonomie", value: "100%", description: "Gestion admin autonome" }
+      ],
+      technologies: ["Site Vitrine", "Design Institutionnel", "UX Contact", "Back-office Admin"],
+      timeline: [
+        { phase: "Découverte", duration: "1 jour", description: "Compréhension de la mission éducative et des besoins" },
+        { phase: "Structuration", duration: "2 jours", description: "Organisation des contenus et pôles éducatifs" },
+        { phase: "Design & Dev", duration: "5 jours", description: "Création du site avec back-office admin" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne et formation" }
+      ],
+      results: "Institut Nomad dispose d'un site professionnel qui clarifie son offre éducative unique, renforce sa crédibilité auprès des parents et permet une gestion autonome des contenus.",
+      testimonial: "Convertilab a compris rapidement ce que je souhaitais mettre en avant sur mon site. Il a rendu mon ancien site plus professionnel. La page admin me permet une grande autonomie dans la gestion des contenus du site.",
+      author: "Institut Nomad",
+      role: "Fondateur"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -653,6 +691,7 @@ const CaseStudy = () => {
     "alliance-securite-incendie",
     "trievent",
     "temple-zen",
+    "institut-nomad",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
