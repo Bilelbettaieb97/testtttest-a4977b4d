@@ -72,6 +72,7 @@ const Index = () => {
       <FAQSchema faqs={faqData} />
       <ReviewsSchema reviews={reviewsData} />
       
+      <Navigation />
       <div style={{ paddingTop: '64px' }}>
         <Suspense fallback={null}>
           <PromoBanner />
