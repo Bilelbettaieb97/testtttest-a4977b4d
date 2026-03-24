@@ -391,8 +391,8 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
     return cases.filter(c => c.category === activeCategory);
   }, [activeCategory]);
 
-  // When filtered, show grid. Otherwise show carousel (homepage behavior)
-  if (isFiltered) {
+  // Keep dedicated filtered grid behavior only on /portfolio page
+  if (isFiltered && !isHomepage) {
     return (
       <section className="py-8 sm:py-12 bg-gradient-to-br from-slate-50 via-purple-50/30 to-pink-50/30 relative overflow-hidden" id="portfolio">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
