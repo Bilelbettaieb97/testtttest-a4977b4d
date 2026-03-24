@@ -39,6 +39,7 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
   const [internalCategory, setInternalCategory] = useState("all");
   const isHomepage = externalCategory === undefined;
   const activeCategory = isHomepage ? internalCategory : externalCategory;
+  const cases = [
     {
       icon: <Utensils className="w-6 h-6 text-orange-600" />,
       sector: "Restauration",
