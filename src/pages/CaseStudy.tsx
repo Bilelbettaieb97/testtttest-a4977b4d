@@ -27,6 +27,7 @@ import portfolioB2B from "@/assets/portfolio-b2b.webp";
 import portfolioArancini from "@/assets/portfolio-arancini.jpg";
 import portfolioAranciniHero from "@/assets/portfolio-arancini-hero.png";
 import portfolioFunestoreHero from "@/assets/portfolio-funestore-hero.png";
+import portfolioPapapretHero from "@/assets/portfolio-papapret-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -112,6 +113,43 @@ const CaseStudy = () => {
       testimonial: "Réactivité, compétence, flexibilité. J'ai adoré travailler avec ConvertiLab. Pendant nos rendez-vous, Billel a pris le temps de bien comprendre notre écosystème et de proposer un magnifique site dans un domaine assez feutré et confidentiel. Merci à toi Billel, et à bientôt pour la suite !",
       author: "Funestore",
       role: "Dirigeant"
+    },
+    "papapret": {
+      icon: <BookOpen className="w-8 h-8" />,
+      sector: "Formation / Infoproduit",
+      client: "PapaPrêt",
+      title: "Landing page haute conversion pour formation parentalité",
+      subtitle: "Création d'une landing page avec tunnel de vente optimisé pour une formation destinée aux futurs papas",
+      image: portfolioPapapretHero,
+      gallery: [
+        { src: portfolioPapapretHero, alt: "Page d'accueil PapaPrêt", caption: "Landing page avec copywriting persuasif et preuve sociale" },
+        { src: portfolioPapapretHero, alt: "Section programme", caption: "Présentation structurée du programme de formation" },
+        { src: portfolioPapapretHero, alt: "Section témoignages", caption: "Preuves sociales et témoignages de papas formés" }
+      ],
+      chartData: [
+        { name: "Engagement", before: 15, after: 75 },
+        { name: "Conversion", before: 2, after: 12 },
+        { name: "Crédibilité", before: 30, after: 95 }
+      ],
+      challenge: "PapaPrêt proposait une formation unique pour les futurs papas mais manquait d'un support digital impactant pour convertir les visiteurs en inscrits. Le message n'était pas clair et le parcours utilisateur n'incitait pas à l'action.",
+      solution: "Nous avons créé une landing page haute conversion avec une structure marketing éprouvée (problème → solution → transformation), un copywriting orienté vente, des sections persuasives avec preuves sociales (15K+ papas formés, note 4.9/5), et un design UX optimisé pour le passage à l'action.",
+      metrics: [
+        { label: "Papas formés", value: "15K+", description: "Communauté grandissante" },
+        { label: "Satisfaction", value: "4.9/5", description: "Note moyenne des participants" },
+        { label: "Livraison", value: "24h", description: "Projet livré en un temps record" },
+        { label: "Prix", value: "150€", description: "Formation accessible et premium" }
+      ],
+      technologies: ["Landing Page", "Copywriting", "UX Conversion", "Responsive Design"],
+      timeline: [
+        { phase: "Stratégie", duration: "1 jour", description: "Compréhension du marché et positionnement" },
+        { phase: "Copywriting", duration: "1 jour", description: "Rédaction persuasive et structuration du tunnel" },
+        { phase: "Design & Dev", duration: "1 jour", description: "Création et intégration de la landing page" },
+        { phase: "Optimisation", duration: "En continu", description: "Tests et optimisation des conversions" }
+      ],
+      results: "PapaPrêt dispose d'un tunnel de vente structuré et impactant qui positionne la formation de manière premium et crédible, avec une base solide pour l'acquisition via Meta Ads et TikTok.",
+      testimonial: "Bilel est un pro qui comprend votre projet et vous permet d'avoir des solutions sur le net qui sont modernes et impactantes. Je le recommande à 100%. Il a réalisé mon projet en 24 heures, un résultat qui correspond à 100% à mes attentes. C'est un vrai partenaire très réactif qui va penser votre projet pour enclencher une compréhension immédiate et un passage à l'acte d'achat. Excellent rapport qualité-prix.",
+      author: "Gilles",
+      role: "Fondateur PapaPrêt"
     },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
@@ -380,6 +418,7 @@ const CaseStudy = () => {
   const projectOrder = [
     "monsieur-arancini",
     "funestore",
+    "papapret",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
