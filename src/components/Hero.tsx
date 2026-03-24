@@ -9,18 +9,35 @@ const rotatingWords = ["Business", "Boutique", "Projet", "Marque"];
 
 const Hero = () => {
   const [wordIndex, setWordIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setWordIndex((prev) => (prev + 1) % rotatingWords.length);
-        setIsAnimating(false);
-      }, 300);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
+    const currentWord = rotatingWords[wordIndex];
+    
+    if (!isDeleting && displayedText === currentWord) {
+      // Pause before deleting
+      const pause = setTimeout(() => setIsDeleting(true), 1500);
+      return () => clearTimeout(pause);
+    }
+    
+    if (isDeleting && displayedText === "") {
+      setIsDeleting(false);
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+      return;
+    }
+
+    const speed = isDeleting ? 50 : 100;
+    const timer = setTimeout(() => {
+      setDisplayedText(
+        isDeleting
+          ? currentWord.substring(0, displayedText.length - 1)
+          : currentWord.substring(0, displayedText.length + 1)
+      );
+    }, speed);
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, wordIndex]);
 
   const openPriceEstimator = () => {
     window.open("https://estimationdesiteweb.lovable.app/", "_blank");
