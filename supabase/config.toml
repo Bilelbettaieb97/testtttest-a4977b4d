@@ -4,5 +4,8 @@ project_id = "vauztcebvsjhirgoivfv"
 verify_jwt = false
 
 
+[functions.notify-contact]
+verify_jwt = false
+
 [functions.get-admin-data]
 verify_jwt = true
