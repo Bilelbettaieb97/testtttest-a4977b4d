@@ -27,8 +27,18 @@ interface PortfolioProps {
   activeCategory?: string;
 }
 
-const Portfolio = ({ activeCategory }: PortfolioProps) => {
-  const cases = [
+const homepageCategories = [
+  { id: "all", label: "Tous", icon: LayoutGrid },
+  { id: "site-vitrine", label: "Sites Vitrine", icon: Globe },
+  { id: "e-commerce", label: "E-commerce", icon: ShoppingCart },
+  { id: "landing-page", label: "Landing Pages", icon: Rocket },
+  { id: "portfolio", label: "Portfolios", icon: Camera },
+];
+
+const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
+  const [internalCategory, setInternalCategory] = useState("all");
+  const isHomepage = externalCategory === undefined;
+  const activeCategory = isHomepage ? internalCategory : externalCategory;
     {
       icon: <Utensils className="w-6 h-6 text-orange-600" />,
       sector: "Restauration",
