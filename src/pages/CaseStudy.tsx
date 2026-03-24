@@ -40,6 +40,7 @@ import portfolioVinoboatHero from "@/assets/portfolio-vinoboat-hero.png";
 import portfolioCouleursableHero from "@/assets/portfolio-couleursable-hero.png";
 import portfolioFilmreelHero from "@/assets/portfolio-filmreel-hero.png";
 import portfolioArtdesrosesHero from "@/assets/portfolio-artdesroses-hero.png";
+import portfolioSegermesHero from "@/assets/portfolio-segermes-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -607,6 +608,43 @@ const CaseStudy = () => {
       author: "Art des Roses",
       role: "Artiste Peintre"
     },
+    "segermes": {
+      icon: <Sparkles className="w-8 h-8" />,
+      sector: "E-commerce / Alimentaire Premium",
+      client: "Segermès",
+      title: "E-commerce premium pour huile d'olive haut de gamme",
+      subtitle: "Création d'un site e-commerce luxe pour une marque d'huile d'olive bio familiale depuis 1950",
+      image: portfolioSegermesHero,
+      gallery: [
+        { src: portfolioSegermesHero, alt: "Page d'accueil Segermès", caption: "Design premium avec storytelling méditerranéen" },
+        { src: portfolioSegermesHero, alt: "Produits", caption: "Catalogue d'huiles d'olive premium avec fiches détaillées" },
+        { src: portfolioSegermesHero, alt: "Histoire", caption: "Storytelling de marque : tradition, terroir et savoir-faire" }
+      ],
+      chartData: [
+        { name: "Image premium", before: 25, after: 95 },
+        { name: "Ventes en ligne", before: 0, after: 70 },
+        { name: "Crédibilité", before: 35, after: 90 }
+      ],
+      challenge: "Segermès produisait une huile d'olive bio d'exception depuis 1950 mais n'avait aucune présence digitale à la hauteur de la qualité de ses produits. La marque avait besoin d'un site qui reflète son positionnement premium et permette la vente en ligne.",
+      solution: "Nous avons conçu un site e-commerce premium avec un design luxe, un storytelling de marque puissant (origine, tradition familiale, terroir tunisien), un catalogue produits élégant avec parcours d'achat fluide et des éléments de réassurance (bio, qualité, provenance).",
+      metrics: [
+        { label: "Héritage", value: "1950", description: "Domaine familial depuis 1950" },
+        { label: "Qualité", value: "Bio", description: "Certification biologique" },
+        { label: "Ventes", value: "En ligne", description: "E-commerce opérationnel" },
+        { label: "Production", value: "A à Z", description: "Maîtrise complète" }
+      ],
+      technologies: ["E-commerce", "Design Premium", "Storytelling", "Responsive"],
+      timeline: [
+        { phase: "Immersion", duration: "1 jour", description: "Découverte du domaine et de l'histoire familiale" },
+        { phase: "Design", duration: "3 jours", description: "Création du design luxe méditerranéen" },
+        { phase: "Développement", duration: "5 jours", description: "Intégration e-commerce et catalogue" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne et optimisations" }
+      ],
+      results: "Segermès dispose d'un site à l'image de la qualité de ses produits : premium, élégant et racontant l'histoire d'un savoir-faire familial depuis 1950.",
+      testimonial: "Le site reflète parfaitement la qualité et le positionnement premium de notre marque. Il met en valeur nos produits et notre histoire avec élégance.",
+      author: "Segermès",
+      role: "Fondateur"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -887,6 +925,7 @@ const CaseStudy = () => {
     "couleur-sable",
     "filmreel-gallery",
     "art-des-roses",
+    "segermes",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
