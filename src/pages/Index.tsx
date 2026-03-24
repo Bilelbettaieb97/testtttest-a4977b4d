@@ -76,7 +76,7 @@ const Index = () => {
         <PromoBanner />
       </Suspense>
       <Navigation />
-      <section id="hero">
+      <section id="hero" style={{ marginTop: '64px' }}>
         <Hero />
       </section>
       <Suspense fallback={<div className="min-h-[400px]" />}>
