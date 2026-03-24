@@ -30,6 +30,8 @@ import portfolioFunestoreHero from "@/assets/portfolio-funestore-hero.png";
 import galleryFunestoreFullpage1 from "@/assets/gallery-funestore-fullpage-1.jpg";
 import galleryFunestoreFullpage2 from "@/assets/gallery-funestore-fullpage-2.jpg";
 import galleryFunestoreFullpage3 from "@/assets/gallery-funestore-fullpage-3.jpg";
+import galleryFunestoreCatalogue from "@/assets/gallery-funestore-catalogue.png";
+import galleryFunestoreProduit from "@/assets/gallery-funestore-produit.png";
 import portfolioPapapretHero from "@/assets/portfolio-papapret-hero.png";
 import galleryPapapretFullpage1 from "@/assets/gallery-papapret-fullpage-1.jpg";
 import galleryPapapretFullpage2 from "@/assets/gallery-papapret-fullpage-2.jpg";
