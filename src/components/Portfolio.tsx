@@ -12,6 +12,7 @@ import portfolioFormation from "@/assets/portfolio-formation.webp";
 import portfolioB2B from "@/assets/portfolio-b2b.webp";
 import portfolioArancini from "@/assets/portfolio-arancini-hero.png";
 import portfolioFunestore from "@/assets/portfolio-funestore-hero.png";
+import portfolioPapapret from "@/assets/portfolio-papapret-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -50,6 +51,24 @@ const Portfolio = () => {
       testimonial: "Billel a pris le temps de bien comprendre notre écosystème et de proposer un magnifique site dans un domaine assez feutré et confidentiel.",
       author: "Funestore",
       slug: "funestore"
+    },
+    {
+      icon: <BookOpen className="w-6 h-6 text-indigo-600" />,
+      sector: "Formation / Infoproduit",
+      client: "PapaPrêt",
+      title: "Landing page haute conversion pour formation",
+      description: "Landing page avec tunnel de vente, copywriting persuasif et design UX optimisé pour la conversion.",
+      image: portfolioPapapret,
+      metrics: [
+        { label: "Papas formés", value: "15K+", icon: Users },
+        { label: "Note", value: "4.9/5", icon: Star },
+        { label: "Livraison", value: "24h", icon: Clock }
+      ],
+      technologies: ["Landing Page", "Copywriting", "UX Conversion"],
+      results: "Tunnel de vente optimisé",
+      testimonial: "Un vrai partenaire très réactif qui pense votre projet pour enclencher une compréhension immédiate et un passage à l'acte d'achat.",
+      author: "Gilles",
+      slug: "papapret"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
