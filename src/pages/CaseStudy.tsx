@@ -38,6 +38,7 @@ import portfolioInstitutNomadHero from "@/assets/portfolio-institut-nomad-hero.p
 import portfolioAhstudioHero from "@/assets/portfolio-ahstudio-hero.png";
 import portfolioVinoboatHero from "@/assets/portfolio-vinoboat-hero.png";
 import portfolioCouleursableHero from "@/assets/portfolio-couleursable-hero.png";
+import portfolioFilmreelHero from "@/assets/portfolio-filmreel-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -531,6 +532,43 @@ const CaseStudy = () => {
       author: "Couleur Sable by K",
       role: "Fondatrice"
     },
+    "filmreel-gallery": {
+      icon: <Sparkles className="w-8 h-8" />,
+      sector: "Production Vidéo / Agence Créative",
+      client: "FilmReel Gallery",
+      title: "Site portfolio cinématographique pour agence créative",
+      subtitle: "Création d'un site immersif avec design cinématographique et showreel pour une agence de production vidéo",
+      image: portfolioFilmreelHero,
+      gallery: [
+        { src: portfolioFilmreelHero, alt: "Page d'accueil FilmReel Gallery", caption: "Design cinématographique dark avec typographie impactante" },
+        { src: portfolioFilmreelHero, alt: "Showreel", caption: "Mise en avant des productions vidéo en plein écran" },
+        { src: portfolioFilmreelHero, alt: "Portfolio", caption: "Galerie de projets créatifs avec navigation immersive" }
+      ],
+      chartData: [
+        { name: "Impact visuel", before: 20, after: 95 },
+        { name: "Crédibilité", before: 30, after: 90 },
+        { name: "Demandes", before: 10, after: 55 }
+      ],
+      challenge: "FilmReel Gallery avait besoin d'un site à la hauteur de son travail créatif. Les plateformes classiques ne permettaient pas de créer l'effet immersif et cinématographique nécessaire pour impressionner les clients potentiels du secteur audiovisuel.",
+      solution: "Nous avons conçu un site portfolio avec une esthétique cinématographique (dark mode, typographie massive, animations fluides), un showreel vidéo en plein écran, une galerie de projets immersive et un storytelling visuel qui capte immédiatement l'attention.",
+      metrics: [
+        { label: "Impact", value: "Wow", description: "Effet visuel immédiat" },
+        { label: "Portfolio", value: "Premium", description: "Galerie immersive" },
+        { label: "Booking", value: "En ligne", description: "Prise de contact optimisée" },
+        { label: "Mobile", value: "100%", description: "Expérience responsive" }
+      ],
+      technologies: ["Site Portfolio", "Design Cinématographique", "Motion Design", "Responsive"],
+      timeline: [
+        { phase: "Direction artistique", duration: "2 jours", description: "Définition de l'univers visuel cinématographique" },
+        { phase: "Design", duration: "3 jours", description: "Création du design dark immersif" },
+        { phase: "Développement", duration: "5 jours", description: "Intégration animations et vidéos" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne et optimisations" }
+      ],
+      results: "FilmReel Gallery dispose d'un site qui impressionne dès la première seconde, positionne l'agence comme un acteur premium et génère des demandes de clients haut de gamme.",
+      testimonial: "Le site met parfaitement en valeur mon univers créatif. L'effet visuel est incroyable et mes clients comprennent immédiatement la qualité de mon travail.",
+      author: "FilmReel Gallery",
+      role: "Directeur Créatif"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -809,6 +847,7 @@ const CaseStudy = () => {
     "ah-studio",
     "vinoboat",
     "couleur-sable",
+    "filmreel-gallery",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
