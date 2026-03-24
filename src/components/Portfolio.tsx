@@ -419,9 +419,31 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {!activeCategory && <PortfolioHeader />}
+        {isHomepage && <PortfolioHeader />}
 
-        {/* Show all in grid when on portfolio page, carousel on homepage */}
-        {activeCategory !== undefined ? (
+        {/* Category filter for homepage */}
+        {isHomepage && (
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6">
+            {homepageCategories.map((cat) => {
+              const Icon = cat.icon;
+              const isActive = internalCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setInternalCategory(cat.id)}
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border-2 ${
+                    isActive
+                      ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25 scale-105'
+                      : 'bg-background text-muted-foreground border-border hover:border-primary/40 hover:text-foreground hover:shadow-md'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  {cat.label}
+                </button>
+              );
+            })}
+          </div>
+        )}
           <>
             <p className="text-center text-muted-foreground mb-6 font-medium">
               {cases.length} projets
