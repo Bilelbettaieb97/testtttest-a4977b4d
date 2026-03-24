@@ -20,6 +20,7 @@ import portfolioAsi from "@/assets/portfolio-asi-hero.png";
 import portfolioTrievent from "@/assets/portfolio-trievent-hero.png";
 import portfolioTemplezen from "@/assets/portfolio-templezen-hero.png";
 import portfolioInstitutNomad from "@/assets/portfolio-institut-nomad-hero.png";
+import portfolioAhstudio from "@/assets/portfolio-ahstudio-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -202,6 +203,24 @@ const Portfolio = () => {
       testimonial: "Convertilab a compris rapidement ce que je souhaitais mettre en avant. Il a rendu mon site plus professionnel avec une grande autonomie de gestion.",
       author: "Institut Nomad",
       slug: "institut-nomad"
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-rose-600" />,
+      sector: "Photographie / Branding",
+      client: "AH Studio Caen",
+      title: "Site vitrine portfolio pour photographe professionnel",
+      description: "Site visuel premium avec portfolio photo, structuration des offres shooting et optimisation pour la prise de rendez-vous.",
+      image: portfolioAhstudio,
+      metrics: [
+        { label: "Portfolio", value: "Premium", icon: Star },
+        { label: "Prestations", value: "Claires", icon: TrendingUp },
+        { label: "Réservation", value: "En ligne", icon: Clock }
+      ],
+      technologies: ["Site Vitrine", "Design Visuel", "UX Portfolio"],
+      results: "Image professionnelle renforcée",
+      testimonial: "De l'idée à la finition, Bilel nous accompagne tout le long. Disponible et accessible, mon expérience client est plus que parfaite.",
+      author: "AH Studio Caen",
+      slug: "ah-studio"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,

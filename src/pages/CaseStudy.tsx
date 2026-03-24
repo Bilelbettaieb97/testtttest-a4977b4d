@@ -35,6 +35,7 @@ import portfolioAsiHero from "@/assets/portfolio-asi-hero.png";
 import portfolioTrieventHero from "@/assets/portfolio-trievent-hero.png";
 import portfolioTemplezenHero from "@/assets/portfolio-templezen-hero.png";
 import portfolioInstitutNomadHero from "@/assets/portfolio-institut-nomad-hero.png";
+import portfolioAhstudioHero from "@/assets/portfolio-ahstudio-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -417,6 +418,43 @@ const CaseStudy = () => {
       author: "Institut Nomad",
       role: "Fondateur"
     },
+    "ah-studio": {
+      icon: <Sparkles className="w-8 h-8" />,
+      sector: "Photographie / Branding",
+      client: "AH Studio Caen",
+      title: "Site vitrine portfolio pour photographe professionnel",
+      subtitle: "Création d'un site visuel premium pour un photographe spécialisé en portraits et corporate à Caen",
+      image: portfolioAhstudioHero,
+      gallery: [
+        { src: portfolioAhstudioHero, alt: "Page d'accueil AH Studio", caption: "Design cinématique avec mise en avant des portraits" },
+        { src: portfolioAhstudioHero, alt: "Portfolio", caption: "Galerie photo immersive avec navigation fluide" },
+        { src: portfolioAhstudioHero, alt: "Prestations", caption: "Structuration des offres shooting et corporate" }
+      ],
+      chartData: [
+        { name: "Image pro", before: 30, after: 95 },
+        { name: "Compréhension", before: 25, after: 90 },
+        { name: "Réservations", before: 10, after: 55 }
+      ],
+      challenge: "AH Studio avait testé plusieurs plateformes de création de site sans résultat satisfaisant. Le photographe avait besoin d'un site à la hauteur de la qualité de son travail, avec un portfolio percutant et une présentation claire de ses prestations.",
+      solution: "Nous avons conçu un site vitrine visuel et premium avec un design cinématique, un portfolio photo immersif, une structuration claire des offres (portrait, corporate, book) et un parcours client fluide de la préparation au shooting jusqu'à la livraison HD.",
+      metrics: [
+        { label: "Portfolio", value: "Premium", description: "Galerie photo immersive" },
+        { label: "Prestations", value: "Structurées", description: "Shooting, book, corporate" },
+        { label: "Réservation", value: "En ligne", description: "Prise de RDV simplifiée" },
+        { label: "Mobile", value: "100%", description: "Expérience fluide" }
+      ],
+      technologies: ["Site Vitrine", "Design Visuel", "UX Portfolio", "Responsive Design"],
+      timeline: [
+        { phase: "Découverte", duration: "1 jour", description: "Compréhension de l'univers photographique" },
+        { phase: "Design", duration: "3 jours", description: "Création du design visuel premium" },
+        { phase: "Développement", duration: "5 jours", description: "Intégration portfolio et fonctionnalités" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne et ajustements" }
+      ],
+      results: "AH Studio dispose d'un site à la hauteur de son talent, renforçant son image professionnelle et facilitant la réservation de shootings pour particuliers et entreprises.",
+      testimonial: "Après avoir essayé plusieurs plateformes de création de site web, j'ai découvert Convertilab. De l'idée à la finition, Bilel nous accompagne tout le long de ce processus. Il a su me conseiller certaines options dont j'ignorais les possibilités. Disponible et accessible en cas de besoin. Je vous recommande Convertilab pour sa proximité avec le client. Mon expérience client est plus que parfaite. Gagnez du temps, optez pour Convertilab.",
+      author: "AH Studio Caen",
+      role: "Photographe"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -692,6 +730,7 @@ const CaseStudy = () => {
     "trievent",
     "temple-zen",
     "institut-nomad",
+    "ah-studio",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
