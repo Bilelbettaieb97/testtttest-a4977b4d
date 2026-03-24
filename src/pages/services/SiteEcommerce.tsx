@@ -79,10 +79,10 @@ const SiteEcommerceService = () => {
   return (
     <>
       <Helmet>
-        <title>Site E-commerce dès 2490€ | ConvertiLab Paris</title>
+        <title>Site E-commerce dès 800€ | ConvertiLab Paris</title>
         <meta name="description" content="Boutique en ligne professionnelle en 21-30 jours. Paiement sécurisé, gestion des stocks, SEO intégré. Devis gratuit sous 24h." />
         <link rel="canonical" href="https://convertilab.com/services/sites-web/site-ecommerce" />
-        <meta property="og:title" content="Site E-commerce Professionnel dès 2490€ | ConvertiLab" />
+        <meta property="og:title" content="Site E-commerce Professionnel dès 800€ | ConvertiLab" />
         <meta property="og:description" content="Boutique en ligne sur-mesure, paiement sécurisé, gestion stocks. Prix fixe, satisfaction garantie." />
         <meta property="og:url" content="https://convertilab.com/services/sites-web/site-ecommerce" />
       </Helmet>
@@ -223,7 +223,7 @@ const SiteEcommerceService = () => {
                     </span>
                   </div>
                   <div className="text-center mb-6">
-                    <p className="text-4xl font-black text-foreground">À partir de 2 490€</p>
+                    <p className="text-4xl font-black text-foreground">À partir de 800€</p>
                     <p className="text-sm text-muted-foreground mt-1">Prix fixe, sans surprise</p>
                   </div>
                   <div className="flex items-center justify-center gap-2 mb-4">

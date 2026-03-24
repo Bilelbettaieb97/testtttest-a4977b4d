@@ -24,7 +24,7 @@ const servicesByCategory: Record<string, ServiceLink[]> = {
     { icon: <Search className="w-5 h-5" />, title: "Audit SEO", description: "Diagnostic complet de visibilité", href: "/services/seo/audit-seo" },
   ],
   "Technique": [
-    { icon: <Store className="w-5 h-5" />, title: "Site E-commerce", description: "Boutique en ligne dès 2490€", href: "/services/sites-web/site-ecommerce" },
+    { icon: <Store className="w-5 h-5" />, title: "Site E-commerce", description: "Boutique en ligne dès 800€", href: "/services/sites-web/site-ecommerce" },
     { icon: <Megaphone className="w-5 h-5" />, title: "Google Ads", description: "Campagnes publicitaires ciblées", href: "/services/sea/google-ads" },
   ],
 };

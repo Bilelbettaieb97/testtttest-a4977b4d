@@ -44,7 +44,7 @@ const SitesWebComparison = () => {
                 </th>
                 <th className="py-4 px-4 text-center">
                   <div className="text-sm font-bold text-foreground">E-commerce</div>
-                  <div className="text-xs text-muted-foreground">Dès 2 490€</div>
+                  <div className="text-xs text-muted-foreground">Dès 800€</div>
                 </th>
               </tr>
             </thead>
