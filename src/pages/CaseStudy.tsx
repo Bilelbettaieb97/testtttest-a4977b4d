@@ -43,6 +43,11 @@ import galleryAcbFullpage2 from "@/assets/gallery-acb-fullpage-2.jpg";
 import galleryAcbFullpage3 from "@/assets/gallery-acb-fullpage-3.jpg";
 import portfolioAcbHero from "@/assets/portfolio-acb-hero.png";
 import portfolioElevaHero from "@/assets/portfolio-eleva-hero.png";
+import galleryElevaFullpage1 from "@/assets/gallery-eleva-fullpage-1.jpg";
+import galleryElevaFullpage2 from "@/assets/gallery-eleva-fullpage-2.jpg";
+import galleryElevaFullpage3 from "@/assets/gallery-eleva-fullpage-3.jpg";
+import galleryElevaFullpage4 from "@/assets/gallery-eleva-fullpage-4.jpg";
+import galleryElevaFullpage5 from "@/assets/gallery-eleva-fullpage-5.jpg";
 import portfolioAdsbHero from "@/assets/portfolio-adsb-hero.png";
 import portfolioAsiHero from "@/assets/portfolio-asi-hero.png";
 import portfolioTrieventHero from "@/assets/portfolio-trievent-hero.png";
@@ -225,9 +230,11 @@ const CaseStudy = () => {
       subtitle: "Création d'un site luxueux pour une conciergerie de location courte durée avec tunnel de conversion",
       image: portfolioElevaHero,
       gallery: [
-        { src: portfolioElevaHero, alt: "Page d'accueil Eleva Conciergerie", caption: "Design premium avec estimation de revenus gratuite" },
-        { src: portfolioElevaHero, alt: "Services Eleva", caption: "Présentation des services de gestion locative haut de gamme" },
-        { src: portfolioElevaHero, alt: "Témoignages", caption: "Preuves sociales et résultats propriétaires" }
+        { src: galleryElevaFullpage1, alt: "Page complète Eleva - Partie 1", caption: "Accueil premium, problématiques propriétaires et proposition de valeur" },
+        { src: galleryElevaFullpage2, alt: "Page complète Eleva - Partie 2", caption: "Services complets, résultats concrets et statistiques" },
+        { src: galleryElevaFullpage3, alt: "Page complète Eleva - Partie 3", caption: "Cibles, avantages et positionnement premium" },
+        { src: galleryElevaFullpage4, alt: "Page complète Eleva - Partie 4", caption: "Témoignages, CTA et formulaire de contact" },
+        { src: galleryElevaFullpage5, alt: "Page complète Eleva - Partie 5", caption: "Footer et navigation du site" }
       ],
       chartData: [
         { name: "Crédibilité", before: 20, after: 95 },
