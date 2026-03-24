@@ -7,7 +7,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Combien coûte la création d'un site web ?",
-      answer: "Nos tarifs démarrent à 490€ pour une landing page et 300€ pour un site vitrine complet. Le prix dépend du nombre de pages, des fonctionnalités et du design souhaité. Nous vous fournissons un devis détaillé et transparent sous 24h."
+      answer: "Nos tarifs démarrent à 300€ pour une landing page et 300€ pour un site vitrine complet. Le prix dépend du nombre de pages, des fonctionnalités et du design souhaité. Nous vous fournissons un devis détaillé et transparent sous 24h."
     },
     {
       question: "En combien de temps mon site sera-t-il livré ?",
