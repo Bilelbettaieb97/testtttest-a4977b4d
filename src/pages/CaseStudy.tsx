@@ -39,6 +39,7 @@ import portfolioAhstudioHero from "@/assets/portfolio-ahstudio-hero.png";
 import portfolioVinoboatHero from "@/assets/portfolio-vinoboat-hero.png";
 import portfolioCouleursableHero from "@/assets/portfolio-couleursable-hero.png";
 import portfolioFilmreelHero from "@/assets/portfolio-filmreel-hero.png";
+import portfolioArtdesrosesHero from "@/assets/portfolio-artdesroses-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -569,6 +570,43 @@ const CaseStudy = () => {
       author: "FilmReel Gallery",
       role: "Directeur Créatif"
     },
+    "art-des-roses": {
+      icon: <Sparkles className="w-8 h-8" />,
+      sector: "E-commerce / Art",
+      client: "Art des Roses",
+      title: "E-commerce artistique pour vente d'œuvres",
+      subtitle: "Création d'un site e-commerce élégant pour une artiste peintre diplômée des Beaux-Arts",
+      image: portfolioArtdesrosesHero,
+      gallery: [
+        { src: portfolioArtdesrosesHero, alt: "Page d'accueil Art des Roses", caption: "Design artistique avec mise en valeur des œuvres" },
+        { src: portfolioArtdesrosesHero, alt: "Boutique", caption: "Catalogue d'œuvres avec parcours d'achat fluide" },
+        { src: portfolioArtdesrosesHero, alt: "Collections", caption: "Organisation par collections et styles artistiques" }
+      ],
+      chartData: [
+        { name: "Visibilité", before: 20, after: 85 },
+        { name: "Ventes en ligne", before: 0, after: 60 },
+        { name: "Crédibilité", before: 40, after: 95 }
+      ],
+      challenge: "L'artiste vendait ses œuvres uniquement via des expositions physiques et n'avait aucune présence digitale pour toucher un public plus large. Il manquait une galerie en ligne permettant de présenter et vendre ses créations.",
+      solution: "Nous avons créé un site e-commerce avec un design artistique et immersif, un catalogue structuré par collections, un parcours d'achat fluide et une mise en valeur premium des œuvres avec une esthétique raffinée fidèle à l'univers de l'artiste.",
+      metrics: [
+        { label: "Galerie", value: "24/7", description: "Accessible en permanence" },
+        { label: "Œuvres", value: "En ligne", description: "Catalogue complet" },
+        { label: "Ventes", value: "Direct", description: "Achat en ligne sécurisé" },
+        { label: "Exposition", value: "Mondiale", description: "Paris, NY, Monaco, Kyoto" }
+      ],
+      technologies: ["E-commerce", "Design Artistique", "UX Premium", "Responsive"],
+      timeline: [
+        { phase: "Immersion", duration: "1 jour", description: "Découverte de l'univers artistique" },
+        { phase: "Design", duration: "3 jours", description: "Création du design élégant et raffiné" },
+        { phase: "Développement", duration: "5 jours", description: "Intégration e-commerce et catalogue" },
+        { phase: "Lancement", duration: "1 jour", description: "Mise en ligne et ajustements" }
+      ],
+      results: "Art des Roses dispose d'une galerie en ligne élégante qui met en valeur les œuvres et permet de les vendre directement, ouvrant un nouveau canal de revenus pour l'artiste.",
+      testimonial: "Le site met parfaitement en valeur mes œuvres et me permet enfin de les vendre en ligne. Le rendu est élégant et très professionnel.",
+      author: "Art des Roses",
+      role: "Artiste Peintre"
+    },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
       sector: "E-commerce",
@@ -848,6 +886,7 @@ const CaseStudy = () => {
     "vinoboat",
     "couleur-sable",
     "filmreel-gallery",
+    "art-des-roses",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
