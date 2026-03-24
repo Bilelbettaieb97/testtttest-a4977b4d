@@ -31,6 +31,7 @@ import portfolioPapapretHero from "@/assets/portfolio-papapret-hero.png";
 import portfolioAcbHero from "@/assets/portfolio-acb-hero.png";
 import portfolioElevaHero from "@/assets/portfolio-eleva-hero.png";
 import portfolioAdsbHero from "@/assets/portfolio-adsb-hero.png";
+import portfolioAsiHero from "@/assets/portfolio-asi-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -264,6 +265,43 @@ const CaseStudy = () => {
       testimonial: "Un travail très professionnel sur un projet technique complexe. Le site est clair, moderne et permet de présenter efficacement notre solution à nos clients.",
       author: "ADSB Wissembourg",
       role: "Président"
+    },
+    "alliance-securite-incendie": {
+      icon: <Briefcase className="w-8 h-8" />,
+      sector: "Sécurité Incendie",
+      client: "Alliance Sécurité Incendie",
+      title: "Site vitrine B2B pour spécialiste sécurité incendie",
+      subtitle: "Création d'un site professionnel pour une entreprise de sécurité incendie en Île-de-France",
+      image: portfolioAsiHero,
+      gallery: [
+        { src: portfolioAsiHero, alt: "Page d'accueil ASI", caption: "Page d'accueil avec mise en avant de l'expertise et CTAs conversion" },
+        { src: portfolioAsiHero, alt: "Services ASI", caption: "Présentation structurée des services : inspection, conformité, ingénierie" },
+        { src: portfolioAsiHero, alt: "Contact ASI", caption: "Formulaire d'audit gratuit et contact direct" }
+      ],
+      chartData: [
+        { name: "Crédibilité", before: 20, after: 90 },
+        { name: "Leads", before: 5, after: 40 },
+        { name: "Visibilité", before: 15, after: 75 }
+      ],
+      challenge: "Alliance Sécurité Incendie, spécialiste de la sécurité incendie pour copropriétés en Île-de-France, avait besoin d'un site professionnel pour présenter son expertise technique et générer des demandes d'audit auprès des syndics et copropriétés.",
+      solution: "Nous avons créé un site vitrine B2B avec un design professionnel, une structuration claire des services (inspection, conformité, ingénierie), des CTAs optimisés (audit gratuit, appel direct), et une mise en avant des chiffres clés : 150+ copropriétés accompagnées, 98% de conformité, intervention en 24h.",
+      metrics: [
+        { label: "Copropriétés", value: "150+", description: "Accompagnées avec succès" },
+        { label: "Conformité", value: "98%", description: "Taux de conformité atteint" },
+        { label: "Intervention", value: "24h", description: "Délai d'intervention garanti" },
+        { label: "Devis", value: "Gratuit", description: "Audit sans engagement" }
+      ],
+      technologies: ["Site Vitrine", "UX B2B", "SEO Local", "Génération Leads"],
+      timeline: [
+        { phase: "Analyse", duration: "1 semaine", description: "Compréhension du secteur et des normes" },
+        { phase: "Design", duration: "2 semaines", description: "Design professionnel secteur sécurité" },
+        { phase: "Développement", duration: "3 semaines", description: "Intégration et optimisation conversion" },
+        { phase: "Lancement", duration: "1 semaine", description: "Mise en ligne et formation" }
+      ],
+      results: "Alliance Sécurité Incendie dispose d'un site professionnel qui génère des demandes d'audit qualifiées et positionne l'entreprise comme référence en sécurité incendie pour copropriétés en Île-de-France.",
+      testimonial: "Un site très professionnel qui reflète parfaitement notre expertise. Le rendu est clair, structuré et nous aide à présenter efficacement nos services auprès de nos clients.",
+      author: "Alliance Sécurité Incendie",
+      role: "Dirigeant"
     },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
@@ -536,6 +574,7 @@ const CaseStudy = () => {
     "acb-renovation",
     "eleva-conciergerie",
     "adsb-wissembourg",
+    "alliance-securite-incendie",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",
