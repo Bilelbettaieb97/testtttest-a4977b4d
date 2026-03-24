@@ -746,7 +746,9 @@ const CaseStudy = () => {
         { src: galleryEcrindeseoulFullpage1, alt: "Page complète L'Écrin de Séoul - Partie 1", caption: "Accueil, produits en vedette et collection K-beauty" },
         { src: galleryEcrindeseoulFullpage2, alt: "Page complète L'Écrin de Séoul - Partie 2", caption: "Essentiels beauté, boutique et avantages cosmétiques coréens" },
         { src: galleryEcrindeseoulFullpage3, alt: "Page complète L'Écrin de Séoul - Partie 3", caption: "Résultats avant/après, témoignages et univers skincare" },
-        { src: galleryEcrindeseoulFullpage4, alt: "Page complète L'Écrin de Séoul - Partie 4", caption: "Localisation, contact et footer" }
+        { src: galleryEcrindeseoulFullpage4, alt: "Page complète L'Écrin de Séoul - Partie 4", caption: "Localisation, contact et footer" },
+        { src: galleryEcrindeseoulBoutique, alt: "Page boutique L'Écrin de Séoul", caption: "Catalogue produits avec filtres par catégorie" },
+        { src: galleryEcrindeseoulProduit, alt: "Page produit L'Écrin de Séoul", caption: "Fiche produit détaillée avec ingrédients et bienfaits" }
       ],
       chartData: [
         { name: "Image de marque", before: 25, after: 90 },
