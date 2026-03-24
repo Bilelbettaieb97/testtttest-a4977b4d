@@ -9,18 +9,35 @@ const rotatingWords = ["Business", "Boutique", "Projet", "Marque"];
 
 const Hero = () => {
   const [wordIndex, setWordIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setWordIndex((prev) => (prev + 1) % rotatingWords.length);
-        setIsAnimating(false);
-      }, 300);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
+    const currentWord = rotatingWords[wordIndex];
+    
+    if (!isDeleting && displayedText === currentWord) {
+      // Pause before deleting
+      const pause = setTimeout(() => setIsDeleting(true), 1500);
+      return () => clearTimeout(pause);
+    }
+    
+    if (isDeleting && displayedText === "") {
+      setIsDeleting(false);
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+      return;
+    }
+
+    const speed = isDeleting ? 50 : 100;
+    const timer = setTimeout(() => {
+      setDisplayedText(
+        isDeleting
+          ? currentWord.substring(0, displayedText.length - 1)
+          : currentWord.substring(0, displayedText.length + 1)
+      );
+    }, speed);
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, wordIndex]);
 
   const openPriceEstimator = () => {
     window.open("https://estimationdesiteweb.lovable.app/", "_blank");
@@ -50,8 +67,8 @@ const Hero = () => {
             {/* Main Heading - Benefit-focused */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-slide-up">
               Lancez votre{" "}
-              <span className={`inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 will-change-transform transition-[opacity,transform] duration-300 ${isAnimating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"}`}>
-                {rotatingWords[wordIndex]}
+              <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 will-change-transform">
+                {displayedText}<span className="animate-pulse text-purple-600">|</span>
               </span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
                 en 7 Jours Chrono
