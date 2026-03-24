@@ -88,62 +88,66 @@ const CaseStudyGallery = ({ images }: CaseStudyGalleryProps) => {
 
         {/* Lightbox Dialog */}
         <Dialog open={selectedIndex !== null} onOpenChange={closeLightbox}>
-          <DialogContent className="max-w-5xl w-full p-0 bg-black/95 border-0 max-h-[90vh] flex flex-col">
-            <div className="relative flex flex-col h-full">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute top-4 right-4 z-50 text-white hover:bg-white/20 sticky"
-                onClick={closeLightbox}
-              >
-                <X className="w-6 h-6" />
-              </Button>
+          <DialogContent className="max-w-[95vw] w-full p-0 bg-black/95 border-0 max-h-[95vh] overflow-hidden flex flex-col [&>button]:hidden">
+            {selectedIndex !== null && (
+              <>
+                {/* Close button */}
+                <div className="absolute top-2 right-2 z-50">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-white hover:bg-white/20"
+                    onClick={closeLightbox}
+                  >
+                    <X className="w-6 h-6" />
+                  </Button>
+                </div>
 
-              {selectedIndex !== null && (
-                <>
-                  <div className="overflow-y-auto max-h-[85vh]">
-                    <img
-                      src={images[selectedIndex].src}
-                      alt={images[selectedIndex].alt}
-                      className="w-full h-auto"
-                    />
-                  </div>
-                  <div className="bg-black/80 p-4 shrink-0">
-                    <p className="text-white text-lg font-medium">
-                      {images[selectedIndex].caption}
-                    </p>
-                  </div>
+                {/* Image Counter */}
+                <div className="absolute top-2 left-2 z-50 bg-black/60 text-white px-4 py-2 rounded-full text-sm font-medium">
+                  {selectedIndex + 1} / {images.length}
+                </div>
 
-                  {/* Navigation Buttons */}
-                  {selectedIndex > 0 && (
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 w-12 h-12"
-                      onClick={goToPrevious}
-                    >
-                      <ChevronLeft className="w-8 h-8" />
-                    </Button>
-                  )}
+                {/* Scrollable image area */}
+                <div className="overflow-y-auto flex-1">
+                  <img
+                    src={images[selectedIndex].src}
+                    alt={images[selectedIndex].alt}
+                    className="w-full h-auto"
+                  />
+                </div>
 
-                  {selectedIndex < images.length - 1 && (
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 w-12 h-12"
-                      onClick={goToNext}
-                    >
-                      <ChevronRight className="w-8 h-8" />
-                    </Button>
-                  )}
+                {/* Caption */}
+                <div className="bg-black/80 p-4 shrink-0">
+                  <p className="text-white text-lg font-medium text-center">
+                    {images[selectedIndex].caption}
+                  </p>
+                </div>
 
-                  {/* Image Counter */}
-                  <div className="absolute top-4 left-4 bg-black/60 text-white px-4 py-2 rounded-full text-sm font-medium">
-                    {selectedIndex + 1} / {images.length}
-                  </div>
-                </>
-              )}
-            </div>
+                {/* Navigation Buttons */}
+                {selectedIndex > 0 && (
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20 w-12 h-12"
+                    onClick={goToPrevious}
+                  >
+                    <ChevronLeft className="w-8 h-8" />
+                  </Button>
+                )}
+
+                {selectedIndex < images.length - 1 && (
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20 w-12 h-12"
+                    onClick={goToNext}
+                  >
+                    <ChevronRight className="w-8 h-8" />
+                  </Button>
+                )}
+              </>
+            )}
           </DialogContent>
         </Dialog>
       </div>
