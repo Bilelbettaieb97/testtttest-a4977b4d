@@ -26,6 +26,7 @@ import portfolioFormation from "@/assets/portfolio-formation.webp";
 import portfolioB2B from "@/assets/portfolio-b2b.webp";
 import portfolioArancini from "@/assets/portfolio-arancini.jpg";
 import portfolioAranciniHero from "@/assets/portfolio-arancini-hero.png";
+import portfolioFunestoreHero from "@/assets/portfolio-funestore-hero.png";
 import galleryEcommerce1 from "@/assets/gallery-ecommerce-1.jpg";
 import galleryEcommerce2 from "@/assets/gallery-ecommerce-2.jpg";
 import galleryRestaurant1 from "@/assets/gallery-restaurant-1.jpg";
@@ -74,6 +75,43 @@ const CaseStudy = () => {
       testimonial: "Je suis très content d'avoir travaillé avec cette compagnie, très sérieux et réactifs. Ils m'ont fait un très joli site web avec de bons conseils et du professionnalisme. Je recommande vivement !",
       author: "Monsieur Arancini",
       role: "Fondateur"
+    },
+    "funestore": {
+      icon: <ShoppingCart className="w-8 h-8" />,
+      sector: "E-commerce B2B",
+      client: "Funestore",
+      title: "E-commerce B2B pour le secteur funéraire",
+      subtitle: "Création d'une plateforme e-commerce professionnelle pour les articles funéraires",
+      image: portfolioFunestoreHero,
+      gallery: [
+        { src: portfolioFunestoreHero, alt: "Page d'accueil Funestore", caption: "Page d'accueil avec accès espace professionnel et catalogue" },
+        { src: portfolioFunestoreHero, alt: "Catalogue produits", caption: "Catalogue complet d'articles funéraires avec tarifs compétitifs" },
+        { src: portfolioFunestoreHero, alt: "Espace client", caption: "Espace client réservé aux professionnels du funéraire" }
+      ],
+      chartData: [
+        { name: "Visibilité", before: 15, after: 85 },
+        { name: "Commandes", before: 0, after: 100 },
+        { name: "Temps gagné", before: 20, after: 80 }
+      ],
+      challenge: "Funestore opérait uniquement en B2B traditionnel sans aucune présence digitale. Les professionnels du funéraire devaient passer leurs commandes par téléphone ou email, ce qui était chronophage et limitait la croissance de l'entreprise.",
+      solution: "Nous avons conçu une plateforme e-commerce B2B complète avec un design professionnel adapté à ce secteur sensible, un catalogue structuré pour l'achat rapide, un espace client réservé aux professionnels avec tarifs dégressifs jusqu'à -30%, et un parcours utilisateur optimisé pour la commande en ligne.",
+      metrics: [
+        { label: "Digitalisation", value: "100%", description: "Passage complet au digital" },
+        { label: "Catalogue", value: "24/7", description: "Accessible en permanence" },
+        { label: "Réductions", value: "-30%", description: "Tarifs compétitifs pour pros" },
+        { label: "Commandes", value: "En ligne", description: "Gain de temps opérationnel" }
+      ],
+      technologies: ["E-commerce", "UX Design", "Espace Pro", "Catalogue B2B"],
+      timeline: [
+        { phase: "Analyse", duration: "2 semaines", description: "Compréhension de l'écosystème funéraire et besoins B2B" },
+        { phase: "Design", duration: "3 semaines", description: "Design professionnel adapté au secteur sensible" },
+        { phase: "Développement", duration: "5 semaines", description: "Plateforme e-commerce avec espace pro" },
+        { phase: "Lancement", duration: "1 semaine", description: "Mise en ligne et formation" }
+      ],
+      results: "Funestore a réussi sa digitalisation complète, offrant un catalogue accessible 24/7 aux professionnels du funéraire avec des tarifs compétitifs et un processus de commande simplifié.",
+      testimonial: "Réactivité, compétence, flexibilité. J'ai adoré travailler avec ConvertiLab. Pendant nos rendez-vous, Billel a pris le temps de bien comprendre notre écosystème et de proposer un magnifique site dans un domaine assez feutré et confidentiel. Merci à toi Billel, et à bientôt pour la suite !",
+      author: "Funestore",
+      role: "Dirigeant"
     },
     "boutique-elegance": {
       icon: <ShoppingCart className="w-8 h-8" />,
@@ -341,6 +379,7 @@ const CaseStudy = () => {
   // Order of projects for navigation
   const projectOrder = [
     "monsieur-arancini",
+    "funestore",
     "boutique-elegance",
     "le-gourmet",
     "prestige-habitat",

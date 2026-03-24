@@ -11,6 +11,7 @@ import portfolioBeaute from "@/assets/portfolio-beaute.webp";
 import portfolioFormation from "@/assets/portfolio-formation.webp";
 import portfolioB2B from "@/assets/portfolio-b2b.webp";
 import portfolioArancini from "@/assets/portfolio-arancini-hero.png";
+import portfolioFunestore from "@/assets/portfolio-funestore-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -31,6 +32,24 @@ const Portfolio = () => {
       testimonial: "Très sérieux et réactifs, ils m'ont fait un très joli site web avec de bons conseils et du professionnalisme. Je recommande vivement !",
       author: "Monsieur Arancini",
       slug: "monsieur-arancini"
+    },
+    {
+      icon: <ShoppingCart className="w-6 h-6 text-purple-600" />,
+      sector: "E-commerce B2B",
+      client: "Funestore",
+      title: "E-commerce B2B pour le secteur funéraire",
+      description: "Création de site e-commerce avec catalogue professionnel, parcours d'achat optimisé et espace client réservé.",
+      image: portfolioFunestore,
+      metrics: [
+        { label: "Catalogue", value: "24/7", icon: Clock },
+        { label: "Commandes", value: "En ligne", icon: TrendingUp },
+        { label: "Réductions", value: "-30%", icon: Star }
+      ],
+      technologies: ["E-commerce", "UX Design", "B2B"],
+      results: "Digitalisation complète",
+      testimonial: "Billel a pris le temps de bien comprendre notre écosystème et de proposer un magnifique site dans un domaine assez feutré et confidentiel.",
+      author: "Funestore",
+      slug: "funestore"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
