@@ -76,9 +76,7 @@ const App = () => (
               <Route path="/a-propos" element={<AboutPage />} />
               <Route path="/newsletter-confirmation" element={<NewsletterConfirmation />} />
               <Route path="/case-study/:slug" element={<CaseStudy />} />
-              <Route path="/chat-analytics" element={<ChatAnalytics />} />
               <Route path="/offre-speciale" element={<OffreSpeciale />} />
-              <Route path="/admin" element={<Admin />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogArticle />} />
               <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
