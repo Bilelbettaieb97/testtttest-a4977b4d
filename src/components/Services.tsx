@@ -233,16 +233,41 @@ const Services = () => {
         {/* Tabs */}
         <Tabs defaultValue="sites-web" className="w-full">
           <TabsList className="w-full max-w-3xl mx-auto grid grid-cols-5 mb-12 h-auto p-1.5 bg-muted/70 backdrop-blur-sm rounded-2xl">
-            {serviceCategories.map((cat) => (
-              <TabsTrigger 
-                key={cat.id}
-                value={cat.id}
-                className={`flex items-center justify-center gap-2 py-3 sm:py-3 px-2 sm:px-3 text-sm rounded-xl transition-all duration-300 min-h-[48px] data-[state=active]:bg-gradient-to-r data-[state=active]:${cat.gradient.replace('from-', 'from-').replace('to-', 'to-')} data-[state=active]:text-white data-[state=active]:shadow-lg`}
-              >
-                {cat.icon}
-                <span className="hidden sm:inline font-medium">{cat.label}</span>
-              </TabsTrigger>
-            ))}
+            <TabsTrigger 
+              value="sites-web"
+              className="flex items-center justify-center gap-2 py-3 sm:py-3 px-2 sm:px-3 text-sm rounded-xl transition-all duration-300 min-h-[48px] data-[state=active]:bg-gradient-to-r data-[state=active]:from-violet-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
+            >
+              <Globe className="w-5 h-5" />
+              <span className="hidden sm:inline font-medium">Sites Web</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="seo"
+              className="flex items-center justify-center gap-2 py-3 sm:py-3 px-2 sm:px-3 text-sm rounded-xl transition-all duration-300 min-h-[48px] data-[state=active]:bg-gradient-to-r data-[state=active]:from-emerald-500 data-[state=active]:to-teal-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
+            >
+              <Search className="w-5 h-5" />
+              <span className="hidden sm:inline font-medium">SEO</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="sea"
+              className="flex items-center justify-center gap-2 py-3 sm:py-3 px-2 sm:px-3 text-sm rounded-xl transition-all duration-300 min-h-[48px] data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
+            >
+              <Target className="w-5 h-5" />
+              <span className="hidden sm:inline font-medium">Publicité</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="social-media"
+              className="flex items-center justify-center gap-2 py-3 sm:py-3 px-2 sm:px-3 text-sm rounded-xl transition-all duration-300 min-h-[48px] data-[state=active]:bg-gradient-to-r data-[state=active]:from-pink-500 data-[state=active]:to-rose-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
+            >
+              <Share2 className="w-5 h-5" />
+              <span className="hidden sm:inline font-medium">Social Media</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="design"
+              className="flex items-center justify-center gap-2 py-3 sm:py-3 px-2 sm:px-3 text-sm rounded-xl transition-all duration-300 min-h-[48px] data-[state=active]:bg-gradient-to-r data-[state=active]:from-indigo-500 data-[state=active]:to-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg"
+            >
+              <Palette className="w-5 h-5" />
+              <span className="hidden sm:inline font-medium">Branding</span>
+            </TabsTrigger>
           </TabsList>
 
           {serviceCategories.map((category) => (
