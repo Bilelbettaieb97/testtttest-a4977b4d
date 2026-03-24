@@ -21,6 +21,7 @@ import portfolioTrievent from "@/assets/portfolio-trievent-hero.png";
 import portfolioTemplezen from "@/assets/portfolio-templezen-hero.png";
 import portfolioInstitutNomad from "@/assets/portfolio-institut-nomad-hero.png";
 import portfolioAhstudio from "@/assets/portfolio-ahstudio-hero.png";
+import portfolioVinoboat from "@/assets/portfolio-vinoboat-hero.png";
 
 const Portfolio = () => {
   const cases = [
@@ -221,6 +222,24 @@ const Portfolio = () => {
       testimonial: "De l'idée à la finition, Bilel nous accompagne tout le long. Disponible et accessible, mon expérience client est plus que parfaite.",
       author: "AH Studio Caen",
       slug: "ah-studio"
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-blue-600" />,
+      sector: "Tourisme de Luxe",
+      client: "Vinoboat Prestige",
+      title: "Landing page premium pour expérience nautique de luxe",
+      description: "Landing page haut de gamme avec design immersif, copywriting émotionnel et optimisation UX pour la réservation.",
+      image: portfolioVinoboat,
+      metrics: [
+        { label: "Note", value: "4.9/5", icon: Star },
+        { label: "Clients", value: "500+", icon: Users },
+        { label: "Réservation", value: "En ligne", icon: Clock }
+      ],
+      technologies: ["Landing Page", "Design Luxe", "UX Booking"],
+      results: "Positionnement premium exclusif",
+      testimonial: "Le site est exactement à l'image de notre service : élégant, premium et immersif.",
+      author: "Vinoboat Prestige",
+      slug: "vinoboat"
     },
     {
       icon: <ShoppingCart className="w-6 h-6 text-green-600" />,
