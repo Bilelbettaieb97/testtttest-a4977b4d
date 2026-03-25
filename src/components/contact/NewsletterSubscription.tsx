@@ -14,6 +14,18 @@ const NewsletterSubscription = () => {
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const trimmedEmail = newsletterEmail.trim().toLowerCase();
+    if (!trimmedEmail) {
+      toast({ title: "Erreur", description: "Veuillez entrer votre email.", variant: "destructive" });
+      return;
+    }
+    if (!emailRegex.test(trimmedEmail) || trimmedEmail.length > 255) {
+      toast({ title: "Erreur", description: "Veuillez entrer un email valide.", variant: "destructive" });
+      return;
+    }
+    
     setIsNewsletterSubmitting(true);
 
     try {
