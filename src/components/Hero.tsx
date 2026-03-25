@@ -65,9 +65,9 @@ const Hero = () => {
             </div>
 
             {/* Main Heading - Benefit-focused */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-slide-up">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-slide-up min-h-[4.5rem] sm:min-h-[6rem] lg:min-h-[7.5rem] xl:min-h-[9rem]">
               Lancez votre{" "}
-              <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 will-change-transform">
+              <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 will-change-transform min-w-[120px] sm:min-w-[160px]">
                 {displayedText}<span className="animate-pulse text-purple-600">|</span>
               </span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
