@@ -601,10 +601,12 @@ const OffreSpeciale = () => {
                 <AspectRatio ratio={16 / 10}>
                   <img
                     src={study.image}
-                    alt={`${study.client} - ${study.title}`}
+                    alt={`${study.client} – ${study.title} | Réalisation web ConvertiLab`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     loading="lazy"
                     decoding="async"
+                    width={640}
+                    height={400}
                   />
                 </AspectRatio>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 sm:p-5">
