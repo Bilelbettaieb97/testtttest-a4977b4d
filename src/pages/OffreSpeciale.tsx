@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Check, Clock, Users, Zap, Star, ArrowRight, Phone, Sparkles, Shield, Award, TrendingUp, ChevronsUpDown } from 'lucide-react';
@@ -14,12 +15,21 @@ import { countryCodes } from '@/data/countryCodes';
 import confetti from 'canvas-confetti';
 import { SEO } from "@/components/SEO";
 import { ProductSchema, BreadcrumbSchema } from "@/components/seo/StructuredData";
-import portfolioEcommerce from '@/assets/portfolio-ecommerce.webp';
-import portfolioRestaurant from '@/assets/portfolio-restaurant.webp';
-import portfolioBeaute from '@/assets/portfolio-beaute.webp';
-import portfolioFitness from '@/assets/portfolio-fitness.webp';
-import portfolioB2B from '@/assets/portfolio-b2b.webp';
-import portfolioImmobilier from '@/assets/portfolio-immobilier.webp';
+
+import portfolioArancini from "@/assets/portfolio-arancini-hero.png";
+import portfolioAcb from "@/assets/portfolio-acb-hero.png";
+import portfolioEleva from "@/assets/portfolio-eleva-hero.png";
+import portfolioAdsb from "@/assets/portfolio-adsb-hero.png";
+import portfolioAsi from "@/assets/portfolio-asi-hero.png";
+import portfolioTrievent from "@/assets/portfolio-trievent-hero.png";
+import portfolioTemplezen from "@/assets/portfolio-templezen-hero.png";
+import portfolioInstitutNomad from "@/assets/portfolio-institut-nomad-hero.png";
+import portfolioAhstudio from "@/assets/portfolio-ahstudio-hero.png";
+import portfolioCouleursable from "@/assets/portfolio-couleursable-hero.png";
+import portfolioFilmreel from "@/assets/portfolio-filmreel-hero.png";
+import portfolioPapapret from "@/assets/portfolio-papapret-hero.png";
+import portfolioVinoboat from "@/assets/portfolio-vinoboat-hero.png";
+import portfolioSpectacle from "@/assets/portfolio-spectacle-hero.png";
 
 const TOTAL_SPOTS = 10;
 
@@ -219,13 +229,21 @@ const OffreSpeciale = () => {
     { icon: TrendingUp, text: "+80 petites entreprises", color: "text-green-400" }
   ];
 
-  const exampleSites = [
-    { image: portfolioEcommerce, title: "E-commerce", description: "Boutiques en ligne performantes" },
-    { image: portfolioRestaurant, title: "Restaurants", description: "Sites avec réservation en ligne" },
-    { image: portfolioBeaute, title: "Beauté & Bien-être", description: "Plateformes de booking élégantes" },
-    { image: portfolioFitness, title: "Fitness & Sport", description: "Sites pour coachs et salles de sport" },
-    { image: portfolioB2B, title: "B2B & Agences", description: "Sites corporate professionnels" },
-    { image: portfolioImmobilier, title: "Immobilier", description: "Vitrines pour agences immobilières" }
+  const caseStudies = [
+    { client: "Monsieur Arancini", sector: "Restauration", title: "Site vitrine premium pour artisan sicilien", image: portfolioArancini, slug: "monsieur-arancini" },
+    { client: "ACB Rénovation", sector: "BTP / Rénovation", title: "Site vitrine BTP avec génération de devis", image: portfolioAcb, slug: "acb-renovation" },
+    { client: "Eleva Conciergerie", sector: "Conciergerie / Immobilier", title: "Site premium pour conciergerie locative", image: portfolioEleva, slug: "eleva-conciergerie" },
+    { client: "ADSB Wissembourg", sector: "Association", title: "Site vitrine pour association", image: portfolioAdsb, slug: "adsb-wissembourg" },
+    { client: "Alliance Sécurité Incendie", sector: "Sécurité Incendie", title: "Site vitrine B2B sécurité incendie", image: portfolioAsi, slug: "alliance-securite-incendie" },
+    { client: "Tri Event", sector: "Recyclage / Événementiel", title: "Site vitrine éco-responsable", image: portfolioTrievent, slug: "trievent" },
+    { client: "Le Temple de l'Énergie", sector: "Bien-être / Massage", title: "Site vitrine immersif bien-être", image: portfolioTemplezen, slug: "temple-zen" },
+    { client: "Institut Nomad", sector: "Éducation", title: "Site vitrine accompagnement éducatif", image: portfolioInstitutNomad, slug: "institut-nomad" },
+    { client: "AH Studio Caen", sector: "Photographie", title: "Site portfolio photographe pro", image: portfolioAhstudio, slug: "ah-studio" },
+    { client: "Couleur Sable by K", sector: "Coiffure / Beauté", title: "Site vitrine premium salon de coiffure", image: portfolioCouleursable, slug: "couleur-sable" },
+    { client: "FilmReel Gallery", sector: "Production Vidéo", title: "Site portfolio cinématographique", image: portfolioFilmreel, slug: "filmreel-gallery" },
+    { client: "PapaPrêt", sector: "Formation", title: "Landing page haute conversion formation", image: portfolioPapapret, slug: "papapret" },
+    { client: "Vinoboat Prestige", sector: "Tourisme de Luxe", title: "Landing page premium nautique de luxe", image: portfolioVinoboat, slug: "vinoboat" },
+    { client: "Spectacle", sector: "Événementiel", title: "Landing page événementielle spectacle", image: portfolioSpectacle, slug: "spectacle" },
   ];
 
   return (
@@ -570,40 +588,45 @@ const OffreSpeciale = () => {
             À quoi ressemble un site à 300€ ?
           </h2>
           <p className="text-gray-400 text-center mb-8 sm:mb-12 max-w-2xl mx-auto text-sm sm:text-base">
-            Voici des exemples de sites que nous créons. Qualité pro garantie.
+            Voici nos réalisations réelles — sites vitrines & landing pages. Qualité pro garantie.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8">
-            {exampleSites.map((site, index) => (
-              <div
-                key={index}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
+            {caseStudies.map((study) => (
+              <Link
+                key={study.slug}
+                to={`/etude-de-cas/${study.slug}`}
                 className="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:-translate-y-2"
               >
-                <div className="aspect-video overflow-hidden">
+                <AspectRatio ratio={16 / 10}>
                   <img
-                    src={site.image}
-                    alt={`${site.title} - Exemple de réalisation ConvertiLab`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    src={study.image}
+                    alt={`${study.client} - ${study.title}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     loading="lazy"
                     decoding="async"
-                    width={400}
-                    height={225}
                   />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 sm:p-6">
+                </AspectRatio>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 sm:p-5">
                   <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-white font-bold text-sm sm:text-lg mb-0.5 sm:mb-1 group-hover:text-purple-300 transition-colors duration-300">{site.title}</h3>
-                    <p className="text-gray-300 text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 hidden sm:block">{site.description}</p>
+                    <span className="inline-block text-[10px] sm:text-xs bg-purple-500/40 text-purple-200 px-2 py-0.5 rounded-full mb-1 sm:mb-2">{study.sector}</span>
+                    <h3 className="text-white font-bold text-xs sm:text-base mb-0.5 group-hover:text-purple-300 transition-colors duration-300">{study.client}</h3>
+                    <p className="text-gray-300 text-[10px] sm:text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 hidden sm:block">{study.title}</p>
+                    <span className="text-purple-400 text-[10px] sm:text-xs font-semibold inline-flex items-center gap-1 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                      Voir l'étude de cas <ArrowRight className="w-3 h-3" />
+                    </span>
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-purple-500/0 group-hover:bg-purple-500/10 transition-colors duration-500 pointer-events-none" />
-              </div>
+              </Link>
             ))}
           </div>
 
-          <p className="text-center text-purple-400 mt-6 sm:mt-8 font-medium text-sm sm:text-base">
-            + Des dizaines d'autres projets réalisés
-          </p>
+          <div className="text-center mt-6 sm:mt-8">
+            <Link to="/portfolio" className="inline-flex items-center gap-2 text-purple-400 font-semibold text-sm sm:text-base hover:text-purple-300 transition-colors">
+              Voir tous nos projets <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
