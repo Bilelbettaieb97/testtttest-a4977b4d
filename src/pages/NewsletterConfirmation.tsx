@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Download, FileText, BookOpen, Video, ArrowLeft, Mail } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 const NewsletterConfirmation = () => {
   useEffect(() => {

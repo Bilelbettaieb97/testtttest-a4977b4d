@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { SEO } from '@/components/SEO';
-import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { BreadcrumbSchema, FAQSchema } from '@/components/seo/StructuredData';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -89,6 +89,7 @@ const LandingPageService = () => {
         { name: "Sites Web", url: "/services/sites-web" },
         { name: "Landing Page", url: "/services/sites-web/landing-page" }
       ]} />
+      <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
 
       <Navigation />
 
