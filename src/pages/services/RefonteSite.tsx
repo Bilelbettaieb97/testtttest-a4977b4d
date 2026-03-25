@@ -36,10 +36,12 @@ const RefonteSiteService = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Refonte de Site Web | ConvertiLab Paris</title>
-        <meta name="description" content="Modernisez votre site web : design actuel, SEO préservé, conversion optimisée. Audit gratuit et devis sous 24h." />
-      </Helmet>
+      <SEO
+        url="/services/sites-web/refonte-site"
+        title="Refonte de Site Web"
+        description="Modernisez votre site web : design actuel, SEO préservé, conversion optimisée. Audit gratuit et devis sous 24h."
+        keywords="refonte site web, modernisation site internet, redesign site web, migration site, refonte SEO"
+      />
 
       <Navigation />
       

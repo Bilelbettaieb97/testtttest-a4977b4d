@@ -36,10 +36,12 @@ const DesignUiUxService = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Design UI/UX | Interfaces Web | ConvertiLab</title>
-        <meta name="description" content="Design UI/UX professionnel : wireframes, prototypes Figma, tests utilisateurs. Interfaces qui convertissent. Devis gratuit." />
-      </Helmet>
+      <SEO
+        url="/services/design/ui-ux"
+        title="Design UI/UX | Interfaces Web"
+        description="Design UI/UX professionnel : wireframes, prototypes Figma, tests utilisateurs. Interfaces qui convertissent. Devis gratuit."
+        keywords="design UI UX, interface utilisateur, expérience utilisateur, wireframe, prototype Figma, design web"
+      />
 
       <Navigation />
       

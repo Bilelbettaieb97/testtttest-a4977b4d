@@ -36,10 +36,12 @@ const ReferencementSeoService = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Référencement SEO | Page 1 Google | ConvertiLab</title>
-        <meta name="description" content="Stratégie SEO complète : optimisation on-page, netlinking, contenu. Atteignez la page 1 de Google. Audit SEO gratuit." />
-      </Helmet>
+      <SEO
+        url="/services/seo/referencement"
+        title="Référencement SEO | Page 1 Google"
+        description="Stratégie SEO complète : optimisation on-page, netlinking, contenu. Atteignez la page 1 de Google. Audit SEO gratuit."
+        keywords="référencement SEO, SEO naturel, optimisation Google, netlinking, stratégie SEO, positionnement Google"
+      />
 
       <Navigation />
       
