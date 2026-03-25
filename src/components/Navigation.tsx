@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logoConvertilab from '@/assets/logo_convertilab.png';
+import logoConvertilab from '@/assets/logo_convertilab.webp';
 import { Button } from "@/components/ui/button";
 import { Menu, X, Calendar, FileText, BookOpen, Globe, Palette, Search, Target, ChevronDown, Rocket, Store, Code, RefreshCw, PenTool, Fingerprint, TrendingUp, ClipboardCheck, Mail, Share2, BarChart3, Megaphone, type LucideIcon } from "lucide-react";
 import {
