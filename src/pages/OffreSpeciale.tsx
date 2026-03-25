@@ -229,13 +229,21 @@ const OffreSpeciale = () => {
     { icon: TrendingUp, text: "+80 petites entreprises", color: "text-green-400" }
   ];
 
-  const exampleSites = [
-    { image: portfolioEcommerce, title: "E-commerce", description: "Boutiques en ligne performantes" },
-    { image: portfolioRestaurant, title: "Restaurants", description: "Sites avec réservation en ligne" },
-    { image: portfolioBeaute, title: "Beauté & Bien-être", description: "Plateformes de booking élégantes" },
-    { image: portfolioFitness, title: "Fitness & Sport", description: "Sites pour coachs et salles de sport" },
-    { image: portfolioB2B, title: "B2B & Agences", description: "Sites corporate professionnels" },
-    { image: portfolioImmobilier, title: "Immobilier", description: "Vitrines pour agences immobilières" }
+  const caseStudies = [
+    { client: "Monsieur Arancini", sector: "Restauration", title: "Site vitrine premium pour artisan sicilien", image: portfolioArancini, slug: "monsieur-arancini" },
+    { client: "ACB Rénovation", sector: "BTP / Rénovation", title: "Site vitrine BTP avec génération de devis", image: portfolioAcb, slug: "acb-renovation" },
+    { client: "Eleva Conciergerie", sector: "Conciergerie / Immobilier", title: "Site premium pour conciergerie locative", image: portfolioEleva, slug: "eleva-conciergerie" },
+    { client: "ADSB Wissembourg", sector: "Association", title: "Site vitrine pour association", image: portfolioAdsb, slug: "adsb-wissembourg" },
+    { client: "Alliance Sécurité Incendie", sector: "Sécurité Incendie", title: "Site vitrine B2B sécurité incendie", image: portfolioAsi, slug: "alliance-securite-incendie" },
+    { client: "Tri Event", sector: "Recyclage / Événementiel", title: "Site vitrine éco-responsable", image: portfolioTrievent, slug: "trievent" },
+    { client: "Le Temple de l'Énergie", sector: "Bien-être / Massage", title: "Site vitrine immersif bien-être", image: portfolioTemplezen, slug: "temple-zen" },
+    { client: "Institut Nomad", sector: "Éducation", title: "Site vitrine accompagnement éducatif", image: portfolioInstitutNomad, slug: "institut-nomad" },
+    { client: "AH Studio Caen", sector: "Photographie", title: "Site portfolio photographe pro", image: portfolioAhstudio, slug: "ah-studio" },
+    { client: "Couleur Sable by K", sector: "Coiffure / Beauté", title: "Site vitrine premium salon de coiffure", image: portfolioCouleursable, slug: "couleur-sable" },
+    { client: "FilmReel Gallery", sector: "Production Vidéo", title: "Site portfolio cinématographique", image: portfolioFilmreel, slug: "filmreel-gallery" },
+    { client: "PapaPrêt", sector: "Formation", title: "Landing page haute conversion formation", image: portfolioPapapret, slug: "papapret" },
+    { client: "Vinoboat Prestige", sector: "Tourisme de Luxe", title: "Landing page premium nautique de luxe", image: portfolioVinoboat, slug: "vinoboat" },
+    { client: "Spectacle", sector: "Événementiel", title: "Landing page événementielle spectacle", image: portfolioSpectacle, slug: "spectacle" },
   ];
 
   return (
