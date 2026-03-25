@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '@/components/SEO';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
@@ -6,18 +6,18 @@ import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 
 const PolitiqueConfidentialite = () => {
   const breadcrumbItems = [
-    { name: 'Accueil', url: 'https://convertilab.com/' },
-    { name: 'Politique de confidentialité', url: 'https://convertilab.com/politique-de-confidentialite' }
+    { name: 'Accueil', url: '/' },
+    { name: 'Politique de confidentialité', url: '/politique-de-confidentialite' }
   ];
 
   return (
     <>
-      <Helmet>
-        <title>Politique de Confidentialité | ConvertiLab</title>
-        <meta name="description" content="Politique de confidentialité ConvertiLab. Comment nous protégeons vos données personnelles conformément au RGPD." />
-        <meta name="robots" content="noindex, follow" />
-        <link rel="canonical" href="https://convertilab.com/politique-de-confidentialite" />
-      </Helmet>
+      <SEO
+        url="/politique-de-confidentialite"
+        title="Politique de Confidentialité"
+        description="Politique de confidentialité ConvertiLab. Comment nous protégeons vos données personnelles conformément au RGPD."
+        noindex={true}
+      />
       
       <BreadcrumbSchema items={breadcrumbItems} />
       

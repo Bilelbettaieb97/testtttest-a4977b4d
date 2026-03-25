@@ -1,4 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { FAQSchema } from '@/components/seo/StructuredData';
 
 const faqs = [
   {
@@ -29,6 +30,8 @@ const faqs = [
 
 const SitesWebFAQ = () => {
   return (
+    <>
+    <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
     <section className="py-20">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
@@ -52,6 +55,7 @@ const SitesWebFAQ = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
