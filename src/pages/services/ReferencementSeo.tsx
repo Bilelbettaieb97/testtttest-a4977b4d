@@ -148,7 +148,7 @@ const ReferencementSeoService = () => {
           { q: "Travaillez-vous sur tous les types de sites ?", a: "Oui, nous intervenons sur les sites vitrines, e-commerce, blogs, applications web et sites institutionnels. Chaque stratégie est adaptée à votre secteur d'activité et à vos objectifs commerciaux." }
         ]} />
 
-
+        <section className="py-20 bg-gradient-to-r from-emerald-500 to-teal-500 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Prêt à booster votre visibilité ?</h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
