@@ -79,7 +79,7 @@ const SiteVitrineService = () => {
     <>
       <SEO
         url="/services/sites-web/site-vitrine"
-        title="Site Vitrine dès 300€ | ConvertiLab Paris"
+        title="Site Vitrine dès 300€ | Agence Web Paris"
         description="Site vitrine professionnel en 10-15 jours. Design sur-mesure, SEO optimisé, prix fixe garanti. Devis gratuit."
         keywords="site vitrine, création site vitrine, site web professionnel, site vitrine prix, agence web Paris"
       />

@@ -74,7 +74,7 @@ const SeoPage = () => {
     <>
       <SEO
         url="/services/seo"
-        title="SEO & Audit Référencement | ConvertiLab Paris"
+        title="SEO & Référencement Naturel Paris"
         description="Référencement naturel et audit SEO. Atteignez la page 1 de Google avec une stratégie sur-mesure. Devis gratuit."
         keywords="SEO, référencement naturel, audit SEO, optimisation Google, stratégie SEO, agence SEO Paris"
       />

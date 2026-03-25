@@ -81,7 +81,7 @@ const SiteEcommerceService = () => {
     <>
       <SEO
         url="/services/sites-web/site-ecommerce"
-        title="Site E-commerce dès 800€ | ConvertiLab Paris"
+        title="Site E-commerce dès 800€ | Agence Paris"
         description="Boutique en ligne professionnelle en 21-30 jours. Paiement sécurisé, gestion des stocks, SEO intégré. Devis gratuit sous 24h."
         keywords="site e-commerce, boutique en ligne, création e-commerce, site marchand, vente en ligne"
       />

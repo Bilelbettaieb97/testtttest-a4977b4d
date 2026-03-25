@@ -18,7 +18,7 @@ const SitesWebPage = () => {
     <>
       <SEO
         url="/services/sites-web"
-        title="Création Sites Web dès 300€ | ConvertiLab"
+        title="Création Site Web dès 300€ | Paris"
         description="Landing page dès 300€, site vitrine dès 300€, e-commerce dès 800€. Prix fixes, délais garantis. Devis gratuit sous 24h."
         keywords="création site web, site vitrine, landing page, e-commerce, agence web, prix site web"
       />

@@ -19,7 +19,7 @@ const ServicesPage = () => {
     <>
       <SEO
         url="/services"
-        title="Services Marketing Digital | ConvertiLab Paris"
+        title="Services Marketing Digital Paris"
         description="Sites web dès 300€, SEO, Google Ads, Meta Ads. +50 clients, +280% de CA moyen. Devis gratuit sous 24h, sans engagement."
         keywords="création site web, SEO, Google Ads, Meta Ads, social media, marketing digital, agence web Paris"
       />

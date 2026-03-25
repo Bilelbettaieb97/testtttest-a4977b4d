@@ -62,8 +62,8 @@ const Index = () => {
     <div className="min-h-screen">
       <SEO 
         url="/"
-        title="Agence Marketing Digital Paris | SEO, Ads, Social Media"
-        description="Agence de marketing digital à Paris. SEO, Google Ads, Meta Ads, Social Media, Email Marketing, création de sites web. Stratégies data-driven pour booster votre croissance."
+        title="Agence Marketing Digital Paris | SEO & Ads"
+        description="Agence marketing digital à Paris : SEO, Google Ads, Meta Ads, création de sites web. +50 clients, +280% de CA moyen. Devis gratuit."
         keywords="agence marketing digital, SEO, Google Ads, Meta Ads, social media, email marketing, création site web, marketing digital Paris"
       />
       <OrganizationSchema />

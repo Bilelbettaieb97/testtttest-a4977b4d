@@ -79,7 +79,7 @@ const LandingPageService = () => {
     <>
       <SEO
         url="/services/sites-web/landing-page"
-        title="Création Landing Page dès 300€ | Optimisée Conversion"
+        title="Landing Page dès 300€ | Haute Conversion"
         description="Landing page haute conversion livrée en 5-7 jours. Optimisée pour Google Ads & Meta Ads. +50 clients satisfaits, prix fixe. Devis gratuit."
         keywords="landing page, page de conversion, landing page prix, création landing page, page de capture"
       />

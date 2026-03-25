@@ -77,7 +77,7 @@ const SeaPage = () => {
     <>
       <SEO
         url="/services/sea"
-        title="Google Ads & Meta Ads | SEA | ConvertiLab"
+        title="Google Ads & Meta Ads | Agence SEA Paris"
         description="Campagnes publicitaires Google Ads et Meta Ads optimisées. x4.8 ROAS moyen. Audit gratuit et devis sous 24h."
         keywords="Google Ads, Meta Ads, publicité en ligne, SEA, campagne Ads, Facebook Ads, Instagram Ads"
       />

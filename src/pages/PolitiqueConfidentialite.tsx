@@ -14,7 +14,7 @@ const PolitiqueConfidentialite = () => {
     <>
       <SEO
         url="/politique-de-confidentialite"
-        title="Politique de Confidentialité"
+        title="Politique de Confidentialité | RGPD"
         description="Politique de confidentialité ConvertiLab. Comment nous protégeons vos données personnelles conformément au RGPD."
         noindex={false}
       />
