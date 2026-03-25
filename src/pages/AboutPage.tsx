@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet-async';
 import Navigation from '@/components/Navigation';
+import { SEO } from '@/components/SEO';
 import Footer from '@/components/Footer';
 import AboutComponent from '@/components/About';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
@@ -16,16 +16,12 @@ const AboutPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>À Propos | Agence Web Paris | ConvertiLab</title>
-        <meta name="description" content="Découvrez ConvertiLab, agence web à Paris. +50 clients accompagnés, +280% de CA moyen. Expertise en sites web, SEO et Ads." />
-        <meta name="keywords" content="agence web Paris, création site internet, agence digitale, développement web, design web, équipe web" />
-        <link rel="canonical" href="https://convertilab.com/a-propos" />
-        <meta property="og:title" content="À Propos | Agence Web Créative | ConvertiLab" />
-        <meta property="og:description" content="Découvrez l'équipe ConvertiLab : designers et développeurs passionnés qui transforment vos idées en expériences digitales exceptionnelles." />
-        <meta property="og:url" content="https://convertilab.com/a-propos" />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SEO
+        url="/a-propos"
+        title="À Propos | Agence Web Paris"
+        description="Découvrez ConvertiLab, agence web à Paris. +50 clients accompagnés, +280% de CA moyen. Expertise en sites web, SEO et Ads."
+        keywords="agence web Paris, création site internet, agence digitale, développement web, design web, équipe web"
+      />
       
       <BreadcrumbSchema items={breadcrumbItems} />
       

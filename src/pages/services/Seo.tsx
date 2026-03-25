@@ -1,7 +1,8 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { ArrowRight, CheckCircle, Search, TrendingUp, ClipboardCheck, Clock, BarChart3, Target, FileSearch, Zap } from 'lucide-react';
@@ -68,11 +69,17 @@ const SeoPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>SEO & Audit Référencement | ConvertiLab Paris</title>
-        <meta name="description" content="Référencement naturel et audit SEO. Atteignez la page 1 de Google avec une stratégie sur-mesure. Devis gratuit." />
-        <link rel="canonical" href="https://convertilab.com/services/seo" />
-      </Helmet>
+      <SEO
+        url="/services/seo"
+        title="SEO & Audit Référencement | ConvertiLab Paris"
+        description="Référencement naturel et audit SEO. Atteignez la page 1 de Google avec une stratégie sur-mesure. Devis gratuit."
+        keywords="SEO, référencement naturel, audit SEO, optimisation Google, stratégie SEO, agence SEO Paris"
+      />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "SEO", url: "/services/seo" }
+      ]} />
       
       <Navigation />
       

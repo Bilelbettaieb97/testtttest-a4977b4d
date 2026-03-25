@@ -1,7 +1,8 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -76,14 +77,18 @@ const SiteVitrineService = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Site Vitrine dès 300€ | ConvertiLab Paris</title>
-        <meta name="description" content="Site vitrine professionnel en 10-15 jours. Design sur-mesure, SEO optimisé, prix fixe garanti. Devis gratuit." />
-        <link rel="canonical" href="https://convertilab.com/services/sites-web/site-vitrine" />
-        <meta property="og:title" content="Site Vitrine Professionnel dès 300€ | ConvertiLab" />
-        <meta property="og:description" content="Site vitrine sur-mesure, optimisé SEO, livré en 10-15 jours. Prix fixe, satisfaction garantie." />
-        <meta property="og:url" content="https://convertilab.com/services/sites-web/site-vitrine" />
-      </Helmet>
+      <SEO
+        url="/services/sites-web/site-vitrine"
+        title="Site Vitrine dès 300€ | ConvertiLab Paris"
+        description="Site vitrine professionnel en 10-15 jours. Design sur-mesure, SEO optimisé, prix fixe garanti. Devis gratuit."
+        keywords="site vitrine, création site vitrine, site web professionnel, site vitrine prix, agence web Paris"
+      />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Sites Web", url: "/services/sites-web" },
+        { name: "Site Vitrine", url: "/services/sites-web/site-vitrine" }
+      ]} />
 
       <Navigation />
 

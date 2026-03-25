@@ -1,7 +1,8 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -76,14 +77,18 @@ const LandingPageService = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Création Landing Page dès 300€ | Optimisée Conversion | ConvertiLab</title>
-        <meta name="description" content="Landing page haute conversion livrée en 5-7 jours. Optimisée pour Google Ads & Meta Ads. +50 clients satisfaits, prix fixe, satisfaction garantie. Devis gratuit." />
-        <link rel="canonical" href="https://convertilab.com/services/sites-web/landing-page" />
-        <meta property="og:title" content="Landing Page Haute Conversion dès 300€ | ConvertiLab" />
-        <meta property="og:description" content="Landing page optimisée conversion, livrée en 5-7 jours. Prix fixe, satisfaction garantie." />
-        <meta property="og:url" content="https://convertilab.com/services/sites-web/landing-page" />
-      </Helmet>
+      <SEO
+        url="/services/sites-web/landing-page"
+        title="Création Landing Page dès 300€ | Optimisée Conversion"
+        description="Landing page haute conversion livrée en 5-7 jours. Optimisée pour Google Ads & Meta Ads. +50 clients satisfaits, prix fixe. Devis gratuit."
+        keywords="landing page, page de conversion, landing page prix, création landing page, page de capture"
+      />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Sites Web", url: "/services/sites-web" },
+        { name: "Landing Page", url: "/services/sites-web/landing-page" }
+      ]} />
 
       <Navigation />
 

@@ -1,7 +1,8 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { ArrowRight, CheckCircle, Palette, PenTool, Fingerprint, Clock, Shield, Headphones, Eye, Layers } from 'lucide-react';
@@ -66,11 +67,17 @@ const DesignPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Design UI/UX & Identité Visuelle | ConvertiLab</title>
-        <meta name="description" content="Design UI/UX et identité visuelle : logo, charte graphique, prototypes Figma. Interfaces qui convertissent. Devis gratuit." />
-        <link rel="canonical" href="https://convertilab.com/services/design" />
-      </Helmet>
+      <SEO
+        url="/services/design"
+        title="Design UI/UX & Identité Visuelle | ConvertiLab"
+        description="Design UI/UX et identité visuelle : logo, charte graphique, prototypes Figma. Interfaces qui convertissent. Devis gratuit."
+        keywords="design UI/UX, identité visuelle, logo, charte graphique, prototypage Figma, web design"
+      />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Design", url: "/services/design" }
+      ]} />
       
       <Navigation />
       

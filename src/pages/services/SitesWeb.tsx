@@ -1,6 +1,6 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
+import { SEO } from '@/components/SEO';
 import Footer from '@/components/Footer';
 import { LocalBusinessSchema, ServicesSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
@@ -16,15 +16,12 @@ import SitesWebCTA from '@/components/sites-web/SitesWebCTA';
 const SitesWebPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Création Sites Web dès 300€ | ConvertiLab</title>
-        <meta name="description" content="Landing page dès 300€, site vitrine dès 300€, e-commerce dès 800€. Prix fixes, délais garantis. Devis gratuit sous 24h." />
-        <link rel="canonical" href="https://convertilab.com/services/sites-web" />
-        <meta property="og:title" content="Création Sites Web dès 300€ | ConvertiLab" />
-        <meta property="og:description" content="Sites web qui convertissent : landing pages, vitrines, e-commerce. +50 clients satisfaits, prix fixes, livraison garantie." />
-        <meta property="og:url" content="https://convertilab.com/services/sites-web" />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SEO
+        url="/services/sites-web"
+        title="Création Sites Web dès 300€ | ConvertiLab"
+        description="Landing page dès 300€, site vitrine dès 300€, e-commerce dès 800€. Prix fixes, délais garantis. Devis gratuit sous 24h."
+        keywords="création site web, site vitrine, landing page, e-commerce, agence web, prix site web"
+      />
 
       <LocalBusinessSchema />
       <ServicesSchema />

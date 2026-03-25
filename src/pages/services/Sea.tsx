@@ -1,7 +1,8 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { ArrowRight, CheckCircle, TrendingUp, Search, Clock, Target, BarChart3, Zap, DollarSign, Users, Eye } from 'lucide-react';
@@ -71,11 +72,17 @@ const SeaPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Google Ads & Meta Ads | SEA | ConvertiLab</title>
-        <meta name="description" content="Campagnes publicitaires Google Ads et Meta Ads optimisées. x4.8 ROAS moyen. Audit gratuit et devis sous 24h." />
-        <link rel="canonical" href="https://convertilab.com/services/sea" />
-      </Helmet>
+      <SEO
+        url="/services/sea"
+        title="Google Ads & Meta Ads | SEA | ConvertiLab"
+        description="Campagnes publicitaires Google Ads et Meta Ads optimisées. x4.8 ROAS moyen. Audit gratuit et devis sous 24h."
+        keywords="Google Ads, Meta Ads, publicité en ligne, SEA, campagne Ads, Facebook Ads, Instagram Ads"
+      />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "SEA", url: "/services/sea" }
+      ]} />
       
       <Navigation />
       

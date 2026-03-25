@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet-async';
 import Navigation from '@/components/Navigation';
+import { SEO } from '@/components/SEO';
 import Footer from '@/components/Footer';
 import ServicesComponent from '@/components/Services';
 import { BreadcrumbSchema, LocalBusinessSchema, ServicesSchema } from '@/components/seo/StructuredData';
@@ -17,16 +17,12 @@ const ServicesPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Services Marketing Digital | ConvertiLab Paris</title>
-        <meta name="description" content="Sites web dès 300€, SEO, Google Ads, Meta Ads. +50 clients, +280% de CA moyen. Devis gratuit sous 24h, sans engagement." />
-        <meta name="keywords" content="création site web, SEO, Google Ads, Meta Ads, social media, marketing digital, agence web Paris" />
-        <link rel="canonical" href="https://convertilab.com/services" />
-        <meta property="og:title" content="Services Marketing Digital | ConvertiLab" />
-        <meta property="og:description" content="Sites web, SEO, Ads, Social Media : des stratégies digitales qui génèrent des résultats concrets. Devis gratuit." />
-        <meta property="og:url" content="https://convertilab.com/services" />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SEO
+        url="/services"
+        title="Services Marketing Digital | ConvertiLab Paris"
+        description="Sites web dès 300€, SEO, Google Ads, Meta Ads. +50 clients, +280% de CA moyen. Devis gratuit sous 24h, sans engagement."
+        keywords="création site web, SEO, Google Ads, Meta Ads, social media, marketing digital, agence web Paris"
+      />
       
       <BreadcrumbSchema items={breadcrumbItems} />
       <LocalBusinessSchema />
