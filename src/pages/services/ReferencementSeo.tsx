@@ -160,6 +160,7 @@ const ReferencementSeoService = () => {
             </Button>
           </div>
         </section>
+        <RelatedServicesSection exclude={["/services/seo/referencement"]} title="Services complémentaires" max={4} />
       </main>
 
       <Footer />
