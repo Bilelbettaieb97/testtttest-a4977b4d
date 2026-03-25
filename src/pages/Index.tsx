@@ -10,6 +10,7 @@ import {
   FAQSchema, 
   ReviewsSchema 
 } from "@/components/seo/StructuredData";
+import WebSiteSchema from "@/components/seo/WebSiteSchema";
 
 // Lazy load below-fold and non-critical components
 const Portfolio = lazy(() => import("@/components/Portfolio"));
@@ -66,6 +67,7 @@ const Index = () => {
         description="Agence web à Paris & Rueil-Malmaison : création site internet, SEO, Google Ads, Meta Ads. +50 clients en Île-de-France, +280% de CA. Devis gratuit."
         keywords="agence web Paris, création site internet Paris, SEO Île-de-France, Google Ads Paris, agence marketing digital Rueil-Malmaison, agence digitale Hauts-de-Seine"
       />
+      <WebSiteSchema />
       <OrganizationSchema />
       <LocalBusinessSchema />
       <ServicesSchema />

@@ -2,7 +2,7 @@ import Navigation from '@/components/Navigation';
 import { SEO } from '@/components/SEO';
 import Footer from '@/components/Footer';
 import AboutComponent from '@/components/About';
-import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import { BreadcrumbSchema, OrganizationSchema, LocalBusinessSchema } from '@/components/seo/StructuredData';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Link } from 'react-router-dom';
 import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
@@ -24,6 +24,8 @@ const AboutPage = () => {
       />
       
       <BreadcrumbSchema items={breadcrumbItems} />
+      <OrganizationSchema />
+      <LocalBusinessSchema />
       
       <Navigation />
       
