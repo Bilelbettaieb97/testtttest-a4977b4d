@@ -37,10 +37,15 @@ const Blog = () => {
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newsletterEmail) return;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const trimmedEmail = newsletterEmail.trim().toLowerCase();
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail) || trimmedEmail.length > 255) {
+      toast({ title: "Erreur", description: "Veuillez entrer un email valide.", variant: "destructive" });
+      return;
+    }
     setIsSubscribing(true);
     try {
-      const { error } = await supabase.from("newsletter_subscriptions").insert({ email: newsletterEmail });
+      const { error } = await supabase.from("newsletter_subscriptions").insert({ email: trimmedEmail });
       if (error) throw error;
       toast({ title: "✅ Inscription réussie !", description: "Vous recevrez nos prochains articles par email." });
       setNewsletterEmail("");
