@@ -31,7 +31,7 @@ const PortfolioHeader = () => {
             <TrendingUp className="w-5 h-5 text-green-500" />
           </div>
           <div className="text-3xl font-black text-foreground">+280%</div>
-          <div className="text-sm text-muted-foreground">CA moyen généré</div>
+          <div className="text-sm text-muted-foreground">Croissance moyenne</div>
         </div>
         <div className="text-center">
           <div className="flex items-center justify-center gap-1 mb-1">
