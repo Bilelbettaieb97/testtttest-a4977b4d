@@ -1,4 +1,5 @@
 import { Resend } from "npm:resend@2.0.0";
+import { createClient } from "npm:@supabase/supabase-js@2";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -8,20 +9,8 @@ const corsHeaders = {
 };
 
 const OWNER_EMAIL = "contact@convertilab.com";
-
-const projectLabels: Record<string, string> = {
-  vitrine: "Site vitrine",
-  ecommerce: "E-commerce",
-  landing: "Landing Page",
-  audit: "Audit",
-};
-
-const timelineLabels: Record<string, string> = {
-  urgent: "< 1 semaine",
-  "1-2weeks": "1 à 2 semaines",
-  "1month": "1 mois",
-  flexible: "Flexible",
-};
+const MAX_FIELD_LENGTH = 500;
+const MAX_MESSAGE_LENGTH = 5000;
 
 function escapeHtml(str: string): string {
   return str
@@ -32,31 +21,29 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#039;");
 }
 
+function sanitize(val: unknown, maxLen = MAX_FIELD_LENGTH): string {
+  if (typeof val !== "string") return "";
+  return val.trim().slice(0, maxLen);
+}
+
+// --- Email builders (kept compact) ---
+
+const projectLabels: Record<string, string> = { vitrine: "Site vitrine", ecommerce: "E-commerce", landing: "Landing Page", audit: "Audit" };
+const timelineLabels: Record<string, string> = { urgent: "< 1 semaine", "1-2weeks": "1 à 2 semaines", "1month": "1 mois", flexible: "Flexible" };
+
 function buildContactEmail(data: any): { subject: string; html: string } {
-  const name = escapeHtml(data.name || "");
-  const email = escapeHtml(data.email || "");
-  const phone = escapeHtml(data.phone || "");
-  const company = escapeHtml(data.company || "");
-  const message = data.message ? escapeHtml(data.message) : "";
-  const projectType = projectLabels[data.project] || escapeHtml(data.project || "");
-  const timeline = timelineLabels[data.timeline] || escapeHtml(data.timeline || "Non spécifié");
+  const name = escapeHtml(sanitize(data.name));
+  const email = escapeHtml(sanitize(data.email, 255));
+  const phone = escapeHtml(sanitize(data.phone, 50));
+  const company = escapeHtml(sanitize(data.company, 200));
+  const message = data.message ? escapeHtml(sanitize(data.message, MAX_MESSAGE_LENGTH)) : "";
+  const projectType = projectLabels[data.project] || escapeHtml(sanitize(data.project, 100));
+  const timeline = timelineLabels[data.timeline] || escapeHtml(sanitize(data.timeline, 50));
 
   return {
     subject: `🔔 Nouvelle demande de ${name} — ${projectType}`,
     html: `<!DOCTYPE html><html><head><meta charset="utf-8">
-<style>
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f3f4f6;padding:20px;margin:0;color:#1f2937}
-.container{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1)}
-.header{background:linear-gradient(135deg,#9333ea,#ec4899);color:#fff;padding:30px;text-align:center}
-.header h1{font-size:22px;margin:0 0 5px}.header p{font-size:14px;opacity:.9;margin:0}
-.content{padding:30px}
-.field{margin-bottom:16px;padding:12px 16px;background:#f9fafb;border-radius:10px;border-left:4px solid #9333ea}
-.field-label{font-size:11px;text-transform:uppercase;color:#6b7280;font-weight:700;letter-spacing:.5px;margin-bottom:4px}
-.field-value{font-size:15px;color:#111827;font-weight:500}
-.badge{display:inline-block;background:linear-gradient(135deg,#9333ea,#ec4899);color:#fff;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}
-.cta{text-align:center;margin-top:24px}.cta a{display:inline-block;background:#9333ea;color:#fff;padding:12px 30px;border-radius:8px;text-decoration:none;font-weight:600}
-.footer{text-align:center;padding:20px;color:#9ca3af;font-size:12px}
-</style></head><body><div class="container">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f3f4f6;padding:20px;margin:0;color:#1f2937}.container{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1)}.header{background:linear-gradient(135deg,#9333ea,#ec4899);color:#fff;padding:30px;text-align:center}.header h1{font-size:22px;margin:0 0 5px}.header p{font-size:14px;opacity:.9;margin:0}.content{padding:30px}.field{margin-bottom:16px;padding:12px 16px;background:#f9fafb;border-radius:10px;border-left:4px solid #9333ea}.field-label{font-size:11px;text-transform:uppercase;color:#6b7280;font-weight:700;letter-spacing:.5px;margin-bottom:4px}.field-value{font-size:15px;color:#111827;font-weight:500}.badge{display:inline-block;background:linear-gradient(135deg,#9333ea,#ec4899);color:#fff;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}.cta{text-align:center;margin-top:24px}.cta a{display:inline-block;background:#9333ea;color:#fff;padding:12px 30px;border-radius:8px;text-decoration:none;font-weight:600}.footer{text-align:center;padding:20px;color:#9ca3af;font-size:12px}</style></head><body><div class="container">
 <div class="header"><h1>🔔 Nouvelle Demande</h1><p>Un prospect vient de remplir le formulaire</p></div>
 <div class="content">
 <div class="field"><div class="field-label">Nom</div><div class="field-value">${name}</div></div>
@@ -72,27 +59,15 @@ ${message ? `<div class="field"><div class="field-label">Message</div><div class
 }
 
 function buildOfferEmail(data: any): { subject: string; html: string } {
-  const name = escapeHtml(data.name || "");
-  const email = escapeHtml(data.email || "");
-  const phone = escapeHtml(data.phone || "");
-  const company = escapeHtml(data.company || "Non spécifié");
+  const name = escapeHtml(sanitize(data.name));
+  const email = escapeHtml(sanitize(data.email, 255));
+  const phone = escapeHtml(sanitize(data.phone, 50));
+  const company = escapeHtml(sanitize(data.company, 200));
 
   return {
     subject: `🎯 Nouvelle réservation Offre 300€ — ${name}`,
     html: `<!DOCTYPE html><html><head><meta charset="utf-8">
-<style>
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f3f4f6;padding:20px;margin:0;color:#1f2937}
-.container{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1)}
-.header{background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;padding:30px;text-align:center}
-.header h1{font-size:22px;margin:0 0 5px}.header p{font-size:14px;opacity:.9;margin:0}
-.content{padding:30px}
-.field{margin-bottom:16px;padding:12px 16px;background:#f9fafb;border-radius:10px;border-left:4px solid #f59e0b}
-.field-label{font-size:11px;text-transform:uppercase;color:#6b7280;font-weight:700;letter-spacing:.5px;margin-bottom:4px}
-.field-value{font-size:15px;color:#111827;font-weight:500}
-.badge{display:inline-block;background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}
-.cta{text-align:center;margin-top:24px}.cta a{display:inline-block;background:#f59e0b;color:#fff;padding:12px 30px;border-radius:8px;text-decoration:none;font-weight:600}
-.footer{text-align:center;padding:20px;color:#9ca3af;font-size:12px}
-</style></head><body><div class="container">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f3f4f6;padding:20px;margin:0;color:#1f2937}.container{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1)}.header{background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;padding:30px;text-align:center}.header h1{font-size:22px;margin:0 0 5px}.header p{font-size:14px;opacity:.9;margin:0}.content{padding:30px}.field{margin-bottom:16px;padding:12px 16px;background:#f9fafb;border-radius:10px;border-left:4px solid #f59e0b}.field-label{font-size:11px;text-transform:uppercase;color:#6b7280;font-weight:700;letter-spacing:.5px;margin-bottom:4px}.field-value{font-size:15px;color:#111827;font-weight:500}.badge{display:inline-block;background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}.cta{text-align:center;margin-top:24px}.cta a{display:inline-block;background:#f59e0b;color:#fff;padding:12px 30px;border-radius:8px;text-decoration:none;font-weight:600}.footer{text-align:center;padding:20px;color:#9ca3af;font-size:12px}</style></head><body><div class="container">
 <div class="header"><h1>🎯 Réservation Offre 300€</h1><p>Un prospect a réservé une place !</p></div>
 <div class="content">
 <div class="field"><div class="field-label">Nom</div><div class="field-value">${name}</div></div>
@@ -106,43 +81,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 }
 
 function buildNewsletterEmail(data: any): { subject: string; html: string } {
-  const email = escapeHtml(data.email || "");
+  const email = escapeHtml(sanitize(data.email, 255));
 
   return {
     subject: `📬 Nouvel abonné newsletter — ${email}`,
     html: `<!DOCTYPE html><html><head><meta charset="utf-8">
-<style>
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f3f4f6;padding:20px;margin:0;color:#1f2937}
-.container{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1)}
-.header{background:linear-gradient(135deg,#06b6d4,#8b5cf6);color:#fff;padding:30px;text-align:center}
-.header h1{font-size:22px;margin:0 0 5px}.header p{font-size:14px;opacity:.9;margin:0}
-.content{padding:30px}
-.field{margin-bottom:16px;padding:12px 16px;background:#f9fafb;border-radius:10px;border-left:4px solid #06b6d4}
-.field-label{font-size:11px;text-transform:uppercase;color:#6b7280;font-weight:700;letter-spacing:.5px;margin-bottom:4px}
-.field-value{font-size:15px;color:#111827;font-weight:500}
-.footer{text-align:center;padding:20px;color:#9ca3af;font-size:12px}
-</style></head><body><div class="container">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f3f4f6;padding:20px;margin:0;color:#1f2937}.container{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1)}.header{background:linear-gradient(135deg,#06b6d4,#8b5cf6);color:#fff;padding:30px;text-align:center}.header h1{font-size:22px;margin:0 0 5px}.header p{font-size:14px;opacity:.9;margin:0}.content{padding:30px}.field{margin-bottom:16px;padding:12px 16px;background:#f9fafb;border-radius:10px;border-left:4px solid #06b6d4}.field-label{font-size:11px;text-transform:uppercase;color:#6b7280;font-weight:700;letter-spacing:.5px;margin-bottom:4px}.field-value{font-size:15px;color:#111827;font-weight:500}.footer{text-align:center;padding:20px;color:#9ca3af;font-size:12px}</style></head><body><div class="container">
 <div class="header"><h1>📬 Nouvel Abonné</h1><p>Quelqu'un vient de s'inscrire à la newsletter</p></div>
 <div class="content">
 <div class="field"><div class="field-label">Email</div><div class="field-value"><a href="mailto:${email}">${email}</a></div></div>
 </div><div class="footer">ConvertiLab — Notification automatique</div></div></body></html>`,
   };
-}
-
-// Simple in-memory rate limiter: max 5 requests per IP per 10 minutes
-const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
-const RATE_LIMIT_MAX = 5;
-const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
-  if (!entry || now > entry.resetAt) {
-    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
-    return false;
-  }
-  entry.count++;
-  return entry.count > RATE_LIMIT_MAX;
 }
 
 Deno.serve(async (req: Request) => {
@@ -151,10 +100,23 @@ Deno.serve(async (req: Request) => {
   }
 
   try {
-    // Rate limiting by IP
+    // --- Persistent DB-backed rate limiting ---
     const clientIp = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
       req.headers.get("cf-connecting-ip") || "unknown";
-    if (isRateLimited(clientIp)) {
+
+    const supabaseAdmin = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
+    );
+
+    const { data: allowed, error: rlError } = await supabaseAdmin.rpc("check_rate_limit", {
+      p_ip: clientIp,
+      p_endpoint: "notify-contact",
+      p_max_requests: 5,
+      p_window_minutes: 10,
+    });
+
+    if (rlError || !allowed) {
       return new Response(
         JSON.stringify({ error: "Too many requests. Please try again later." }),
         { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
@@ -166,7 +128,8 @@ Deno.serve(async (req: Request) => {
 
     // Validate email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!data.email || !emailRegex.test(data.email) || data.email.length > 255) {
+    const email = sanitize(data.email, 255);
+    if (!email || !emailRegex.test(email)) {
       return new Response(
         JSON.stringify({ error: "Invalid email" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
@@ -177,7 +140,7 @@ Deno.serve(async (req: Request) => {
 
     switch (formType) {
       case "offer":
-        if (!data.name || !data.phone) {
+        if (!sanitize(data.name) || !sanitize(data.phone, 50)) {
           return new Response(
             JSON.stringify({ error: "Missing required fields" }),
             { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
@@ -192,7 +155,7 @@ Deno.serve(async (req: Request) => {
 
       case "contact":
       default:
-        if (!data.name || !data.company || !data.phone || !data.project) {
+        if (!sanitize(data.name) || !sanitize(data.company, 200) || !sanitize(data.phone, 50) || !sanitize(data.project, 100)) {
           return new Response(
             JSON.stringify({ error: "Missing required fields" }),
             { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
@@ -212,12 +175,10 @@ Deno.serve(async (req: Request) => {
     if (emailResponse.error) {
       console.error("Resend send error:", emailResponse.error);
       return new Response(
-        JSON.stringify({ success: false, error: emailResponse.error.message }),
+        JSON.stringify({ success: false, error: "Service temporarily unavailable" }),
         { status: 502, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
-
-    console.log("Notification email sent:", emailResponse);
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
