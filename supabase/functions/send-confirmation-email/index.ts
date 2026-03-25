@@ -89,7 +89,7 @@ Deno.serve(async (req: Request) => {
     const siteUrl = Deno.env.get("SITE_URL") || "https://testtttest.lovable.app";
 
     const emailResponse = await resend.emails.send({
-      from: "ConvertiLab <onboarding@resend.dev>",
+      from: "ConvertiLab <noreply@convertilab.com>",
       to: [email],
       subject: "Bienvenue chez ConvertiLab ! 🚀",
       html: `

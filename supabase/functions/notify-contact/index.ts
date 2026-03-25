@@ -64,7 +64,7 @@ Deno.serve(async (req: Request) => {
     const timeline = timelineLabels[data.timeline] || data.timeline || "Non spécifié";
 
     const emailResponse = await resend.emails.send({
-      from: "ConvertiLab <onboarding@resend.dev>",
+      from: "ConvertiLab <noreply@convertilab.com>",
       to: [OWNER_EMAIL],
       subject: `🔔 Nouvelle demande de ${data.name} — ${projectType}`,
       html: `
