@@ -166,8 +166,8 @@ Deno.serve(async (req: Request) => {
   } catch (error: any) {
     console.error("Error in send-confirmation-email function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
-      { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      JSON.stringify({ error: "Service temporarily unavailable" }),
+      { status: 503, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   }
 });
