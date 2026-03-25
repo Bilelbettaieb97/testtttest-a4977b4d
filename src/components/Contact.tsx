@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, Calendar, CheckCircle2, Star, Users, Clock, Shield } from "lucide-react";
+import { Mail, Phone, Calendar, CheckCircle2, Star, Users, Clock, Shield, MapPin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import ContactForm from "@/components/contact/ContactForm";
 
@@ -102,7 +102,7 @@ const Contact = () => {
                       <p className="text-xs text-slate-500">Réponse sous 2h</p>
                     </div>
                   </a>
-                  <a href="tel:0783494709" className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                  <a href="tel:+33616477245" className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
                     <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
                       <Phone className="w-5 h-5 text-pink-600" />
                     </div>
@@ -111,6 +111,15 @@ const Contact = () => {
                       <p className="text-xs text-slate-500">Lun-Ven 9h-18h</p>
                     </div>
                   </a>
+                  <div className="flex items-center gap-4 p-3 rounded-xl">
+                    <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-green-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-900 dark:text-white text-sm">Rueil-Malmaison (92)</p>
+                      <p className="text-xs text-slate-500">Paris & Île-de-France</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
