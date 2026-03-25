@@ -114,6 +114,18 @@ const OffreSpeciale = () => {
           throw error;
         }
       } else {
+        // Send email notification
+        const { error: notifyError } = await supabase.functions.invoke('notify-contact', {
+          body: {
+            type: 'offer',
+            name: formData.name.trim(),
+            email: formData.email.trim().toLowerCase(),
+            phone: `${formData.countryCode} ${formData.phone.replace(/\D/g, '')}`,
+            company: formData.company.trim(),
+          },
+        });
+        if (notifyError) console.error('Email notification error:', notifyError);
+
         // Track Google Ads conversion
         if (typeof window !== 'undefined' && (window as any).trackFormConversion) {
           (window as any).trackFormConversion();
