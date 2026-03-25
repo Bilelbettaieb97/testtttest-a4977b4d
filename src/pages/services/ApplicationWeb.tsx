@@ -238,6 +238,13 @@ const ApplicationWebService = () => {
           </div>
         </section>
 
+        <ServiceFAQ faqs={[
+          { q: "Quelle est la différence entre un site web et une application web ?", a: "Un site web est principalement informatif (vitrine, blog). Une application web est interactive : gestion de données, tableaux de bord, workflows, authentification utilisateurs. C'est un véritable outil métier accessible depuis un navigateur." },
+          { q: "Quelles technologies utilisez-vous ?", a: "Nous utilisons des technologies modernes et éprouvées : React/TypeScript pour le frontend, Node.js ou Python pour le backend, PostgreSQL pour la base de données, et des services cloud pour l'hébergement scalable." },
+          { q: "Comment garantissez-vous la sécurité de l'application ?", a: "Nous implémentons les bonnes pratiques de sécurité : authentification robuste, chiffrement des données, protection CSRF/XSS, conformité RGPD, tests de sécurité et mises à jour régulières." },
+          { q: "Proposez-vous de la maintenance après livraison ?", a: "Oui, nous proposons des contrats de maintenance évolutive incluant les mises à jour de sécurité, le monitoring, le support utilisateur et le développement de nouvelles fonctionnalités." }
+        ]} />
+
         {/* CTA FINAL — Urgence + bénéfice */}
         <section className="py-20 bg-gradient-to-r from-slate-800 to-slate-900 text-white">
           <div className="container mx-auto px-4 text-center">
