@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import { SEO } from '@/components/SEO';
 import Footer from '@/components/Footer';
 import { LocalBusinessSchema, ServicesSchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
+import HowToSchema from '@/components/seo/HowToSchema';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import SitesWebHero from '@/components/sites-web/SitesWebHero';
 import SitesWebServices from '@/components/sites-web/SitesWebServices';

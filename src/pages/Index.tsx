@@ -11,6 +11,7 @@ import {
   ReviewsSchema 
 } from "@/components/seo/StructuredData";
 import WebSiteSchema from "@/components/seo/WebSiteSchema";
+import HowToSchema from "@/components/seo/HowToSchema";
 
 // Lazy load below-fold and non-critical components
 const Portfolio = lazy(() => import("@/components/Portfolio"));
