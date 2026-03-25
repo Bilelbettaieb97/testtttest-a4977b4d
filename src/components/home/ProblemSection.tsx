@@ -1,10 +1,10 @@
-import { XCircle } from "lucide-react";
+import { XCircle, AlertTriangle } from "lucide-react";
 
 const problems = [
-  "Aucun client généré",
-  "Design dépassé",
-  "Aucun appel à l'action",
-  "Invisible sur Google",
+  "Ils ne génèrent aucun client",
+  "Ils sont invisibles sur Google",
+  "Ils ne donnent pas envie de passer à l'action",
+  "Ils font fuir les prospects",
 ];
 
 const ProblemSection = () => {
@@ -13,12 +13,11 @@ const ProblemSection = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-10">
-            Pourquoi{" "}
-            <span className="text-destructive">90% des sites</span>{" "}
-            ne servent à rien ?
+            La vérité sur{" "}
+            <span className="text-destructive">90% des sites web</span>
           </h2>
 
-          <div className="grid sm:grid-cols-2 gap-4 max-w-lg mx-auto">
+          <div className="space-y-4 max-w-lg mx-auto mb-8">
             {problems.map((p) => (
               <div
                 key={p}
@@ -28,6 +27,11 @@ const ProblemSection = () => {
                 {p}
               </div>
             ))}
+          </div>
+
+          <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-destructive/10 border border-destructive/20">
+            <AlertTriangle className="w-5 h-5 text-destructive" />
+            <span className="font-bold text-destructive">Résultat : perte d'argent</span>
           </div>
         </div>
       </div>

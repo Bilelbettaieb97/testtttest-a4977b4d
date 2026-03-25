@@ -1,30 +1,36 @@
-import { Globe, ShoppingCart, Search, Megaphone } from "lucide-react";
+import { Globe, ShoppingCart, Search, Megaphone, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
   {
     icon: Globe,
     title: "Création de site vitrine",
-    description: "Un site professionnel pour présenter votre activité et générer des contacts qualifiés.",
+    description: "Présentez votre activité avec un site professionnel qui inspire confiance et génère des contacts qualifiés. Design sur-mesure, responsive et optimisé SEO.",
     link: "/services/site-vitrine",
   },
   {
     icon: ShoppingCart,
     title: "Création de site e-commerce",
-    description: "Vendez vos produits en ligne avec une boutique optimisée pour la conversion.",
+    description: "Vendez vos produits en ligne avec une boutique pensée pour la conversion. Parcours d'achat fluide, paiement sécurisé et gestion simplifiée.",
     link: "/services/site-ecommerce",
   },
   {
     icon: Search,
-    title: "Optimisation SEO",
-    description: "Positionnez-vous sur Google et attirez des clients gratuitement.",
+    title: "SEO (référencement Google)",
+    description: "Positionnez-vous en première page de Google et attirez des clients gratuitement grâce à une stratégie de référencement naturel sur-mesure.",
     link: "/services/referencement-seo",
   },
   {
     icon: Megaphone,
-    title: "Marketing digital",
-    description: "Publicité, CRM, stratégie d'acquisition.",
+    title: "Publicité Meta / Google",
+    description: "Générez des leads et des ventes rapidement avec des campagnes publicitaires ciblées et optimisées pour un ROI maximal.",
     link: "/services/google-ads",
+  },
+  {
+    icon: Settings,
+    title: "CRM & automatisation",
+    description: "Automatisez votre prospection, vos relances et votre suivi client pour gagner du temps et ne perdre aucune opportunité.",
+    link: "/services",
   },
 ];
 
@@ -33,10 +39,11 @@ const HomepageServices = () => {
     <section className="py-16 sm:py-24 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6">
         <h2 className="text-3xl sm:text-4xl font-bold text-foreground text-center mb-12">
-          Nos <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">services</span>
+          Ce qu'on peut faire{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">pour vous</span>
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {services.map((s) => (
             <Link
               key={s.title}

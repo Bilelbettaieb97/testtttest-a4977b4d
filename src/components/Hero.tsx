@@ -12,16 +12,17 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 relative z-10 py-16 sm:py-24">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6 leading-tight">
-            On crée votre site internet qui vous{" "}
+            Votre site internet vous ramène-t-il des clients…{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-              ramène des clients
+              ou juste des visiteurs ?
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Pas juste un beau site. Un site pensé pour{" "}
-            <strong className="text-foreground">convertir vos visiteurs en clients</strong>{" "}
-            dès les premiers jours.
+          <p className="text-lg sm:text-xl text-muted-foreground mb-2 max-w-2xl mx-auto">
+            On ne crée pas des sites "beaux".
+          </p>
+          <p className="text-lg sm:text-xl font-semibold text-foreground mb-8 max-w-2xl mx-auto">
+            On crée des sites qui vendent.
           </p>
 
           <div className="flex flex-col items-center gap-3">
@@ -31,14 +32,14 @@ const Hero = () => {
               className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground text-lg px-10 py-6 font-semibold shadow-2xl transition-all duration-300 hover:scale-105"
             >
               <Link to="/contact">
-                Obtenir mon site
+                Recevoir ma maquette gratuite
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
 
             <p className="flex items-center gap-2 text-sm text-muted-foreground">
               <Zap className="w-4 h-4 text-accent" />
-              Maquette offerte – sans engagement
+              Sans engagement – livré en 24h
             </p>
           </div>
         </div>

@@ -1,10 +1,10 @@
 import { CheckCircle } from "lucide-react";
 
 const solutions = [
-  "Design moderne qui inspire confiance",
   "Structure pensée pour convertir",
-  "SEO intégré dès la création",
-  "Accompagnement stratégique",
+  "Message clair en 5 secondes",
+  "SEO intégré dès le départ",
+  "Expérience utilisateur optimisée",
 ];
 
 const SolutionSection = () => {
@@ -13,9 +13,9 @@ const SolutionSection = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-10">
-            La différence{" "}
+            Ce que fait Convertilab{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-              Convertilab
+              différemment
             </span>
           </h2>
 

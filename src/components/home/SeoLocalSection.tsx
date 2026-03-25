@@ -18,7 +18,7 @@ const SeoLocalSection = () => {
           </h2>
 
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Convertilab accompagne les entreprises partout en France dans la création de sites internet performants et optimisés pour Google.
+            Nous accompagnons entrepreneurs et entreprises dans toute la France à créer des sites web optimisés pour Google et la conversion.
           </p>
         </div>
       </div>

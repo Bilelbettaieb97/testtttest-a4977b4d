@@ -3,10 +3,10 @@ import { CheckCircle, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const benefits = [
-  "Maquette 100% gratuite",
+  "Maquette gratuite",
   "Site livré en 48h",
   "Design premium",
-  "Optimisé pour convertir",
+  "Optimisé conversion",
   "À partir de 300€",
 ];
 
@@ -16,9 +16,9 @@ const OfferSection = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-10">
-            Une offre simple,{" "}
+            Une offre simple.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-              sans risque
+              Aucun risque.
             </span>
           </h2>
 
@@ -39,7 +39,7 @@ const OfferSection = () => {
             className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground text-lg px-8 py-6 font-semibold shadow-xl hover:scale-105 transition-all"
           >
             <Link to="/contact">
-              Voir ma maquette gratuite
+              Voir ma maquette
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </Button>
