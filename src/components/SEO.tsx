@@ -12,9 +12,9 @@ interface SEOProps {
 }
 
 const defaultMeta = {
-  title: "Agence Marketing Digital Paris | ConvertiLab",
-  description: "Agence marketing digital à Paris : SEO, Google Ads, Meta Ads, création de sites web. +50 clients, +280% de CA moyen. Devis gratuit.",
-  keywords: "agence marketing digital, SEO, Google Ads, Meta Ads, social media, email marketing, création site web, marketing digital Paris",
+  title: "Agence Web Paris & Île-de-France | ConvertiLab",
+  description: "Agence web à Paris & Rueil-Malmaison : création site internet, SEO, Google Ads, Meta Ads. +50 clients, +280% de CA moyen. Devis gratuit.",
+  keywords: "agence web Paris, création site internet, SEO Paris, Google Ads Île-de-France, agence digitale Rueil-Malmaison, marketing digital Paris",
   image: "https://storage.googleapis.com/gpt-engineer-file-uploads/GexdTExH3INRxljHBMsWqAtBwGy2/social-images/social-1764690270670-Capture d'écran 2025-12-01 à 13.25.00.png",
   url: "https://convertilab.com"
 };
@@ -69,8 +69,10 @@ const SEO = ({
       <meta name="twitter:image" content={metaImage} />
 
       {/* Additional SEO */}
-      <meta name="geo.region" content="FR-75" />
-      <meta name="geo.placename" content="Paris" />
+      <meta name="geo.region" content="FR-92" />
+      <meta name="geo.placename" content="Rueil-Malmaison" />
+      <meta name="geo.position" content="48.8769;2.1894" />
+      <meta name="ICBM" content="48.8769, 2.1894" />
 
       {/* Structured Data */}
       {structuredData && (
