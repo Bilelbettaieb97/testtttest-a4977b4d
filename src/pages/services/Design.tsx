@@ -279,6 +279,9 @@ const DesignPage = () => {
             </Button>
           </div>
         </section>
+
+        <RelatedServicesSection exclude={["/services/design/ui-ux", "/services/design/identite-visuelle"]} title="Nos autres services" max={4} />
+        <SuggestedArticles title="Articles pour aller plus loin" max={3} />
       </main>
       
       <Footer />

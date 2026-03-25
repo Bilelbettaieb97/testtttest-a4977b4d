@@ -305,6 +305,9 @@ const SeaPage = () => {
             </Button>
           </div>
         </section>
+
+        <RelatedServicesSection exclude={["/services/sea/google-ads", "/services/sea/meta-ads"]} title="Nos autres services" max={4} />
+        <SuggestedArticles title="Articles pour aller plus loin" max={3} />
       </main>
       
       <Footer />
