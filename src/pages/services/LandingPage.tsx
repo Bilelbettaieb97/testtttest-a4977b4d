@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/StructuredData';
+import ServiceDetailSchema from '@/components/seo/ServiceDetailSchema';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -90,6 +91,7 @@ const LandingPageService = () => {
         { name: "Landing Page", url: "/services/sites-web/landing-page" }
       ]} />
       <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
+      <ServiceDetailSchema name="Création Landing Page" description="Landing page haute conversion optimisée pour Google Ads et Meta Ads. Livraison en 5-7 jours." url="/services/sites-web/landing-page" price="300" />
 
       <Navigation />
 

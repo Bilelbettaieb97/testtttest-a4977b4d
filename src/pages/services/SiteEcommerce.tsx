@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/StructuredData';
+import ServiceDetailSchema from '@/components/seo/ServiceDetailSchema';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -92,6 +93,7 @@ const SiteEcommerceService = () => {
         { name: "E-commerce", url: "/services/sites-web/site-ecommerce" }
       ]} />
       <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
+      <ServiceDetailSchema name="Création Site E-commerce" description="Boutique en ligne professionnelle avec paiement sécurisé, gestion des stocks et SEO intégré." url="/services/sites-web/site-ecommerce" price="800" />
 
       <Navigation />
 
