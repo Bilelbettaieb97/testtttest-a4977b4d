@@ -145,28 +145,130 @@
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
     
-    <!-- Schema.org markup for Google+ -->
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ConvertiLab",
+      "alternateName": "ConvertiLab - Agence Web Paris",
+      "url": "https://convertilab.com",
+      "description": "Agence web à Paris & Rueil-Malmaison : création de sites internet, SEO, Google Ads, Meta Ads.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ConvertiLab",
+        "logo": { "@type": "ImageObject", "url": "https://convertilab.com/favicon.png" }
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://convertilab.com/blog?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": "fr-FR"
+    }
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "ConvertiLab",
       "url": "https://convertilab.com",
-      "logo": "https://convertilab.com/logo.png",
-      "description": "Agence de marketing digital à Paris. SEO, Google Ads, Meta Ads, Social Media, création de sites web.",
+      "logo": "https://convertilab.com/favicon.png",
+      "description": "Agence de marketing digital spécialisée en SEO, publicité en ligne, social media et création de sites web",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Paris",
+        "streetAddress": "1 Rue du 4 Septembre",
+        "addressLocality": "Rueil-Malmaison",
+        "postalCode": "92500",
+        "addressRegion": "Île-de-France",
         "addressCountry": "France"
       },
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+33616477245",
         "contactType": "customer service",
-        "email": "Contact@convertilab.com"
+        "email": "Contact@convertilab.com",
+        "availableLanguage": ["French"]
       },
       "sameAs": [
-        "https://www.linkedin.com/company/convertilab"
+        "https://www.linkedin.com/company/convertilab",
+        "https://www.facebook.com/Convertilab",
+        "https://fr.trustpilot.com/review/convertilab.com"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ConvertiLab",
+      "image": "https://convertilab.com/favicon.png",
+      "description": "Agence de marketing digital à Paris et Rueil-Malmaison spécialisée en création de sites web, SEO, Google Ads et Meta Ads.",
+      "@id": "https://convertilab.com",
+      "url": "https://convertilab.com",
+      "telephone": "+33616477245",
+      "email": "Contact@convertilab.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1 Rue du 4 Septembre",
+        "addressLocality": "Rueil-Malmaison",
+        "postalCode": "92500",
+        "addressRegion": "Île-de-France",
+        "addressCountry": "FR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 48.8769, "longitude": 2.1894 },
+      "areaServed": [
+        { "@type": "City", "name": "Paris" },
+        { "@type": "City", "name": "Rueil-Malmaison" },
+        { "@type": "City", "name": "Nanterre" },
+        { "@type": "City", "name": "Boulogne-Billancourt" },
+        { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" },
+        { "@type": "AdministrativeArea", "name": "Île-de-France" },
+        { "@type": "Country", "name": "France" }
+      ],
+      "priceRange": "€€",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/convertilab",
+        "https://www.facebook.com/Convertilab",
+        "https://fr.trustpilot.com/review/convertilab.com"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Marketing Digital",
+      "provider": { "@type": "Organization", "name": "ConvertiLab", "url": "https://convertilab.com" },
+      "areaServed": { "@type": "Country", "name": "France" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services Marketing Digital ConvertiLab",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Création de Sites Web", "description": "Sites web performants optimisés pour la conversion" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO & Référencement Naturel", "description": "Stratégie SEO complète pour dominer les résultats Google" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Publicité Google Ads & Meta Ads", "description": "Campagnes publicitaires ciblées pour générer des leads et des ventes" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management", "description": "Gestion et stratégie réseaux sociaux pour développer votre communauté" } }
+        ]
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Quels services de marketing digital proposez-vous ?", "acceptedAnswer": { "@type": "Answer", "text": "Nous proposons une offre 360° : création de sites web, SEO, Google Ads & Meta Ads, gestion des réseaux sociaux, email marketing, content marketing, branding et identité visuelle." } },
+        { "@type": "Question", "name": "Combien de temps avant de voir les premiers résultats ?", "acceptedAnswer": { "@type": "Answer", "text": "La publicité (Google/Meta Ads) génère des résultats dès les premières semaines. Le SEO prend 3 à 6 mois. Le social media commence à porter ses fruits après 1 à 3 mois." } },
+        { "@type": "Question", "name": "Comment mesurez-vous le ROI de vos actions ?", "acceptedAnswer": { "@type": "Answer", "text": "Tracking complet dès le départ (Google Analytics, pixels, UTMs). Rapports mensuels avec KPIs clés : trafic, leads, conversions, coût par acquisition, ROI." } },
+        { "@type": "Question", "name": "Quelle est la différence avec une agence web classique ?", "acceptedAnswer": { "@type": "Answer", "text": "Notre approche couvre l'ensemble du tunnel d'acquisition digital : attirer (SEO, Ads), convertir (landing pages, UX), fidéliser (email, social). Chaque action est pensée pour générer du business." } },
+        { "@type": "Question", "name": "Quel budget prévoir pour une stratégie marketing digitale ?", "acceptedAnswer": { "@type": "Answer", "text": "Nos accompagnements démarrent à partir de 500€/mois. Le budget dépend de vos objectifs, votre secteur et les leviers activés." } }
       ]
     }
     </script>
