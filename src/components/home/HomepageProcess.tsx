@@ -1,8 +1,8 @@
 const steps = [
-  { number: "01", title: "On échange 15 minutes", description: "Discussion rapide pour comprendre votre projet." },
-  { number: "02", title: "On crée votre maquette gratuite", description: "Design personnalisé sans engagement." },
-  { number: "03", title: "Vous validez", description: "Modifications illimitées jusqu'à satisfaction." },
-  { number: "04", title: "Livraison en 48h", description: "Votre site en ligne, prêt à convertir." },
+  { number: "01", title: "Appel rapide (15 min)", description: "On échange sur votre projet et vos objectifs." },
+  { number: "02", title: "Création maquette gratuite", description: "Design personnalisé, sans engagement." },
+  { number: "03", title: "Validation", description: "Modifications illimitées jusqu'à satisfaction." },
+  { number: "04", title: "Livraison 48h", description: "Votre site en ligne, prêt à convertir." },
 ];
 
 const HomepageProcess = () => {
@@ -12,7 +12,7 @@ const HomepageProcess = () => {
         <h2 className="text-3xl sm:text-4xl font-bold text-foreground text-center mb-12">
           Comment ça{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-            fonctionne ?
+            marche ?
           </span>
         </h2>
 
