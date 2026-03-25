@@ -10,11 +10,11 @@ const PortfolioHeader = () => {
       </Badge>
       
       <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
-        Des Résultats <span className="text-primary">Concrets et Mesurables</span>
+        Plus de 50 projets <span className="text-primary">réalisés</span>
       </h2>
       
       <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-        Découvrez comment nos stratégies ont transformé le business de nos clients. Chaque projet est mesuré, chaque résultat est vérifiable.
+        Sites vitrines, e-commerces, landing pages — découvrez nos réalisations dans différents secteurs.
       </p>
 
       {/* Metrics bar */}
