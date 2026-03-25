@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Check, Clock, Users, Zap, Star, ArrowRight, Phone, Sparkles, Shield, Award, TrendingUp, ChevronsUpDown } from 'lucide-react';
@@ -14,12 +15,21 @@ import { countryCodes } from '@/data/countryCodes';
 import confetti from 'canvas-confetti';
 import { SEO } from "@/components/SEO";
 import { ProductSchema, BreadcrumbSchema } from "@/components/seo/StructuredData";
-import portfolioEcommerce from '@/assets/portfolio-ecommerce.webp';
-import portfolioRestaurant from '@/assets/portfolio-restaurant.webp';
-import portfolioBeaute from '@/assets/portfolio-beaute.webp';
-import portfolioFitness from '@/assets/portfolio-fitness.webp';
-import portfolioB2B from '@/assets/portfolio-b2b.webp';
-import portfolioImmobilier from '@/assets/portfolio-immobilier.webp';
+
+import portfolioArancini from "@/assets/portfolio-arancini-hero.png";
+import portfolioAcb from "@/assets/portfolio-acb-hero.png";
+import portfolioEleva from "@/assets/portfolio-eleva-hero.png";
+import portfolioAdsb from "@/assets/portfolio-adsb-hero.png";
+import portfolioAsi from "@/assets/portfolio-asi-hero.png";
+import portfolioTrievent from "@/assets/portfolio-trievent-hero.png";
+import portfolioTemplezen from "@/assets/portfolio-templezen-hero.png";
+import portfolioInstitutNomad from "@/assets/portfolio-institut-nomad-hero.png";
+import portfolioAhstudio from "@/assets/portfolio-ahstudio-hero.png";
+import portfolioCouleursable from "@/assets/portfolio-couleursable-hero.png";
+import portfolioFilmreel from "@/assets/portfolio-filmreel-hero.png";
+import portfolioPapapret from "@/assets/portfolio-papapret-hero.png";
+import portfolioVinoboat from "@/assets/portfolio-vinoboat-hero.png";
+import portfolioSpectacle from "@/assets/portfolio-spectacle-hero.png";
 
 const TOTAL_SPOTS = 10;
 
