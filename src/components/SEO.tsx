@@ -45,6 +45,8 @@ const SEO = ({
       <meta name="keywords" content={metaKeywords} />
       {noindex && <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={metaUrl} />
+      <link rel="alternate" hrefLang="fr" href={metaUrl} />
+      <link rel="alternate" hrefLang="x-default" href={metaUrl} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
@@ -61,6 +63,10 @@ const SEO = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={metaImage} />
+
+      {/* Additional SEO */}
+      <meta name="geo.region" content="FR-75" />
+      <meta name="geo.placename" content="Paris" />
 
       {/* Structured Data */}
       {structuredData && (
