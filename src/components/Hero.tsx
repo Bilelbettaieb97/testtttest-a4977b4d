@@ -47,7 +47,7 @@ const Hero = () => {
   };
 
   return (
-    <main className="relative bg-gradient-to-br from-purple-50 via-white to-pink-50 flex items-center overflow-hidden">
+    <main className="relative bg-gradient-to-br from-purple-50 via-white to-pink-50 flex items-center overflow-hidden min-h-[600px] lg:min-h-[700px]">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 right-10 w-32 h-32 bg-purple-200 rounded-full blur-3xl opacity-30 animate-float"></div>
