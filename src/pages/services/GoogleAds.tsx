@@ -1,4 +1,5 @@
 import { SEO } from '@/components/SEO';
+import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
@@ -44,6 +45,12 @@ const GoogleAdsService = () => {
         description="Campagnes Google Ads optimisées : Search, Shopping, Display, Remarketing. x4.8 ROAS moyen. Audit gratuit."
         keywords="Google Ads, campagne Google, publicité Google, Google Shopping, remarketing, ROAS, agence Google Ads"
       />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Publicité", url: "/services/sea" },
+        { name: "Google Ads", url: "/services/sea/google-ads" }
+      ]} />
 
       <Navigation />
       

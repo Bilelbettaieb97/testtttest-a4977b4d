@@ -1,4 +1,5 @@
 import { SEO } from '@/components/SEO';
+import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
@@ -44,6 +45,12 @@ const DesignUiUxService = () => {
         description="Design UI/UX professionnel : wireframes, prototypes Figma, tests utilisateurs. Interfaces qui convertissent. Devis gratuit."
         keywords="design UI UX, interface utilisateur, expérience utilisateur, wireframe, prototype Figma, design web"
       />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Design", url: "/services/design" },
+        { name: "Design UI/UX", url: "/services/design/ui-ux" }
+      ]} />
 
       <Navigation />
       

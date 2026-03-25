@@ -4,113 +4,113 @@
   <!-- Accueil -->
   <url>
     <loc>https://convertilab.com/</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Services -->
+  <!-- Services (hub) -->
   <url>
     <loc>https://convertilab.com/services</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Sites Web -->
+  <!-- Sites Web (catégorie) -->
   <url>
     <loc>https://convertilab.com/services/sites-web</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://convertilab.com/services/sites-web/landing-page</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://convertilab.com/services/sites-web/site-vitrine</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://convertilab.com/services/sites-web/site-ecommerce</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://convertilab.com/services/sites-web/application-web</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://convertilab.com/services/sites-web/refonte-site</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- SEO -->
+  <!-- SEO (catégorie) -->
   <url>
     <loc>https://convertilab.com/services/seo</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://convertilab.com/services/seo/referencement</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://convertilab.com/services/seo/audit</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- SEA -->
+  <!-- Publicité / SEA (catégorie) -->
   <url>
     <loc>https://convertilab.com/services/sea</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://convertilab.com/services/sea/google-ads</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://convertilab.com/services/sea/meta-ads</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Design -->
+  <!-- Design (catégorie) -->
   <url>
     <loc>https://convertilab.com/services/design</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://convertilab.com/services/design/ui-ux</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://convertilab.com/services/design/identite-visuelle</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -118,7 +118,7 @@
   <!-- Portfolio -->
   <url>
     <loc>https://convertilab.com/portfolio</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -126,7 +126,7 @@
   <!-- Contact -->
   <url>
     <loc>https://convertilab.com/contact</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -134,7 +134,7 @@
   <!-- À propos -->
   <url>
     <loc>https://convertilab.com/a-propos</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -142,7 +142,7 @@
   <!-- Blog -->
   <url>
     <loc>https://convertilab.com/blog</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -224,7 +224,7 @@
   <!-- Offre Spéciale -->
   <url>
     <loc>https://convertilab.com/offre-speciale</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -232,109 +232,109 @@
   <!-- Études de cas -->
   <url>
     <loc>https://convertilab.com/etude-de-cas/monsieur-arancini</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/acb-renovation</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/eleva-conciergerie</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/adsb-wissembourg</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/alliance-securite-incendie</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/trievent</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/temple-zen</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/institut-nomad</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/ah-studio</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/couleur-sable</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/filmreel-gallery</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/papapret</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/vinoboat</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://convertilab.com/etude-de-cas/spectacle</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://convertilab.com/etude-de-cas/funestore</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/papapret</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/acb-renovation</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/eleva-conciergerie</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/adsb-wissembourg</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/alliance-securite-incendie</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/trievent</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/temple-zen</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/institut-nomad</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/ah-studio</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/vinoboat</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/couleur-sable</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/filmreel-gallery</loc>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://convertilab.com/etude-de-cas/art-des-roses</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://convertilab.com/etude-de-cas/segermes</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/etude-de-cas/spectacle</loc>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://convertilab.com/etude-de-cas/ecrin-de-seoul</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -342,7 +342,7 @@
   <!-- Politique de confidentialité -->
   <url>
     <loc>https://convertilab.com/politique-de-confidentialite</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

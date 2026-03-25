@@ -1,4 +1,5 @@
 import { SEO } from '@/components/SEO';
+import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
@@ -44,6 +45,12 @@ const MetaAdsService = () => {
         description="Publicités Facebook et Instagram : ciblage précis, créatifs optimisés, ROI maximisé. Audit de compte gratuit."
         keywords="Meta Ads, Facebook Ads, Instagram Ads, publicité Facebook, publicité Instagram, social ads"
       />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Publicité", url: "/services/sea" },
+        { name: "Meta Ads", url: "/services/sea/meta-ads" }
+      ]} />
 
       <Navigation />
       
