@@ -74,6 +74,18 @@ const Index = () => {
       <ServicesSchema />
       <FAQSchema faqs={faqData} />
       <ReviewsSchema reviews={reviewsData} />
+      <HowToSchema
+        name="Comment booster votre croissance digitale avec ConvertiLab"
+        description="Notre processus éprouvé en 5 étapes pour développer votre présence en ligne et maximiser votre ROI."
+        totalTime="P30D"
+        steps={[
+          { name: "Audit & Stratégie", text: "Analyse de votre marché, vos concurrents et vos objectifs pour définir la meilleure stratégie digitale." },
+          { name: "Plan d'Action", text: "Construction de votre stratégie marketing digitale personnalisée avec des objectifs clairs et un calendrier détaillé." },
+          { name: "Mise en Place", text: "Déploiement des campagnes, création des contenus et configuration des outils de tracking." },
+          { name: "Optimisation Continue", text: "Analyse des résultats et optimisation continue pour maximiser votre retour sur investissement." },
+          { name: "Scale & Croissance", text: "Développement des leviers performants pour accélérer votre croissance à long terme." }
+        ]}
+      />
       
       <Navigation />
       <div style={{ paddingTop: '64px' }}>
