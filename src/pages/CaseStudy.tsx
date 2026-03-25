@@ -61,7 +61,7 @@ import galleryTrieventFullpage1 from "@/assets/gallery-trievent-fullpage-1.webp"
 import galleryTrieventFullpage2 from "@/assets/gallery-trievent-fullpage-2.webp";
 import galleryTrieventFullpage3 from "@/assets/gallery-trievent-fullpage-3.webp";
 import portfolioTemplezenHero from "@/assets/portfolio-templezen-hero.webp";
-import portfolioInstitutNomadHero from "@/assets/portfolio-institut-nomad-hero.png";
+import portfolioInstitutNomadHero from "@/assets/portfolio-institut-nomad-hero.webp";
 import portfolioAhstudioHero from "@/assets/portfolio-ahstudio-hero.webp";
 import portfolioVinoboatHero from "@/assets/portfolio-vinoboat-hero.webp";
 import galleryVinoboatFullpage1 from "@/assets/gallery-vinoboat-fullpage-1.webp";
@@ -88,7 +88,7 @@ import galleryEcrindeseoulFullpage2 from "@/assets/gallery-ecrindeseoul-fullpage
 import galleryEcrindeseoulFullpage3 from "@/assets/gallery-ecrindeseoul-fullpage-3.webp";
 import galleryEcrindeseoulFullpage4 from "@/assets/gallery-ecrindeseoul-fullpage-4.webp";
 import galleryEcrindeseoulBoutique from "@/assets/gallery-ecrindeseoul-boutique.webp";
-import galleryEcrindeseoulProduit from "@/assets/gallery-ecrindeseoul-produit.png";
+import galleryEcrindeseoulProduit from "@/assets/gallery-ecrindeseoul-produit.webp";
 
 const CaseStudy = () => {
   const { slug } = useParams();

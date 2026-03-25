@@ -14,7 +14,7 @@ import portfolioAdsb from "@/assets/portfolio-adsb-hero.webp";
 import portfolioAsi from "@/assets/portfolio-asi-hero.webp";
 import portfolioTrievent from "@/assets/portfolio-trievent-hero.webp";
 import portfolioTemplezen from "@/assets/portfolio-templezen-hero.webp";
-import portfolioInstitutNomad from "@/assets/portfolio-institut-nomad-hero.png";
+import portfolioInstitutNomad from "@/assets/portfolio-institut-nomad-hero.webp";
 import portfolioAhstudio from "@/assets/portfolio-ahstudio-hero.webp";
 import portfolioVinoboat from "@/assets/portfolio-vinoboat-hero.webp";
 import portfolioCouleursable from "@/assets/portfolio-couleursable-hero.webp";
