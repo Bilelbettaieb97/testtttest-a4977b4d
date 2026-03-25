@@ -5,6 +5,8 @@ import { SEO } from '@/components/SEO';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Button } from '@/components/ui/button';
+import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
+import SuggestedArticles from '@/components/internal-links/SuggestedArticles';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { ArrowRight, CheckCircle, Search, TrendingUp, ClipboardCheck, Clock, BarChart3, Target, FileSearch, Zap } from 'lucide-react';
 
@@ -293,6 +295,9 @@ const SeoPage = () => {
             </Button>
           </div>
         </section>
+
+        <RelatedServicesSection exclude={["/services/seo/referencement", "/services/seo/audit"]} title="Nos autres services" max={4} />
+        <SuggestedArticles title="Articles SEO à lire" max={3} />
       </main>
       
       <Footer />
