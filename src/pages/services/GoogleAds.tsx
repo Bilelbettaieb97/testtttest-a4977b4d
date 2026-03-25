@@ -142,6 +142,13 @@ const GoogleAdsService = () => {
           </div>
         </section>
 
+        <ServiceFAQ faqs={[
+          { q: "Quel budget minimum pour Google Ads ?", a: "Nous recommandons un budget minimum de 500€/mois en dépense publicitaire pour obtenir des données suffisantes et optimiser vos campagnes. Le budget idéal dépend de votre secteur et de vos objectifs." },
+          { q: "Combien de temps pour rentabiliser mes campagnes ?", a: "Les premiers résultats sont visibles dès les premiers jours. L'optimisation complète prend 2 à 4 semaines pour atteindre un ROAS optimal. Nos clients atteignent en moyenne un ROAS de x4.8." },
+          { q: "Google Ads est-il adapté à mon activité ?", a: "Google Ads est efficace pour presque tous les secteurs : e-commerce, services B2B, professions libérales, commerces locaux. Si vos clients recherchent vos produits/services sur Google, c'est pertinent." },
+          { q: "Que comprend votre gestion de campagnes ?", a: "Notre gestion inclut la recherche de mots-clés, la création d'annonces, la configuration du tracking, l'optimisation continue des enchères, les tests A/B et des rapports hebdomadaires détaillés." }
+        ]} />
+
         <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-500 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Prêt à booster vos ventes ?</h2>

@@ -142,6 +142,13 @@ const DesignUiUxService = () => {
           </div>
         </section>
 
+        <ServiceFAQ faqs={[
+          { q: "Quelle est votre méthodologie de design UX ?", a: "Nous suivons un processus en 5 étapes : recherche utilisateur, architecture de l'information, wireframes, prototypes interactifs et tests utilisateurs. Chaque étape est validée avec vous avant de passer à la suivante." },
+          { q: "Combien de temps prend un projet de design UI/UX ?", a: "Un projet complet de design UI/UX prend entre 2 et 4 semaines selon la complexité. Les wireframes sont livrés en 1 semaine, suivis des maquettes haute-fidélité et des prototypes interactifs." },
+          { q: "Livrez-vous un design system réutilisable ?", a: "Oui, nous créons un design system complet avec des composants réutilisables, des guidelines de style, des tokens de design et une documentation pour vos développeurs." },
+          { q: "Faites-vous des tests utilisateurs ?", a: "Oui, nous réalisons des tests d'utilisabilité avec de vrais utilisateurs pour valider les parcours et identifier les points de friction. Les résultats alimentent les itérations de design." }
+        ]} />
+
         <section className="py-20 bg-gradient-to-r from-pink-500 to-rose-500 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Prêt à améliorer votre UX ?</h2>

@@ -142,6 +142,13 @@ const AuditSeoService = () => {
           </div>
         </section>
 
+        <ServiceFAQ faqs={[
+          { q: "Que contient un audit SEO complet ?", a: "Notre audit couvre l'analyse technique (performance, indexation, structure), l'audit du contenu (qualité, pertinence, optimisation), l'étude de la concurrence et l'analyse du profil de backlinks. Un rapport détaillé de +50 pages est livré avec un plan d'action priorisé." },
+          { q: "Combien de temps prend un audit SEO ?", a: "Un audit SEO complet nécessite 5 à 10 jours ouvrés selon la taille du site. Nous analysons en profondeur chaque aspect technique et éditorial pour vous fournir des recommandations concrètes et actionnables." },
+          { q: "Que faire après avoir reçu l'audit ?", a: "Nous organisons un call de restitution d'1h pour parcourir les résultats ensemble. Vous pouvez ensuite implémenter les recommandations en interne ou nous confier l'exécution du plan d'action." },
+          { q: "L'audit est-il adapté à mon secteur d'activité ?", a: "Oui, chaque audit est personnalisé. Nous analysons votre secteur, vos concurrents directs et les spécificités de votre marché pour fournir des recommandations pertinentes et adaptées." }
+        ]} />
+
         <section className="py-20 bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Prêt à auditer votre site ?</h2>
