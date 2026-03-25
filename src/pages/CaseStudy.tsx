@@ -103,13 +103,13 @@ const CaseStudy = () => {
       subtitle: "Création d'un site web vitrine haut de gamme pour une marque d'arancini artisanaux",
       image: portfolioAranciniHero,
       gallery: [
-        { src: galleryAranciniFullpage1, alt: "Page complète Monsieur Arancini - Partie 1", caption: "Vue complète du site : accueil, histoire, catalogue Mini Arancini" },
-        { src: galleryAranciniFullpage2, alt: "Page complète Monsieur Arancini - Partie 2", caption: "Vue complète : créations exclusives, galerie, contact et footer" },
-        { src: galleryArancini1, alt: "Mini Arancini - Catalogue produits", caption: "Gamme de Mini Arancini : Bolognese, Pistache, Truffe, Jambon, Épinard, Champignon" },
-        { src: galleryArancini2, alt: "Créations exclusives Monsieur Arancini", caption: "Créations siciliennes exclusives : Pâtes Carbonara et Pâtes Amatriciana" },
-        { src: galleryArancini3, alt: "Galerie Arancini en action", caption: "Nos arancini en action : moments de dégustation authentiques" },
-        { src: galleryArancini4, alt: "Footer et contact Monsieur Arancini", caption: "Section partenaires et contact avec gamme complète de produits" },
-        { src: galleryArancini5, alt: "Page contact Monsieur Arancini", caption: "Formulaire de contact et coordonnées avec localisation Le Pontet" }
+        { src: galleryAranciniFullpage1, alt: "Site vitrine restaurant Monsieur Arancini – accueil et catalogue arancini siciliens", caption: "Vue complète du site : accueil, histoire, catalogue Mini Arancini" },
+        { src: galleryAranciniFullpage2, alt: "Création site vitrine restauration – galerie et formulaire de contact", caption: "Vue complète : créations exclusives, galerie, contact et footer" },
+        { src: galleryArancini1, alt: "Catalogue mini arancini artisanaux – Bolognese, Pistache, Truffe, Champignon", caption: "Gamme de Mini Arancini : Bolognese, Pistache, Truffe, Jambon, Épinard, Champignon" },
+        { src: galleryArancini2, alt: "Créations exclusives siciliennes – Pâtes Carbonara et Amatriciana", caption: "Créations siciliennes exclusives : Pâtes Carbonara et Pâtes Amatriciana" },
+        { src: galleryArancini3, alt: "Galerie dégustation arancini siciliens artisanaux", caption: "Nos arancini en action : moments de dégustation authentiques" },
+        { src: galleryArancini4, alt: "Partenaires et gamme complète arancini – site vitrine premium", caption: "Section partenaires et contact avec gamme complète de produits" },
+        { src: galleryArancini5, alt: "Formulaire contact site vitrine restauration – Le Pontet", caption: "Formulaire de contact et coordonnées avec localisation Le Pontet" }
       ],
       chartData: [
         { name: "Crédibilité", before: 20, after: 95 },
@@ -144,11 +144,11 @@ const CaseStudy = () => {
       subtitle: "Création d'une plateforme e-commerce professionnelle pour les articles funéraires",
       image: portfolioFunestoreHero,
       gallery: [
-        { src: galleryFunestoreFullpage1, alt: "Page complète Funestore - Partie 1", caption: "Accueil, services, espace professionnel et sélection de produits" },
-        { src: galleryFunestoreFullpage2, alt: "Page complète Funestore - Partie 2", caption: "Catégories, essences de bois et espace communauté professionnelle" },
-        { src: galleryFunestoreFullpage3, alt: "Page complète Funestore - Partie 3", caption: "Catalogue complet et détails des articles funéraires" },
-        { src: galleryFunestoreCatalogue, alt: "Catalogue produits Funestore", caption: "Page catalogue avec 118 produits, filtres par catégories et recherche" },
-        { src: galleryFunestoreProduit, alt: "Fiche produit Funestore", caption: "Fiche produit détaillée avec description, stock et espace professionnel" }
+        { src: galleryFunestoreFullpage1, alt: "Site e-commerce B2B Funestore – accueil et espace professionnel funéraire", caption: "Accueil, services, espace professionnel et sélection de produits" },
+        { src: galleryFunestoreFullpage2, alt: "Plateforme e-commerce funéraire – catégories et essences de bois", caption: "Catégories, essences de bois et espace communauté professionnelle" },
+        { src: galleryFunestoreFullpage3, alt: "Catalogue e-commerce articles funéraires – détails produits", caption: "Catalogue complet et détails des articles funéraires" },
+        { src: galleryFunestoreCatalogue, alt: "Catalogue 118 produits funéraires avec filtres et recherche B2B", caption: "Page catalogue avec 118 produits, filtres par catégories et recherche" },
+        { src: galleryFunestoreProduit, alt: "Fiche produit e-commerce B2B – stock et tarifs professionnels", caption: "Fiche produit détaillée avec description, stock et espace professionnel" }
       ],
       chartData: [
         { name: "Visibilité", before: 15, after: 85 },
@@ -183,11 +183,11 @@ const CaseStudy = () => {
       subtitle: "Création d'une landing page avec tunnel de vente optimisé pour une formation destinée aux futurs papas",
       image: portfolioPapapretHero,
       gallery: [
-        { src: galleryPapapretFullpage1, alt: "Page complète PapaPrêt - Partie 1", caption: "Accueil, promesse et statistiques : 15K+ papas formés, note 4.9/5" },
-        { src: galleryPapapretFullpage2, alt: "Page complète PapaPrêt - Partie 2", caption: "Transformation avant/après et contenu des 6 modules de formation" },
-        { src: galleryPapapretFullpage3, alt: "Page complète PapaPrêt - Partie 3", caption: "Programme détaillé des 7 heures de formation intensive" },
-        { src: galleryPapapretFullpage4, alt: "Page complète PapaPrêt - Partie 4", caption: "Témoignages vérifiés, garanties et section réservation" },
-        { src: galleryPapapretFullpage5, alt: "Page complète PapaPrêt - Partie 5", caption: "Tarif, calendrier de réservation et FAQ" }
+        { src: galleryPapapretFullpage1, alt: "Landing page formation parentalité PapaPrêt – 15K papas formés", caption: "Accueil, promesse et statistiques : 15K+ papas formés, note 4.9/5" },
+        { src: galleryPapapretFullpage2, alt: "Tunnel de vente formation – transformation avant/après et modules", caption: "Transformation avant/après et contenu des 6 modules de formation" },
+        { src: galleryPapapretFullpage3, alt: "Programme formation futurs papas – 7h de contenu intensif", caption: "Programme détaillé des 7 heures de formation intensive" },
+        { src: galleryPapapretFullpage4, alt: "Preuves sociales landing page – témoignages et garanties", caption: "Témoignages vérifiés, garanties et section réservation" },
+        { src: galleryPapapretFullpage5, alt: "Réservation formation en ligne – tarifs et calendrier", caption: "Tarif, calendrier de réservation et FAQ" }
       ],
       chartData: [
         { name: "Engagement", before: 15, after: 75 },
@@ -222,9 +222,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site professionnel pour une entreprise de rénovation et construction dans le Grand Est",
       image: portfolioAcbHero,
       gallery: [
-        { src: galleryAcbFullpage1, alt: "Page complète ACB - Partie 1", caption: "Accueil, services et présentation de l'entreprise" },
-        { src: galleryAcbFullpage2, alt: "Page complète ACB - Partie 2", caption: "Avantages, réalisations et présentation de l'équipe" },
-        { src: galleryAcbFullpage3, alt: "Page complète ACB - Partie 3", caption: "À propos, statistiques, formulaire de contact et footer" }
+        { src: galleryAcbFullpage1, alt: "Site vitrine BTP ACB Rénovation – services couverture et charpente Grand Est", caption: "Accueil, services et présentation de l'entreprise" },
+        { src: galleryAcbFullpage2, alt: "Réalisations entreprise rénovation – portfolio et équipe professionnelle", caption: "Avantages, réalisations et présentation de l'équipe" },
+        { src: galleryAcbFullpage3, alt: "Formulaire devis gratuit BTP – contact et garantie décennale", caption: "À propos, statistiques, formulaire de contact et footer" }
       ],
       chartData: [
         { name: "Visibilité", before: 10, after: 80 },
@@ -259,11 +259,11 @@ const CaseStudy = () => {
       subtitle: "Création d'un site luxueux pour une conciergerie de location courte durée avec tunnel de conversion",
       image: portfolioElevaHero,
       gallery: [
-        { src: galleryElevaFullpage1, alt: "Page complète Eleva - Partie 1", caption: "Accueil premium, problématiques propriétaires et proposition de valeur" },
-        { src: galleryElevaFullpage2, alt: "Page complète Eleva - Partie 2", caption: "Services complets, résultats concrets et statistiques" },
-        { src: galleryElevaFullpage3, alt: "Page complète Eleva - Partie 3", caption: "Cibles, avantages et positionnement premium" },
-        { src: galleryElevaFullpage4, alt: "Page complète Eleva - Partie 4", caption: "Témoignages, CTA et formulaire de contact" },
-        { src: galleryElevaFullpage5, alt: "Page complète Eleva - Partie 5", caption: "Footer et navigation du site" }
+        { src: galleryElevaFullpage1, alt: "Site premium conciergerie locative Eleva – proposition de valeur propriétaires", caption: "Accueil premium, problématiques propriétaires et proposition de valeur" },
+        { src: galleryElevaFullpage2, alt: "Gestion locative courte durée – résultats et statistiques clients", caption: "Services complets, résultats concrets et statistiques" },
+        { src: galleryElevaFullpage3, alt: "Site conciergerie haut de gamme – avantages et positionnement premium", caption: "Cibles, avantages et positionnement premium" },
+        { src: galleryElevaFullpage4, alt: "Tunnel de conversion conciergerie – témoignages et formulaire contact", caption: "Témoignages, CTA et formulaire de contact" },
+        { src: galleryElevaFullpage5, alt: "Footer site vitrine conciergerie locative premium", caption: "Footer et navigation du site" }
       ],
       chartData: [
         { name: "Crédibilité", before: 20, after: 95 },
@@ -298,8 +298,8 @@ const CaseStudy = () => {
       subtitle: "Création d'un site engageant pour promouvoir le don de sang et organiser les collectes",
       image: portfolioAdsbHero,
       gallery: [
-        { src: galleryAdsbFullpage1, alt: "Page complète ADSB - Partie 1", caption: "Accueil, présentation de l'association et prochaines collectes" },
-        { src: galleryAdsbFullpage2, alt: "Page complète ADSB - Partie 2", caption: "Étapes du don, conditions et formulaire de contact" }
+        { src: galleryAdsbFullpage1, alt: "Site association donneurs de sang Wissembourg – agenda collectes", caption: "Accueil, présentation de l'association et prochaines collectes" },
+        { src: galleryAdsbFullpage2, alt: "Don de sang bénévole – étapes, conditions et inscription en ligne", caption: "Étapes du don, conditions et formulaire de contact" }
       ],
       chartData: [
         { name: "Visibilité", before: 10, after: 75 },
@@ -334,10 +334,10 @@ const CaseStudy = () => {
       subtitle: "Création d'un site professionnel pour une entreprise de sécurité incendie en Île-de-France",
       image: portfolioAsiHero,
       gallery: [
-        { src: galleryAsiFullpage1, alt: "Page complète ASI - Partie 1", caption: "Accueil, obligations sécurité incendie et méthode en 4 étapes" },
-        { src: galleryAsiFullpage2, alt: "Page complète ASI - Partie 2", caption: "Services, avantages et positionnement spécialiste copropriétés" },
-        { src: galleryAsiFullpage3, alt: "Page complète ASI - Partie 3", caption: "Expertise, offre diagnostic gratuit et formulaire de contact" },
-        { src: galleryAsiFullpage4, alt: "Page complète ASI - Partie 4", caption: "Footer et informations de contact" }
+        { src: galleryAsiFullpage1, alt: "Site B2B sécurité incendie Île-de-France – obligations et méthode", caption: "Accueil, obligations sécurité incendie et méthode en 4 étapes" },
+        { src: galleryAsiFullpage2, alt: "Services sécurité incendie copropriétés – inspection et conformité", caption: "Services, avantages et positionnement spécialiste copropriétés" },
+        { src: galleryAsiFullpage3, alt: "Audit gratuit sécurité incendie – diagnostic et formulaire devis", caption: "Expertise, offre diagnostic gratuit et formulaire de contact" },
+        { src: galleryAsiFullpage4, alt: "Contact entreprise sécurité incendie Paris et Île-de-France", caption: "Footer et informations de contact" }
       ],
       chartData: [
         { name: "Crédibilité", before: 20, after: 90 },
@@ -372,9 +372,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site engagé pour une entreprise spécialisée dans le tri et recyclage des déchets événementiels",
       image: portfolioTrieventHero,
       gallery: [
-        { src: galleryTrieventFullpage1, alt: "Page complète Trievent - Partie 1", caption: "Accueil, services de collecte et avantages éco-responsables" },
-        { src: galleryTrieventFullpage2, alt: "Page complète Trievent - Partie 2", caption: "À propos, références clients et formulaire de contact" },
-        { src: galleryTrieventFullpage3, alt: "Page complète Trievent - Partie 3", caption: "Footer, navigation et informations de contact" }
+        { src: galleryTrieventFullpage1, alt: "Site éco-responsable recyclage événementiel Tri Event – collecte et tri", caption: "Accueil, services de collecte et avantages éco-responsables" },
+        { src: galleryTrieventFullpage2, alt: "Recyclage déchets événementiels – références clients et contact", caption: "À propos, références clients et formulaire de contact" },
+        { src: galleryTrieventFullpage3, alt: "Contact entreprise recyclage événementiel éco-responsable", caption: "Footer, navigation et informations de contact" }
       ],
       chartData: [
         { name: "Visibilité", before: 10, after: 70 },
@@ -409,9 +409,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site apaisant et premium pour un espace dédié au bien-être, massage et coaching",
       image: portfolioTemplezenHero,
       gallery: [
-        { src: portfolioTemplezenHero, alt: "Page d'accueil Le Temple de l'Énergie", caption: "Design immersif avec ambiance zen et apaisante" },
-        { src: portfolioTemplezenHero, alt: "Prestations", caption: "Présentation des massages, soins et séances de coaching" },
-        { src: portfolioTemplezenHero, alt: "Réservation", caption: "Système de réservation en ligne simplifié" }
+        { src: portfolioTemplezenHero, alt: "Site vitrine bien-être et massage – design zen immersif", caption: "Design immersif avec ambiance zen et apaisante" },
+        { src: portfolioTemplezenHero, alt: "Prestations massage et coaching – site spa premium", caption: "Présentation des massages, soins et séances de coaching" },
+        { src: portfolioTemplezenHero, alt: "Réservation massage en ligne – prise de rendez-vous simplifiée", caption: "Système de réservation en ligne simplifié" }
       ],
       chartData: [
         { name: "Image de marque", before: 25, after: 95 },
@@ -446,9 +446,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site institutionnel moderne pour un centre d'accompagnement des jeunes en difficulté scolaire",
       image: portfolioInstitutNomadHero,
       gallery: [
-        { src: portfolioInstitutNomadHero, alt: "Page d'accueil Institut Nomad", caption: "Design moderne et institutionnel avec mise en avant de la mission éducative" },
-        { src: portfolioInstitutNomadHero, alt: "Accompagnements", caption: "Présentation des pôles éducatifs et programmes d'accompagnement" },
-        { src: portfolioInstitutNomadHero, alt: "Contact", caption: "Formulaire de contact optimisé pour parents et élèves" }
+        { src: portfolioInstitutNomadHero, alt: "Site institutionnel éducation alternative Institut Nomad – pédagogie", caption: "Design moderne et institutionnel avec mise en avant de la mission éducative" },
+        { src: portfolioInstitutNomadHero, alt: "Accompagnement éducatif alternatif – pôles et programmes scolaires", caption: "Présentation des pôles éducatifs et programmes d'accompagnement" },
+        { src: portfolioInstitutNomadHero, alt: "Contact école alternative – inscription parents et élèves", caption: "Formulaire de contact optimisé pour parents et élèves" }
       ],
       chartData: [
         { name: "Crédibilité", before: 30, after: 90 },
@@ -483,9 +483,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site visuel premium pour un photographe spécialisé en portraits et corporate à Caen",
       image: portfolioAhstudioHero,
       gallery: [
-        { src: portfolioAhstudioHero, alt: "Page d'accueil AH Studio", caption: "Design cinématique avec mise en avant des portraits" },
-        { src: portfolioAhstudioHero, alt: "Portfolio", caption: "Galerie photo immersive avec navigation fluide" },
-        { src: portfolioAhstudioHero, alt: "Prestations", caption: "Structuration des offres shooting et corporate" }
+        { src: portfolioAhstudioHero, alt: "Site portfolio photographe Caen AH Studio – portraits cinématiques", caption: "Design cinématique avec mise en avant des portraits" },
+        { src: portfolioAhstudioHero, alt: "Galerie photo professionnelle – portfolio immersif photographe", caption: "Galerie photo immersive avec navigation fluide" },
+        { src: portfolioAhstudioHero, alt: "Prestations shooting photo corporate et portrait – tarifs", caption: "Structuration des offres shooting et corporate" }
       ],
       chartData: [
         { name: "Image pro", before: 30, after: 95 },
@@ -520,9 +520,9 @@ const CaseStudy = () => {
       subtitle: "Création d'une landing page immersive et haut de gamme pour une expérience nautique exclusive à Cannes",
       image: portfolioVinoboatHero,
       gallery: [
-        { src: galleryVinoboatFullpage1, alt: "Page complète Vinoboat - Partie 1", caption: "Accueil, tarifs, design Riva et spécifications du bateau" },
-        { src: galleryVinoboatFullpage2, alt: "Page complète Vinoboat - Partie 2", caption: "Équipements, formules de réservation et options premium" },
-        { src: galleryVinoboatFullpage3, alt: "Page complète Vinoboat - Partie 3", caption: "Témoignages clients, conseils navigation et footer" }
+        { src: galleryVinoboatFullpage1, alt: "Landing page location bateau luxe Cannes – tarifs et design Riva", caption: "Accueil, tarifs, design Riva et spécifications du bateau" },
+        { src: galleryVinoboatFullpage2, alt: "Réservation bateau sans permis Cannes – formules et options premium", caption: "Équipements, formules de réservation et options premium" },
+        { src: galleryVinoboatFullpage3, alt: "Avis clients location nautique luxe – témoignages et conseils", caption: "Témoignages clients, conseils navigation et footer" }
       ],
       chartData: [
         { name: "Image premium", before: 30, after: 95 },
@@ -557,9 +557,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site élégant pour un salon de coiffure spécialisé avec 35 ans d'expérience à Haguenau",
       image: portfolioCouleursableHero,
       gallery: [
-        { src: galleryCouleursableFullpage1, alt: "Page complète Couleur Sable - Partie 1", caption: "Accueil, savoir-faire et expérience Head Spa japonais" },
-        { src: galleryCouleursableFullpage2, alt: "Page complète Couleur Sable - Partie 2", caption: "Tarifs Head Spa, prestations et réalisations" },
-        { src: galleryCouleursableFullpage3, alt: "Page complète Couleur Sable - Partie 3", caption: "Témoignages, localisation et footer" }
+        { src: galleryCouleursableFullpage1, alt: "Site salon coiffure Haguenau – Head Spa japonais et colorations naturelles", caption: "Accueil, savoir-faire et expérience Head Spa japonais" },
+        { src: galleryCouleursableFullpage2, alt: "Tarifs Head Spa et prestations coiffure – salon Couleur Sable", caption: "Tarifs Head Spa, prestations et réalisations" },
+        { src: galleryCouleursableFullpage3, alt: "Avis clients salon coiffure Haguenau – localisation et contact", caption: "Témoignages, localisation et footer" }
       ],
       chartData: [
         { name: "Image pro", before: 35, after: 95 },
@@ -594,9 +594,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site immersif avec design cinématographique et showreel pour une agence de production vidéo",
       image: portfolioFilmreelHero,
       gallery: [
-        { src: portfolioFilmreelHero, alt: "Page d'accueil FilmReel Gallery", caption: "Design cinématographique dark avec typographie impactante" },
-        { src: portfolioFilmreelHero, alt: "Showreel", caption: "Mise en avant des productions vidéo en plein écran" },
-        { src: portfolioFilmreelHero, alt: "Portfolio", caption: "Galerie de projets créatifs avec navigation immersive" }
+        { src: portfolioFilmreelHero, alt: "Site agence production vidéo – design cinématographique dark mode", caption: "Design cinématographique dark avec typographie impactante" },
+        { src: portfolioFilmreelHero, alt: "Showreel vidéo plein écran – portfolio agence créative", caption: "Mise en avant des productions vidéo en plein écran" },
+        { src: portfolioFilmreelHero, alt: "Galerie projets audiovisuels – navigation immersive portfolio", caption: "Galerie de projets créatifs avec navigation immersive" }
       ],
       chartData: [
         { name: "Impact visuel", before: 20, after: 95 },
@@ -631,9 +631,9 @@ const CaseStudy = () => {
       subtitle: "Création d'un site e-commerce élégant pour une artiste peintre diplômée des Beaux-Arts",
       image: portfolioArtdesrosesHero,
       gallery: [
-        { src: galleryArtdesrosesFullpage1, alt: "Page complète Art des Roses - Partie 1", caption: "Accueil, héritage artistique et collections" },
-        { src: galleryArtdesrosesFullpage2, alt: "Page complète Art des Roses - Partie 2", caption: "Collections, processus créatif et témoignages" },
-        { src: galleryArtdesrosesFullpage3, alt: "Page complète Art des Roses - Partie 3", caption: "Expositions internationales, CTA et footer" }
+        { src: galleryArtdesrosesFullpage1, alt: "Site e-commerce art – galerie peintures et collections Art des Roses", caption: "Accueil, héritage artistique et collections" },
+        { src: galleryArtdesrosesFullpage2, alt: "Vente œuvres d'art en ligne – processus créatif et témoignages", caption: "Collections, processus créatif et témoignages" },
+        { src: galleryArtdesrosesFullpage3, alt: "Expositions art Paris Monaco Kyoto – artiste peintre Beaux-Arts", caption: "Expositions internationales, CTA et footer" }
       ],
       chartData: [
         { name: "Visibilité", before: 20, after: 85 },
@@ -668,10 +668,10 @@ const CaseStudy = () => {
       subtitle: "Création d'un site e-commerce luxe pour une marque d'huile d'olive bio familiale depuis 1950",
       image: portfolioSegermesHero,
       gallery: [
-        { src: gallerySegermesFullpage1, alt: "Page complète Segermès - Partie 1", caption: "Accueil, héritage méditerranéen et histoire du domaine" },
-        { src: gallerySegermesFullpage2, alt: "Page complète Segermès - Partie 2", caption: "Collection premium, catalogue produits et dégustation" },
-        { src: gallerySegermesFullpage3, alt: "Page complète Segermès - Partie 3", caption: "Processus artisanal, certifications et formulaire de contact" },
-        { src: gallerySegermesFullpage4, alt: "Page complète Segermès - Partie 4", caption: "Contact, horaires, visite du domaine et footer" }
+        { src: gallerySegermesFullpage1, alt: "Site e-commerce huile d'olive bio premium Segermès – héritage 1950", caption: "Accueil, héritage méditerranéen et histoire du domaine" },
+        { src: gallerySegermesFullpage2, alt: "Catalogue huile d'olive haut de gamme – collection et dégustation", caption: "Collection premium, catalogue produits et dégustation" },
+        { src: gallerySegermesFullpage3, alt: "Production artisanale huile d'olive bio – certifications qualité", caption: "Processus artisanal, certifications et formulaire de contact" },
+        { src: gallerySegermesFullpage4, alt: "Visite domaine oléicole – contact et horaires Segermès", caption: "Contact, horaires, visite du domaine et footer" }
       ],
       chartData: [
         { name: "Image premium", before: 25, after: 95 },
@@ -706,9 +706,9 @@ const CaseStudy = () => {
       subtitle: "Création d'une landing page immersive et dynamique pour la promotion d'un spectacle et la billetterie en ligne",
       image: portfolioSpectacleHero,
       gallery: [
-        { src: portfolioSpectacleHero, alt: "Page d'accueil Spectacle", caption: "Design dynamique avec ambiance scénique immersive" },
-        { src: portfolioSpectacleHero, alt: "Programme", caption: "Présentation du spectacle et des dates" },
-        { src: portfolioSpectacleHero, alt: "Réservation", caption: "Système de réservation et billetterie en ligne" }
+        { src: portfolioSpectacleHero, alt: "Landing page événementielle spectacle vivant – design scénique immersif", caption: "Design dynamique avec ambiance scénique immersive" },
+        { src: portfolioSpectacleHero, alt: "Programme spectacle et dates – promotion événement en ligne", caption: "Présentation du spectacle et des dates" },
+        { src: portfolioSpectacleHero, alt: "Billetterie en ligne spectacle – réservation et achat places", caption: "Système de réservation et billetterie en ligne" }
       ],
       chartData: [
         { name: "Visibilité", before: 20, after: 85 },
@@ -743,12 +743,12 @@ const CaseStudy = () => {
       subtitle: "Création d'un site vitrine e-commerce moderne pour une boutique spécialisée en skincare coréenne à Neuilly-sur-Seine",
       image: portfolioEcrindeseoulHero,
       gallery: [
-        { src: galleryEcrindeseoulFullpage1, alt: "Page complète L'Écrin de Séoul - Partie 1", caption: "Accueil, produits en vedette et collection K-beauty" },
-        { src: galleryEcrindeseoulFullpage2, alt: "Page complète L'Écrin de Séoul - Partie 2", caption: "Essentiels beauté, boutique et avantages cosmétiques coréens" },
-        { src: galleryEcrindeseoulFullpage3, alt: "Page complète L'Écrin de Séoul - Partie 3", caption: "Résultats avant/après, témoignages et univers skincare" },
-        { src: galleryEcrindeseoulFullpage4, alt: "Page complète L'Écrin de Séoul - Partie 4", caption: "Localisation, contact et footer" },
-        { src: galleryEcrindeseoulBoutique, alt: "Page boutique L'Écrin de Séoul", caption: "Catalogue produits avec filtres par catégorie" },
-        { src: galleryEcrindeseoulProduit, alt: "Page produit L'Écrin de Séoul", caption: "Fiche produit détaillée avec ingrédients et bienfaits" }
+        { src: galleryEcrindeseoulFullpage1, alt: "Boutique e-commerce cosmétique coréenne Neuilly – collection K-beauty", caption: "Accueil, produits en vedette et collection K-beauty" },
+        { src: galleryEcrindeseoulFullpage2, alt: "Skincare coréenne en ligne – essentiels beauté et avantages K-beauty", caption: "Essentiels beauté, boutique et avantages cosmétiques coréens" },
+        { src: galleryEcrindeseoulFullpage3, alt: "Résultats skincare avant/après – témoignages cosmétique coréenne", caption: "Résultats avant/après, témoignages et univers skincare" },
+        { src: galleryEcrindeseoulFullpage4, alt: "Boutique cosmétique coréenne Neuilly-sur-Seine – localisation", caption: "Localisation, contact et footer" },
+        { src: galleryEcrindeseoulBoutique, alt: "Catalogue produits cosmétique coréenne – filtres par catégorie skincare", caption: "Catalogue produits avec filtres par catégorie" },
+        { src: galleryEcrindeseoulProduit, alt: "Fiche produit K-beauty – ingrédients et bienfaits skincare coréenne", caption: "Fiche produit détaillée avec ingrédients et bienfaits" }
       ],
       chartData: [
         { name: "Image de marque", before: 25, after: 90 },
