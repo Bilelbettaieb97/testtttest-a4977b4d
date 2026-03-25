@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { ArrowRight, CheckCircle, ClipboardCheck, Clock, Search, FileText, Target, Lightbulb } from 'lucide-react';
 
@@ -160,6 +161,7 @@ const AuditSeoService = () => {
             </Button>
           </div>
         </section>
+        <RelatedServicesSection exclude={["/services/seo/audit"]} title="Services complémentaires" max={4} />
       </main>
 
       <Footer />

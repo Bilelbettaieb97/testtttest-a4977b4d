@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { ArrowRight, CheckCircle, TrendingUp, Clock, Search, FileText, Link2, BarChart } from 'lucide-react';
 
@@ -159,6 +160,7 @@ const ReferencementSeoService = () => {
             </Button>
           </div>
         </section>
+        <RelatedServicesSection exclude={["/services/seo/referencement"]} title="Services complémentaires" max={4} />
       </main>
 
       <Footer />

@@ -9,15 +9,16 @@ interface ServiceLink {
 }
 
 const allServices: ServiceLink[] = [
-  { icon: <Rocket className="w-5 h-5" />, title: "Landing Page", description: "Page de conversion dès 300€, livrée en 5-7 jours", href: "/services/sites-web/landing-page" },
-  { icon: <FileText className="w-5 h-5" />, title: "Site Vitrine", description: "Jusqu'à 5 pages sur-mesure dès 300€", href: "/services/sites-web/site-vitrine" },
-  { icon: <ShoppingCart className="w-5 h-5" />, title: "Site E-commerce", description: "Boutique en ligne performante dès 800€", href: "/services/sites-web/site-ecommerce" },
-  { icon: <Search className="w-5 h-5" />, title: "Référencement SEO", description: "Atteignez la page 1 de Google durablement", href: "/services/seo/referencement-seo" },
-  { icon: <ClipboardCheck className="w-5 h-5" />, title: "Audit SEO", description: "Diagnostic complet de votre visibilité", href: "/services/seo/audit-seo" },
-  { icon: <Megaphone className="w-5 h-5" />, title: "Google Ads", description: "Campagnes Search, Shopping & Display", href: "/services/sea/google-ads" },
-  { icon: <TrendingUp className="w-5 h-5" />, title: "Meta Ads", description: "Publicités Facebook & Instagram ciblées", href: "/services/sea/meta-ads" },
-  { icon: <Palette className="w-5 h-5" />, title: "Design UI/UX", description: "Interfaces intuitives qui convertissent", href: "/services/design/design-ui-ux" },
-  { icon: <Globe className="w-5 h-5" />, title: "Identité Visuelle", description: "Logo et charte graphique sur-mesure", href: "/services/design/identite-visuelle" },
+  { icon: <Rocket className="w-5 h-5" />, title: "Création Landing Page", description: "Page de conversion optimisée dès 300€, livrée en 5-7 jours", href: "/services/sites-web/landing-page" },
+  { icon: <FileText className="w-5 h-5" />, title: "Création Site Vitrine", description: "Jusqu'à 5 pages sur-mesure dès 300€", href: "/services/sites-web/site-vitrine" },
+  { icon: <ShoppingCart className="w-5 h-5" />, title: "Création Site E-commerce", description: "Boutique en ligne performante dès 800€", href: "/services/sites-web/site-ecommerce" },
+  { icon: <Globe className="w-5 h-5" />, title: "Application Web Sur-Mesure", description: "Développement d'outils métier personnalisés", href: "/services/sites-web/application-web" },
+  { icon: <Search className="w-5 h-5" />, title: "Référencement SEO Naturel", description: "Atteignez la page 1 de Google durablement", href: "/services/seo/referencement" },
+  { icon: <ClipboardCheck className="w-5 h-5" />, title: "Audit SEO Complet", description: "Diagnostic complet de votre visibilité en ligne", href: "/services/seo/audit" },
+  { icon: <Megaphone className="w-5 h-5" />, title: "Campagnes Google Ads", description: "Publicités Search, Shopping & Display optimisées", href: "/services/sea/google-ads" },
+  { icon: <TrendingUp className="w-5 h-5" />, title: "Publicités Meta Ads", description: "Campagnes Facebook & Instagram ciblées", href: "/services/sea/meta-ads" },
+  { icon: <Palette className="w-5 h-5" />, title: "Design UI/UX Professionnel", description: "Interfaces intuitives qui convertissent", href: "/services/design/ui-ux" },
+  { icon: <Globe className="w-5 h-5" />, title: "Identité Visuelle & Logo", description: "Logo et charte graphique sur-mesure", href: "/services/design/identite-visuelle" },
 ];
 
 interface RelatedServicesSectionProps {

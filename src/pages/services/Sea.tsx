@@ -5,6 +5,8 @@ import { SEO } from '@/components/SEO';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Button } from '@/components/ui/button';
+import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
+import SuggestedArticles from '@/components/internal-links/SuggestedArticles';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { ArrowRight, CheckCircle, TrendingUp, Search, Clock, Target, BarChart3, Zap, DollarSign, Users, Eye } from 'lucide-react';
 
@@ -303,6 +305,9 @@ const SeaPage = () => {
             </Button>
           </div>
         </section>
+
+        <RelatedServicesSection exclude={["/services/sea/google-ads", "/services/sea/meta-ads"]} title="Nos autres services" max={4} />
+        <SuggestedArticles title="Articles pour aller plus loin" max={3} />
       </main>
       
       <Footer />

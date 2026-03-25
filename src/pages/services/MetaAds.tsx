@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { ArrowRight, CheckCircle, Fingerprint, Clock, Users, Image, Target, TrendingUp } from 'lucide-react';
 
@@ -160,6 +161,7 @@ const MetaAdsService = () => {
             </Button>
           </div>
         </section>
+        <RelatedServicesSection exclude={["/services/sea/meta-ads"]} title="Services complémentaires" max={4} />
       </main>
 
       <Footer />
