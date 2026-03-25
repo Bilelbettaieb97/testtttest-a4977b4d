@@ -1,4 +1,5 @@
 import { SEO } from '@/components/SEO';
+import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
