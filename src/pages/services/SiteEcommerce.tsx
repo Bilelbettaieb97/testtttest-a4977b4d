@@ -1,7 +1,8 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { BreadcrumbSchema } from '@/components/seo/StructuredData';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -78,14 +79,18 @@ const SiteEcommerceService = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Site E-commerce dès 800€ | ConvertiLab Paris</title>
-        <meta name="description" content="Boutique en ligne professionnelle en 21-30 jours. Paiement sécurisé, gestion des stocks, SEO intégré. Devis gratuit sous 24h." />
-        <link rel="canonical" href="https://convertilab.com/services/sites-web/site-ecommerce" />
-        <meta property="og:title" content="Site E-commerce Professionnel dès 800€ | ConvertiLab" />
-        <meta property="og:description" content="Boutique en ligne sur-mesure, paiement sécurisé, gestion stocks. Prix fixe, satisfaction garantie." />
-        <meta property="og:url" content="https://convertilab.com/services/sites-web/site-ecommerce" />
-      </Helmet>
+      <SEO
+        url="/services/sites-web/site-ecommerce"
+        title="Site E-commerce dès 800€ | ConvertiLab Paris"
+        description="Boutique en ligne professionnelle en 21-30 jours. Paiement sécurisé, gestion des stocks, SEO intégré. Devis gratuit sous 24h."
+        keywords="site e-commerce, boutique en ligne, création e-commerce, site marchand, vente en ligne"
+      />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Sites Web", url: "/services/sites-web" },
+        { name: "E-commerce", url: "/services/sites-web/site-ecommerce" }
+      ]} />
 
       <Navigation />
 

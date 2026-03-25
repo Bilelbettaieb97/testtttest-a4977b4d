@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import Navigation from '@/components/Navigation';
+import { SEO } from '@/components/SEO';
 import Footer from '@/components/Footer';
 import PortfolioComponent from '@/components/Portfolio';
 import { BreadcrumbSchema, LocalBusinessSchema, ReviewsSchema } from '@/components/seo/StructuredData';
@@ -29,16 +29,12 @@ const PortfolioPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Portfolio | +50 Projets Web Réussis | ConvertiLab</title>
-        <meta name="description" content="+50 clients, +280% de CA moyen. Études de cas e-commerce, restaurants, B2B. Découvrez nos résultats concrets." />
-        <meta name="keywords" content="portfolio web, réalisations sites web, études de cas, résultats clients, création site web" />
-        <link rel="canonical" href="https://convertilab.com/portfolio" />
-        <meta property="og:title" content="Portfolio & Résultats Clients | ConvertiLab" />
-        <meta property="og:description" content="+50 clients, +280% de CA moyen. Découvrez comment nos stratégies transforment les business de nos clients." />
-        <meta property="og:url" content="https://convertilab.com/portfolio" />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SEO
+        url="/portfolio"
+        title="Portfolio | +50 Projets Web Réussis"
+        description="+50 clients, +280% de CA moyen. Études de cas e-commerce, restaurants, B2B. Découvrez nos résultats concrets."
+        keywords="portfolio web, réalisations sites web, études de cas, résultats clients, création site web"
+      />
       
       <BreadcrumbSchema items={breadcrumbItems} />
       <LocalBusinessSchema />
