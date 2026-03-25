@@ -38,6 +38,12 @@ const NewsletterConfirmation = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50">
+      <SEO
+        url="/newsletter-confirmation"
+        title="Inscription confirmée"
+        description="Votre inscription à la newsletter ConvertiLab a été confirmée avec succès."
+        noindex={true}
+      />
       <Navigation />
       
       <main className="container mx-auto px-4 sm:px-6 pt-32 pb-16 max-w-5xl">
