@@ -11,7 +11,10 @@ export const OrganizationSchema = () => {
     "description": "Agence de marketing digital spécialisée en SEO, publicité en ligne, social media et création de sites web",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Paris",
+      "streetAddress": "1 Rue du 4 Septembre",
+      "addressLocality": "Rueil-Malmaison",
+      "postalCode": "92500",
+      "addressRegion": "Île-de-France",
       "addressCountry": "France"
     },
     "contactPoint": {
@@ -42,23 +45,45 @@ export const LocalBusinessSchema = () => {
     "@type": "LocalBusiness",
     "name": "ConvertiLab",
     "image": "https://convertilab.com/favicon.png",
-    "description": "Agence de marketing digital spécialisée en SEO, publicité en ligne, social media et création de sites web",
+    "description": "Agence de marketing digital à Paris et Rueil-Malmaison spécialisée en création de sites web, SEO, Google Ads et Meta Ads. Nous accompagnons les entreprises en Île-de-France et partout en France.",
     "@id": "https://convertilab.com",
     "url": "https://convertilab.com",
     "telephone": "+33616477245",
     "email": "Contact@convertilab.com",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Paris",
+      "streetAddress": "1 Rue du 4 Septembre",
+      "addressLocality": "Rueil-Malmaison",
+      "postalCode": "92500",
+      "addressRegion": "Île-de-France",
       "addressCountry": "FR"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.8769,
+      "longitude": 2.1894
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Paris" },
+      { "@type": "City", "name": "Rueil-Malmaison" },
+      { "@type": "City", "name": "Nanterre" },
+      { "@type": "City", "name": "Boulogne-Billancourt" },
+      { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" },
+      { "@type": "AdministrativeArea", "name": "Île-de-France" },
+      { "@type": "Country", "name": "France" }
+    ],
     "priceRange": "€€",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "09:00",
       "closes": "18:00"
-    }
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/convertilab",
+      "https://www.facebook.com/Convertilab",
+      "https://fr.trustpilot.com/review/convertilab.com"
+    ]
   };
 
   return (

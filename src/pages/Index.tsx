@@ -62,9 +62,9 @@ const Index = () => {
     <div className="min-h-screen">
       <SEO 
         url="/"
-        title="Agence Marketing Digital Paris | SEO & Ads"
-        description="Agence marketing digital à Paris : SEO, Google Ads, Meta Ads, création de sites web. +50 clients, +280% de CA moyen. Devis gratuit."
-        keywords="agence marketing digital, SEO, Google Ads, Meta Ads, social media, email marketing, création site web, marketing digital Paris"
+        title="Agence Web Paris & Île-de-France | SEO & Ads"
+        description="Agence web à Paris & Rueil-Malmaison : création site internet, SEO, Google Ads, Meta Ads. +50 clients en Île-de-France, +280% de CA. Devis gratuit."
+        keywords="agence web Paris, création site internet Paris, SEO Île-de-France, Google Ads Paris, agence marketing digital Rueil-Malmaison, agence digitale Hauts-de-Seine"
       />
       <OrganizationSchema />
       <LocalBusinessSchema />
