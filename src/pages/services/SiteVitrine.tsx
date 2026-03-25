@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { BreadcrumbSchema, FAQSchema } from '@/components/seo/StructuredData';
+import ServiceDetailSchema from '@/components/seo/ServiceDetailSchema';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -90,6 +91,7 @@ const SiteVitrineService = () => {
         { name: "Site Vitrine", url: "/services/sites-web/site-vitrine" }
       ]} />
       <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
+      <ServiceDetailSchema name="Création Site Vitrine" description="Site vitrine professionnel sur-mesure, responsive et optimisé SEO. Livraison en 10-15 jours." url="/services/sites-web/site-vitrine" price="300" />
 
       <Navigation />
 

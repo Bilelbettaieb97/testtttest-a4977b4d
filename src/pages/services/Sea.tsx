@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import ServiceDetailSchema from '@/components/seo/ServiceDetailSchema';
 import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Button } from '@/components/ui/button';
 import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
@@ -86,6 +87,7 @@ const SeaPage = () => {
         { name: "Services", url: "/services" },
         { name: "SEA", url: "/services/sea" }
       ]} />
+      <ServiceDetailSchema name="Google Ads & Meta Ads" description="Campagnes publicitaires Google Ads et Meta Ads optimisées pour maximiser votre ROI. x4.8 ROAS moyen." url="/services/sea" />
       
       <Navigation />
       

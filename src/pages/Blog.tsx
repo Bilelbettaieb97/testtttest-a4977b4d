@@ -6,6 +6,7 @@ import BlogHeader from "@/components/blog/BlogHeader";
 import BlogCard from "@/components/blog/BlogCard";
 import { SEO } from "@/components/SEO";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
+import BlogListingSchema from "@/components/seo/BlogListingSchema";
 import { blogArticles } from "@/data/blogArticles";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -63,6 +64,7 @@ const Blog = () => {
         { name: "Accueil", url: "/" },
         { name: "Blog", url: "/blog" }
       ]} />
+      <BlogListingSchema articles={blogArticles.map(a => ({ title: a.title, slug: a.slug, publishedAt: a.publishedAt }))} />
       
       <Navigation />
       

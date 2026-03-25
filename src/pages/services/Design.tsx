@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import ServiceDetailSchema from '@/components/seo/ServiceDetailSchema';
 import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Button } from '@/components/ui/button';
 import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
@@ -81,6 +82,7 @@ const DesignPage = () => {
         { name: "Services", url: "/services" },
         { name: "Design", url: "/services/design" }
       ]} />
+      <ServiceDetailSchema name="Design UI/UX & Identité Visuelle" description="Design UI/UX, identité visuelle, logo et charte graphique. Interfaces qui convertissent vos visiteurs en clients." url="/services/design" />
       
       <Navigation />
       

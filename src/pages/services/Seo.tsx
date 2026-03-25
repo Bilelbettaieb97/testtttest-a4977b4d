@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import ServiceDetailSchema from '@/components/seo/ServiceDetailSchema';
 import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Button } from '@/components/ui/button';
 import RelatedServicesSection from '@/components/internal-links/RelatedServicesSection';
@@ -83,6 +84,7 @@ const SeoPage = () => {
         { name: "Services", url: "/services" },
         { name: "SEO", url: "/services/seo" }
       ]} />
+      <ServiceDetailSchema name="SEO & Référencement Naturel" description="Stratégie SEO sur-mesure pour atteindre la page 1 de Google. Audit technique, optimisation on-page et netlinking." url="/services/seo" />
       
       <Navigation />
       
