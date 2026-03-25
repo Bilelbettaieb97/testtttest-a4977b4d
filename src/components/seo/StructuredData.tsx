@@ -100,6 +100,7 @@ export const ServicesSchema = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "name": "Services Marketing Digital ConvertiLab",
     "serviceType": "Marketing Digital",
     "provider": {
       "@type": "Organization",
@@ -200,8 +201,10 @@ export const ReviewsSchema = ({ reviews }: { reviews: Review[] }) => {
   
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "LocalBusiness",
     "name": "ConvertiLab",
+    "url": "https://convertilab.com",
+    "@id": "https://convertilab.com/#reviews",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": aggregateRating.toFixed(1),
