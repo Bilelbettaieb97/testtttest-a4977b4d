@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /newsletter-confirmation
+Disallow: /case-study/
 
 User-agent: Googlebot
 Allow: /
