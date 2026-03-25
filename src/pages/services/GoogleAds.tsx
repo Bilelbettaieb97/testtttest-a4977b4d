@@ -161,6 +161,7 @@ const GoogleAdsService = () => {
             </Button>
           </div>
         </section>
+        <RelatedServicesSection exclude={["/services/sea/google-ads"]} title="Services complémentaires" max={4} />
       </main>
 
       <Footer />

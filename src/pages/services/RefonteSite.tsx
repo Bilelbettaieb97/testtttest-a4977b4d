@@ -161,6 +161,7 @@ const RefonteSiteService = () => {
             </Button>
           </div>
         </section>
+        <RelatedServicesSection exclude={["/services/sites-web/refonte-site"]} title="Services complémentaires" max={4} />
       </main>
 
       <Footer />

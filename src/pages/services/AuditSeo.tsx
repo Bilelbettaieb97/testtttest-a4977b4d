@@ -161,6 +161,7 @@ const AuditSeoService = () => {
             </Button>
           </div>
         </section>
+        <RelatedServicesSection exclude={["/services/seo/audit"]} title="Services complémentaires" max={4} />
       </main>
 
       <Footer />

@@ -161,6 +161,7 @@ const DesignUiUxService = () => {
             </Button>
           </div>
         </section>
+        <RelatedServicesSection exclude={["/services/design/ui-ux"]} title="Services complémentaires" max={4} />
       </main>
 
       <Footer />

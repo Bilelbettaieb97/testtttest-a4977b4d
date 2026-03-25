@@ -161,6 +161,7 @@ const IdentiteVisuelleService = () => {
             </Button>
           </div>
         </section>
+        <RelatedServicesSection exclude={["/services/design/identite-visuelle"]} title="Services complémentaires" max={4} />
       </main>
 
       <Footer />
