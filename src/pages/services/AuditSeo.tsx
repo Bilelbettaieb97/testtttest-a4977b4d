@@ -45,6 +45,12 @@ const AuditSeoService = () => {
         description="Audit SEO complet : technique, contenu, concurrence. Rapport détaillé + plan d'action priorisé. Premier audit gratuit."
         keywords="audit SEO, audit technique, analyse SEO, audit référencement, audit site web, analyse concurrence SEO"
       />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "SEO", url: "/services/seo" },
+        { name: "Audit SEO", url: "/services/seo/audit" }
+      ]} />
 
       <Navigation />
       

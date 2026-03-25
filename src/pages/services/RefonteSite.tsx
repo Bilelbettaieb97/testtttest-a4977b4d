@@ -45,6 +45,12 @@ const RefonteSiteService = () => {
         description="Modernisez votre site web : design actuel, SEO préservé, conversion optimisée. Audit gratuit et devis sous 24h."
         keywords="refonte site web, modernisation site internet, redesign site web, migration site, refonte SEO"
       />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Sites Web", url: "/services/sites-web" },
+        { name: "Refonte de Site", url: "/services/sites-web/refonte-site" }
+      ]} />
 
       <Navigation />
       

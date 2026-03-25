@@ -45,6 +45,12 @@ const ReferencementSeoService = () => {
         description="Stratégie SEO complète : optimisation on-page, netlinking, contenu. Atteignez la page 1 de Google. Audit SEO gratuit."
         keywords="référencement SEO, SEO naturel, optimisation Google, netlinking, stratégie SEO, positionnement Google"
       />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "SEO", url: "/services/seo" },
+        { name: "Référencement SEO", url: "/services/seo/referencement" }
+      ]} />
 
       <Navigation />
       

@@ -56,6 +56,12 @@ const ApplicationWebService = () => {
         description="Développement d'applications web sur-mesure : SaaS, portails clients, outils métiers. Architecture scalable et sécurisée. Devis gratuit."
         keywords="application web sur mesure, développement web, SaaS, portail client, outil métier, application professionnelle"
       />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Sites Web", url: "/services/sites-web" },
+        { name: "Application Web", url: "/services/sites-web/application-web" }
+      ]} />
 
       <Navigation />
       

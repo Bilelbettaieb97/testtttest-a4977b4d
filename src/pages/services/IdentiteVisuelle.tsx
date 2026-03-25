@@ -45,6 +45,12 @@ const IdentiteVisuelleService = () => {
         description="Création de logo et charte graphique sur-mesure. Démarquez-vous avec une identité visuelle forte et mémorable. Devis gratuit."
         keywords="identité visuelle, création logo, charte graphique, branding, logo entreprise, design graphique"
       />
+      <BreadcrumbSchema items={[
+        { name: "Accueil", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Design", url: "/services/design" },
+        { name: "Identité Visuelle", url: "/services/design/identite-visuelle" }
+      ]} />
 
       <Navigation />
       
