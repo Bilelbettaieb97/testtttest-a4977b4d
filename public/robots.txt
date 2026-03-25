@@ -2,8 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /newsletter-confirmation
 
-Sitemap: https://convertilab.com/sitemap.xml
-
 User-agent: Googlebot
 Allow: /
 
@@ -15,5 +13,7 @@ Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
+
+Sitemap: https://convertilab.com/sitemap.xml
 
 Crawl-delay: 1
