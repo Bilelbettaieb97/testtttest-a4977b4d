@@ -12,8 +12,8 @@ interface SEOProps {
 }
 
 const defaultMeta = {
-  title: "ConvertiLab - Agence Marketing Digital Paris | SEO, Ads, Social Media",
-  description: "Agence de marketing digital à Paris. SEO, Google Ads, Meta Ads, Social Media, Email Marketing, création de sites web. Stratégies data-driven pour booster votre croissance.",
+  title: "Agence Marketing Digital Paris | ConvertiLab",
+  description: "Agence marketing digital à Paris : SEO, Google Ads, Meta Ads, création de sites web. +50 clients, +280% de CA moyen. Devis gratuit.",
   keywords: "agence marketing digital, SEO, Google Ads, Meta Ads, social media, email marketing, création site web, marketing digital Paris",
   image: "https://storage.googleapis.com/gpt-engineer-file-uploads/GexdTExH3INRxljHBMsWqAtBwGy2/social-images/social-1764690270670-Capture d'écran 2025-12-01 à 13.25.00.png",
   url: "https://convertilab.com"

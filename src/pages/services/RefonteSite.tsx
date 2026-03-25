@@ -40,7 +40,7 @@ const RefonteSiteService = () => {
     <>
       <SEO
         url="/services/sites-web/refonte-site"
-        title="Refonte de Site Web"
+        title="Refonte Site Web | Modernisation SEO"
         description="Modernisez votre site web : design actuel, SEO préservé, conversion optimisée. Audit gratuit et devis sous 24h."
         keywords="refonte site web, modernisation site internet, redesign site web, migration site, refonte SEO"
       />

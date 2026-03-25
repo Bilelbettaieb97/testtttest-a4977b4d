@@ -72,7 +72,7 @@ const DesignPage = () => {
     <>
       <SEO
         url="/services/design"
-        title="Design UI/UX & Identité Visuelle | ConvertiLab"
+        title="Design UI/UX & Identité Visuelle Paris"
         description="Design UI/UX et identité visuelle : logo, charte graphique, prototypes Figma. Interfaces qui convertissent. Devis gratuit."
         keywords="design UI/UX, identité visuelle, logo, charte graphique, prototypage Figma, web design"
       />

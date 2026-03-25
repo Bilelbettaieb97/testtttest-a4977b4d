@@ -51,8 +51,8 @@ const ApplicationWebService = () => {
     <>
       <SEO
         url="/services/sites-web/application-web"
-        title="Application Web Sur-Mesure"
-        description="Développement d'applications web sur-mesure : SaaS, portails clients, outils métiers. Architecture scalable, sécurisée et performante. Devis gratuit sous 24h."
+        title="Application Web Sur-Mesure | Paris"
+        description="Développement d'applications web sur-mesure : SaaS, portails clients, outils métiers. Architecture scalable et sécurisée. Devis gratuit."
         keywords="application web sur mesure, développement web, SaaS, portail client, outil métier, application professionnelle"
       />
 
