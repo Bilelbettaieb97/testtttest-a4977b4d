@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { ArrowRight, CheckCircle, Palette, PenTool, Fingerprint, Clock, Shield, Headphones, Eye, Layers } from 'lucide-react';
@@ -252,6 +253,14 @@ const DesignPage = () => {
             </div>
           </div>
         </section>
+
+        <ServiceFAQ faqs={[
+          { q: "Quelle est la différence entre UI et UX design ?", a: "L'UX (User Experience) se concentre sur l'expérience utilisateur : parcours, ergonomie, facilité d'utilisation. L'UI (User Interface) concerne l'aspect visuel : couleurs, typographies, boutons. Les deux sont indissociables pour un design efficace." },
+          { q: "Pourquoi investir dans une identité visuelle professionnelle ?", a: "Votre identité visuelle est le premier contact avec vos clients. Un logo et une charte graphique professionnels inspirent confiance, renforcent la mémorisation de votre marque et vous différencient de la concurrence." },
+          { q: "Combien de propositions de logo recevrai-je ?", a: "Nous proposons 3 directions créatives distinctes pour votre logo. Après votre choix, nous affinons la version retenue avec 2 tours de révisions inclus pour aboutir au résultat parfait." },
+          { q: "Quels fichiers me seront livrés ?", a: "Vous recevez tous les fichiers sources (AI, PSD, PDF) ainsi que les déclinaisons optimisées pour le web, le print et les réseaux sociaux. Un guide d'utilisation complet accompagne la livraison." },
+          { q: "Travaillez-vous avec Figma ?", a: "Oui, Figma est notre outil principal pour le design UI/UX. Vous accédez à vos maquettes en temps réel, pouvez commenter et suivre l'avancement. Les prototypes interactifs sont également réalisés sur Figma." }
+        ]} />
 
         {/* CTA */}
         <section className="py-20 bg-gradient-to-r from-pink-500 to-rose-600">

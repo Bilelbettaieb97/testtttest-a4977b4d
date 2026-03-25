@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { ArrowRight, CheckCircle, TrendingUp, Search, Clock, Target, BarChart3, Zap, DollarSign, Users, Eye } from 'lucide-react';
@@ -278,6 +279,14 @@ const SeaPage = () => {
             </div>
           </div>
         </section>
+
+        <ServiceFAQ faqs={[
+          { q: "Quel budget faut-il pour commencer en Google Ads ou Meta Ads ?", a: "Nous recommandons un budget minimum de 500€/mois par plateforme pour obtenir des résultats significatifs. À cela s'ajoutent les frais de gestion. Nous optimisons chaque euro investi pour maximiser votre retour." },
+          { q: "Quelle est la différence entre Google Ads et Meta Ads ?", a: "Google Ads cible les utilisateurs qui recherchent activement vos produits/services (intention d'achat). Meta Ads (Facebook/Instagram) cible des audiences basées sur leurs intérêts et comportements (découverte). Les deux sont complémentaires." },
+          { q: "Combien de temps pour voir des résultats avec la publicité en ligne ?", a: "Contrairement au SEO, les résultats sont quasi immédiats. Dès le lancement, vos annonces sont visibles. L'optimisation des campagnes prend 2 à 4 semaines pour atteindre les performances optimales." },
+          { q: "Comment mesurez-vous le retour sur investissement (ROI) ?", a: "Nous installons un tracking complet (Google Analytics, pixels, conversions) pour mesurer chaque action : ventes, leads, appels. Vous recevez des rapports détaillés avec le coût par conversion et le ROAS (retour sur dépense publicitaire)." },
+          { q: "Puis-je arrêter mes campagnes à tout moment ?", a: "Oui, il n'y a aucun engagement de durée. Vous pouvez ajuster, pauser ou arrêter vos campagnes à tout moment. Nous recommandons cependant 3 mois minimum pour optimiser pleinement les performances." }
+        ]} />
 
         {/* CTA */}
         <section className="py-20 bg-gradient-to-r from-amber-500 to-orange-600">
