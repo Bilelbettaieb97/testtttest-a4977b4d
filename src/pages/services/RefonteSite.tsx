@@ -1,4 +1,5 @@
 import { SEO } from '@/components/SEO';
+import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -140,6 +141,13 @@ const RefonteSiteService = () => {
             </div>
           </div>
         </section>
+
+        <ServiceFAQ faqs={[
+          { q: "Vais-je perdre mon référencement lors de la refonte ?", a: "Non, nous mettons en place un plan de migration SEO complet : redirections 301, préservation des URLs stratégiques, transfert des contenus optimisés et suivi post-migration pour garantir zéro perte de positionnement." },
+          { q: "Combien de temps dure une refonte de site ?", a: "Une refonte complète prend entre 3 et 8 semaines selon la complexité du site. Nous travaillons en parallèle sur le design, le développement et la migration de contenu pour respecter les délais." },
+          { q: "Mon ancien site reste-t-il en ligne pendant la refonte ?", a: "Oui, votre site actuel reste 100% fonctionnel pendant toute la durée du projet. Le nouveau site est développé sur un environnement séparé et ne remplace l'ancien qu'une fois validé et testé." },
+          { q: "Est-ce le bon moment pour refondre mon site ?", a: "Si votre site a plus de 3 ans, n'est pas responsive, a un taux de conversion faible ou ne reflète plus votre image de marque, c'est le bon moment. Un audit gratuit vous aidera à évaluer la situation." }
+        ]} />
 
         <section className="py-20 bg-gradient-to-r from-orange-500 to-amber-500 text-white">
           <div className="container mx-auto px-4 text-center">

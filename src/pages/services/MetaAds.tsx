@@ -1,4 +1,5 @@
 import { SEO } from '@/components/SEO';
+import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -140,6 +141,13 @@ const MetaAdsService = () => {
             </div>
           </div>
         </section>
+
+        <ServiceFAQ faqs={[
+          { q: "Facebook Ads ou Instagram Ads : lequel choisir ?", a: "Les deux plateformes sont gérées depuis le même outil (Meta Business Suite). Nous diffusons sur les deux simultanément et optimisons la répartition selon les performances. Instagram est idéal pour le visuel, Facebook pour le ciblage détaillé." },
+          { q: "Quel type de contenu fonctionne le mieux en Meta Ads ?", a: "Les vidéos courtes (15-30s), les carrousels produits et les témoignages clients performent le mieux. Nous créons ou optimisons vos visuels pour maximiser l'engagement et les conversions." },
+          { q: "Comment fonctionne le ciblage sur Meta Ads ?", a: "Meta offre un ciblage ultra-précis : données démographiques, centres d'intérêt, comportements d'achat, audiences similaires (lookalike) et retargeting de vos visiteurs. Nous exploitons ces options pour toucher votre audience idéale." },
+          { q: "Puis-je voir les résultats en temps réel ?", a: "Oui, vous avez accès à un tableau de bord en temps réel et recevez des rapports hebdomadaires détaillés avec les métriques clés : impressions, clics, conversions, coût par acquisition et ROAS." }
+        ]} />
 
         <section className="py-20 bg-gradient-to-r from-pink-500 to-purple-500 text-white">
           <div className="container mx-auto px-4 text-center">

@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { SEO } from '@/components/SEO';
 import { BreadcrumbSchema } from '@/components/seo/StructuredData';
+import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Button } from '@/components/ui/button';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { ArrowRight, CheckCircle, Search, TrendingUp, ClipboardCheck, Clock, BarChart3, Target, FileSearch, Zap } from 'lucide-react';
@@ -268,6 +269,14 @@ const SeoPage = () => {
             </div>
           </div>
         </section>
+
+        <ServiceFAQ faqs={[
+          { q: "Combien de temps faut-il pour voir des résultats en SEO ?", a: "Les premiers résultats SEO apparaissent généralement entre 3 et 6 mois. Le SEO est un investissement long terme : une fois les positions acquises, elles génèrent du trafic qualifié de manière durable sans coût publicitaire." },
+          { q: "Quelle est la différence entre SEO et SEA ?", a: "Le SEO (référencement naturel) vise des résultats organiques durables sans payer au clic. Le SEA (publicité payante) offre une visibilité immédiate mais s'arrête dès que vous stoppez les dépenses. Idéalement, les deux stratégies se complètent." },
+          { q: "Un audit SEO est-il vraiment utile ?", a: "Oui, l'audit SEO identifie les freins techniques, les opportunités de mots-clés et les axes d'amélioration prioritaires. C'est la base de toute stratégie SEO efficace et permet d'éviter de travailler à l'aveugle." },
+          { q: "Pourquoi faire appel à une agence SEO plutôt que de faire soi-même ?", a: "Le SEO évolue constamment (algorithmes Google, bonnes pratiques). Une agence apporte l'expertise technique, les outils professionnels et l'expérience de dizaines de projets pour maximiser vos résultats." },
+          { q: "Garantissez-vous la première position sur Google ?", a: "Aucune agence sérieuse ne peut garantir la position 1, car Google seul décide du classement. En revanche, nous garantissons une méthodologie éprouvée, un suivi rigoureux et une amélioration mesurable de votre visibilité." }
+        ]} />
 
         {/* CTA */}
         <section className="py-20 bg-gradient-to-r from-emerald-500 to-teal-600">

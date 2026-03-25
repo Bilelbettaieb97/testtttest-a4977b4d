@@ -1,4 +1,5 @@
 import { SEO } from '@/components/SEO';
+import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -140,6 +141,13 @@ const IdentiteVisuelleService = () => {
             </div>
           </div>
         </section>
+
+        <ServiceFAQ faqs={[
+          { q: "Combien coûte la création d'un logo professionnel ?", a: "La création d'un logo professionnel avec charte graphique complète démarre à partir de 490€. Le tarif varie selon la complexité du projet et les livrables souhaités (déclinaisons, supports print, etc.)." },
+          { q: "Combien de propositions de logo vais-je recevoir ?", a: "Nous proposons 3 directions créatives distinctes basées sur le brief. Après votre choix, 2 tours de révisions sont inclus pour affiner le logo retenu jusqu'à satisfaction complète." },
+          { q: "Quels fichiers sont livrés avec l'identité visuelle ?", a: "Vous recevez les fichiers sources (AI, EPS, PSD), les versions web optimisées (SVG, PNG), les déclinaisons print (CMJN), un guide d'utilisation et la charte graphique complète au format PDF." },
+          { q: "Puis-je utiliser mon logo sur tous les supports ?", a: "Absolument. Nous livrons toutes les déclinaisons nécessaires : fond clair, fond foncé, monochrome, favicon, réseaux sociaux, carte de visite, etc. Votre logo est utilisable partout sans restriction." }
+        ]} />
 
         <section className="py-20 bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white">
           <div className="container mx-auto px-4 text-center">

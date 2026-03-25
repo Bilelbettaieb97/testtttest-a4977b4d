@@ -1,4 +1,5 @@
 import { SEO } from '@/components/SEO';
+import ServiceFAQ from '@/components/services/ServiceFAQ';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -140,6 +141,12 @@ const ReferencementSeoService = () => {
             </div>
           </div>
         </section>
+        <ServiceFAQ faqs={[
+          { q: "Combien coûte une prestation de référencement SEO ?", a: "Nos forfaits SEO démarrent à partir de 490€/mois. Le tarif dépend de la concurrence sur vos mots-clés, du volume de pages à optimiser et de vos objectifs. Nous établissons un devis personnalisé après audit." },
+          { q: "Faut-il un contrat longue durée pour le SEO ?", a: "Nous recommandons un engagement de 6 mois minimum pour voir des résultats significatifs, mais il n'y a pas de contrat contraignant. Le SEO est un travail continu qui porte ses fruits sur la durée." },
+          { q: "Que comprend votre prestation de netlinking ?", a: "Notre stratégie de netlinking inclut l'identification de sites autoritaires dans votre secteur, la création de contenus qualitatifs pour obtenir des backlinks naturels, et le suivi du profil de liens." },
+          { q: "Travaillez-vous sur tous les types de sites ?", a: "Oui, nous intervenons sur les sites vitrines, e-commerce, blogs, applications web et sites institutionnels. Chaque stratégie est adaptée à votre secteur d'activité et à vos objectifs commerciaux." }
+        ]} />
 
         <section className="py-20 bg-gradient-to-r from-emerald-500 to-teal-500 text-white">
           <div className="container mx-auto px-4 text-center">
