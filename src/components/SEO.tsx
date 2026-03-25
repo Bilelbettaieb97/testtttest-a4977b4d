@@ -43,7 +43,11 @@ const SEO = ({
       <title>{fullTitle}</title>
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={metaKeywords} />
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
+      {noindex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      )}
       <link rel="canonical" href={metaUrl} />
       <link rel="alternate" hrefLang="fr" href={metaUrl} />
       <link rel="alternate" hrefLang="x-default" href={metaUrl} />

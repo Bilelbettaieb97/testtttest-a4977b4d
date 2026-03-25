@@ -16,7 +16,7 @@ const PolitiqueConfidentialite = () => {
         url="/politique-de-confidentialite"
         title="Politique de Confidentialité"
         description="Politique de confidentialité ConvertiLab. Comment nous protégeons vos données personnelles conformément au RGPD."
-        noindex={true}
+        noindex={false}
       />
       
       <BreadcrumbSchema items={breadcrumbItems} />
