@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Linkedin, Facebook, Globe, Code, Smartphone, ShoppingCart, Star, ArrowRight, Target, Search, Share2, BarChart3 } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -13,19 +13,25 @@ const Footer = () => {
 
   const services = [
     { name: "Création de Sites Web", href: "/services/sites-web" },
+    { name: "Landing Page", href: "/services/sites-web/landing-page" },
+    { name: "Site Vitrine", href: "/services/sites-web/site-vitrine" },
+    { name: "Site E-commerce", href: "/services/sites-web/site-ecommerce" },
     { name: "SEO & Référencement", href: "/services/seo" },
+    { name: "Audit SEO", href: "/services/seo/audit" },
     { name: "Google Ads", href: "/services/sea/google-ads" },
     { name: "Meta Ads (Facebook/Instagram)", href: "/services/sea/meta-ads" },
-    { name: "Branding & Design", href: "/services/design" }
+    { name: "Design UI/UX", href: "/services/design/ui-ux" },
+    { name: "Identité Visuelle & Logo", href: "/services/design/identite-visuelle" }
   ];
 
   const quickLinks = [
     { name: "Accueil", href: "/" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Services", href: "/services" },
-    { name: "À propos", href: "/a-propos" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" }
+    { name: "Tous nos services", href: "/services" },
+    { name: "Portfolio & Réalisations", href: "/portfolio" },
+    { name: "À propos de ConvertiLab", href: "/a-propos" },
+    { name: "Blog Marketing Digital", href: "/blog" },
+    { name: "Contact & Devis Gratuit", href: "/contact" },
+    { name: "Offre Spéciale", href: "/offre-speciale" }
   ];
 
   const sectors = [
@@ -139,13 +145,13 @@ const Footer = () => {
             <ul className="space-y-1">
               {services.map((service, index) => (
                 <li key={index}>
-                  <button
-                    onClick={() => handleNavigation(service.href)}
-                    className="text-gray-300 hover:text-purple-400 transition-colors cursor-pointer text-sm flex items-center group py-2"
+                  <Link
+                    to={service.href}
+                    className="text-gray-300 hover:text-purple-400 transition-colors text-sm flex items-center group py-2"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {service.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -160,13 +166,13 @@ const Footer = () => {
             <ul className="space-y-1">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <button
-                    onClick={() => handleNavigation(link.href)}
-                    className="text-gray-300 hover:text-purple-400 transition-colors cursor-pointer text-sm flex items-center group py-2"
+                  <Link
+                    to={link.href}
+                    className="text-gray-300 hover:text-purple-400 transition-colors text-sm flex items-center group py-2"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {link.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -222,13 +228,14 @@ const Footer = () => {
             </div>
 
             <div className="pt-4">
-              <Button 
-                onClick={() => handleNavigation('/contact')}
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 text-sm"
-              >
-                Audit Gratuit
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+              <Link to="/contact">
+                <Button 
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 text-sm"
+                >
+                  Audit Gratuit
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -270,12 +277,12 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">&copy; 2024 ConvertiLab. Tous droits réservés.</p>
             <div className="flex flex-wrap gap-2 sm:gap-6 mt-4 sm:mt-0">
-              <button 
-                onClick={() => handleNavigation('/politique-de-confidentialite')}
+              <Link
+                to="/politique-de-confidentialite"
                 className="text-gray-400 hover:text-purple-400 text-sm transition-colors py-2 px-1"
               >
                 Politique de confidentialité
-              </button>
+              </Link>
             </div>
           </div>
         </div>
