@@ -10,11 +10,11 @@ const PortfolioHeader = () => {
       </Badge>
       
       <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
-        Plus de 50 projets <span className="text-primary">réalisés</span>
+        Des Résultats <span className="text-primary">Concrets et Mesurables</span>
       </h2>
       
       <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-        Sites vitrines, e-commerces, landing pages — découvrez nos réalisations dans différents secteurs.
+        Découvrez comment nos stratégies ont transformé le business de nos clients. Chaque projet est mesuré, chaque résultat est vérifiable.
       </p>
 
       {/* Metrics bar */}
@@ -31,7 +31,7 @@ const PortfolioHeader = () => {
             <TrendingUp className="w-5 h-5 text-green-500" />
           </div>
           <div className="text-3xl font-black text-foreground">+280%</div>
-          <div className="text-sm text-muted-foreground">Croissance moyenne</div>
+          <div className="text-sm text-muted-foreground">CA moyen généré</div>
         </div>
         <div className="text-center">
           <div className="flex items-center justify-center gap-1 mb-1">
