@@ -216,15 +216,16 @@ const Footer = () => {
                   <div className="text-xs">+33 6 16 47 72 45</div>
                 </div>
               </div>
-              <div className="flex items-center hover:text-purple-400 transition-colors group">
+              <a href="https://maps.google.com/?q=1+Rue+du+4+Septembre+92500+Rueil-Malmaison" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-purple-400 transition-colors group">
                 <div className="p-2 bg-purple-600/20 rounded-lg mr-3 group-hover:bg-purple-600/30 transition-colors">
                   <MapPin className="w-4 h-4 text-purple-400" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium">Localisation</div>
-                  <div className="text-xs">Paris, France</div>
+                  <div className="text-sm font-medium">Adresse</div>
+                  <div className="text-xs">1 Rue du 4 Septembre</div>
+                  <div className="text-xs">92500 Rueil-Malmaison, France</div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <div className="pt-4">
@@ -275,7 +276,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-700 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">&copy; 2024 ConvertiLab. Tous droits réservés.</p>
+            <p className="text-gray-400 text-sm">&copy; 2025 ConvertiLab — Agence marketing digital Paris & Île-de-France. Tous droits réservés.</p>
             <div className="flex flex-wrap gap-2 sm:gap-6 mt-4 sm:mt-0">
               <Link
                 to="/politique-de-confidentialite"
