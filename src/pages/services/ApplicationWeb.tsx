@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '@/components/SEO';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -47,10 +47,12 @@ const ApplicationWebService = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Application Web Sur-Mesure | ConvertiLab</title>
-        <meta name="description" content="Développement d'applications web sur-mesure : SaaS, portails clients, outils métiers. Architecture scalable, sécurisée et performante. Devis gratuit sous 24h." />
-      </Helmet>
+      <SEO
+        url="/services/sites-web/application-web"
+        title="Application Web Sur-Mesure"
+        description="Développement d'applications web sur-mesure : SaaS, portails clients, outils métiers. Architecture scalable, sécurisée et performante. Devis gratuit sous 24h."
+        keywords="application web sur mesure, développement web, SaaS, portail client, outil métier, application professionnelle"
+      />
 
       <Navigation />
       

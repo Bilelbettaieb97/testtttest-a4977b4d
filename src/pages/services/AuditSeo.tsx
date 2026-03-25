@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '@/components/SEO';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -36,10 +36,12 @@ const AuditSeoService = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Audit SEO Complet | ConvertiLab Paris</title>
-        <meta name="description" content="Audit SEO complet : technique, contenu, concurrence. Rapport détaillé + plan d'action priorisé. Premier audit gratuit." />
-      </Helmet>
+      <SEO
+        url="/services/seo/audit"
+        title="Audit SEO Complet"
+        description="Audit SEO complet : technique, contenu, concurrence. Rapport détaillé + plan d'action priorisé. Premier audit gratuit."
+        keywords="audit SEO, audit technique, analyse SEO, audit référencement, audit site web, analyse concurrence SEO"
+      />
 
       <Navigation />
       

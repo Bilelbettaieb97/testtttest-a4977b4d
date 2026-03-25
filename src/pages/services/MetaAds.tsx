@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '@/components/SEO';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -36,10 +36,12 @@ const MetaAdsService = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Meta Ads | Facebook & Instagram | ConvertiLab</title>
-        <meta name="description" content="Publicités Facebook et Instagram : ciblage précis, créatifs optimisés, ROI maximisé. Audit de compte gratuit." />
-      </Helmet>
+      <SEO
+        url="/services/sea/meta-ads"
+        title="Meta Ads | Facebook & Instagram"
+        description="Publicités Facebook et Instagram : ciblage précis, créatifs optimisés, ROI maximisé. Audit de compte gratuit."
+        keywords="Meta Ads, Facebook Ads, Instagram Ads, publicité Facebook, publicité Instagram, social ads"
+      />
 
       <Navigation />
       

@@ -845,7 +845,7 @@ const CaseStudy = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        url={`/case-study/${slug}`}
+        url={`/etude-de-cas/${slug}`}
         title={`${caseStudy.client} - ${caseStudy.title}`}
         description={caseStudy.subtitle}
         image={typeof caseStudy.image === 'string' ? caseStudy.image : undefined}

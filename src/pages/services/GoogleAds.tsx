@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '@/components/SEO';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -36,10 +36,12 @@ const GoogleAdsService = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Google Ads | x4.8 ROAS Moyen | ConvertiLab</title>
-        <meta name="description" content="Campagnes Google Ads optimisées : Search, Shopping, Display, Remarketing. x4.8 ROAS moyen. Audit gratuit." />
-      </Helmet>
+      <SEO
+        url="/services/sea/google-ads"
+        title="Google Ads | x4.8 ROAS Moyen"
+        description="Campagnes Google Ads optimisées : Search, Shopping, Display, Remarketing. x4.8 ROAS moyen. Audit gratuit."
+        keywords="Google Ads, campagne Google, publicité Google, Google Shopping, remarketing, ROAS, agence Google Ads"
+      />
 
       <Navigation />
       
