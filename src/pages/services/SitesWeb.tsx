@@ -18,9 +18,9 @@ const SitesWebPage = () => {
     <>
       <SEO
         url="/services/sites-web"
-        title="Création Site Web dès 300€ | Paris"
-        description="Landing page dès 300€, site vitrine dès 300€, e-commerce dès 800€. Prix fixes, délais garantis. Devis gratuit sous 24h."
-        keywords="création site web, site vitrine, landing page, e-commerce, agence web, prix site web"
+        title="Création Site Internet Paris dès 300€"
+        description="Agence web Paris & Île-de-France : landing page dès 300€, site vitrine, e-commerce. Prix fixes, livraison rapide. Devis gratuit."
+        keywords="création site internet Paris, agence web Île-de-France, site vitrine Paris, e-commerce Paris, création site web Rueil-Malmaison"
       />
 
       <LocalBusinessSchema />

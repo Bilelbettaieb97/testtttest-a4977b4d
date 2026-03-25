@@ -153,7 +153,7 @@ const Contact = () => {
                     </div>
                   ))}
                 </div>
-                <span>+150 entrepreneurs nous font confiance</span>
+                <span>+150 entrepreneurs en Île-de-France nous font confiance</span>
               </div>
             </div>
           </div>
