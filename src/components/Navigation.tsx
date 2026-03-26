@@ -281,17 +281,6 @@ const Navigation = () => {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center justify-center w-11 h-11 rounded-lg text-gray-700 hover:text-purple-600 hover:bg-gray-100 transition-colors"
-              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-              aria-expanded={isMenuOpen}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -367,6 +356,7 @@ const Navigation = () => {
         )}
       </div>
     </nav>
+    </>
   );
 };
 
