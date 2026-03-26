@@ -27,10 +27,28 @@ const WebSiteSchema = () => {
     "inLanguage": "fr-FR"
   };
 
+  const siteNavigationSchema = {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    "name": "Navigation principale",
+    "hasPart": [
+      { "@type": "WebPage", "name": "Accueil", "url": "https://convertilab.com/" },
+      { "@type": "WebPage", "name": "Services", "url": "https://convertilab.com/services" },
+      { "@type": "WebPage", "name": "Maquette Gratuite", "url": "https://convertilab.com/demande-maquette" },
+      { "@type": "WebPage", "name": "Portfolio", "url": "https://convertilab.com/portfolio" },
+      { "@type": "WebPage", "name": "Blog", "url": "https://convertilab.com/blog" },
+      { "@type": "WebPage", "name": "Contact", "url": "https://convertilab.com/contact" },
+      { "@type": "WebPage", "name": "À propos", "url": "https://convertilab.com/a-propos" }
+    ]
+  };
+
   return (
     <Helmet>
       <script type="application/ld+json">
         {JSON.stringify(schema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(siteNavigationSchema)}
       </script>
     </Helmet>
   );
