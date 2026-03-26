@@ -229,6 +229,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Demande de maquette -->
+  <url>
+    <loc>https://convertilab.com/demande-maquette</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Études de cas -->
   <url>
     <loc>https://convertilab.com/etude-de-cas/monsieur-arancini</loc>
