@@ -106,15 +106,38 @@ const Navigation = () => {
     : serviceCategories[0];
 
   return (
+    <>
+    {/* Backdrop overlay when mobile menu is open */}
+    {isMenuOpen && (
+      <div 
+        className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm lg:hidden transition-opacity duration-300"
+        onClick={() => setIsMenuOpen(false)}
+      />
+    )}
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center">
+          {/* Mobile menu button - LEFT on mobile */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="flex items-center justify-center w-11 h-11 rounded-lg text-gray-700 hover:text-purple-600 hover:bg-gray-100 transition-colors"
+              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
+          {/* Logo - centered on mobile, left on desktop */}
+          <div className="flex items-center lg:flex-none absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
             <Link to="/" className="cursor-pointer">
               <img src={logoConvertilab} alt="ConvertiLab - Agence de Marketing Digital" className="h-28 w-auto" />
             </Link>
           </div>
+
+          {/* Spacer for mobile to balance the hamburger */}
+          <div className="w-11 lg:hidden" />
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-5">
@@ -258,17 +281,6 @@ const Navigation = () => {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center justify-center w-11 h-11 rounded-lg text-gray-700 hover:text-purple-600 hover:bg-gray-100 transition-colors"
-              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-              aria-expanded={isMenuOpen}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -344,6 +356,7 @@ const Navigation = () => {
         )}
       </div>
     </nav>
+    </>
   );
 };
 
