@@ -102,13 +102,13 @@ const Index = () => {
             <Portfolio />
           </section>
         </AnimatedSection>
-        <AnimatedSection animation="fade-up" delay={100}>
-          <ProcessTimeline />
-        </AnimatedSection>
         <AnimatedSection animation="fade-up">
           <section id="services" className="-mt-4">
             <Services />
           </section>
+        </AnimatedSection>
+        <AnimatedSection animation="fade-up" delay={100}>
+          <ProcessTimeline />
         </AnimatedSection>
         <AnimatedSection animation="fade-up" delay={100}>
           <section id="testimonials" className="-mt-4">
