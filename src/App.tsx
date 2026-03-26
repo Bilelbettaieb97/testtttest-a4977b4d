@@ -35,6 +35,7 @@ const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const PolitiqueConfidentialite = lazy(() => import("./pages/PolitiqueConfidentialite"));
+const DemandeMaquette = lazy(() => import("./pages/DemandeMaquette"));
 
 const queryClient = new QueryClient();
 
