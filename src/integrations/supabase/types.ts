@@ -133,6 +133,45 @@ export type Database = {
         }
         Relationships: []
       }
+      mockup_requests: {
+        Row: {
+          created_at: string
+          current_site_url: string | null
+          description: string | null
+          email: string
+          id: string
+          name: string
+          phone: string
+          sector: string
+          site_type: string
+          status: string | null
+        }
+        Insert: {
+          created_at?: string
+          current_site_url?: string | null
+          description?: string | null
+          email: string
+          id?: string
+          name: string
+          phone: string
+          sector: string
+          site_type: string
+          status?: string | null
+        }
+        Update: {
+          created_at?: string
+          current_site_url?: string | null
+          description?: string | null
+          email?: string
+          id?: string
+          name?: string
+          phone?: string
+          sector?: string
+          site_type?: string
+          status?: string | null
+        }
+        Relationships: []
+      }
       newsletter_subscriptions: {
         Row: {
           created_at: string
