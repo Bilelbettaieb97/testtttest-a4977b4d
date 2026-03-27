@@ -41,7 +41,16 @@ const sectors = [
   { label: 'Autre', icon: Briefcase },
 ];
 
-const TOTAL_STEPS = 3;
+const designStyles = [
+  { label: 'Moderne & Minimaliste', description: 'Design épuré, beaucoup d\'espace blanc, typographie soignée', color: 'from-slate-400 to-slate-600', preview: 'bg-gradient-to-br from-slate-50 to-slate-200' },
+  { label: 'Coloré & Dynamique', description: 'Couleurs vives, animations, énergie visuelle', color: 'from-orange-400 to-pink-500', preview: 'bg-gradient-to-br from-orange-100 to-pink-200' },
+  { label: 'Élégant & Premium', description: 'Tons sombres, accents dorés, haut de gamme', color: 'from-amber-400 to-yellow-600', preview: 'bg-gradient-to-br from-slate-900 to-slate-800' },
+  { label: 'Naturel & Organique', description: 'Couleurs terreuses, formes douces, ambiance zen', color: 'from-emerald-400 to-teal-600', preview: 'bg-gradient-to-br from-emerald-50 to-teal-100' },
+  { label: 'Tech & Futuriste', description: 'Néons, dégradés audacieux, style cyberpunk', color: 'from-cyan-400 to-blue-600', preview: 'bg-gradient-to-br from-slate-950 to-blue-950' },
+  { label: 'Je laisse carte blanche', description: 'Notre équipe choisira le meilleur style pour vous', color: 'from-violet-400 to-pink-500', preview: 'bg-gradient-to-br from-violet-100 to-pink-100' },
+];
+
+const TOTAL_STEPS = 4;
 
 const DemandeMaquette = () => {
   const { toast } = useToast();
