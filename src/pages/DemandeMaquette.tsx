@@ -244,7 +244,7 @@ const DemandeMaquette = () => {
                 </span>
               </h1>
               <p className="text-lg text-slate-300 max-w-2xl mx-auto animate-[fade-in_0.5s_ease-out_0.2s_both]">
-                En 3 étapes simples, décrivez votre projet et notre équipe crée une maquette sur-mesure pour votre futur site web.
+                En 4 étapes simples, décrivez votre projet et notre équipe crée une maquette sur-mesure pour votre futur site web.
               </p>
             </div>
 
