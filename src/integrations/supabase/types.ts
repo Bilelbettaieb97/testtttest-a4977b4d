@@ -138,6 +138,7 @@ export type Database = {
           created_at: string
           current_site_url: string | null
           description: string | null
+          design_style: string | null
           email: string
           id: string
           name: string
@@ -150,6 +151,7 @@ export type Database = {
           created_at?: string
           current_site_url?: string | null
           description?: string | null
+          design_style?: string | null
           email: string
           id?: string
           name: string
@@ -162,6 +164,7 @@ export type Database = {
           created_at?: string
           current_site_url?: string | null
           description?: string | null
+          design_style?: string | null
           email?: string
           id?: string
           name?: string
