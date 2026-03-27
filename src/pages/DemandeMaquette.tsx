@@ -122,6 +122,7 @@ const DemandeMaquette = () => {
   const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; color: string; delay: number }>>([]);
   useEffect(() => {
     if (isSubmitted) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       const colors = ['#8B5CF6', '#E04090', '#F59E0B', '#10B981', '#3B82F6'];
       setParticles(
         Array.from({ length: 30 }, (_, i) => ({
