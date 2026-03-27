@@ -14,7 +14,8 @@ import {
   Palette, CheckCircle, ArrowRight, ArrowLeft, Sparkles, User, Mail, Phone, 
   Globe, Briefcase, FileText, Clock, Shield, Zap, Rocket, Store, Code, 
   RefreshCw, UtensilsCrossed, Building2, Heart, ShoppingBag, Handshake, 
-  Hammer, GraduationCap, Shirt, Cpu, Users, PenTool
+  Hammer, GraduationCap, Shirt, Cpu, Users, PenTool, MousePointer2, 
+  Layers, Monitor, Figma, Layout, Type
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -248,6 +249,29 @@ const DemandeMaquette = () => {
               <p className="text-lg text-slate-300 max-w-2xl mx-auto animate-[fade-in_0.5s_ease-out_0.2s_both]">
                 En 4 étapes simples, décrivez votre projet et notre équipe crée une maquette sur-mesure pour votre futur site web.
               </p>
+
+              {/* Animated 2D web creation elements */}
+              <div className="flex items-center justify-center gap-4 sm:gap-6 mt-8 animate-[fade-in_0.8s_ease-out_0.4s_both]">
+                {[
+                  { icon: Monitor, label: 'Design', delay: '0s' },
+                  { icon: Code, label: '<Code/>', delay: '0.15s' },
+                  { icon: Layout, label: 'Layout', delay: '0.3s' },
+                  { icon: Palette, label: 'Couleurs', delay: '0.45s' },
+                  { icon: Type, label: 'Typo', delay: '0.6s' },
+                  { icon: MousePointer2, label: 'UX', delay: '0.75s' },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col items-center gap-1.5 opacity-0"
+                    style={{ animation: `float-item 0.6s ease-out ${item.delay} forwards, float-bob 3s ease-in-out ${item.delay} infinite` }}
+                  >
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center backdrop-blur-sm hover:border-violet-500/50 hover:bg-violet-500/10 transition-all duration-300 cursor-default">
+                      <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-violet-400" />
+                    </div>
+                    <span className="text-[10px] sm:text-xs text-slate-500 font-medium">{item.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Progress bar */}
@@ -604,6 +628,16 @@ const DemandeMaquette = () => {
       </main>
 
       <Footer />
+      <style>{`
+        @keyframes float-item {
+          0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes float-bob {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
+      `}</style>
     </>
   );
 };
