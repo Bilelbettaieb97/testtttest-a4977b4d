@@ -14,7 +14,8 @@ import {
   Palette, CheckCircle, ArrowRight, ArrowLeft, Sparkles, User, Mail, Phone, 
   Globe, Briefcase, FileText, Clock, Shield, Zap, Rocket, Store, Code, 
   RefreshCw, UtensilsCrossed, Building2, Heart, ShoppingBag, Handshake, 
-  Hammer, GraduationCap, Shirt, Cpu, Users, PenTool
+  Hammer, GraduationCap, Shirt, Cpu, Users, PenTool, MousePointer2, 
+  Layers, Monitor, Figma, Layout, Type
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
