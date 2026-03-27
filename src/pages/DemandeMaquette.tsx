@@ -514,7 +514,7 @@ const DemandeMaquette = () => {
                       </div>
 
                       {/* Summary chips */}
-                      {(form.site_type || form.sector) && (
+                      {(form.site_type || form.sector || form.design_style) && (
                         <div className="flex flex-wrap gap-2 pt-2">
                           {form.site_type && (
                             <span className="inline-flex items-center gap-1.5 bg-violet-500/10 text-violet-300 px-3 py-1.5 rounded-full text-xs font-medium border border-violet-500/20">
@@ -524,6 +524,11 @@ const DemandeMaquette = () => {
                           {form.sector && (
                             <span className="inline-flex items-center gap-1.5 bg-pink-500/10 text-pink-300 px-3 py-1.5 rounded-full text-xs font-medium border border-pink-500/20">
                               <Briefcase className="w-3 h-3" /> {form.sector}
+                            </span>
+                          )}
+                          {form.design_style && (
+                            <span className="inline-flex items-center gap-1.5 bg-amber-500/10 text-amber-300 px-3 py-1.5 rounded-full text-xs font-medium border border-amber-500/20">
+                              <Palette className="w-3 h-3" /> {form.design_style}
                             </span>
                           )}
                         </div>
