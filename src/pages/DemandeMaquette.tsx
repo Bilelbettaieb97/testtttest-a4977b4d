@@ -41,7 +41,16 @@ const sectors = [
   { label: 'Autre', icon: Briefcase },
 ];
 
-const TOTAL_STEPS = 3;
+const designStyles = [
+  { label: 'Moderne & Minimaliste', description: 'Design épuré, beaucoup d\'espace blanc, typographie soignée', color: 'from-slate-400 to-slate-600', preview: 'bg-gradient-to-br from-slate-50 to-slate-200' },
+  { label: 'Coloré & Dynamique', description: 'Couleurs vives, animations, énergie visuelle', color: 'from-orange-400 to-pink-500', preview: 'bg-gradient-to-br from-orange-100 to-pink-200' },
+  { label: 'Élégant & Premium', description: 'Tons sombres, accents dorés, haut de gamme', color: 'from-amber-400 to-yellow-600', preview: 'bg-gradient-to-br from-slate-900 to-slate-800' },
+  { label: 'Naturel & Organique', description: 'Couleurs terreuses, formes douces, ambiance zen', color: 'from-emerald-400 to-teal-600', preview: 'bg-gradient-to-br from-emerald-50 to-teal-100' },
+  { label: 'Tech & Futuriste', description: 'Néons, dégradés audacieux, style cyberpunk', color: 'from-cyan-400 to-blue-600', preview: 'bg-gradient-to-br from-slate-950 to-blue-950' },
+  { label: 'Je laisse carte blanche', description: 'Notre équipe choisira le meilleur style pour vous', color: 'from-violet-400 to-pink-500', preview: 'bg-gradient-to-br from-violet-100 to-pink-100' },
+];
+
+const TOTAL_STEPS = 4;
 
 const DemandeMaquette = () => {
   const { toast } = useToast();
@@ -58,6 +67,7 @@ const DemandeMaquette = () => {
     sector: '',
     site_type: '',
     description: '',
+    design_style: '',
   });
 
   const handleChange = (field: string, value: string) => {
@@ -77,6 +87,7 @@ const DemandeMaquette = () => {
   const canProceed = () => {
     if (step === 1) return !!form.site_type;
     if (step === 2) return !!form.sector;
+    if (step === 3) return !!form.design_style;
     return !!(form.name && form.email && form.phone);
   };
 
@@ -233,7 +244,7 @@ const DemandeMaquette = () => {
                 </span>
               </h1>
               <p className="text-lg text-slate-300 max-w-2xl mx-auto animate-[fade-in_0.5s_ease-out_0.2s_both]">
-                En 3 étapes simples, décrivez votre projet et notre équipe crée une maquette sur-mesure pour votre futur site web.
+                En 4 étapes simples, décrivez votre projet et notre équipe crée une maquette sur-mesure pour votre futur site web.
               </p>
             </div>
 
@@ -243,7 +254,8 @@ const DemandeMaquette = () => {
                 {[
                   { num: 1, label: 'Type de site', icon: Globe },
                   { num: 2, label: 'Votre secteur', icon: Briefcase },
-                  { num: 3, label: 'Vos coordonnées', icon: User },
+                  { num: 3, label: 'Style visuel', icon: Palette },
+                  { num: 4, label: 'Vos coordonnées', icon: User },
                 ].map((s, i) => (
                   <button
                     key={s.num}
@@ -369,8 +381,54 @@ const DemandeMaquette = () => {
                   </div>
                 )}
 
-                {/* Step 3: Contact info */}
+                {/* Step 3: Design style */}
                 {step === 3 && (
+                  <div>
+                    <h2 className="text-2xl font-bold text-white text-center mb-2">
+                      Quel style visuel vous inspire ?
+                    </h2>
+                    <p className="text-slate-400 text-center mb-8">Choisissez l'ambiance qui correspond à votre image de marque</p>
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {designStyles.map((style) => {
+                        const isSelected = form.design_style === style.label;
+                        return (
+                          <button
+                            key={style.label}
+                            onClick={() => handleChange('design_style', style.label)}
+                            className={cn(
+                              "group relative rounded-2xl border-2 transition-all duration-300 text-left overflow-hidden",
+                              isSelected
+                                ? "border-violet-500 shadow-lg shadow-violet-500/20 scale-[1.02]"
+                                : "border-slate-700/50 hover:border-slate-600 hover:scale-[1.01]"
+                            )}
+                          >
+                            {/* Style preview band */}
+                            <div className={cn("h-20 w-full", style.preview, "relative")}>
+                              <div className={cn(
+                                "absolute inset-0 bg-gradient-to-r opacity-60",
+                                style.color
+                              )} />
+                              {isSelected && (
+                                <div className="absolute top-2 right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                                  <CheckCircle className="w-5 h-5 text-violet-600" />
+                                </div>
+                              )}
+                            </div>
+                            <div className="p-4 bg-slate-900/80">
+                              <h3 className={cn("font-bold mb-1 transition-colors", isSelected ? "text-white" : "text-slate-300")}>
+                                {style.label}
+                              </h3>
+                              <p className="text-xs text-slate-500">{style.description}</p>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Step 4: Contact info */}
+                {step === 4 && (
                   <div className="max-w-xl mx-auto">
                     <h2 className="text-2xl font-bold text-white text-center mb-2">
                       Comment vous contacter ?
@@ -456,7 +514,7 @@ const DemandeMaquette = () => {
                       </div>
 
                       {/* Summary chips */}
-                      {(form.site_type || form.sector) && (
+                      {(form.site_type || form.sector || form.design_style) && (
                         <div className="flex flex-wrap gap-2 pt-2">
                           {form.site_type && (
                             <span className="inline-flex items-center gap-1.5 bg-violet-500/10 text-violet-300 px-3 py-1.5 rounded-full text-xs font-medium border border-violet-500/20">
@@ -466,6 +524,11 @@ const DemandeMaquette = () => {
                           {form.sector && (
                             <span className="inline-flex items-center gap-1.5 bg-pink-500/10 text-pink-300 px-3 py-1.5 rounded-full text-xs font-medium border border-pink-500/20">
                               <Briefcase className="w-3 h-3" /> {form.sector}
+                            </span>
+                          )}
+                          {form.design_style && (
+                            <span className="inline-flex items-center gap-1.5 bg-amber-500/10 text-amber-300 px-3 py-1.5 rounded-full text-xs font-medium border border-amber-500/20">
+                              <Palette className="w-3 h-3" /> {form.design_style}
                             </span>
                           )}
                         </div>
