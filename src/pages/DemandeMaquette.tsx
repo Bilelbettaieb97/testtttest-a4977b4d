@@ -112,6 +112,22 @@ const DemandeMaquette = () => {
       });
 
       if (error) throw error;
+
+      // Send email notification
+      await supabase.functions.invoke('notify-contact', {
+        body: {
+          type: 'mockup',
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          site_type: form.site_type,
+          sector: form.sector,
+          design_style: form.design_style || null,
+          current_site_url: form.current_site_url.trim() || null,
+          description: form.description.trim() || null,
+        },
+      });
+
       setIsSubmitted(true);
     } catch {
       toast({ title: 'Erreur', description: 'Une erreur est survenue. Réessayez ou contactez-nous directement.', variant: 'destructive' });
