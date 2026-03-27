@@ -67,6 +67,7 @@ const DemandeMaquette = () => {
     sector: '',
     site_type: '',
     description: '',
+    design_style: '',
   });
 
   const handleChange = (field: string, value: string) => {
@@ -86,6 +87,7 @@ const DemandeMaquette = () => {
   const canProceed = () => {
     if (step === 1) return !!form.site_type;
     if (step === 2) return !!form.sector;
+    if (step === 3) return !!form.design_style;
     return !!(form.name && form.email && form.phone);
   };
 
@@ -252,7 +254,8 @@ const DemandeMaquette = () => {
                 {[
                   { num: 1, label: 'Type de site', icon: Globe },
                   { num: 2, label: 'Votre secteur', icon: Briefcase },
-                  { num: 3, label: 'Vos coordonnées', icon: User },
+                  { num: 3, label: 'Style visuel', icon: Palette },
+                  { num: 4, label: 'Vos coordonnées', icon: User },
                 ].map((s, i) => (
                   <button
                     key={s.num}
@@ -378,8 +381,54 @@ const DemandeMaquette = () => {
                   </div>
                 )}
 
-                {/* Step 3: Contact info */}
+                {/* Step 3: Design style */}
                 {step === 3 && (
+                  <div>
+                    <h2 className="text-2xl font-bold text-white text-center mb-2">
+                      Quel style visuel vous inspire ?
+                    </h2>
+                    <p className="text-slate-400 text-center mb-8">Choisissez l'ambiance qui correspond à votre image de marque</p>
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {designStyles.map((style) => {
+                        const isSelected = form.design_style === style.label;
+                        return (
+                          <button
+                            key={style.label}
+                            onClick={() => handleChange('design_style', style.label)}
+                            className={cn(
+                              "group relative rounded-2xl border-2 transition-all duration-300 text-left overflow-hidden",
+                              isSelected
+                                ? "border-violet-500 shadow-lg shadow-violet-500/20 scale-[1.02]"
+                                : "border-slate-700/50 hover:border-slate-600 hover:scale-[1.01]"
+                            )}
+                          >
+                            {/* Style preview band */}
+                            <div className={cn("h-20 w-full", style.preview, "relative")}>
+                              <div className={cn(
+                                "absolute inset-0 bg-gradient-to-r opacity-60",
+                                style.color
+                              )} />
+                              {isSelected && (
+                                <div className="absolute top-2 right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                                  <CheckCircle className="w-5 h-5 text-violet-600" />
+                                </div>
+                              )}
+                            </div>
+                            <div className="p-4 bg-slate-900/80">
+                              <h3 className={cn("font-bold mb-1 transition-colors", isSelected ? "text-white" : "text-slate-300")}>
+                                {style.label}
+                              </h3>
+                              <p className="text-xs text-slate-500">{style.description}</p>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Step 4: Contact info */}
+                {step === 4 && (
                   <div className="max-w-xl mx-auto">
                     <h2 className="text-2xl font-bold text-white text-center mb-2">
                       Comment vous contacter ?
