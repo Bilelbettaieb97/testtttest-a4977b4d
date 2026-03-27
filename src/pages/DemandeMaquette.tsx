@@ -106,6 +106,7 @@ const DemandeMaquette = () => {
         current_site_url: form.current_site_url.trim() || null,
         sector: form.sector,
         site_type: form.site_type,
+        design_style: form.design_style || null,
         description: form.description.trim() || null,
       });
 

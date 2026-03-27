@@ -1,0 +1,1 @@
+ALTER TABLE public.mockup_requests ADD COLUMN design_style text;
