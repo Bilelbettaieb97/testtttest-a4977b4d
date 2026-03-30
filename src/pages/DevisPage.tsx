@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,46 +10,74 @@ import Footer from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
 import confetti from "canvas-confetti";
 import {
-  ArrowRight, ArrowLeft, CheckCircle2, Send, Globe, ShoppingCart,
-  FileText, Search, Zap, Calendar, Target, Waves, User, Mail,
-  Building2, Phone, Sparkles, Shield, Clock, Star
+  ArrowRight, ArrowLeft, CheckCircle2, Send, User, Mail,
+  Building2, Phone, Sparkles, Shield, Clock, Star,
+  Briefcase, Store, Scissors, Utensils, Stethoscope, Hammer,
+  Car, GraduationCap, Camera, MoreHorizontal, Calendar,
+  Crown, Zap, Monitor, Globe, CheckCircle
 } from 'lucide-react';
 
 /* ─── Data ─── */
-const projectTypes = [
-  { value: "vitrine", label: "Site vitrine", icon: Globe, desc: "Présenter votre activité", emoji: "🌐" },
-  { value: "ecommerce", label: "E-commerce", icon: ShoppingCart, desc: "Vendre en ligne", emoji: "🛒" },
-  { value: "landing", label: "Landing Page", icon: FileText, desc: "Page de conversion", emoji: "🎯" },
-  { value: "audit", label: "Audit SEO", icon: Search, desc: "Analyser & optimiser", emoji: "🔍" },
+const sectors = [
+  { value: "artisan", label: "Artisan", icon: Hammer, emoji: "🔨" },
+  { value: "restaurant", label: "Restaurant / Food", icon: Utensils, emoji: "🍽️" },
+  { value: "beaute", label: "Beauté / Bien-être", icon: Scissors, emoji: "✂️" },
+  { value: "sante", label: "Santé", icon: Stethoscope, emoji: "🩺" },
+  { value: "commerce", label: "Commerce", icon: Store, emoji: "🏪" },
+  { value: "auto", label: "Auto / Garage", icon: Car, emoji: "🚗" },
+  { value: "formation", label: "Formation / Coach", icon: GraduationCap, emoji: "🎓" },
+  { value: "photo", label: "Photo / Créatif", icon: Camera, emoji: "📸" },
+  { value: "consultant", label: "Consultant", icon: Briefcase, emoji: "💼" },
+  { value: "autre", label: "Autre", icon: MoreHorizontal, emoji: "✨" },
 ];
 
-const timelines = [
-  { value: "urgent", label: "< 1 semaine", icon: Zap, desc: "Express" },
-  { value: "1-2weeks", label: "1–2 semaines", icon: Calendar, desc: "Idéal", recommended: true },
-  { value: "1month", label: "1 mois", icon: Target, desc: "Confortable" },
-  { value: "flexible", label: "Flexible", icon: Waves, desc: "Pas de rush" },
-];
-
-const budgets = [
-  { value: "small", label: "< 500 €", color: "from-blue-500 to-cyan-400" },
-  { value: "medium", label: "500 – 1 500 €", color: "from-primary to-purple-400" },
-  { value: "large", label: "1 500 – 5 000 €", color: "from-pink-500 to-rose-400" },
-  { value: "custom", label: "Sur mesure", color: "from-amber-500 to-orange-400" },
+const offers = [
+  {
+    value: "essentiel",
+    name: "Essentiel",
+    price: "39",
+    desc: "Idéal pour les indépendants et artisans",
+    features: [
+      "Site vitrine professionnel",
+      "Design sur-mesure responsive",
+      "Optimisation SEO de base",
+      "Hébergement + nom de domaine inclus",
+      "Support par email",
+    ],
+    popular: false,
+  },
+  {
+    value: "professionnel",
+    name: "Professionnel",
+    price: "69",
+    desc: "Pour maximiser votre visibilité Google",
+    features: [
+      "Tout de l'offre Essentiel",
+      "SEO avancé + Google My Business",
+      "Pages illimitées",
+      "Formulaire de contact avancé",
+      "Page admin pour modifier le contenu",
+    ],
+    popular: true,
+  },
 ];
 
 const STORAGE_KEY = "convertilab_devis_form";
 
 /* ─── Component ─── */
 const DevisPage = () => {
+  const [searchParams] = useSearchParams();
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState<'forward' | 'back'>('forward');
   const [formData, setFormData] = useState({
-    project: "", timeline: "", budget: "",
+    sector: "",
+    companyDescription: "",
+    offer: searchParams.get('offre') || "",
     name: "", email: "", company: "", phone: "", message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const totalSteps = 5; // 0-based: 0=project, 1=timeline, 2=budget, 3=contact, 4=confirm
+  const totalSteps = 3; // 0=activité, 1=offre, 2=coordonnées
 
   // Load saved contact info
   useEffect(() => {
@@ -57,7 +85,7 @@ const DevisPage = () => {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        setFormData(prev => ({ ...prev, ...parsed }));
+        setFormData(prev => ({ ...prev, name: parsed.name || "", email: parsed.email || "", company: parsed.company || "", phone: parsed.phone || "" }));
       }
     } catch { /* ignore */ }
   }, []);
@@ -78,8 +106,9 @@ const DevisPage = () => {
   };
 
   const canContinue = () => {
-    if (step === 0) return !!formData.project;
-    if (step === 3) {
+    if (step === 0) return !!formData.sector;
+    if (step === 1) return !!formData.offer;
+    if (step === 2) {
       const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
       const phoneOk = /^[\d\s+()-]{10,}$/.test(formData.phone);
       return !!formData.name.trim() && emailOk && !!formData.company.trim() && phoneOk;
@@ -89,11 +118,12 @@ const DevisPage = () => {
 
   const handleNext = () => {
     if (!canContinue()) {
-      if (step === 0) toast({ title: "Choisissez un type de projet", variant: "destructive" });
-      if (step === 3) toast({ title: "Remplissez tous les champs obligatoires", variant: "destructive" });
+      if (step === 0) toast({ title: "Sélectionnez votre secteur d'activité", variant: "destructive" });
+      if (step === 1) toast({ title: "Choisissez une offre", variant: "destructive" });
+      if (step === 2) toast({ title: "Remplissez tous les champs obligatoires", variant: "destructive" });
       return;
     }
-    if (step === 3) {
+    if (step === 2) {
       handleSubmit();
     } else {
       go('forward');
@@ -103,15 +133,18 @@ const DevisPage = () => {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
+      const selectedOffer = offers.find(o => o.value === formData.offer);
       const { error } = await supabase.from('contact_submissions').insert([{
         name: formData.name, email: formData.email, company: formData.company,
-        phone: formData.phone, project: formData.project,
-        main_challenge: "non_specifie", timeline: formData.timeline,
-        message: formData.message, budget: formData.budget,
+        phone: formData.phone, project: "vitrine",
+        main_challenge: formData.sector,
+        message: `Offre: ${selectedOffer?.name} (${selectedOffer?.price}€/mois) | Secteur: ${formData.sector} | ${formData.companyDescription ? 'Description: ' + formData.companyDescription : ''} ${formData.message ? '| Message: ' + formData.message : ''}`.trim(),
       }]);
       if (error) throw error;
 
-      await supabase.functions.invoke('notify-contact', { body: formData });
+      await supabase.functions.invoke('notify-contact', {
+        body: { ...formData, project: "vitrine", offer: formData.offer },
+      });
 
       // Confetti
       const end = Date.now() + 2500;
@@ -134,15 +167,16 @@ const DevisPage = () => {
     ? 'animate-[slideInRight_0.4s_ease-out]'
     : 'animate-[slideInLeft_0.4s_ease-out]';
 
-  const progress = step < 4 ? ((step) / 3) * 100 : 100;
+  const progress = step <= totalSteps ? (step / totalSteps) * 100 : 100;
+  const stepLabels = ["Activité", "Offre", "Coordonnées"];
 
   return (
     <>
       <SEO
-        url="/devis"
-        title="Demander un Devis Gratuit | ConvertiLab"
-        description="Obtenez votre devis personnalisé en 2 minutes. Formulaire simple et rapide. Réponse sous 24h."
-        keywords="devis site internet, devis gratuit, création site web devis"
+        url="/offre-mensuelle/devis"
+        title="Demander votre site vitrine | ConvertiLab"
+        description="Obtenez votre site vitrine professionnel à partir de 39€/mois. Formulaire rapide, réponse sous 24h."
+        keywords="devis site vitrine, site internet 39 euros, création site web devis"
       />
       <Navigation />
 
@@ -153,20 +187,30 @@ const DevisPage = () => {
           <div className="text-center mb-6 animate-fade-in">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold mb-3">
               <Sparkles className="w-3.5 h-3.5" />
-              Devis en 2 min
+              Site vitrine · Devis en 2 min
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-1">
-              Votre projet <span className="text-primary">commence ici</span>
+              Lancez votre <span className="text-primary">site vitrine</span>
             </h1>
-            <p className="text-sm text-muted-foreground">Réponse personnalisée sous 24h</p>
+            <p className="text-sm text-muted-foreground">Réponse personnalisée sous 24h · Sans engagement</p>
           </div>
 
           {/* Progress */}
-          {step < 4 && (
+          {step <= totalSteps && step < 3 && (
             <div className="mb-6">
-              <div className="flex justify-between text-[10px] text-muted-foreground mb-1.5">
-                <span>Étape {step + 1}/4</span>
-                <span>{Math.round(progress)}%</span>
+              <div className="flex justify-between text-[10px] text-muted-foreground mb-2">
+                {stepLabels.map((label, i) => (
+                  <span key={i} className={`flex items-center gap-1 ${i <= step ? 'text-primary font-medium' : ''}`}>
+                    {i < step ? (
+                      <CheckCircle2 className="w-3 h-3 text-primary" />
+                    ) : (
+                      <span className={`w-4 h-4 rounded-full text-[9px] flex items-center justify-center font-bold ${
+                        i === step ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
+                      }`}>{i + 1}</span>
+                    )}
+                    {label}
+                  </span>
+                ))}
               </div>
               <div className="h-1.5 bg-muted rounded-full overflow-hidden">
                 <div
@@ -181,38 +225,113 @@ const DevisPage = () => {
           <div className="bg-card/80 backdrop-blur-xl border border-border/50 rounded-2xl shadow-xl overflow-hidden">
             <div className="p-5 sm:p-6">
 
-              {/* ─── Step 0: Project Type ─── */}
+              {/* ─── Step 0: Secteur d'activité ─── */}
               {step === 0 && (
                 <div key="step0" className={animClass}>
-                  <h2 className="text-lg font-bold text-foreground mb-1">Quel type de projet ?</h2>
-                  <p className="text-xs text-muted-foreground mb-4">Sélectionnez ce qui correspond le mieux</p>
+                  <h2 className="text-lg font-bold text-foreground mb-1">Votre activité</h2>
+                  <p className="text-xs text-muted-foreground mb-4">Dans quel secteur exercez-vous ?</p>
 
-                  <div className="grid grid-cols-2 gap-3">
-                    {projectTypes.map((t) => {
-                      const Icon = t.icon;
-                      const active = formData.project === t.value;
+                  <div className="grid grid-cols-2 gap-2.5">
+                    {sectors.map((s) => {
+                      const Icon = s.icon;
+                      const active = formData.sector === s.value;
                       return (
                         <button
-                          key={t.value}
+                          key={s.value}
                           type="button"
-                          onClick={() => setFormData({ ...formData, project: t.value })}
-                          className={`relative p-4 rounded-xl text-center transition-all duration-300 border-2 group ${
+                          onClick={() => setFormData({ ...formData, sector: s.value })}
+                          className={`relative flex items-center gap-2.5 p-3 rounded-xl transition-all duration-300 border-2 text-left ${
                             active
-                              ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10 scale-[1.03]'
+                              ? 'border-primary bg-primary/5 shadow-md'
+                              : 'border-border bg-card hover:border-primary/30'
+                          }`}
+                        >
+                          <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-all ${
+                            active ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
+                          }`}>
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <span className="text-xs font-medium text-foreground leading-tight">{s.label}</span>
+                          {active && (
+                            <CheckCircle2 className="w-3.5 h-3.5 text-primary absolute top-1.5 right-1.5 animate-scale-in" />
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Optional description */}
+                  <div className="mt-4">
+                    <Textarea
+                      placeholder="Décrivez brièvement votre activité... (optionnel)"
+                      value={formData.companyDescription}
+                      onChange={(e) => setFormData({ ...formData, companyDescription: e.target.value })}
+                      rows={2}
+                      className="bg-muted/50 border-border rounded-xl text-sm focus:ring-2 focus:ring-primary resize-none"
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* ─── Step 1: Choix de l'offre ─── */}
+              {step === 1 && (
+                <div key="step1" className={animClass}>
+                  <h2 className="text-lg font-bold text-foreground mb-1">Choisissez votre offre</h2>
+                  <p className="text-xs text-muted-foreground mb-4">Vous êtes propriétaire dans les 2 formules</p>
+
+                  {/* Recap activité */}
+                  <div className="flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-lg px-3 py-2 mb-4 text-xs">
+                    <span className="text-lg">{sectors.find(s => s.value === formData.sector)?.emoji}</span>
+                    <span className="font-medium text-foreground">
+                      {sectors.find(s => s.value === formData.sector)?.label}
+                    </span>
+                  </div>
+
+                  <div className="space-y-3">
+                    {offers.map((offer) => {
+                      const active = formData.offer === offer.value;
+                      return (
+                        <button
+                          key={offer.value}
+                          type="button"
+                          onClick={() => setFormData({ ...formData, offer: offer.value })}
+                          className={`w-full text-left p-4 rounded-xl transition-all duration-300 border-2 relative ${
+                            active
+                              ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10'
                               : 'border-border bg-card hover:border-primary/30 hover:shadow-md'
                           }`}
                         >
-                          <span className="text-2xl mb-2 block">{t.emoji}</span>
-                          <div className={`w-10 h-10 mx-auto rounded-xl flex items-center justify-center mb-2 transition-all ${
-                            active ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary'
-                          }`}>
-                            <Icon className="w-5 h-5" />
+                          {offer.popular && (
+                            <span className="absolute -top-2.5 right-3 bg-primary text-primary-foreground text-[9px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                              <Crown className="w-3 h-3" /> Populaire
+                            </span>
+                          )}
+
+                          <div className="flex items-start justify-between mb-3">
+                            <div>
+                              <h3 className="font-bold text-foreground text-sm">{offer.name}</h3>
+                              <p className="text-[10px] text-muted-foreground">{offer.desc}</p>
+                            </div>
+                            <div className="text-right">
+                              <span className="text-2xl font-extrabold text-foreground">{offer.price}€</span>
+                              <span className="text-[10px] text-muted-foreground block">/mois</span>
+                            </div>
                           </div>
-                          <p className="font-semibold text-sm text-foreground">{t.label}</p>
-                          <p className="text-[10px] text-muted-foreground mt-0.5">{t.desc}</p>
+
+                          <ul className="space-y-1.5">
+                            {offer.features.map((feat, i) => (
+                              <li key={i} className="flex items-start gap-2 text-[11px]">
+                                <CheckCircle className={`w-3.5 h-3.5 flex-shrink-0 mt-0.5 ${
+                                  active ? 'text-primary' : 'text-muted-foreground'
+                                }`} />
+                                <span className={`${active ? 'text-foreground' : 'text-muted-foreground'}`}>{feat}</span>
+                              </li>
+                            ))}
+                          </ul>
+
                           {active && (
-                            <div className="absolute top-2 right-2">
-                              <CheckCircle2 className="w-4 h-4 text-primary animate-scale-in" />
+                            <div className="absolute top-4 right-4">
+                              <CheckCircle2 className="w-5 h-5 text-primary animate-scale-in" />
                             </div>
                           )}
                         </button>
@@ -222,99 +341,22 @@ const DevisPage = () => {
                 </div>
               )}
 
-              {/* ─── Step 1: Timeline ─── */}
-              {step === 1 && (
-                <div key="step1" className={animClass}>
-                  <h2 className="text-lg font-bold text-foreground mb-1">Quel délai ?</h2>
-                  <p className="text-xs text-muted-foreground mb-4">Optionnel — aide à planifier</p>
-
-                  <div className="space-y-2.5">
-                    {timelines.map((t) => {
-                      const Icon = t.icon;
-                      const active = formData.timeline === t.value;
-                      return (
-                        <button
-                          key={t.value}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, timeline: t.value })}
-                          className={`w-full flex items-center gap-3 p-3.5 rounded-xl transition-all duration-300 border-2 text-left ${
-                            active
-                              ? 'border-primary bg-primary/5 shadow-md'
-                              : 'border-border hover:border-primary/30 bg-card'
-                          }`}
-                        >
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all ${
-                            active ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
-                          }`}>
-                            <Icon className="w-5 h-5" />
-                          </div>
-                          <div className="flex-1">
-                            <p className="font-semibold text-sm text-foreground">{t.label}</p>
-                            <p className="text-[10px] text-muted-foreground">{t.desc}</p>
-                          </div>
-                          {t.recommended && (
-                            <span className="text-[9px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-full">
-                              Recommandé
-                            </span>
-                          )}
-                          {active && <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {/* ─── Step 2: Budget ─── */}
+              {/* ─── Step 2: Coordonnées ─── */}
               {step === 2 && (
                 <div key="step2" className={animClass}>
-                  <h2 className="text-lg font-bold text-foreground mb-1">Votre budget ?</h2>
-                  <p className="text-xs text-muted-foreground mb-4">Optionnel — pour ajuster notre proposition</p>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    {budgets.map((b) => {
-                      const active = formData.budget === b.value;
-                      return (
-                        <button
-                          key={b.value}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, budget: b.value })}
-                          className={`p-4 rounded-xl text-center transition-all duration-300 border-2 ${
-                            active
-                              ? 'border-primary bg-primary/5 shadow-md scale-[1.03]'
-                              : 'border-border bg-card hover:border-primary/30'
-                          }`}
-                        >
-                          <div className={`w-10 h-10 mx-auto rounded-full bg-gradient-to-br ${b.color} flex items-center justify-center mb-2`}>
-                            <span className="text-white text-xs font-bold">€</span>
-                          </div>
-                          <p className="font-semibold text-sm text-foreground">{b.label}</p>
-                          {active && <CheckCircle2 className="w-4 h-4 text-primary mx-auto mt-1 animate-scale-in" />}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {/* ─── Step 3: Contact ─── */}
-              {step === 3 && (
-                <div key="step3" className={animClass}>
                   <h2 className="text-lg font-bold text-foreground mb-1">Vos coordonnées</h2>
-                  <p className="text-xs text-muted-foreground mb-4">Pour recevoir votre devis</p>
+                  <p className="text-xs text-muted-foreground mb-4">Pour recevoir votre devis personnalisé</p>
 
-                  {/* Recap pill */}
-                  <div className="flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-lg px-3 py-2 mb-4 text-xs">
-                    <span className="text-lg">{projectTypes.find(p => p.value === formData.project)?.emoji}</span>
+                  {/* Recap */}
+                  <div className="flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-lg px-3 py-2 mb-4 text-xs flex-wrap">
+                    <span className="text-lg">{sectors.find(s => s.value === formData.sector)?.emoji}</span>
                     <span className="font-medium text-foreground">
-                      {projectTypes.find(p => p.value === formData.project)?.label}
+                      {sectors.find(s => s.value === formData.sector)?.label}
                     </span>
-                    {formData.timeline && (
-                      <>
-                        <span className="text-muted-foreground">·</span>
-                        <span className="text-muted-foreground">{timelines.find(t => t.value === formData.timeline)?.label}</span>
-                      </>
-                    )}
+                    <span className="text-muted-foreground">·</span>
+                    <span className="font-semibold text-primary">
+                      {offers.find(o => o.value === formData.offer)?.name} — {offers.find(o => o.value === formData.offer)?.price}€/mois
+                    </span>
                   </div>
 
                   <div className="space-y-3">
@@ -359,19 +401,19 @@ const DevisPage = () => {
                       />
                     </div>
                     <Textarea
-                      placeholder="Décrivez brièvement votre projet... (optionnel)"
+                      placeholder="Un message ou des précisions ? (optionnel)"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      rows={3}
+                      rows={2}
                       className="bg-muted/50 border-border rounded-xl text-sm focus:ring-2 focus:ring-primary resize-none"
                     />
                   </div>
                 </div>
               )}
 
-              {/* ─── Step 4: Confirmation ─── */}
-              {step === 4 && (
-                <div key="step4" className="animate-scale-in text-center py-4">
+              {/* ─── Step 3: Confirmation ─── */}
+              {step === 3 && (
+                <div key="step3" className="animate-scale-in text-center py-4">
                   <div className="w-20 h-20 mx-auto mb-5 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-lg shadow-green-500/30">
                     <CheckCircle2 className="w-10 h-10 text-white" />
                   </div>
@@ -386,14 +428,12 @@ const DevisPage = () => {
                   <div className="bg-muted/40 rounded-xl p-4 mb-6 text-left space-y-2 text-sm">
                     <div className="flex items-center gap-2">
                       <Globe className="w-4 h-4 text-primary" />
-                      <span className="text-foreground">{projectTypes.find(p => p.value === formData.project)?.label}</span>
+                      <span className="text-foreground">Site vitrine — {sectors.find(s => s.value === formData.sector)?.label}</span>
                     </div>
-                    {formData.timeline && (
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-primary" />
-                        <span className="text-foreground">{timelines.find(t => t.value === formData.timeline)?.label}</span>
-                      </div>
-                    )}
+                    <div className="flex items-center gap-2">
+                      <Zap className="w-4 h-4 text-primary" />
+                      <span className="text-foreground">Offre {offers.find(o => o.value === formData.offer)?.name} — {offers.find(o => o.value === formData.offer)?.price}€/mois</span>
+                    </div>
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4 text-primary" />
                       <span className="text-foreground">{formData.email}</span>
@@ -410,7 +450,7 @@ const DevisPage = () => {
                       Réserver un appel
                     </Button>
                     <Button asChild variant="outline" className="w-full h-10 rounded-xl text-sm">
-                      <Link to="/">Retour à l'accueil</Link>
+                      <Link to="/offre-mensuelle">Retour aux offres</Link>
                     </Button>
                   </div>
                 </div>
@@ -418,7 +458,7 @@ const DevisPage = () => {
             </div>
 
             {/* ─── Navigation Buttons ─── */}
-            {step < 4 && (
+            {step <= 2 && (
               <div className="px-5 pb-5 pt-1">
                 <div className="flex gap-3">
                   {step > 0 && (
@@ -437,7 +477,7 @@ const DevisPage = () => {
                     onClick={handleNext}
                     disabled={isSubmitting}
                     className={`${step > 0 ? 'flex-1' : 'w-full'} h-12 rounded-xl font-semibold text-sm transition-all ${
-                      step === 3
+                      step === 2
                         ? 'bg-gradient-to-r from-primary to-pink-500 text-primary-foreground hover:opacity-90'
                         : 'bg-primary text-primary-foreground hover:bg-primary/90'
                     }`}
@@ -447,7 +487,7 @@ const DevisPage = () => {
                         <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2" />
                         Envoi…
                       </span>
-                    ) : step === 3 ? (
+                    ) : step === 2 ? (
                       <>
                         <Send className="mr-1.5 w-4 h-4" />
                         Envoyer ma demande
@@ -478,7 +518,7 @@ const DevisPage = () => {
           </div>
 
           {/* Social proof */}
-          {step < 4 && (
+          {step <= 2 && (
             <div className="mt-4 text-center animate-fade-in">
               <p className="text-xs text-muted-foreground">
                 ⭐ Rejoint par <span className="font-semibold text-foreground">+50 entreprises</span> en 2024
@@ -490,7 +530,6 @@ const DevisPage = () => {
 
       <Footer />
 
-      {/* Custom keyframes for slide animations */}
       <style>{`
         @keyframes slideInRight {
           from { opacity: 0; transform: translateX(30px); }
