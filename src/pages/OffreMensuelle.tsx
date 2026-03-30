@@ -348,25 +348,29 @@ const OffreMensuelle = () => {
             </p>
 
             {/* Toggle */}
-            <div className="flex items-center justify-center gap-3 mb-7">
-              <span className={`text-xs font-medium ${billingMode === 'oneshot' ? 'text-foreground' : 'text-muted-foreground'}`}>
-                Paiement unique
-              </span>
-              <button
-                onClick={() => setBillingMode(billingMode === 'monthly' ? 'oneshot' : 'monthly')}
-                className={`relative w-12 h-6 rounded-full transition-colors ${billingMode === 'monthly' ? 'bg-primary' : 'bg-muted-foreground/30'}`}
-                aria-label="Changer le mode de paiement"
-              >
-                <span
-                  className={`absolute top-0.5 w-5 h-5 rounded-full bg-background shadow transition-transform ${billingMode === 'monthly' ? 'translate-x-6' : 'translate-x-0.5'}`}
-                />
-              </button>
-              <span className={`text-xs font-medium ${billingMode === 'monthly' ? 'text-foreground' : 'text-muted-foreground'}`}>
-                Mensuel
-              </span>
-              {billingMode === 'monthly' && (
-                <span className="text-[10px] text-primary font-semibold">(-17%)</span>
-              )}
+            <div className="flex justify-center mb-7">
+              <div className="inline-grid grid-cols-2 gap-1 rounded-xl border bg-muted/40 p-1 w-full max-w-xs sm:w-auto sm:max-w-none">
+                <button
+                  onClick={() => setBillingMode('oneshot')}
+                  className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
+                    billingMode === 'oneshot' 
+                      ? 'bg-background text-foreground shadow-sm' 
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  Paiement unique
+                </button>
+                <button
+                  onClick={() => setBillingMode('monthly')}
+                  className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
+                    billingMode === 'monthly' 
+                      ? 'bg-background text-foreground shadow-sm' 
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  Mensuel <span className="text-primary text-[10px] font-semibold">(-17%)</span>
+                </button>
+              </div>
             </div>
 
             {/* Pricing cards */}
