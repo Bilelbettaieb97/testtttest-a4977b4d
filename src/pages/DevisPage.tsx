@@ -75,7 +75,7 @@ const offers = [
       { text: "Maintenance & mises à jour incluses", highlight: true, bold: false },
       { text: "Support prioritaire dédié", highlight: true, bold: false },
     ],
-    popular: false,
+    popular: true,
     savings: "Meilleur ROI",
   },
 ];
