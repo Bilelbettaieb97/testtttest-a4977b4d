@@ -429,12 +429,21 @@ const OffreMensuelle = () => {
                   </div>
 
                   <ul className="space-y-2 mb-5">
-                    {offer.features.map((feat, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-[11px] sm:text-xs text-foreground">{feat}</span>
-                      </li>
-                    ))}
+                    {allFeatures.map((feat, i) => {
+                      const val = feat[offer.key];
+                      return (
+                        <li key={i} className="flex items-start gap-2">
+                          {val === false ? (
+                            <span className="w-4 h-4 flex-shrink-0 mt-0.5 text-muted-foreground/30">—</span>
+                          ) : (
+                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                          )}
+                          <span className={`text-[11px] sm:text-xs ${val === false ? 'text-muted-foreground/40 line-through' : 'text-foreground'}`}>
+                            {typeof val === 'string' ? `${feat.label} : ${val}` : feat.label}
+                          </span>
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   <Button
