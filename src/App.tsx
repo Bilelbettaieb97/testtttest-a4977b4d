@@ -37,6 +37,7 @@ const AboutPage = lazy(() => import("./pages/AboutPage"));
 const PolitiqueConfidentialite = lazy(() => import("./pages/PolitiqueConfidentialite"));
 const DemandeMaquette = lazy(() => import("./pages/DemandeMaquette"));
 const OffreMensuelle = lazy(() => import("./pages/OffreMensuelle"));
+const DevisPage = lazy(() => import("./pages/DevisPage"));
 
 const queryClient = new QueryClient();
 
