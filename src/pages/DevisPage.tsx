@@ -321,14 +321,25 @@ const DevisPage = () => {
 
                           <ul className="space-y-1.5">
                             {offer.features.map((feat, i) => (
-                              <li key={i} className="flex items-start gap-2 text-[11px]">
+                              <li key={i} className={`flex items-start gap-2 text-[11px] ${feat.highlight ? 'bg-primary/5 -mx-1 px-1 py-0.5 rounded' : ''}`}>
                                 <CheckCircle className={`w-3.5 h-3.5 flex-shrink-0 mt-0.5 ${
-                                  active ? 'text-primary' : 'text-muted-foreground'
+                                  feat.highlight ? 'text-primary' : active ? 'text-primary' : 'text-muted-foreground'
                                 }`} />
-                                <span className={`${active ? 'text-foreground' : 'text-muted-foreground'}`}>{feat}</span>
+                                <span className={`${
+                                  feat.bold ? 'font-bold text-primary' : feat.highlight ? 'font-semibold text-foreground' : active ? 'text-foreground' : 'text-muted-foreground'
+                                }`}>
+                                  {feat.text}
+                                  {feat.bold && <Monitor className="w-3 h-3 inline ml-1 -mt-0.5" />}
+                                </span>
                               </li>
                             ))}
                           </ul>
+
+                          {offer.savings && (
+                            <div className="mt-3 text-[10px] font-semibold text-primary bg-primary/10 rounded-full px-3 py-1 inline-block">
+                              🚀 {offer.savings}
+                            </div>
+                          )}
 
                           {active && (
                             <div className="absolute top-4 right-4">
