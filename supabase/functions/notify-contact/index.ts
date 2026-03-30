@@ -198,6 +198,16 @@ Deno.serve(async (req: Request) => {
     let emailContent: { subject: string; html: string };
 
     switch (formType) {
+      case "devis":
+        if (!sanitize(data.name) || !sanitize(data.phone, 50) || !sanitize(data.sector, 200)) {
+          return new Response(
+            JSON.stringify({ error: "Missing required fields" }),
+            { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+        emailContent = buildDevisEmail(data);
+        break;
+
       case "mockup":
         if (!sanitize(data.name) || !sanitize(data.phone, 50) || !sanitize(data.site_type, 100) || !sanitize(data.sector, 100)) {
           return new Response(
