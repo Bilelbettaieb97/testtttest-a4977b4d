@@ -73,27 +73,67 @@ const testimonials = [
 ];
 
 // Features for pricing — shared = same in both, proOnly = highlighted extras
-const sharedFeatures = [
-  "Vous êtes propriétaire du site",
-  "Design responsive sur-mesure",
-  "SEO optimisé — visible sur Google",
-  "Hébergement & SSL inclus",
-  "Livraison en 7 jours",
-];
-
-const essentialExtras = [
-  "Site vitrine jusqu'à 5 pages",
-  "Support par email",
-];
-
-const proExtras = [
-  { text: "Site jusqu'à 10 pages", highlight: true },
-  { text: "Design premium sur-mesure", highlight: true },
-  { text: "SEO avancé + Google My Business", highlight: true },
-  { text: "Support prioritaire", highlight: true },
-  { text: "Blog intégré pour le SEO", highlight: true },
-  { text: "Formulaire de contact avancé", highlight: true },
-  { text: "Page admin pour modifier votre contenu", highlight: true, bold: true },
+const pricingOffers = [
+  {
+    name: "Essentiel",
+    value: "essentiel",
+    monthlyPrice: "39,50",
+    oneshotPrice: "474",
+    desc: "Idéal pour démarrer en ligne",
+    features: [
+      "Vous êtes propriétaire du site",
+      "Site vitrine jusqu'à 3 pages",
+      "Design responsive sur-mesure",
+      "SEO de base — visible sur Google",
+      "Hébergement & SSL inclus",
+      "Support par email",
+      "Livraison en 7 jours",
+    ],
+    highlight: false,
+    badge: null,
+  },
+  {
+    name: "Pro",
+    value: "pro",
+    monthlyPrice: "47,50",
+    oneshotPrice: "570",
+    desc: "Le choix le plus populaire",
+    features: [
+      "Vous êtes propriétaire du site",
+      "Site vitrine jusqu'à 7 pages",
+      "Design premium sur-mesure",
+      "SEO avancé + Google My Business",
+      "Hébergement & SSL inclus",
+      "Blog intégré pour le SEO",
+      "Formulaire de contact avancé",
+      "Support prioritaire",
+      "Livraison en 7 jours",
+    ],
+    highlight: true,
+    badge: "Populaire",
+  },
+  {
+    name: "Premium",
+    value: "premium",
+    monthlyPrice: "52,50",
+    oneshotPrice: "630",
+    desc: "Tout inclus, sans compromis",
+    features: [
+      "Vous êtes propriétaire du site",
+      "Pages illimitées",
+      "Design premium sur-mesure",
+      "SEO avancé + Google My Business",
+      "Hébergement & SSL inclus",
+      "Blog intégré pour le SEO",
+      "Formulaire de contact avancé",
+      "Page admin pour modifier votre contenu",
+      "Maintenance & mises à jour incluses",
+      "Support prioritaire dédié",
+      "Livraison en 7 jours",
+    ],
+    highlight: false,
+    badge: "Meilleur ROI",
+  },
 ];
 
 const OffreMensuelle = () => {
@@ -376,88 +416,59 @@ const OffreMensuelle = () => {
               </div>
             </div>
 
-            {/* Pricing cards */}
-            <div className="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-5">
-              {/* Essentiel */}
-              <Card className="p-5 sm:p-7 border-2 border-border bg-background">
-                <h3 className="text-sm sm:text-lg font-bold text-foreground mb-0.5">Essentiel</h3>
-                <p className="text-muted-foreground text-[10px] sm:text-xs mb-4">Idéal pour les indépendants et artisans</p>
+            {/* Pricing cards — 3 tiers */}
+            <div className="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4">
+              {pricingOffers.map((offer) => (
+                <Card
+                  key={offer.value}
+                  className={`p-5 sm:p-6 border-2 bg-background relative overflow-hidden ${
+                    offer.highlight ? 'border-primary sm:scale-105 sm:shadow-xl sm:z-10' : 'border-border'
+                  }`}
+                >
+                  {offer.badge && (
+                    <span className="absolute top-3 right-3 bg-primary text-primary-foreground text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full">
+                      {offer.badge}
+                    </span>
+                  )}
 
-                <div className="mb-4">
-                  <span className="text-3xl sm:text-4xl font-extrabold text-foreground">
-                    {billingMode === 'monthly' ? '39' : '468'}€
-                  </span>
-                  <span className="text-muted-foreground text-xs ml-1">
-                    {billingMode === 'monthly' ? '/mois' : ' unique'}
-                  </span>
-                </div>
+                  <h3 className="text-sm sm:text-lg font-bold text-foreground mb-0.5">{offer.name}</h3>
+                  <p className="text-muted-foreground text-[10px] sm:text-xs mb-4">{offer.desc}</p>
 
-                <ul className="space-y-2 mb-5">
-                  {[...sharedFeatures, ...essentialExtras].map((feat, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-[11px] sm:text-xs text-foreground">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <div className="mb-4">
+                    <span className="text-2xl sm:text-3xl font-extrabold text-foreground">
+                      {billingMode === 'monthly' ? offer.monthlyPrice : offer.oneshotPrice}€
+                    </span>
+                    <span className="text-muted-foreground text-xs ml-1">
+                      {billingMode === 'monthly' ? '/mois' : ' unique'}
+                    </span>
+                  </div>
 
-                <Button asChild size="lg" variant="outline" className="w-full text-xs sm:text-sm">
-                  <Link to="/offre-mensuelle/devis?offre=essentiel">
-                    Choisir Essentiel
-                    <ArrowRight className="ml-2 w-3.5 h-3.5" />
-                  </Link>
-                </Button>
-              </Card>
+                  <ul className="space-y-2 mb-5">
+                    {offer.features.map((feat, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-[11px] sm:text-xs text-foreground">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-              {/* Pro */}
-              <Card className="p-5 sm:p-7 border-2 border-primary bg-background relative overflow-hidden">
-                <span className="absolute top-3 right-3 bg-primary text-primary-foreground text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full">
-                  Populaire
-                </span>
-
-                <h3 className="text-sm sm:text-lg font-bold text-foreground mb-0.5">Professionnel</h3>
-                <p className="text-muted-foreground text-[10px] sm:text-xs mb-4">Pour maximiser votre visibilité Google</p>
-
-                <div className="mb-4">
-                  <span className="text-3xl sm:text-4xl font-extrabold text-foreground">
-                    {billingMode === 'monthly' ? '69' : '828'}€
-                  </span>
-                  <span className="text-muted-foreground text-xs ml-1">
-                    {billingMode === 'monthly' ? '/mois' : ' unique'}
-                  </span>
-                </div>
-
-                <ul className="space-y-2 mb-5">
-                  {/* Shared features */}
-                  {sharedFeatures.map((feat, i) => (
-                    <li key={`s-${i}`} className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-[11px] sm:text-xs text-foreground">{feat}</span>
-                    </li>
-                  ))}
-                  {/* Pro extras — highlighted */}
-                  {proExtras.map((feat, i) => (
-                    <li key={`p-${i}`} className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className={`text-[11px] sm:text-xs ${feat.bold ? 'font-bold text-primary' : 'text-primary font-medium'}`}>
-                        {feat.text}
-                        {feat.bold && <Monitor className="w-3 h-3 inline ml-1 -mt-0.5" />}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Button asChild size="lg" className="w-full text-xs sm:text-sm bg-primary hover:bg-primary/90">
-                  <Link to="/offre-mensuelle/devis?offre=professionnel">
-                    Choisir Professionnel
-                    <ArrowRight className="ml-2 w-3.5 h-3.5" />
-                  </Link>
-                </Button>
-              </Card>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant={offer.highlight ? "default" : "outline"}
+                    className={`w-full text-xs sm:text-sm ${offer.highlight ? 'bg-primary hover:bg-primary/90' : ''}`}
+                  >
+                    <Link to={`/offre-mensuelle/devis?offre=${offer.value}`}>
+                      Choisir {offer.name}
+                      <ArrowRight className="ml-2 w-3.5 h-3.5" />
+                    </Link>
+                  </Button>
+                </Card>
+              ))}
             </div>
 
             <p className="text-center text-[10px] sm:text-xs text-muted-foreground mt-5">
-              🔑 Propriétaire dans les 2 formules · 📍 Référencé sur Google · 🔒 Sans engagement
+              🔑 Propriétaire dans les 3 formules · 📍 Référencé sur Google · 🔒 Sans engagement
             </p>
           </div>
         </section>
