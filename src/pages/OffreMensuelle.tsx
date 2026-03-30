@@ -149,8 +149,11 @@ const OffreMensuelle = () => {
             </Button>
           </div>
 
-          {/* Trust badges */}
-          <div className="flex flex-wrap justify-center gap-2.5 text-[11px] sm:text-xs text-muted-foreground animate-fade-in">
+          {/* Trust badges — compact on mobile */}
+          <p className="sm:hidden text-xs text-muted-foreground text-center animate-fade-in">
+            🔑 Vous êtes propriétaire de votre site
+          </p>
+          <div className="hidden sm:flex flex-wrap justify-center gap-2.5 text-xs text-muted-foreground animate-fade-in">
             <span className="flex items-center gap-1.5 bg-muted/60 px-3 py-1.5 rounded-full">
               <Key className="w-3 h-3 text-primary" />
               Propriétaire du site
