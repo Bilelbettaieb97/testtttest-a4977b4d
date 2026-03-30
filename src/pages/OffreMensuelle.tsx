@@ -7,7 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Portfolio from "@/components/Portfolio";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ArrowRight, CheckCircle, XCircle, Globe, Paintbrush, Rocket, Headphones, Star, ChevronLeft, ChevronRight, Search, Key, Shield, Monitor } from 'lucide-react';
+import { ArrowRight, CheckCircle, XCircle, Globe, Paintbrush, Rocket, Headphones, Star, ChevronLeft, ChevronRight, Search, Key, Shield, Monitor, Users, TrendingUp } from 'lucide-react';
 import AnimatedSection from "@/components/AnimatedSection";
 
 const approachSteps = [
@@ -151,15 +151,18 @@ const OffreMensuelle = () => {
 
           {/* Stats row */}
           <div className="flex justify-center gap-6 sm:gap-10 text-center animate-fade-in">
-            <div>
+            <div className="flex flex-col items-center gap-1">
+              <Users className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               <p className="text-lg sm:text-2xl font-bold text-primary">+50</p>
               <p className="text-[10px] sm:text-xs text-muted-foreground">Clients</p>
             </div>
-            <div>
+            <div className="flex flex-col items-center gap-1">
+              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               <p className="text-lg sm:text-2xl font-bold text-primary">+280%</p>
               <p className="text-[10px] sm:text-xs text-muted-foreground">CA moyen</p>
             </div>
-            <div>
+            <div className="flex flex-col items-center gap-1">
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               <p className="text-lg sm:text-2xl font-bold text-primary">4.9/5</p>
               <p className="text-[10px] sm:text-xs text-muted-foreground">Satisfaction</p>
             </div>
