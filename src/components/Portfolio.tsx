@@ -447,6 +447,13 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
         {/* Always carousel on homepage, filtered or not */}
         {isHomepage ? (
           <div className="mb-8 relative" style={{ minHeight: '420px', contentVisibility: 'auto', containIntrinsicSize: 'auto 420px' } as React.CSSProperties}>
+            {/* Swipe hint - above carousel on mobile */}
+            <div className="flex md:hidden justify-center mb-4 text-sm text-gray-600 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mx-auto w-fit shadow-lg border border-purple-100">
+              <ChevronLeft className="w-4 h-4 mr-1 text-purple-600" />
+              <span className="font-medium">Glissez pour voir plus d'exemples</span>
+              <ChevronRight className="w-4 h-4 ml-1 text-purple-600" />
+            </div>
+
             <Carousel className="w-full max-w-6xl mx-auto" opts={{ align: "start", loop: true, containScroll: "trimSnaps" }}>
               <CarouselContent className="-ml-2 md:-ml-4 items-stretch" style={{ willChange: 'transform' }}>
                 {filteredCases.map((caseStudy, index) => (
@@ -463,12 +470,6 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
                 <ChevronRight className="h-6 w-6" />
               </CarouselNext>
             </Carousel>
-            
-            <div className="flex md:hidden justify-center mt-4 text-sm text-gray-600 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mx-auto w-fit shadow-lg border border-purple-100">
-              <ChevronLeft className="w-4 h-4 mr-1 text-purple-600" />
-              <span className="font-medium">Glissez pour voir plus d'exemples</span>
-              <ChevronRight className="w-4 h-4 ml-1 text-purple-600" />
-            </div>
           </div>
         ) : (
           <>

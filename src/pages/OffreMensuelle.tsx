@@ -6,34 +6,35 @@ import { SEO } from "@/components/SEO";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Portfolio from "@/components/Portfolio";
-import { ArrowRight, CheckCircle, XCircle, Globe, Paintbrush, Rocket, Headphones, Star, ChevronLeft, ChevronRight, Search, Key, Shield } from 'lucide-react';
-
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { ArrowRight, CheckCircle, XCircle, Globe, Paintbrush, Rocket, Headphones, Star, ChevronLeft, ChevronRight, Search, Key, Shield, Monitor } from 'lucide-react';
+import AnimatedSection from "@/components/AnimatedSection";
 
 const approachSteps = [
   {
     icon: <Globe className="w-5 h-5 text-primary-foreground" />,
     title: "Analyse de votre activité",
-    description: "On étudie votre secteur et vos concurrents pour créer un site qui vous ressemble et qui convertit vos visiteurs en clients."
+    description: "On étudie votre secteur et vos concurrents pour créer un site qui convertit."
   },
   {
     icon: <Paintbrush className="w-5 h-5 text-primary-foreground" />,
     title: "Design sur-mesure, 100% à vous",
-    description: "Chaque site est unique et vous appartient. Design moderne, responsive et adapté à votre image de marque. Vous êtes propriétaire de votre site."
+    description: "Design unique adapté à votre image. Vous êtes propriétaire de votre site."
   },
   {
     icon: <Search className="w-5 h-5 text-primary-foreground" />,
-    title: "Visible sur Google dès le lancement",
-    description: "SEO optimisé, indexation Google, balises techniques et mots-clés ciblés. Vos clients vous trouvent quand ils cherchent vos services."
+    title: "Visible sur Google",
+    description: "SEO optimisé dès le lancement. Vos clients vous trouvent quand ils cherchent."
   },
   {
     icon: <Rocket className="w-5 h-5 text-primary-foreground" />,
-    title: "Mise en ligne en 7 jours",
-    description: "Hébergement, nom de domaine et certificat SSL inclus. Vous n'avez rien à gérer techniquement, on s'occupe de tout."
+    title: "En ligne en 7 jours",
+    description: "Hébergement, domaine et SSL inclus. On gère tout le technique."
   },
   {
     icon: <Headphones className="w-5 h-5 text-primary-foreground" />,
-    title: "Support & évolutions inclus",
-    description: "Un interlocuteur dédié. Mises à jour de contenu, ajout de pages et maintenance technique inclus dans votre abonnement."
+    title: "Support inclus",
+    description: "Un interlocuteur dédié. Modifications et maintenance incluses."
   }
 ];
 
@@ -71,6 +72,30 @@ const testimonials = [
   },
 ];
 
+// Features for pricing — shared = same in both, proOnly = highlighted extras
+const sharedFeatures = [
+  "Vous êtes propriétaire du site",
+  "Design responsive sur-mesure",
+  "SEO optimisé — visible sur Google",
+  "Hébergement & SSL inclus",
+  "Livraison en 7 jours",
+];
+
+const essentialExtras = [
+  "Site vitrine jusqu'à 5 pages",
+  "Support par email",
+];
+
+const proExtras = [
+  { text: "Site jusqu'à 10 pages", highlight: true },
+  { text: "Design premium sur-mesure", highlight: true },
+  { text: "SEO avancé + Google My Business", highlight: true },
+  { text: "Support prioritaire", highlight: true },
+  { text: "Blog intégré pour le SEO", highlight: true },
+  { text: "Formulaire de contact avancé", highlight: true },
+  { text: "Page admin pour modifier votre contenu", highlight: true, bold: true },
+];
+
 const OffreMensuelle = () => {
   const [billingMode, setBillingMode] = useState<'monthly' | 'oneshot'>('monthly');
   const [testimonialIndex, setTestimonialIndex] = useState(0);
@@ -89,27 +114,27 @@ const OffreMensuelle = () => {
       <Navigation />
 
       {/* ── HERO ── */}
-      <section className="pt-28 pb-12 sm:pt-32 sm:pb-20 bg-background">
+      <section className="pt-28 pb-10 sm:pt-32 sm:pb-16 bg-background">
         <div className="container mx-auto px-5 sm:px-6 text-center max-w-4xl">
-          <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-6 animate-fade-in">
+          <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-5 animate-fade-in">
             🔑 Propriétaire · 📍 Visible sur Google · ⚡ Livré en 7 jours
           </span>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.15] mb-5 animate-fade-in">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.15] mb-4 animate-fade-in">
             Votre site internet professionnel pour seulement{' '}
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'var(--gradient-primary)' }}>
               39&nbsp;€/mois
             </span>
           </h1>
 
-          <p className="text-muted-foreground text-base sm:text-xl max-w-2xl mx-auto mb-3 animate-fade-in">
+          <p className="text-muted-foreground text-sm sm:text-xl max-w-2xl mx-auto mb-2.5 animate-fade-in">
             <strong className="text-foreground">Vous êtes propriétaire</strong> de votre site. Design sur-mesure, SEO optimisé pour Google, hébergement et support inclus.
           </p>
-          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-8 animate-fade-in">
+          <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto mb-7 animate-fade-in">
             On s'occupe de tout pour que vous puissiez vous concentrer sur votre activité.
           </p>
 
-          <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4 mb-6 animate-fade-in">
+          <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4 mb-5 animate-fade-in">
             <Button asChild size="lg" className="w-full sm:w-auto text-base sm:text-lg px-8 py-6 bg-primary hover:bg-primary/90">
               <Link to="/contact">
                 Lancer mon site
@@ -124,18 +149,18 @@ const OffreMensuelle = () => {
             </Button>
           </div>
 
-          {/* Trust badges mobile */}
-          <div className="flex flex-wrap justify-center gap-3 text-xs text-muted-foreground animate-fade-in">
+          {/* Trust badges */}
+          <div className="flex flex-wrap justify-center gap-2.5 text-[11px] sm:text-xs text-muted-foreground animate-fade-in">
             <span className="flex items-center gap-1.5 bg-muted/60 px-3 py-1.5 rounded-full">
-              <Key className="w-3.5 h-3.5 text-primary" />
+              <Key className="w-3 h-3 text-primary" />
               Propriétaire du site
             </span>
             <span className="flex items-center gap-1.5 bg-muted/60 px-3 py-1.5 rounded-full">
-              <Search className="w-3.5 h-3.5 text-primary" />
+              <Search className="w-3 h-3 text-primary" />
               Visible sur Google
             </span>
             <span className="flex items-center gap-1.5 bg-muted/60 px-3 py-1.5 rounded-full">
-              <Shield className="w-3.5 h-3.5 text-primary" />
+              <Shield className="w-3 h-3 text-primary" />
               Sans engagement
             </span>
           </div>
@@ -145,118 +170,144 @@ const OffreMensuelle = () => {
       {/* ── PORTFOLIO ── */}
       <Portfolio />
 
-      {/* ── NOTRE APPROCHE ── */}
-      <section className="py-12 sm:py-20 bg-background">
-        <div className="container mx-auto px-5 sm:px-6 max-w-3xl">
-          <span className="block text-center mb-3">
-            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
-              <span className="w-2 h-2 rounded-full bg-primary" />
-              Notre approche
+      {/* ── NOTRE APPROCHE — CAROUSEL ── */}
+      <AnimatedSection animation="fade-up">
+        <section className="py-10 sm:py-16 bg-background">
+          <div className="container mx-auto px-5 sm:px-6 max-w-4xl">
+            <span className="block text-center mb-3">
+              <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                Notre approche
+              </span>
             </span>
-          </span>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-foreground text-center mb-8 sm:mb-14 leading-tight">
-            Un site qui vous appartient, visible sur Google
-          </h2>
+            <h2 className="text-2xl sm:text-4xl font-bold text-foreground text-center mb-8 leading-tight">
+              Un site qui vous appartient, visible sur Google
+            </h2>
 
-          <div className="space-y-4 sm:space-y-6">
-            {approachSteps.map((step, i) => (
-              <Card key={i} className="p-5 sm:p-8 bg-muted/40 border-0 shadow-none">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary flex items-center justify-center mb-3 sm:mb-4">
-                  {step.icon}
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1.5 sm:mb-2">{step.title}</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{step.description}</p>
-              </Card>
-            ))}
+            {/* Carousel on mobile, grid on desktop */}
+            <div className="sm:hidden">
+              <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+                <CarouselContent className="-ml-3">
+                  {approachSteps.map((step, i) => (
+                    <CarouselItem key={i} className="pl-3 basis-[85%]">
+                      <Card className="p-5 bg-muted/40 border-0 shadow-none h-full">
+                        <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center mb-3">
+                          {step.icon}
+                        </div>
+                        <h3 className="text-base font-bold text-foreground mb-1.5">{step.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+              <div className="flex justify-center mt-3 text-[11px] text-muted-foreground">
+                <ChevronLeft className="w-3.5 h-3.5 mr-1" />
+                <span>Glissez pour découvrir</span>
+                <ChevronRight className="w-3.5 h-3.5 ml-1" />
+              </div>
+            </div>
+
+            <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {approachSteps.map((step, i) => (
+                <Card key={i} className="p-6 bg-muted/40 border-0 shadow-none">
+                  <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center mb-3">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-1.5">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                </Card>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <Button asChild size="lg" className="w-full sm:w-auto text-base px-8 py-6 bg-primary hover:bg-primary/90">
+                <Link to="/contact">
+                  Lancer mon site
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+            </div>
           </div>
-
-          <div className="text-center mt-8 sm:mt-10">
-            <Button asChild size="lg" className="w-full sm:w-auto text-base sm:text-lg px-8 py-6 bg-primary hover:bg-primary/90">
-              <Link to="/contact">
-                Lancer mon site
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* ── COMPARAISON ── */}
-      <section className="py-12 sm:py-20 bg-muted/30">
-        <div className="container mx-auto px-5 sm:px-6 max-w-3xl">
-          <span className="block text-center mb-3">
-            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
-              <span className="w-2 h-2 rounded-full bg-primary" />
-              Pourquoi ConvertiLab ?
+      <AnimatedSection animation="fade-up">
+        <section className="py-10 sm:py-16 bg-muted/30">
+          <div className="container mx-auto px-5 sm:px-6 max-w-3xl">
+            <span className="block text-center mb-3">
+              <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                Pourquoi ConvertiLab ?
+              </span>
             </span>
-          </span>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-foreground text-center mb-8 sm:mb-14 leading-tight">
-            Arrêtez de louer votre site. Devenez propriétaire.
-          </h2>
+            <h2 className="text-2xl sm:text-4xl font-bold text-foreground text-center mb-8 leading-tight">
+              Arrêtez de louer votre site. Devenez propriétaire.
+            </h2>
 
-          {/* Sans */}
-          <Card className="p-5 sm:p-8 bg-muted/40 border-0 shadow-none mb-4 sm:mb-6">
-            <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6">Sans ConvertiLab</h3>
-            <ul className="space-y-3 sm:space-y-4">
-              {withoutUs.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <XCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
-                  <span className="text-sm sm:text-base text-muted-foreground">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Card>
-
-          {/* Avec */}
-          <Card className="p-5 sm:p-8 bg-foreground text-primary-foreground border-0 shadow-none">
-            <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">
-              Converti<span className="text-primary">Lab</span>
-            </h3>
-            <ul className="space-y-3 sm:space-y-4">
-              {withUs.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm sm:text-base text-primary-foreground/90">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Card>
-        </div>
-      </section>
-
-      {/* ── TÉMOIGNAGES ── */}
-      <section className="py-12 sm:py-20 bg-background">
-        <div className="container mx-auto px-5 sm:px-6 max-w-3xl">
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-foreground text-center mb-3 sm:mb-4 leading-tight">
-            Ils sont propriétaires de leur site
-          </h2>
-          <p className="text-sm sm:text-lg text-muted-foreground text-center mb-8 sm:mb-12">
-            Des entrepreneurs choisissent ConvertiLab pour avoir un site professionnel, visible sur Google et dont ils sont propriétaires.
-          </p>
-
-          <div className="relative">
-            <Card className="p-6 sm:p-10 bg-muted/40 border-0 shadow-none text-center">
-              <div className="flex justify-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-primary" />
+            <Card className="p-5 sm:p-8 bg-muted/40 border-0 shadow-none mb-4">
+              <h3 className="text-base sm:text-xl font-bold text-foreground mb-4">Sans ConvertiLab</h3>
+              <ul className="space-y-3">
+                {withoutUs.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-destructive flex-shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-muted-foreground">{item}</span>
+                  </li>
                 ))}
-              </div>
-              <p className="text-base sm:text-xl font-medium text-foreground mb-5 sm:mb-6 leading-relaxed italic">
-                "{testimonials[testimonialIndex].quote}"
-              </p>
-              <p className="font-bold text-foreground text-sm sm:text-base">{testimonials[testimonialIndex].name}</p>
-              <p className="text-muted-foreground text-xs sm:text-sm">{testimonials[testimonialIndex].company}</p>
+              </ul>
             </Card>
 
-            <div className="flex justify-center gap-3 mt-5">
+            <Card className="p-5 sm:p-8 bg-foreground text-primary-foreground border-0 shadow-none">
+              <h3 className="text-base sm:text-xl font-bold mb-4">
+                Converti<span className="text-primary">Lab</span>
+              </h3>
+              <ul className="space-y-3">
+                {withUs.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-primary-foreground/90">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      {/* ── TÉMOIGNAGES ── */}
+      <AnimatedSection animation="fade-up">
+        <section className="py-10 sm:py-16 bg-background">
+          <div className="container mx-auto px-5 sm:px-6 max-w-3xl">
+            <h2 className="text-2xl sm:text-4xl font-bold text-foreground text-center mb-2 leading-tight">
+              Ils sont propriétaires de leur site
+            </h2>
+            <p className="text-xs sm:text-base text-muted-foreground text-center mb-8">
+              Des entrepreneurs choisissent ConvertiLab pour un site pro, visible sur Google.
+            </p>
+
+            <Card className="p-5 sm:p-10 bg-muted/40 border-0 shadow-none text-center">
+              <div className="flex justify-center gap-0.5 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-primary fill-primary" />
+                ))}
+              </div>
+              <p className="text-sm sm:text-lg font-medium text-foreground mb-4 leading-relaxed italic">
+                "{testimonials[testimonialIndex].quote}"
+              </p>
+              <p className="font-bold text-foreground text-xs sm:text-sm">{testimonials[testimonialIndex].name}</p>
+              <p className="text-muted-foreground text-[10px] sm:text-xs">{testimonials[testimonialIndex].company}</p>
+            </Card>
+
+            <div className="flex items-center justify-center gap-2 mt-4">
               <button
                 onClick={prevTestimonial}
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 transition-colors active:scale-95"
-                aria-label="Témoignage précédent"
+                className="w-8 h-8 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 transition-colors active:scale-95"
+                aria-label="Précédent"
               >
-                <ChevronLeft className="w-5 h-5 text-foreground" />
+                <ChevronLeft className="w-4 h-4 text-foreground" />
               </button>
               {testimonials.map((_, i) => (
                 <button
@@ -268,165 +319,159 @@ const OffreMensuelle = () => {
               ))}
               <button
                 onClick={nextTestimonial}
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 transition-colors active:scale-95"
-                aria-label="Témoignage suivant"
+                className="w-8 h-8 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 transition-colors active:scale-95"
+                aria-label="Suivant"
               >
-                <ChevronRight className="w-5 h-5 text-foreground" />
+                <ChevronRight className="w-4 h-4 text-foreground" />
               </button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* ── TARIFS ── */}
-      <section id="tarifs" className="py-12 sm:py-20 bg-muted/30">
-        <div className="container mx-auto px-5 sm:px-6 max-w-3xl">
-          <span className="block text-center mb-3">
-            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
-              <span className="w-2 h-2 rounded-full bg-primary" />
-              Tarifs
-            </span>
-          </span>
-
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-foreground text-center mb-3 sm:mb-4 leading-tight">
-            Des offres simples et transparentes
-          </h2>
-          <p className="text-sm sm:text-lg text-muted-foreground text-center mb-8 sm:mb-10 max-w-xl mx-auto">
-            Tarification claire, sans frais cachés. Vous êtes propriétaire de votre site dans tous les cas.
-          </p>
-
-          {/* Toggle */}
-          <div className="flex items-center justify-center gap-3 mb-8 sm:mb-10">
-            <span className={`text-xs sm:text-sm font-medium ${billingMode === 'oneshot' ? 'text-foreground' : 'text-muted-foreground'}`}>
-              Paiement unique
-            </span>
-            <button
-              onClick={() => setBillingMode(billingMode === 'monthly' ? 'oneshot' : 'monthly')}
-              className={`relative w-12 h-6 sm:w-14 sm:h-7 rounded-full transition-colors ${billingMode === 'monthly' ? 'bg-primary' : 'bg-muted-foreground/30'}`}
-              aria-label="Changer le mode de paiement"
-            >
-              <span
-                className={`absolute top-0.5 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-background shadow transition-transform ${billingMode === 'monthly' ? 'translate-x-6 sm:translate-x-7' : 'translate-x-0.5'}`}
-              />
-            </button>
-            <span className={`text-xs sm:text-sm font-medium ${billingMode === 'monthly' ? 'text-foreground' : 'text-muted-foreground'}`}>
-              Mensuel
-            </span>
-            {billingMode === 'monthly' && (
-              <span className="text-[10px] sm:text-xs text-primary font-semibold">(-17%)</span>
-            )}
-          </div>
-
-          {/* Pricing cards */}
-          <div className="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6">
-            {/* Essentiel */}
-            <Card className="p-5 sm:p-8 border-2 border-border bg-background">
-              <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">Essentiel</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm mb-5">Idéal pour les indépendants et artisans</p>
-
-              <div className="mb-5">
-                <span className="text-3xl sm:text-5xl font-extrabold text-foreground">
-                  {billingMode === 'monthly' ? '39' : '468'}€
-                </span>
-                <span className="text-muted-foreground text-sm ml-1">
-                  {billingMode === 'monthly' ? '/mois' : ' unique'}
-                </span>
-              </div>
-
-              <ul className="space-y-2.5 mb-6">
-                {[
-                  "Vous êtes propriétaire du site",
-                  "Site vitrine jusqu'à 5 pages",
-                  "Design responsive sur-mesure",
-                  "SEO optimisé — visible sur Google",
-                  "Hébergement & SSL inclus",
-                  "Support par email",
-                  "Livraison en 7 jours",
-                ].map((feat, i) => (
-                  <li key={i} className="flex items-start gap-2.5">
-                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-foreground">{feat}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Button asChild size="lg" variant="outline" className="w-full text-sm sm:text-base">
-                <Link to="/contact">
-                  Choisir Essentiel
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-            </Card>
-
-            {/* Pro */}
-            <Card className="p-5 sm:p-8 border-2 border-primary bg-background relative overflow-hidden">
-              <span className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-primary text-primary-foreground text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full">
-                Populaire
+      <AnimatedSection animation="fade-up">
+        <section id="tarifs" className="py-10 sm:py-16 bg-muted/30">
+          <div className="container mx-auto px-5 sm:px-6 max-w-3xl">
+            <span className="block text-center mb-3">
+              <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                Tarifs
               </span>
+            </span>
 
-              <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">Professionnel</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm mb-5">Pour maximiser votre visibilité Google</p>
+            <h2 className="text-2xl sm:text-4xl font-bold text-foreground text-center mb-2 leading-tight">
+              Des offres simples et transparentes
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground text-center mb-7 max-w-md mx-auto">
+              Vous êtes propriétaire de votre site dans tous les cas. Sans frais cachés.
+            </p>
 
-              <div className="mb-5">
-                <span className="text-3xl sm:text-5xl font-extrabold text-foreground">
-                  {billingMode === 'monthly' ? '69' : '828'}€
+            {/* Toggle */}
+            <div className="flex items-center justify-center gap-3 mb-7">
+              <span className={`text-xs font-medium ${billingMode === 'oneshot' ? 'text-foreground' : 'text-muted-foreground'}`}>
+                Paiement unique
+              </span>
+              <button
+                onClick={() => setBillingMode(billingMode === 'monthly' ? 'oneshot' : 'monthly')}
+                className={`relative w-12 h-6 rounded-full transition-colors ${billingMode === 'monthly' ? 'bg-primary' : 'bg-muted-foreground/30'}`}
+                aria-label="Changer le mode de paiement"
+              >
+                <span
+                  className={`absolute top-0.5 w-5 h-5 rounded-full bg-background shadow transition-transform ${billingMode === 'monthly' ? 'translate-x-6' : 'translate-x-0.5'}`}
+                />
+              </button>
+              <span className={`text-xs font-medium ${billingMode === 'monthly' ? 'text-foreground' : 'text-muted-foreground'}`}>
+                Mensuel
+              </span>
+              {billingMode === 'monthly' && (
+                <span className="text-[10px] text-primary font-semibold">(-17%)</span>
+              )}
+            </div>
+
+            {/* Pricing cards */}
+            <div className="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-5">
+              {/* Essentiel */}
+              <Card className="p-5 sm:p-7 border-2 border-border bg-background">
+                <h3 className="text-sm sm:text-lg font-bold text-foreground mb-0.5">Essentiel</h3>
+                <p className="text-muted-foreground text-[10px] sm:text-xs mb-4">Idéal pour les indépendants et artisans</p>
+
+                <div className="mb-4">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-foreground">
+                    {billingMode === 'monthly' ? '39' : '468'}€
+                  </span>
+                  <span className="text-muted-foreground text-xs ml-1">
+                    {billingMode === 'monthly' ? '/mois' : ' unique'}
+                  </span>
+                </div>
+
+                <ul className="space-y-2 mb-5">
+                  {[...sharedFeatures, ...essentialExtras].map((feat, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-[11px] sm:text-xs text-foreground">{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Button asChild size="lg" variant="outline" className="w-full text-xs sm:text-sm">
+                  <Link to="/contact">
+                    Choisir Essentiel
+                    <ArrowRight className="ml-2 w-3.5 h-3.5" />
+                  </Link>
+                </Button>
+              </Card>
+
+              {/* Pro */}
+              <Card className="p-5 sm:p-7 border-2 border-primary bg-background relative overflow-hidden">
+                <span className="absolute top-3 right-3 bg-primary text-primary-foreground text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full">
+                  Populaire
                 </span>
-                <span className="text-muted-foreground text-sm ml-1">
-                  {billingMode === 'monthly' ? '/mois' : ' unique'}
-                </span>
-              </div>
 
-              <ul className="space-y-2.5 mb-6">
-                {[
-                  "Vous êtes propriétaire du site",
-                  "Site jusqu'à 10 pages",
-                  "Design premium sur-mesure",
-                  "SEO avancé + Google My Business",
-                  "Hébergement premium & SSL",
-                  "Support prioritaire",
-                  "Blog intégré pour le SEO",
-                  "Formulaire de contact avancé",
-                  "Livraison en 7 jours",
-                ].map((feat, i) => (
-                  <li key={i} className="flex items-start gap-2.5">
-                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-foreground">{feat}</span>
-                  </li>
-                ))}
-              </ul>
+                <h3 className="text-sm sm:text-lg font-bold text-foreground mb-0.5">Professionnel</h3>
+                <p className="text-muted-foreground text-[10px] sm:text-xs mb-4">Pour maximiser votre visibilité Google</p>
 
-              <Button asChild size="lg" className="w-full text-sm sm:text-base bg-primary hover:bg-primary/90">
-                <Link to="/contact">
-                  Choisir Professionnel
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-            </Card>
+                <div className="mb-4">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-foreground">
+                    {billingMode === 'monthly' ? '69' : '828'}€
+                  </span>
+                  <span className="text-muted-foreground text-xs ml-1">
+                    {billingMode === 'monthly' ? '/mois' : ' unique'}
+                  </span>
+                </div>
+
+                <ul className="space-y-2 mb-5">
+                  {/* Shared features */}
+                  {sharedFeatures.map((feat, i) => (
+                    <li key={`s-${i}`} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-[11px] sm:text-xs text-foreground">{feat}</span>
+                    </li>
+                  ))}
+                  {/* Pro extras — highlighted */}
+                  {proExtras.map((feat, i) => (
+                    <li key={`p-${i}`} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className={`text-[11px] sm:text-xs ${feat.bold ? 'font-bold text-primary' : 'text-primary font-medium'}`}>
+                        {feat.text}
+                        {feat.bold && <Monitor className="w-3 h-3 inline ml-1 -mt-0.5" />}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Button asChild size="lg" className="w-full text-xs sm:text-sm bg-primary hover:bg-primary/90">
+                  <Link to="/contact">
+                    Choisir Professionnel
+                    <ArrowRight className="ml-2 w-3.5 h-3.5" />
+                  </Link>
+                </Button>
+              </Card>
+            </div>
+
+            <p className="text-center text-[10px] sm:text-xs text-muted-foreground mt-5">
+              🔑 Propriétaire dans les 2 formules · 📍 Référencé sur Google · 🔒 Sans engagement
+            </p>
           </div>
-
-          {/* Reassurance sous les tarifs */}
-          <p className="text-center text-xs sm:text-sm text-muted-foreground mt-6">
-            🔑 Vous êtes propriétaire dans les 2 formules · 📍 Référencé sur Google · 🔒 Sans engagement
-          </p>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* ── CTA FINAL ── */}
-      <section className="py-12 sm:py-20 bg-primary">
+      <section className="py-10 sm:py-16 bg-primary">
         <div className="container mx-auto px-5 sm:px-6 text-center max-w-2xl">
-          <h2 className="text-2xl sm:text-4xl font-bold text-primary-foreground mb-3 sm:mb-4">
+          <h2 className="text-xl sm:text-3xl font-bold text-primary-foreground mb-2 sm:mb-3">
             Prêt à avoir votre propre site internet ?
           </h2>
-          <p className="text-primary-foreground/80 mb-6 sm:mb-8 text-sm sm:text-lg">
-            Devenez propriétaire d'un site professionnel, visible sur Google. Consultation gratuite, sans engagement.
+          <p className="text-primary-foreground/80 mb-5 text-xs sm:text-base">
+            Devenez propriétaire d'un site professionnel, visible sur Google. Sans engagement.
           </p>
-          <Button asChild size="lg" className="w-full sm:w-auto bg-background text-foreground hover:bg-background/90 text-base sm:text-lg px-8 py-6">
+          <Button asChild size="lg" className="w-full sm:w-auto bg-background text-foreground hover:bg-background/90 text-sm sm:text-lg px-8 py-5 sm:py-6">
             <Link to="/contact">
               Lancer mon site maintenant
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
           </Button>
-          <p className="text-primary-foreground/60 text-xs sm:text-sm mt-5">
+          <p className="text-primary-foreground/60 text-[10px] sm:text-xs mt-4">
             ⚡ Livré en 7 jours · 🔑 Vous êtes propriétaire · 📍 Visible sur Google
           </p>
         </div>
