@@ -5,23 +5,9 @@ import { Card } from "@/components/ui/card";
 import { SEO } from "@/components/SEO";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Portfolio from "@/components/Portfolio";
 import { ArrowRight, CheckCircle, XCircle, Globe, Paintbrush, Rocket, Headphones, Star, ChevronLeft, ChevronRight, Search, Key, Shield } from 'lucide-react';
 
-// ── Portfolio data ──
-const portfolioItems = [
-  { title: "Site vitrine restaurant", category: "Restauration" },
-  { title: "Landing page coaching", category: "Services" },
-  { title: "Site artisan plombier", category: "Artisans" },
-  { title: "Boutique bijoux", category: "E-commerce" },
-  { title: "Cabinet avocat", category: "Professionnel" },
-  { title: "Studio photo", category: "Créatif" },
-  { title: "Coach sportif", category: "Bien-être" },
-  { title: "Agence immobilière", category: "Immobilier" },
-  { title: "Salon de coiffure", category: "Beauté" },
-  { title: "Cabinet dentaire", category: "Santé" },
-  { title: "Auto-école", category: "Formation" },
-  { title: "Fleuriste", category: "Commerce" },
-];
 
 const approachSteps = [
   {
@@ -156,38 +142,8 @@ const OffreMensuelle = () => {
         </div>
       </section>
 
-      {/* ── PORTFOLIO GRID ── */}
-      <section className="py-12 sm:py-20 bg-muted/30">
-        <div className="container mx-auto px-5 sm:px-6">
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-foreground text-center mb-3 sm:mb-4">
-            Découvrez nos réalisations
-          </h2>
-          <div className="text-center mb-8 sm:mb-10">
-            <Button asChild variant="default" size="sm" className="bg-primary hover:bg-primary/90">
-              <Link to="/portfolio">
-                Voir plus de réalisations
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-4">
-            {portfolioItems.map((item, i) => (
-              <div
-                key={i}
-                className="relative aspect-[4/5] rounded-xl overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 group cursor-pointer hover:shadow-lg transition-all duration-300"
-              >
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-3 sm:p-4 text-center">
-                  <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-2 opacity-60" />
-                  <p className="font-semibold text-foreground text-xs sm:text-base leading-tight">{item.title}</p>
-                  <span className="text-[10px] sm:text-xs text-muted-foreground mt-1">{item.category}</span>
-                </div>
-                <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── PORTFOLIO ── */}
+      <Portfolio />
 
       {/* ── NOTRE APPROCHE ── */}
       <section className="py-12 sm:py-20 bg-background">
