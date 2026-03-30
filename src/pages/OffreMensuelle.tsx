@@ -8,21 +8,6 @@ import Footer from "@/components/Footer";
 import Portfolio from "@/components/Portfolio";
 import { ArrowRight, CheckCircle, XCircle, Globe, Paintbrush, Rocket, Headphones, Star, ChevronLeft, ChevronRight, Search, Key, Shield } from 'lucide-react';
 
-// ── Portfolio data ──
-const portfolioItems = [
-  { title: "Site vitrine restaurant", category: "Restauration" },
-  { title: "Landing page coaching", category: "Services" },
-  { title: "Site artisan plombier", category: "Artisans" },
-  { title: "Boutique bijoux", category: "E-commerce" },
-  { title: "Cabinet avocat", category: "Professionnel" },
-  { title: "Studio photo", category: "Créatif" },
-  { title: "Coach sportif", category: "Bien-être" },
-  { title: "Agence immobilière", category: "Immobilier" },
-  { title: "Salon de coiffure", category: "Beauté" },
-  { title: "Cabinet dentaire", category: "Santé" },
-  { title: "Auto-école", category: "Formation" },
-  { title: "Fleuriste", category: "Commerce" },
-];
 
 const approachSteps = [
   {
