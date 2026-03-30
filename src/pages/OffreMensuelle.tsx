@@ -73,6 +73,21 @@ const testimonials = [
 ];
 
 // Features for pricing — shared = same in both, proOnly = highlighted extras
+// Unified feature list for symmetric comparison
+const allFeatures = [
+  { label: "Vous êtes propriétaire du site", essentiel: true, pro: true, premium: true },
+  { label: "Design responsive sur-mesure", essentiel: true, pro: true, premium: true },
+  { label: "SEO — visible sur Google", essentiel: "Base", pro: "Avancé + GMB", premium: "Avancé + GMB" },
+  { label: "Hébergement & SSL inclus", essentiel: true, pro: true, premium: true },
+  { label: "Livraison en 7 jours", essentiel: true, pro: true, premium: true },
+  { label: "Nombre de pages", essentiel: "3 pages", pro: "7 pages", premium: "Illimité" },
+  { label: "Blog intégré", essentiel: false, pro: true, premium: true },
+  { label: "Formulaire avancé", essentiel: false, pro: true, premium: true },
+  { label: "Support", essentiel: "Email", pro: "Prioritaire", premium: "Dédié" },
+  { label: "Page admin modifiable", essentiel: false, pro: false, premium: true },
+  { label: "Maintenance & mises à jour", essentiel: false, pro: false, premium: true },
+];
+
 const pricingOffers = [
   {
     name: "Essentiel",
@@ -80,15 +95,7 @@ const pricingOffers = [
     monthlyPrice: "39,50",
     oneshotPrice: "474",
     desc: "Idéal pour démarrer en ligne",
-    features: [
-      "Vous êtes propriétaire du site",
-      "Site vitrine jusqu'à 3 pages",
-      "Design responsive sur-mesure",
-      "SEO de base — visible sur Google",
-      "Hébergement & SSL inclus",
-      "Support par email",
-      "Livraison en 7 jours",
-    ],
+    key: "essentiel" as const,
     highlight: false,
     badge: null,
   },
@@ -98,17 +105,7 @@ const pricingOffers = [
     monthlyPrice: "47,50",
     oneshotPrice: "570",
     desc: "Le choix le plus populaire",
-    features: [
-      "Vous êtes propriétaire du site",
-      "Site vitrine jusqu'à 7 pages",
-      "Design premium sur-mesure",
-      "SEO avancé + Google My Business",
-      "Hébergement & SSL inclus",
-      "Blog intégré pour le SEO",
-      "Formulaire de contact avancé",
-      "Support prioritaire",
-      "Livraison en 7 jours",
-    ],
+    key: "pro" as const,
     highlight: false,
     badge: null,
   },
@@ -118,19 +115,7 @@ const pricingOffers = [
     monthlyPrice: "52,50",
     oneshotPrice: "630",
     desc: "Tout inclus, sans compromis",
-    features: [
-      "Vous êtes propriétaire du site",
-      "Pages illimitées",
-      "Design premium sur-mesure",
-      "SEO avancé + Google My Business",
-      "Hébergement & SSL inclus",
-      "Blog intégré pour le SEO",
-      "Formulaire de contact avancé",
-      "Page admin pour modifier votre contenu",
-      "Maintenance & mises à jour incluses",
-      "Support prioritaire dédié",
-      "Livraison en 7 jours",
-    ],
+    key: "premium" as const,
     highlight: true,
     badge: "Populaire",
   },
@@ -444,12 +429,21 @@ const OffreMensuelle = () => {
                   </div>
 
                   <ul className="space-y-2 mb-5">
-                    {offer.features.map((feat, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-[11px] sm:text-xs text-foreground">{feat}</span>
-                      </li>
-                    ))}
+                    {allFeatures.map((feat, i) => {
+                      const val = feat[offer.key];
+                      return (
+                        <li key={i} className="flex items-start gap-2">
+                          {val === false ? (
+                            <span className="w-4 h-4 flex-shrink-0 mt-0.5 text-muted-foreground/30">—</span>
+                          ) : (
+                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                          )}
+                          <span className={`text-[11px] sm:text-xs ${val === false ? 'text-muted-foreground/40 line-through' : 'text-foreground'}`}>
+                            {typeof val === 'string' ? `${feat.label} : ${val}` : feat.label}
+                          </span>
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   <Button
