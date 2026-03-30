@@ -302,7 +302,7 @@ const DevisPage = () => {
               {step === 1 && (
                 <div key="step1" className={animClass}>
                   <h2 className="text-lg font-bold text-foreground mb-1">Choisissez votre offre</h2>
-                  <p className="text-xs text-muted-foreground mb-4">Vous êtes propriétaire dans les 2 formules</p>
+                  <p className="text-xs text-muted-foreground mb-4">Vous êtes propriétaire dans les 3 formules</p>
 
                   {/* Recap activité */}
                   <div className="flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-lg px-3 py-2 mb-4 text-xs">
