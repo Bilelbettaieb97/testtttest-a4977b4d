@@ -136,7 +136,7 @@ const OffreMensuelle = () => {
 
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4 mb-5 animate-fade-in">
             <Button asChild size="lg" className="w-full sm:w-auto text-base sm:text-lg px-8 py-6 bg-primary hover:bg-primary/90">
-              <Link to="/contact">
+              <Link to="/offre-mensuelle/devis">
                 Lancer mon site
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
@@ -226,7 +226,7 @@ const OffreMensuelle = () => {
 
             <div className="text-center mt-8">
               <Button asChild size="lg" className="w-full sm:w-auto text-base px-8 py-6 bg-primary hover:bg-primary/90">
-                <Link to="/contact">
+                <Link to="/offre-mensuelle/devis">
                   Lancer mon site
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
@@ -402,7 +402,7 @@ const OffreMensuelle = () => {
                 </ul>
 
                 <Button asChild size="lg" variant="outline" className="w-full text-xs sm:text-sm">
-                  <Link to="/contact">
+                  <Link to="/offre-mensuelle/devis">
                     Choisir Essentiel
                     <ArrowRight className="ml-2 w-3.5 h-3.5" />
                   </Link>
@@ -448,7 +448,7 @@ const OffreMensuelle = () => {
                 </ul>
 
                 <Button asChild size="lg" className="w-full text-xs sm:text-sm bg-primary hover:bg-primary/90">
-                  <Link to="/contact">
+                  <Link to="/offre-mensuelle/devis">
                     Choisir Professionnel
                     <ArrowRight className="ml-2 w-3.5 h-3.5" />
                   </Link>
@@ -473,7 +473,7 @@ const OffreMensuelle = () => {
             Devenez propriétaire d'un site professionnel, visible sur Google. Sans engagement.
           </p>
           <Button asChild size="lg" className="w-full sm:w-auto bg-background text-foreground hover:bg-background/90 text-sm sm:text-lg px-8 py-5 sm:py-6">
-            <Link to="/contact">
+            <Link to="/offre-mensuelle/devis">
               Lancer mon site maintenant
               <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
