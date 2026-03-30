@@ -37,6 +37,7 @@ const AboutPage = lazy(() => import("./pages/AboutPage"));
 const PolitiqueConfidentialite = lazy(() => import("./pages/PolitiqueConfidentialite"));
 const DemandeMaquette = lazy(() => import("./pages/DemandeMaquette"));
 const OffreMensuelle = lazy(() => import("./pages/OffreMensuelle"));
+const DevisPage = lazy(() => import("./pages/DevisPage"));
 
 const queryClient = new QueryClient();
 
@@ -89,6 +90,7 @@ const App = () => (
               <Route path="/blog/:slug" element={<BlogArticle />} />
               <Route path="/demande-maquette" element={<DemandeMaquette />} />
               <Route path="/offre-mensuelle" element={<OffreMensuelle />} />
+              <Route path="/devis" element={<DevisPage />} />
               <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
