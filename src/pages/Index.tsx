@@ -132,8 +132,6 @@ const Index = () => {
         <Footer />
       </Suspense>
       <Suspense fallback={null}>
-        <ExitIntentPopup />
-        
         <SocialProofToast />
         <StickyMobileCTA />
       </Suspense>
