@@ -345,3 +345,11 @@
     background: linear-gradient(to bottom, #7c3aed, #db2777);
   }
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
