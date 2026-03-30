@@ -432,7 +432,7 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
                   onClick={() => setInternalCategory(cat.id)}
                   className={`inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-sm font-medium transition-all duration-300 border-2 flex-shrink-0 ${
                     isActive
-                      ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25 scale-105'
+                      ? 'bg-background text-primary border-primary shadow-md scale-105 font-semibold'
                       : 'bg-background text-muted-foreground border-border hover:border-primary/40 hover:text-foreground hover:shadow-md'
                   }`}
                 >
