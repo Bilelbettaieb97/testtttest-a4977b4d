@@ -117,7 +117,7 @@ const OffreMensuelle = () => {
       <section className="pt-28 pb-10 sm:pt-32 sm:pb-16 bg-background">
         <div className="container mx-auto px-5 sm:px-6 text-center max-w-4xl">
           <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-5 animate-fade-in">
-            🔑 Propriétaire · 📍 Visible sur Google · ⚡ Livré en 7 jours
+            🔑 Vous êtes propriétaire de votre site
           </span>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.15] mb-4 animate-fade-in">
