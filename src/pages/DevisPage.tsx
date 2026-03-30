@@ -145,7 +145,14 @@ const DevisPage = () => {
       if (error) throw error;
 
       await supabase.functions.invoke('notify-contact', {
-        body: { ...formData, project: "vitrine", offer: formData.offer },
+        body: {
+          type: 'devis',
+          ...formData,
+          project: "vitrine",
+          offer: formData.offer,
+          offerName: selectedOffer?.name,
+          offerPrice: selectedOffer?.price,
+        },
       });
 
       // Confetti
