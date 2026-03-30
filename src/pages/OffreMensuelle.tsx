@@ -171,7 +171,7 @@ const OffreMensuelle = () => {
       <Portfolio />
 
       {/* ── NOTRE APPROCHE — CAROUSEL ── */}
-      <AnimatedSection animation="fade-in">
+      <AnimatedSection animation="fade-up">
         <section className="py-10 sm:py-16 bg-background">
           <div className="container mx-auto px-5 sm:px-6 max-w-4xl">
             <span className="block text-center mb-3">
@@ -234,7 +234,7 @@ const OffreMensuelle = () => {
       </AnimatedSection>
 
       {/* ── COMPARAISON ── */}
-      <AnimatedSection animation="fade-in">
+      <AnimatedSection animation="fade-up">
         <section className="py-10 sm:py-16 bg-muted/30">
           <div className="container mx-auto px-5 sm:px-6 max-w-3xl">
             <span className="block text-center mb-3">
@@ -278,7 +278,7 @@ const OffreMensuelle = () => {
       </AnimatedSection>
 
       {/* ── TÉMOIGNAGES ── */}
-      <AnimatedSection animation="fade-in">
+      <AnimatedSection animation="fade-up">
         <section className="py-10 sm:py-16 bg-background">
           <div className="container mx-auto px-5 sm:px-6 max-w-3xl">
             <h2 className="text-2xl sm:text-4xl font-bold text-foreground text-center mb-2 leading-tight">
@@ -330,7 +330,7 @@ const OffreMensuelle = () => {
       </AnimatedSection>
 
       {/* ── TARIFS ── */}
-      <AnimatedSection animation="fade-in">
+      <AnimatedSection animation="fade-up">
         <section id="tarifs" className="py-10 sm:py-16 bg-muted/30">
           <div className="container mx-auto px-5 sm:px-6 max-w-3xl">
             <span className="block text-center mb-3">
