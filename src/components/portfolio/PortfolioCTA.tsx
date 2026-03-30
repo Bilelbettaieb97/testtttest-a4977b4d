@@ -18,7 +18,7 @@ const PortfolioCTA = () => {
           size="lg" 
           className="w-full sm:w-auto bg-background text-foreground hover:bg-background/90 text-base sm:text-lg px-8 py-6 font-semibold shadow-lg"
         >
-          <Link to="/contact">
+          <Link to="/offre-mensuelle/devis">
             Lancer mon site
             <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
