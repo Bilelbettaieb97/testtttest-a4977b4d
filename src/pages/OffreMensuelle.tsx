@@ -149,20 +149,20 @@ const OffreMensuelle = () => {
             </Button>
           </div>
 
-          {/* Trust badges */}
-          <div className="hidden sm:flex flex-wrap justify-center gap-2.5 text-xs text-muted-foreground animate-fade-in">
-            <span className="flex items-center gap-1.5 bg-muted/60 px-3 py-1.5 rounded-full">
-              <Key className="w-3 h-3 text-primary" />
-              Propriétaire du site
-            </span>
-            <span className="flex items-center gap-1.5 bg-muted/60 px-3 py-1.5 rounded-full">
-              <Search className="w-3 h-3 text-primary" />
-              Visible sur Google
-            </span>
-            <span className="flex items-center gap-1.5 bg-muted/60 px-3 py-1.5 rounded-full">
-              <Shield className="w-3 h-3 text-primary" />
-              Sans engagement
-            </span>
+          {/* Stats row */}
+          <div className="flex justify-center gap-6 sm:gap-10 text-center animate-fade-in">
+            <div>
+              <p className="text-lg sm:text-2xl font-bold text-primary">+50</p>
+              <p className="text-[10px] sm:text-xs text-muted-foreground">Clients</p>
+            </div>
+            <div>
+              <p className="text-lg sm:text-2xl font-bold text-primary">+280%</p>
+              <p className="text-[10px] sm:text-xs text-muted-foreground">CA moyen</p>
+            </div>
+            <div>
+              <p className="text-lg sm:text-2xl font-bold text-primary">4.9/5</p>
+              <p className="text-[10px] sm:text-xs text-muted-foreground">Satisfaction</p>
+            </div>
           </div>
         </div>
       </section>
