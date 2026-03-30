@@ -73,27 +73,67 @@ const testimonials = [
 ];
 
 // Features for pricing — shared = same in both, proOnly = highlighted extras
-const sharedFeatures = [
-  "Vous êtes propriétaire du site",
-  "Design responsive sur-mesure",
-  "SEO optimisé — visible sur Google",
-  "Hébergement & SSL inclus",
-  "Livraison en 7 jours",
-];
-
-const essentialExtras = [
-  "Site vitrine jusqu'à 5 pages",
-  "Support par email",
-];
-
-const proExtras = [
-  { text: "Site jusqu'à 10 pages", highlight: true },
-  { text: "Design premium sur-mesure", highlight: true },
-  { text: "SEO avancé + Google My Business", highlight: true },
-  { text: "Support prioritaire", highlight: true },
-  { text: "Blog intégré pour le SEO", highlight: true },
-  { text: "Formulaire de contact avancé", highlight: true },
-  { text: "Page admin pour modifier votre contenu", highlight: true, bold: true },
+const pricingOffers = [
+  {
+    name: "Essentiel",
+    value: "essentiel",
+    monthlyPrice: "39,50",
+    oneshotPrice: "474",
+    desc: "Idéal pour démarrer en ligne",
+    features: [
+      "Vous êtes propriétaire du site",
+      "Site vitrine jusqu'à 3 pages",
+      "Design responsive sur-mesure",
+      "SEO de base — visible sur Google",
+      "Hébergement & SSL inclus",
+      "Support par email",
+      "Livraison en 7 jours",
+    ],
+    highlight: false,
+    badge: null,
+  },
+  {
+    name: "Pro",
+    value: "pro",
+    monthlyPrice: "47,50",
+    oneshotPrice: "570",
+    desc: "Le choix le plus populaire",
+    features: [
+      "Vous êtes propriétaire du site",
+      "Site vitrine jusqu'à 7 pages",
+      "Design premium sur-mesure",
+      "SEO avancé + Google My Business",
+      "Hébergement & SSL inclus",
+      "Blog intégré pour le SEO",
+      "Formulaire de contact avancé",
+      "Support prioritaire",
+      "Livraison en 7 jours",
+    ],
+    highlight: true,
+    badge: "Populaire",
+  },
+  {
+    name: "Premium",
+    value: "premium",
+    monthlyPrice: "52,50",
+    oneshotPrice: "630",
+    desc: "Tout inclus, sans compromis",
+    features: [
+      "Vous êtes propriétaire du site",
+      "Pages illimitées",
+      "Design premium sur-mesure",
+      "SEO avancé + Google My Business",
+      "Hébergement & SSL inclus",
+      "Blog intégré pour le SEO",
+      "Formulaire de contact avancé",
+      "Page admin pour modifier votre contenu",
+      "Maintenance & mises à jour incluses",
+      "Support prioritaire dédié",
+      "Livraison en 7 jours",
+    ],
+    highlight: false,
+    badge: "Meilleur ROI",
+  },
 ];
 
 const OffreMensuelle = () => {
