@@ -402,7 +402,7 @@ const OffreMensuelle = () => {
                 </ul>
 
                 <Button asChild size="lg" variant="outline" className="w-full text-xs sm:text-sm">
-                  <Link to="/offre-mensuelle/devis">
+                  <Link to="/offre-mensuelle/devis?offre=essentiel">
                     Choisir Essentiel
                     <ArrowRight className="ml-2 w-3.5 h-3.5" />
                   </Link>
