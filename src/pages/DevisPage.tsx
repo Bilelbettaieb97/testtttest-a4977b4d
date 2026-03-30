@@ -45,6 +45,7 @@ const offers = [
       { text: "Support par email", highlight: false, bold: false },
     ],
     popular: false,
+    savings: "",
   },
   {
     value: "professionnel",
