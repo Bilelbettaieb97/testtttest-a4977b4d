@@ -109,8 +109,8 @@ const pricingOffers = [
       "Support prioritaire",
       "Livraison en 7 jours",
     ],
-    highlight: true,
-    badge: "Populaire",
+    highlight: false,
+    badge: null,
   },
   {
     name: "Premium",
@@ -131,8 +131,8 @@ const pricingOffers = [
       "Support prioritaire dédié",
       "Livraison en 7 jours",
     ],
-    highlight: false,
-    badge: "Meilleur ROI",
+    highlight: true,
+    badge: "Populaire",
   },
 ];
 

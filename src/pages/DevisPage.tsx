@@ -60,7 +60,7 @@ const offers = [
       { text: "Formulaire de contact avancé", highlight: true, bold: false },
       { text: "Support prioritaire", highlight: true, bold: false },
     ],
-    popular: true,
+    popular: false,
     savings: "+30€ de valeur/mois",
   },
   {
@@ -75,7 +75,7 @@ const offers = [
       { text: "Maintenance & mises à jour incluses", highlight: true, bold: false },
       { text: "Support prioritaire dédié", highlight: true, bold: false },
     ],
-    popular: false,
+    popular: true,
     savings: "Meilleur ROI",
   },
 ];
