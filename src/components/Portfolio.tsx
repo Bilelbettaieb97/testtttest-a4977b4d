@@ -422,7 +422,7 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
 
         {/* Category filter for homepage */}
         {isHomepage && (
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6">
+          <div className="flex overflow-x-auto sm:overflow-visible sm:flex-wrap sm:justify-center gap-2 sm:gap-3 mb-6 pb-1 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
             {homepageCategories.map((cat) => {
               const Icon = cat.icon;
               const isActive = internalCategory === cat.id;
@@ -430,13 +430,13 @@ const Portfolio = ({ activeCategory: externalCategory }: PortfolioProps) => {
                 <button
                   key={cat.id}
                   onClick={() => setInternalCategory(cat.id)}
-                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border-2 ${
+                  className={`inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-sm font-medium transition-all duration-300 border-2 flex-shrink-0 ${
                     isActive
                       ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25 scale-105'
                       : 'bg-background text-muted-foreground border-border hover:border-primary/40 hover:text-foreground hover:shadow-md'
                   }`}
                 >
-                  <Icon className="w-3.5 h-3.5" />
+                  <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   {cat.label}
                 </button>
               );
