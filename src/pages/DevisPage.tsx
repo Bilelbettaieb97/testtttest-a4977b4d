@@ -55,8 +55,8 @@ const offers = [
     features: [
       { text: "Tout de l'offre Essentiel", highlight: false, bold: false },
       { text: "SEO avancé + Google My Business", highlight: true, bold: false },
-      { text: "Pages illimitées", highlight: true },
-      { text: "Formulaire de contact avancé", highlight: true },
+      { text: "Pages illimitées", highlight: true, bold: false },
+      { text: "Formulaire de contact avancé", highlight: true, bold: false },
       { text: "Page admin pour modifier le contenu", highlight: true, bold: true },
     ],
     popular: true,
