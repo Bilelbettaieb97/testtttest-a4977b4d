@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { SEO } from "@/components/SEO";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Portfolio from "@/components/Portfolio";
 import { ArrowRight, CheckCircle, XCircle, Globe, Paintbrush, Rocket, Headphones, Star, ChevronLeft, ChevronRight, Search, Key, Shield } from 'lucide-react';
 
 // ── Portfolio data ──
