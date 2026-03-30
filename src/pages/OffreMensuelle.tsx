@@ -7,7 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Portfolio from "@/components/Portfolio";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ArrowRight, CheckCircle, XCircle, Globe, Paintbrush, Rocket, Headphones, Star, ChevronLeft, ChevronRight, Search, Key, Shield, Monitor } from 'lucide-react';
+import { ArrowRight, CheckCircle, XCircle, Globe, Paintbrush, Rocket, Headphones, Star, ChevronLeft, ChevronRight, Search, Key, Shield, Monitor, Users, TrendingUp } from 'lucide-react';
 import AnimatedSection from "@/components/AnimatedSection";
 
 const approachSteps = [
