@@ -94,6 +94,36 @@ function buildNewsletterEmail(data: any): { subject: string; html: string } {
   };
 }
 
+function buildDevisEmail(data: any): { subject: string; html: string } {
+  const name = escapeHtml(sanitize(data.name));
+  const email = escapeHtml(sanitize(data.email, 255));
+  const phone = escapeHtml(sanitize(data.phone, 50));
+  const company = escapeHtml(sanitize(data.company, 200));
+  const sector = escapeHtml(sanitize(data.sector, 200));
+  const companyDescription = data.companyDescription ? escapeHtml(sanitize(data.companyDescription, MAX_MESSAGE_LENGTH)) : "";
+  const offerName = escapeHtml(sanitize(data.offerName || data.offer, 100));
+  const offerPrice = escapeHtml(sanitize(data.offerPrice || "", 20));
+  const message = data.message ? escapeHtml(sanitize(data.message, MAX_MESSAGE_LENGTH)) : "";
+
+  return {
+    subject: `💼 Nouveau devis Offre Mensuelle — ${name} (${offerName})`,
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f3f4f6;padding:20px;margin:0;color:#1f2937}.container{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1)}.header{background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff;padding:30px;text-align:center}.header h1{font-size:22px;margin:0 0 5px}.header p{font-size:14px;opacity:.9;margin:0}.content{padding:30px}.field{margin-bottom:16px;padding:12px 16px;background:#f9fafb;border-radius:10px;border-left:4px solid #8b5cf6}.field-label{font-size:11px;text-transform:uppercase;color:#6b7280;font-weight:700;letter-spacing:.5px;margin-bottom:4px}.field-value{font-size:15px;color:#111827;font-weight:500}.badge{display:inline-block;background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}.cta{text-align:center;margin-top:24px}.cta a{display:inline-block;background:#8b5cf6;color:#fff;padding:12px 30px;border-radius:8px;text-decoration:none;font-weight:600}.footer{text-align:center;padding:20px;color:#9ca3af;font-size:12px}</style></head><body><div class="container">
+<div class="header"><h1>💼 Nouveau Devis — Offre Mensuelle</h1><p>Un prospect souhaite souscrire à une offre !</p></div>
+<div class="content">
+<div class="field"><div class="field-label">Offre choisie</div><div class="field-value"><span class="badge">${offerName}${offerPrice ? ` — ${offerPrice}€/mois` : ""}</span></div></div>
+<div class="field"><div class="field-label">Nom</div><div class="field-value">${name}</div></div>
+<div class="field"><div class="field-label">Email</div><div class="field-value"><a href="mailto:${email}">${email}</a></div></div>
+<div class="field"><div class="field-label">Téléphone</div><div class="field-value"><a href="tel:${phone}">${phone}</a></div></div>
+<div class="field"><div class="field-label">Entreprise</div><div class="field-value">${company}</div></div>
+<div class="field"><div class="field-label">Secteur d'activité</div><div class="field-value">${sector}</div></div>
+${companyDescription ? `<div class="field"><div class="field-label">Description de l'activité</div><div class="field-value">${companyDescription}</div></div>` : ""}
+${message ? `<div class="field"><div class="field-label">Message</div><div class="field-value">${message}</div></div>` : ""}
+<div class="cta"><a href="mailto:${email}?subject=Re: Votre devis Offre ${offerName} — ConvertiLab">Contacter le prospect</a></div>
+</div><div class="footer">ConvertiLab — Notification automatique</div></div></body></html>`,
+  };
+}
+
 function buildMockupEmail(data: any): { subject: string; html: string } {
   const name = escapeHtml(sanitize(data.name));
   const email = escapeHtml(sanitize(data.email, 255));
