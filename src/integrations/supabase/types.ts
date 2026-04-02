@@ -220,6 +220,60 @@ export type Database = {
         }
         Relationships: []
       }
+      price_estimations: {
+        Row: {
+          company: string | null
+          created_at: string
+          description: string | null
+          email: string
+          id: string
+          landing_objective: string | null
+          name: string
+          options: string[] | null
+          page_count: string | null
+          phone: string
+          product_count: string | null
+          refonte_improvements: string[] | null
+          refonte_reasons: string[] | null
+          refonte_url: string | null
+          site_type: string
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          description?: string | null
+          email: string
+          id?: string
+          landing_objective?: string | null
+          name: string
+          options?: string[] | null
+          page_count?: string | null
+          phone: string
+          product_count?: string | null
+          refonte_improvements?: string[] | null
+          refonte_reasons?: string[] | null
+          refonte_url?: string | null
+          site_type: string
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          description?: string | null
+          email?: string
+          id?: string
+          landing_objective?: string | null
+          name?: string
+          options?: string[] | null
+          page_count?: string | null
+          phone?: string
+          product_count?: string | null
+          refonte_improvements?: string[] | null
+          refonte_reasons?: string[] | null
+          refonte_url?: string | null
+          site_type?: string
+        }
+        Relationships: []
+      }
       rate_limit_log: {
         Row: {
           created_at: string
