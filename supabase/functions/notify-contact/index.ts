@@ -124,6 +124,47 @@ ${message ? `<div class="field"><div class="field-label">Message</div><div class
   };
 }
 
+function buildEstimationEmail(data: any): { subject: string; html: string } {
+  const name = escapeHtml(sanitize(data.name));
+  const email = escapeHtml(sanitize(data.email, 255));
+  const phone = escapeHtml(sanitize(data.phone, 50));
+  const company = data.company ? escapeHtml(sanitize(data.company, 200)) : "";
+  const siteType = escapeHtml(sanitize(data.site_type, 100));
+  const options = data.options ? escapeHtml(sanitize(data.options, 1000)) : "";
+  const pageCount = data.page_count ? escapeHtml(sanitize(data.page_count, 50)) : "";
+  const productCount = data.product_count ? escapeHtml(sanitize(data.product_count, 50)) : "";
+  const landingObjective = data.landing_objective ? escapeHtml(sanitize(data.landing_objective, 100)) : "";
+  const refonteUrl = data.refonte_url ? escapeHtml(sanitize(data.refonte_url, 500)) : "";
+  const refonteReasons = data.refonte_reasons ? escapeHtml(sanitize(data.refonte_reasons, 500)) : "";
+  const refonteImprovements = data.refonte_improvements ? escapeHtml(sanitize(data.refonte_improvements, 500)) : "";
+  const description = data.description ? escapeHtml(sanitize(data.description, MAX_MESSAGE_LENGTH)) : "";
+
+  const typeLabels: Record<string, string> = { vitrine: "Site vitrine", ecommerce: "Site e-commerce", landing: "Landing page", refonte: "Refonte de site" };
+
+  return {
+    subject: `📊 Nouvelle estimation de prix — ${name} (${typeLabels[data.site_type] || siteType})`,
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f3f4f6;padding:20px;margin:0;color:#1f2937}.container{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1)}.header{background:linear-gradient(135deg,#6366f1,#ec4899);color:#fff;padding:30px;text-align:center}.header h1{font-size:22px;margin:0 0 5px}.header p{font-size:14px;opacity:.9;margin:0}.content{padding:30px}.field{margin-bottom:16px;padding:12px 16px;background:#f9fafb;border-radius:10px;border-left:4px solid #6366f1}.field-label{font-size:11px;text-transform:uppercase;color:#6b7280;font-weight:700;letter-spacing:.5px;margin-bottom:4px}.field-value{font-size:15px;color:#111827;font-weight:500}.badge{display:inline-block;background:linear-gradient(135deg,#6366f1,#ec4899);color:#fff;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}.cta{text-align:center;margin-top:24px}.cta a{display:inline-block;background:#6366f1;color:#fff;padding:12px 30px;border-radius:8px;text-decoration:none;font-weight:600}.footer{text-align:center;padding:20px;color:#9ca3af;font-size:12px}</style></head><body><div class="container">
+<div class="header"><h1>📊 Estimation de Prix</h1><p>Un prospect veut estimer le prix de son site web</p></div>
+<div class="content">
+<div class="field"><div class="field-label">Type de site</div><div class="field-value"><span class="badge">${typeLabels[data.site_type] || siteType}</span></div></div>
+<div class="field"><div class="field-label">Nom</div><div class="field-value">${name}</div></div>
+<div class="field"><div class="field-label">Email</div><div class="field-value"><a href="mailto:${email}">${email}</a></div></div>
+<div class="field"><div class="field-label">Téléphone</div><div class="field-value"><a href="tel:${phone}">${phone}</a></div></div>
+${company ? `<div class="field"><div class="field-label">Entreprise</div><div class="field-value">${company}</div></div>` : ""}
+${options ? `<div class="field"><div class="field-label">Options choisies</div><div class="field-value">${options}</div></div>` : ""}
+${pageCount ? `<div class="field"><div class="field-label">Nombre de pages</div><div class="field-value">${pageCount}</div></div>` : ""}
+${productCount ? `<div class="field"><div class="field-label">Nombre de produits</div><div class="field-value">${productCount}</div></div>` : ""}
+${landingObjective ? `<div class="field"><div class="field-label">Objectif landing page</div><div class="field-value">${landingObjective}</div></div>` : ""}
+${refonteUrl ? `<div class="field"><div class="field-label">Site actuel</div><div class="field-value"><a href="${refonteUrl}">${refonteUrl}</a></div></div>` : ""}
+${refonteReasons ? `<div class="field"><div class="field-label">Raisons de la refonte</div><div class="field-value">${refonteReasons}</div></div>` : ""}
+${refonteImprovements ? `<div class="field"><div class="field-label">Améliorations souhaitées</div><div class="field-value">${refonteImprovements}</div></div>` : ""}
+${description ? `<div class="field"><div class="field-label">Description du projet</div><div class="field-value">${description}</div></div>` : ""}
+<div class="cta"><a href="mailto:${email}?subject=Re: Votre estimation de prix — ConvertiLab">Répondre au prospect</a></div>
+</div><div class="footer">ConvertiLab — Notification automatique</div></div></body></html>`,
+  };
+}
+
 function buildMockupEmail(data: any): { subject: string; html: string } {
   const name = escapeHtml(sanitize(data.name));
   const email = escapeHtml(sanitize(data.email, 255));
@@ -206,6 +247,16 @@ Deno.serve(async (req: Request) => {
           );
         }
         emailContent = buildDevisEmail(data);
+        break;
+
+      case "estimation":
+        if (!sanitize(data.name) || !sanitize(data.phone, 50) || !sanitize(data.site_type, 100)) {
+          return new Response(
+            JSON.stringify({ error: "Missing required fields" }),
+            { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+        emailContent = buildEstimationEmail(data);
         break;
 
       case "mockup":
