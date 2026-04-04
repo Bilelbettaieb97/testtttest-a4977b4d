@@ -221,6 +221,28 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Offre Mensuelle -->
+  <url>
+    <loc>https://convertilab.com/offre-mensuelle</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://convertilab.com/offre-mensuelle/devis</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Estimation Prix -->
+  <url>
+    <loc>https://convertilab.com/estimation-prix-site-web</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Offre Spéciale -->
   <url>
     <loc>https://convertilab.com/offre-speciale</loc>
