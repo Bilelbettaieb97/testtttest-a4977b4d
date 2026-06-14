@@ -49,6 +49,20 @@ const urgences = [
   { id: "flex", label: "Flexible", Icon: CheckCircle2 },
 ] as const;
 
+const secteurs = [
+  "Restaurant / Food",
+  "Santé / Bien-être",
+  "Artisan / BTP",
+  "Coaching / Formation",
+  "Immobilier",
+  "Beauté / Mode",
+  "E-commerce",
+  "Services B2B",
+  "Tech / SaaS",
+  "Association",
+  "Autre",
+] as const;
+
 const coordsSchema = z.object({
   prenom: z.string().trim().min(2, "Prénom requis (2 caractères min)").max(100, "Trop long"),
   email: z.string().trim().email("Email invalide, vérifiez le format").max(255, "Trop long"),
