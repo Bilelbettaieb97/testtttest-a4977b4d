@@ -333,7 +333,7 @@ const PromoSiteWeb = () => {
           </div>
 
           <div className="relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] flex flex-col">
-            {step === "objectif" && (
+            {step === 1 && (
               <>
                 <header className="text-center mb-3 promo-slide flex flex-col items-center">
                   <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full border border-[#a78bfa]/30 bg-[#a78bfa]/10 backdrop-blur-sm mb-2">
