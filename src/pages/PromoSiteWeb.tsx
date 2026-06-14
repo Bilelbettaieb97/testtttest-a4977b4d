@@ -341,7 +341,7 @@ const PromoSiteWeb = () => {
           </div>
 
           <div className="relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] flex flex-col">
-            {step !== "success" && (
+            {step !== "success" && step !== "recap" && (
               <>
                 {step === 1 && (
                   <header className="text-center mb-5 promo-slide flex flex-col items-center">
