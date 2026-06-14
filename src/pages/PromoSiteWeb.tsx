@@ -318,40 +318,6 @@ const PromoSiteWeb = () => {
         }
       `}</style>
 
-      <div className="min-h-[100dvh] w-full bg-[#0a0a1a] text-white flex items-center justify-center md:p-8 overflow-x-hidden">
-        <div className="relative w-full md:max-w-[440px] md:rounded-[2.5rem] md:overflow-hidden md:shadow-[0_30px_120px_-20px_rgba(167,139,250,0.5)] md:border md:border-white/10 md:my-8">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-            <div className="promo-blob absolute -top-24 -left-16 w-[340px] h-[340px] rounded-full bg-[#a78bfa] opacity-25 blur-3xl" />
-            <div className="promo-blob absolute top-1/3 -right-16 w-[300px] h-[300px] rounded-full bg-[#ec4899] opacity-20 blur-3xl" style={{ animationDelay: "-4s" }} />
-          </div>
-
-          <div className="relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] flex flex-col">
-            {step !== "success" && (
-              <>
-                <header className="text-center mb-5 promo-slide">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20 border border-white/10 text-[11px] font-semibold mb-3">
-                    <Sparkles className="w-3 h-3 text-[#ec4899]" />
-                    Offre limitée
-                  </div>
-                  <h1 className="text-[28px] leading-[1.1] font-bold mb-1.5">
-                    Votre site web pro
-                    <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#ec4899]">à 300€</span>
-                  </h1>
-                  <p className="text-[13px] text-white/70 mb-3">Livré en 7 jours. Sans abonnement.</p>
-
-                  <div className="flex justify-center gap-2 text-[11px] text-white/60">
-                    <span className="inline-flex items-center gap-1"><Zap className="w-3 h-3" /> 7 jours</span>
-                    <span className="text-white/30">·</span>
-                    <span className="inline-flex items-center gap-1"><Palette className="w-3 h-3" /> Sur mesure</span>
-                    <span className="text-white/30">·</span>
-                    <span className="inline-flex items-center gap-1"><CreditCard className="w-3 h-3" /> 3x</span>
-                  </div>
-                </header>
-
-                <div className="flex items-center gap-1.5 mb-5">
-                  {[1, 2, 3].map((n) => (
-                    <div key={n} className="flex-1 h-1 rounded-full bg-white/10 overflow-hidden">
       <main id="main-content" className="min-h-[100dvh] w-full bg-[#0a0a1a] text-white flex items-center justify-center md:p-8 overflow-x-hidden" aria-labelledby="promo-h1">
         <a href="#promo-form-region" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-[#0a0a1a] focus:px-3 focus:py-2 focus:rounded-md focus:font-semibold">
           Aller au formulaire
