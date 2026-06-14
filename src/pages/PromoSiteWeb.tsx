@@ -193,7 +193,7 @@ const PromoSiteWeb = () => {
     setTimeout(() => setStep(2), 220);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const parsed = coordsSchema.safeParse(coords);
@@ -223,30 +223,36 @@ const PromoSiteWeb = () => {
       return;
     }
 
-    setErrors({});
-    haptic(15);
-    setStep("recap");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    // Skip duplicate insert if already sent (user came back from recap)
+    if (leadId) {
+      setErrors({});
+      haptic(15);
+      setStep("recap");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
 
-  const handleConfirm = async () => {
+    setErrors({});
     setLoading(true);
     haptic(15);
     try {
-      const trimmedInfos = infosSupp.trim().slice(0, 2000);
       const payload = {
         objectif: objectifs.find((o) => o.id === objectif)?.label ?? objectif,
         situation: situations.find((s) => s.id === situation)?.label ?? situation,
         urgence: "Non spécifié",
-        prenom: coords.prenom,
-        email: coords.email,
-        telephone: coords.telephone,
-        entreprise: coords.entreprise || null,
-        infos_supp: trimmedInfos || null,
+        prenom: parsed.data.prenom,
+        email: parsed.data.email,
+        telephone: parsed.data.telephone,
+        entreprise: parsed.data.entreprise || null,
       };
 
-      const { error: dbError } = await supabase.from("promo_leads").insert(payload);
+      const { data: inserted, error: dbError } = await supabase
+        .from("promo_leads")
+        .insert(payload)
+        .select("id")
+        .single();
       if (dbError) throw dbError;
+      if (inserted?.id) setLeadId(inserted.id);
 
       supabase.functions.invoke("notify-contact", {
         body: { type: "promo_lead", ...payload },
@@ -257,7 +263,7 @@ const PromoSiteWeb = () => {
       }
 
       haptic(50);
-      setStep("success");
+      setStep("recap");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       console.error(err);
@@ -271,6 +277,48 @@ const PromoSiteWeb = () => {
       setLoading(false);
     }
   };
+
+  const handleConfirm = async () => {
+    const trimmedInfos = infosSupp.trim().slice(0, 2000);
+
+    // No extra info → just move on to Calendly
+    if (!trimmedInfos || !leadId) {
+      haptic(15);
+      setStep("success");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    setLoading(true);
+    haptic(15);
+    try {
+      const { error } = await supabase.functions.invoke("notify-contact", {
+        body: {
+          type: "promo_lead_update",
+          id: leadId,
+          infos_supp: trimmedInfos,
+          prenom: coords.prenom,
+          email: coords.email,
+        },
+      });
+      if (error) throw error;
+
+      haptic(50);
+      setStep("success");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: "Impossible d'envoyer le complément",
+        description: "Réessayez dans un instant.",
+        variant: "destructive",
+      });
+      haptic(30);
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
 
   const progress = typeof step === "number" ? step : 3;
