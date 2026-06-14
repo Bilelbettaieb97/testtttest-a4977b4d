@@ -237,6 +237,34 @@ function buildPromoLeadUpdateEmail(data: any): { subject: string; html: string }
   };
 }
 
+function buildPromoAppointmentEmail(data: any): { subject: string; html: string } {
+  const prenom = escapeHtml(sanitize(data.prenom, 100));
+  const email = escapeHtml(sanitize(data.email, 255));
+  const telephone = escapeHtml(sanitize(data.telephone, 50));
+  const slotIso = sanitize(data.slot_at, 64);
+  const duration = Number(data.duration_min) || 15;
+  let slotLabel = slotIso;
+  try {
+    const d = new Date(slotIso);
+    slotLabel = d.toLocaleString("fr-FR", { dateStyle: "full", timeStyle: "short", timeZone: "Europe/Paris" });
+  } catch { /* ignore */ }
+  slotLabel = escapeHtml(slotLabel);
+  return {
+    subject: `📅 Nouveau RDV — ${prenom} — ${slotLabel}`,
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8">
+<style>body{font-family:-apple-system,sans-serif;background:#f3f4f6;padding:20px;margin:0;color:#1f2937}.container{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1)}.header{background:linear-gradient(135deg,#a78bfa,#ec4899);color:#fff;padding:28px;text-align:center}.header h1{font-size:22px;margin:0}.content{padding:24px}.slot{background:linear-gradient(135deg,#a78bfa,#ec4899);color:#fff;padding:20px;border-radius:12px;text-align:center;font-size:18px;font-weight:700;margin-bottom:18px}.field{margin-bottom:12px;padding:12px 16px;background:#f9fafb;border-radius:10px;border-left:4px solid #a78bfa}.field-label{font-size:11px;text-transform:uppercase;color:#6b7280;font-weight:700;letter-spacing:.5px;margin-bottom:4px}.footer{text-align:center;padding:16px;color:#9ca3af;font-size:12px}</style></head><body><div class="container">
+<div class="header"><h1>📅 Nouveau rendez-vous</h1></div>
+<div class="content">
+<div class="slot">${slotLabel}<br><span style="font-size:13px;opacity:.9;font-weight:500">Durée : ${duration} min</span></div>
+<div class="field"><div class="field-label">Prénom</div><div>${prenom}</div></div>
+<div class="field"><div class="field-label">Email</div><div><a href="mailto:${email}">${email}</a></div></div>
+<div class="field"><div class="field-label">Téléphone</div><div><a href="tel:${telephone}">${telephone}</a></div></div>
+</div><div class="footer">ConvertiLab — Prise de RDV automatique</div></div></body></html>`,
+  };
+}
+
+
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
