@@ -334,26 +334,44 @@ const PromoSiteWeb = () => {
           <div className="relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] flex flex-col">
             {step !== "success" && (
               <>
-                <header className="text-center mb-5 promo-slide">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20 border border-white/10 text-[11px] font-semibold mb-3">
-                    <Sparkles className="w-3 h-3 text-[#ec4899]" aria-hidden="true" />
-                    Offre limitée
+                <header className="text-center mb-5 promo-slide flex flex-col items-center">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#a78bfa]/30 bg-[#a78bfa]/10 backdrop-blur-sm mb-4">
+                    <span className="relative flex h-2 w-2" aria-hidden="true">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-[#ec4899] opacity-60 animate-ping" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ec4899]" />
+                    </span>
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#ddd6fe]">
+                      Offre exclusive · Paiement en 3×
+                    </span>
                   </div>
-                  <h1 id="promo-h1" className="text-[28px] leading-[1.1] font-bold mb-1.5">
-                    Votre site web pro
-                    <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#ec4899]">à 300€</span>
-                  </h1>
-                  <p className="text-[13px] text-white/70 mb-3">Livré en 7 jours. Sans abonnement.</p>
 
-                  <div className="flex justify-center gap-2 text-[11px] text-white/60">
-                    <span className="inline-flex items-center gap-1"><Zap className="w-3 h-3" aria-hidden="true" /> 7 jours</span>
-                    <span className="text-white/30" aria-hidden="true">·</span>
-                    <span className="inline-flex items-center gap-1"><Palette className="w-3 h-3" aria-hidden="true" /> Sur mesure</span>
-                    <span className="text-white/30" aria-hidden="true">·</span>
-                    <span className="inline-flex items-center gap-1"><CreditCard className="w-3 h-3" aria-hidden="true" /> 3x</span>
+                  <h1 id="promo-h1" className="text-[26px] font-bold tracking-tight leading-[1.1] mb-1">
+                    Votre site web pro
+                  </h1>
+                  <div
+                    className="text-[64px] font-extrabold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#ec4899] py-1 drop-shadow-[0_0_25px_rgba(167,139,250,0.35)]"
+                    aria-label="300 euros"
+                  >
+                    300€
+                  </div>
+
+                  <p className="text-[13px] text-white/70 leading-relaxed max-w-[300px] mx-auto mt-2">
+                    Un site vitrine haute performance, livré en <strong className="text-white font-semibold">7 jours</strong>. Sans aucun abonnement caché.
+                  </p>
+
+                  <div className="flex items-center justify-center gap-3 mt-3 text-[11px] font-medium text-white/75">
+                    <span className="inline-flex items-center gap-1.5">
+                      <Star className="w-3.5 h-3.5 text-[#a78bfa] fill-[#a78bfa]" aria-hidden="true" />
+                      4,9/5 <span className="text-white/50">(120+ avis)</span>
+                    </span>
+                    <span className="w-1 h-1 rounded-full bg-white/30" aria-hidden="true" />
+                    <span className="inline-flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#a78bfa]" aria-hidden="true" />
+                      Satisfait ou remboursé
+                    </span>
                   </div>
                 </header>
+
 
                 <div
                   className="flex items-center gap-1.5 mb-5"
