@@ -693,7 +693,7 @@ const PromoSiteWeb = () => {
                 )}
                 {step === 3 && !coordsSchema.safeParse(coords).success && <span>Remplissez vos coordonnées</span>}
                 {step === 3 && coordsSchema.safeParse(coords).success && (
-                  <span><span aria-hidden="true">🎯 </span>Réserver mon appel gratuit</span>
+                  <span>Envoyer ma demande</span>
                 )}
               </button>
               <p className="text-[10px] text-white/50 text-center mt-2">
