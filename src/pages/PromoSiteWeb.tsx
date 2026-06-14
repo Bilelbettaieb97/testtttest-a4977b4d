@@ -597,6 +597,91 @@ const PromoSiteWeb = () => {
               </>
             )}
 
+            {step === "recap" && (
+              <div className="promo-slide flex-1 flex flex-col">
+                <div className="text-center mb-4 pt-3">
+                  <div aria-hidden="true" className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-3 promo-pop shadow-[0_10px_40px_-5px_rgba(236,72,153,0.5)]">
+                    <CheckCircle2 className="w-8 h-8 text-white" />
+                  </div>
+                  <h2 ref={stepHeadingRef} tabIndex={-1} className="text-[20px] font-bold mb-1.5 focus:outline-none leading-tight">
+                    Récapitulatif, {coords.prenom}
+                  </h2>
+                  <p className="text-[13px] text-white/70 px-2">
+                    Vérifiez vos informations puis envoyez votre demande.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-4 mb-4 space-y-3">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wider text-[#a78bfa] font-semibold mb-0.5">Où vous en êtes</p>
+                    <p className="text-[14px] text-white font-medium leading-snug">{situationLabel}</p>
+                  </div>
+                  <div className="h-px bg-white/10" />
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wider text-[#a78bfa] font-semibold mb-0.5">Votre objectif</p>
+                    <p className="text-[14px] text-white font-medium leading-snug">{objectifLabel}</p>
+                  </div>
+                  <div className="h-px bg-white/10" />
+                  <div className="grid grid-cols-1 gap-2 text-[13px] text-white/80">
+                    <div><span className="text-white/50">Email :</span> <span className="text-white break-all">{coords.email}</span></div>
+                    <div><span className="text-white/50">Téléphone :</span> <span className="text-white">{coords.telephone}</span></div>
+                    {coords.entreprise && (
+                      <div><span className="text-white/50">Activité :</span> <span className="text-white">{coords.entreprise}</span></div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="mb-4">
+                  <label htmlFor="infos-supp" className="block text-[13px] font-semibold text-white mb-1.5">
+                    Plus d'informations sur votre projet <span className="text-white/40 font-normal">(optionnel)</span>
+                  </label>
+                  <p className="text-[12px] text-white/50 mb-2 leading-relaxed">
+                    Partagez tout ce qui pourrait nous aider à mieux comprendre votre projet : références, fonctionnalités souhaitées, délais, budget approximatif…
+                  </p>
+                  <textarea
+                    id="infos-supp"
+                    value={infosSupp}
+                    onChange={(e) => setInfosSupp(e.target.value.slice(0, 2000))}
+                    rows={5}
+                    placeholder="Ex : J'aimerais un site avec prise de rendez-vous en ligne, inspiré de…"
+                    className="w-full p-3 rounded-xl bg-white/[0.06] border border-white/10 text-white placeholder:text-white/40 text-[14px] outline-none transition-colors focus:outline-none focus:border-[#ec4899] focus:ring-2 focus:ring-[#ec4899]/25 resize-none leading-relaxed"
+                    maxLength={2000}
+                  />
+                  <p className="text-[11px] text-white/40 text-right mt-1">{infosSupp.length}/2000</p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleConfirm}
+                  disabled={loading}
+                  aria-busy={loading}
+                  className="promo-cta w-full h-14 rounded-xl text-white font-bold text-[15px] shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] active:scale-[0.98] transition-transform touch-manipulation disabled:opacity-70 disabled:active:scale-100 flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a]"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
+                      <span>Envoi en cours…</span>
+                    </>
+                  ) : (
+                    <span>Envoyer ma demande</span>
+                  )}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => { haptic(5); setStep(3); }}
+                  disabled={loading}
+                  className="w-full mt-3 text-[13px] text-white/60 hover:text-white inline-flex items-center justify-center gap-1 touch-manipulation min-h-11 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] disabled:opacity-50"
+                >
+                  <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Modifier mes coordonnées
+                </button>
+
+                <p className="text-[11px] text-white/40 text-center mt-3">
+                  🔒 Données confidentielles · aucun spam
+                </p>
+              </div>
+            )}
+
             {step === "success" && (
               <div className="promo-slide flex-1 flex flex-col">
                 <div className="text-center mb-4 pt-3">
