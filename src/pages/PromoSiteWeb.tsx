@@ -1,10 +1,8 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   ArrowRight,
   ArrowLeft,
@@ -23,6 +21,7 @@ import {
   PartyPopper,
   Calendar,
   ExternalLink,
+  Loader2,
 } from "lucide-react";
 
 type Step = 1 | 2 | 3 | "success";
@@ -32,29 +31,41 @@ const objectifs = [
   { id: "vendre", label: "Vendre en ligne", desc: "E-commerce", Icon: ShoppingBag },
   { id: "vitrine", label: "Présenter mon activité", desc: "Vitrine pro", Icon: Briefcase },
   { id: "lancer", label: "Lancer un produit", desc: "Landing page", Icon: Rocket },
-];
+] as const;
 
 const situations = [
   { id: "zero", label: "Je pars de zéro", Icon: Sparkles },
   { id: "site_pas_top", label: "J'ai un site qui ne convertit pas", Icon: RefreshCw },
   { id: "reseaux", label: "J'ai juste les réseaux sociaux", Icon: Smartphone },
-  { id: "bloque", label: "J'ai commencé mais je suis bloqué", Icon: Hammer },
-];
+  { id: "bloque", label: "J'ai commencé mais bloqué", Icon: Hammer },
+] as const;
 
 const urgences = [
-  { id: "asap", label: "Le plus vite possible", Icon: Zap },
-  { id: "mois", label: "Dans le mois", Icon: Calendar },
-  { id: "flex", label: "Pas pressé", Icon: CheckCircle2 },
-];
+  { id: "asap", label: "ASAP", Icon: Zap },
+  { id: "mois", label: "Ce mois", Icon: Calendar },
+  { id: "flex", label: "Flexible", Icon: CheckCircle2 },
+] as const;
 
 const coordsSchema = z.object({
   prenom: z.string().trim().min(2, "Prénom requis").max(100),
   email: z.string().trim().email("Email invalide").max(255),
-  telephone: z.string().trim().min(5, "Téléphone requis").max(30).regex(/^[0-9+\s().-]+$/, "Téléphone invalide"),
+  telephone: z
+    .string()
+    .trim()
+    .min(5, "Téléphone requis")
+    .max(30)
+    .regex(/^[0-9+\s().-]+$/, "Téléphone invalide"),
   entreprise: z.string().trim().max(200).optional(),
 });
 
 const CALENDLY_URL = "https://calendly.com/convertilab-5bsc/30min";
+
+// Tiny haptic helper (no-op on unsupported browsers)
+const haptic = (ms = 8) => {
+  if (typeof navigator !== "undefined" && "vibrate" in navigator) {
+    try { navigator.vibrate(ms); } catch { /* ignore */ }
+  }
+};
 
 const PromoSiteWeb = () => {
   const { toast } = useToast();
@@ -65,22 +76,48 @@ const PromoSiteWeb = () => {
   const [coords, setCoords] = useState({ prenom: "", email: "", telephone: "", entreprise: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
+  const [calendlyReady, setCalendlyReady] = useState(false);
 
-  const objectifLabel = useMemo(() => objectifs.find((o) => o.id === objectif)?.label ?? "", [objectif]);
-  const urgenceLabel = useMemo(() => urgences.find((u) => u.id === urgence)?.label.toLowerCase() ?? "", [urgence]);
+  // Warm Calendly DNS as soon as user reaches step 3 (perceived speed boost on success)
+  useEffect(() => {
+    if (step !== 3) return;
+    const id = "calendly-preconnect";
+    if (document.getElementById(id)) return;
+    const link = document.createElement("link");
+    link.id = id;
+    link.rel = "preconnect";
+    link.href = "https://calendly.com";
+    link.crossOrigin = "";
+    document.head.appendChild(link);
+  }, [step]);
 
-  const handleStep1 = (id: string) => {
+  const objectifLabel = useMemo(
+    () => objectifs.find((o) => o.id === objectif)?.label ?? "",
+    [objectif]
+  );
+  const urgenceLabel = useMemo(
+    () => urgences.find((u) => u.id === urgence)?.label.toLowerCase() ?? "",
+    [urgence]
+  );
+
+  const handleStep1 = useCallback((id: string) => {
+    haptic(10);
     setObjectif(id);
-    setTimeout(() => setStep(2), 250);
-  };
+    setTimeout(() => setStep(2), 180);
+  }, []);
 
-  const handleStep2Next = () => {
-    if (!situation || !urgence) {
-      toast({ title: "Sélectionnez une option dans chaque section", variant: "destructive" });
-      return;
-    }
-    setStep(3);
-  };
+  const handleSituation = useCallback((id: string, currentUrgence: string) => {
+    haptic(8);
+    setSituation(id);
+    // Auto-advance if urgence already chosen
+    if (currentUrgence) setTimeout(() => setStep(3), 220);
+  }, []);
+
+  const handleUrgence = useCallback((id: string, currentSituation: string) => {
+    haptic(8);
+    setUrgence(id);
+    if (currentSituation) setTimeout(() => setStep(3), 220);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,10 +128,12 @@ const PromoSiteWeb = () => {
         if (i.path[0]) fieldErrors[i.path[0] as string] = i.message;
       });
       setErrors(fieldErrors);
+      haptic(30);
       return;
     }
     setErrors({});
     setLoading(true);
+    haptic(15);
 
     try {
       const payload = {
@@ -110,9 +149,10 @@ const PromoSiteWeb = () => {
       const { error: dbError } = await supabase.from("promo_leads").insert(payload);
       if (dbError) throw dbError;
 
-      await supabase.functions.invoke("notify-contact", {
+      // Fire-and-forget notification (doesn't block UX)
+      supabase.functions.invoke("notify-contact", {
         body: { type: "promo_lead", ...payload },
-      });
+      }).catch(() => { /* ignore */ });
 
       // GA / Meta tracking hook
       // @ts-expect-error optional dataLayer
@@ -121,6 +161,7 @@ const PromoSiteWeb = () => {
         window.dataLayer.push({ event: "promo_lead_submit" });
       }
 
+      haptic(50);
       setStep("success");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
@@ -130,10 +171,13 @@ const PromoSiteWeb = () => {
         description: "Réessayez dans un instant.",
         variant: "destructive",
       });
+      haptic(30);
     } finally {
       setLoading(false);
     }
   };
+
+  const progress = typeof step === "number" ? step : 3;
 
   return (
     <>
@@ -144,219 +188,263 @@ const PromoSiteWeb = () => {
           content="Offre exclusive : votre site web professionnel pour seulement 300€, livré en 7 jours. Sans abonnement. Réservez votre créneau."
         />
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content="#0a0a1a" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
       </Helmet>
 
-      {/* Outer wrapper — centers the mobile frame on desktop */}
-      <div className="min-h-screen w-full bg-[#0a0a1a] text-white flex items-center justify-center md:p-8">
+      {/* Page-scoped CSS for perf-friendly animations & glow */}
+      <style>{`
+        @keyframes promo-blob {
+          0%,100% { transform: translate3d(0,0,0) scale(1); }
+          50% { transform: translate3d(8%,4%,0) scale(1.08); }
+        }
+        .promo-blob { animation: promo-blob 12s ease-in-out infinite; will-change: transform; }
+        @keyframes promo-pop {
+          0% { transform: scale(.85); opacity: 0; }
+          60% { transform: scale(1.05); opacity: 1; }
+          100% { transform: scale(1); opacity: 1; }
+        }
+        .promo-pop { animation: promo-pop .25s cubic-bezier(.34,1.56,.64,1) both; }
+        @keyframes promo-slide-up {
+          from { transform: translate3d(0,12px,0); opacity: 0; }
+          to   { transform: translate3d(0,0,0);   opacity: 1; }
+        }
+        .promo-slide { animation: promo-slide-up .32s cubic-bezier(.22,.61,.36,1) both; }
+        @keyframes promo-shimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+        .promo-cta {
+          background: linear-gradient(110deg,#a78bfa 0%,#ec4899 45%,#a78bfa 55%,#ec4899 100%);
+          background-size: 200% 100%;
+          animation: promo-shimmer 3.5s linear infinite;
+        }
+        .promo-card { contain: layout style paint; }
+        @media (prefers-reduced-motion: reduce) {
+          .promo-blob, .promo-cta { animation: none !important; }
+          .promo-pop, .promo-slide { animation-duration: .01ms !important; }
+        }
+      `}</style>
+
+      <div className="min-h-[100dvh] w-full bg-[#0a0a1a] text-white flex items-center justify-center md:p-8 overflow-x-hidden">
         <div className="relative w-full md:max-w-[440px] md:rounded-[2.5rem] md:overflow-hidden md:shadow-[0_30px_120px_-20px_rgba(167,139,250,0.5)] md:border md:border-white/10 md:my-8">
-          {/* Aurora background */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute -top-32 -left-20 w-[400px] h-[400px] rounded-full bg-[#a78bfa] opacity-30 blur-3xl animate-pulse" style={{ animationDuration: "6s" }} />
-            <div className="absolute top-1/3 -right-20 w-[350px] h-[350px] rounded-full bg-[#ec4899] opacity-25 blur-3xl animate-pulse" style={{ animationDuration: "8s", animationDelay: "1s" }} />
-            <div className="absolute bottom-0 left-1/4 w-[300px] h-[300px] rounded-full bg-[#6366f1] opacity-20 blur-3xl animate-pulse" style={{ animationDuration: "10s", animationDelay: "2s" }} />
+          {/* Aurora background — 2 blobs (lighter on mobile for perf) */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+            <div className="promo-blob absolute -top-24 -left-16 w-[340px] h-[340px] rounded-full bg-[#a78bfa] opacity-25 blur-3xl" />
+            <div className="promo-blob absolute top-1/3 -right-16 w-[300px] h-[300px] rounded-full bg-[#ec4899] opacity-20 blur-3xl" style={{ animationDelay: "-4s" }} />
           </div>
 
-          <div className="relative z-10 min-h-screen md:min-h-[800px] px-5 py-6 flex flex-col">
+          <div className="relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] flex flex-col">
             {step !== "success" && (
               <>
-                {/* Hero */}
-                <header className="text-center mb-6 animate-fade-in">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20 border border-white/10 text-xs font-semibold mb-4">
+                <header className="text-center mb-5 promo-slide">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20 border border-white/10 text-[11px] font-semibold mb-3">
                     <Sparkles className="w-3 h-3 text-[#ec4899]" />
                     Offre limitée
                   </div>
-                  <h1 className="text-3xl font-bold leading-tight mb-2">
+                  <h1 className="text-[28px] leading-[1.1] font-bold mb-1.5">
                     Votre site web pro
                     <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#ec4899]">à 300€</span>
                   </h1>
-                  <p className="text-sm text-white/70 mb-4">Livré en 7 jours. Sans abonnement.</p>
+                  <p className="text-[13px] text-white/70 mb-3">Livré en 7 jours. Sans abonnement.</p>
 
                   <div className="flex justify-center gap-2 text-[11px] text-white/60">
                     <span className="inline-flex items-center gap-1"><Zap className="w-3 h-3" /> 7 jours</span>
                     <span className="text-white/30">·</span>
                     <span className="inline-flex items-center gap-1"><Palette className="w-3 h-3" /> Sur mesure</span>
                     <span className="text-white/30">·</span>
-                    <span className="inline-flex items-center gap-1"><CreditCard className="w-3 h-3" /> 3x sans frais</span>
+                    <span className="inline-flex items-center gap-1"><CreditCard className="w-3 h-3" /> 3x</span>
                   </div>
                 </header>
 
                 {/* Progress */}
-                <div className="flex items-center gap-2 mb-6">
+                <div className="flex items-center gap-1.5 mb-5">
                   {[1, 2, 3].map((n) => (
-                    <div key={n} className="flex-1 h-1.5 rounded-full bg-white/10 overflow-hidden">
+                    <div key={n} className="flex-1 h-1 rounded-full bg-white/10 overflow-hidden">
                       <div
-                        className={`h-full bg-gradient-to-r from-[#a78bfa] to-[#ec4899] transition-all duration-500 ${
-                          (typeof step === "number" && step >= n) ? "w-full" : "w-0"
-                        }`}
+                        className="h-full bg-gradient-to-r from-[#a78bfa] to-[#ec4899] transition-all duration-500 ease-out"
+                        style={{ width: progress >= n ? "100%" : "0%" }}
                       />
                     </div>
                   ))}
                 </div>
 
                 {/* Card */}
-                <div className="flex-1 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/10 p-5 shadow-2xl">
+                <div className="promo-card flex-1 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-5 shadow-2xl">
                   {step === 1 && (
-                    <div className="animate-fade-in">
-                      <p className="text-xs font-semibold text-[#a78bfa] uppercase tracking-wide mb-1">Étape 1 / 3</p>
-                      <h2 className="text-xl font-bold mb-5">Quel est l'objectif principal de votre site ?</h2>
-                      <div className="space-y-3">
-                        {objectifs.map(({ id, label, desc, Icon }) => (
-                          <button
-                            key={id}
-                            onClick={() => handleStep1(id)}
-                            className={`group w-full text-left p-4 rounded-xl border transition-all active:scale-[0.98] ${
-                              objectif === id
-                                ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/15 to-[#ec4899]/15"
-                                : "border-white/10 bg-white/[0.03] hover:border-white/25"
-                            }`}
-                          >
-                            <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#a78bfa] to-[#ec4899] flex items-center justify-center shrink-0">
-                                <Icon className="w-5 h-5" />
+                    <div key="s1" className="promo-slide">
+                      <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 1 / 3</p>
+                      <h2 className="text-[19px] font-bold mb-4 leading-tight">Quel est l'objectif principal de votre site ?</h2>
+                      <div className="space-y-2.5">
+                        {objectifs.map(({ id, label, desc, Icon }) => {
+                          const active = objectif === id;
+                          return (
+                            <button
+                              key={id}
+                              type="button"
+                              onClick={() => handleStep1(id)}
+                              className={`group w-full text-left p-3.5 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation ${
+                                active
+                                  ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20 shadow-[0_0_20px_-5px_rgba(236,72,153,0.5)]"
+                                  : "border-white/10 bg-white/[0.03]"
+                              }`}
+                            >
+                              <div className="flex items-center gap-3">
+                                <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-transform ${active ? "scale-110" : ""} bg-gradient-to-br from-[#a78bfa] to-[#ec4899]`}>
+                                  <Icon className="w-5 h-5" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <div className="font-semibold text-[14px]">{label}</div>
+                                  <div className="text-[11px] text-white/50">{desc}</div>
+                                </div>
+                                {active ? (
+                                  <CheckCircle2 className="w-5 h-5 text-[#ec4899] promo-pop" />
+                                ) : (
+                                  <ArrowRight className="w-4 h-4 text-white/40" />
+                                )}
                               </div>
-                              <div className="flex-1">
-                                <div className="font-semibold text-sm">{label}</div>
-                                <div className="text-xs text-white/50">{desc}</div>
-                              </div>
-                              <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all" />
-                            </div>
-                          </button>
-                        ))}
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
                   )}
 
                   {step === 2 && (
-                    <div className="animate-fade-in">
-                      <p className="text-xs font-semibold text-[#a78bfa] uppercase tracking-wide mb-1">Étape 2 / 3</p>
-                      <h2 className="text-xl font-bold mb-4">Où en êtes-vous aujourd'hui ?</h2>
-                      <div className="space-y-2.5 mb-6">
-                        {situations.map(({ id, label, Icon }) => (
-                          <button
-                            key={id}
-                            onClick={() => setSituation(id)}
-                            className={`w-full text-left p-3.5 rounded-xl border transition-all active:scale-[0.98] flex items-center gap-3 ${
-                              situation === id
-                                ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/15 to-[#ec4899]/15"
-                                : "border-white/10 bg-white/[0.03]"
-                            }`}
-                          >
-                            <Icon className={`w-4 h-4 shrink-0 ${situation === id ? "text-[#ec4899]" : "text-white/50"}`} />
-                            <span className="text-sm font-medium">{label}</span>
-                            {situation === id && <CheckCircle2 className="w-4 h-4 text-[#ec4899] ml-auto" />}
-                          </button>
-                        ))}
+                    <div key="s2" className="promo-slide">
+                      <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 2 / 3</p>
+                      <h2 className="text-[19px] font-bold mb-3 leading-tight">Où en êtes-vous aujourd'hui ?</h2>
+                      <div className="space-y-2 mb-5">
+                        {situations.map(({ id, label, Icon }) => {
+                          const active = situation === id;
+                          return (
+                            <button
+                              key={id}
+                              type="button"
+                              onClick={() => handleSituation(id, urgence)}
+                              className={`w-full text-left p-3 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation flex items-center gap-3 ${
+                                active
+                                  ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20"
+                                  : "border-white/10 bg-white/[0.03]"
+                              }`}
+                            >
+                              <Icon className={`w-4 h-4 shrink-0 ${active ? "text-[#ec4899]" : "text-white/50"}`} />
+                              <span className="text-[13px] font-medium flex-1">{label}</span>
+                              {active && <CheckCircle2 className="w-4 h-4 text-[#ec4899] promo-pop" />}
+                            </button>
+                          );
+                        })}
                       </div>
 
-                      <h3 className="text-base font-bold mb-3">Quand souhaitez-vous être en ligne ?</h3>
-                      <div className="grid grid-cols-3 gap-2 mb-6">
-                        {urgences.map(({ id, label, Icon }) => (
-                          <button
-                            key={id}
-                            onClick={() => setUrgence(id)}
-                            className={`p-3 rounded-xl border transition-all active:scale-95 flex flex-col items-center gap-1.5 ${
-                              urgence === id
-                                ? "border-[#ec4899] bg-gradient-to-br from-[#a78bfa]/20 to-[#ec4899]/20"
-                                : "border-white/10 bg-white/[0.03]"
-                            }`}
-                          >
-                            <Icon className={`w-4 h-4 ${urgence === id ? "text-[#ec4899]" : "text-white/60"}`} />
-                            <span className="text-[11px] font-medium text-center leading-tight">{label}</span>
-                          </button>
-                        ))}
+                      <h3 className="text-[15px] font-bold mb-2.5">Quand voulez-vous être en ligne ?</h3>
+                      <div className="grid grid-cols-3 gap-2 mb-5">
+                        {urgences.map(({ id, label, Icon }) => {
+                          const active = urgence === id;
+                          return (
+                            <button
+                              key={id}
+                              type="button"
+                              onClick={() => handleUrgence(id, situation)}
+                              className={`p-3 rounded-xl border transition-all duration-200 active:scale-95 touch-manipulation flex flex-col items-center gap-1.5 ${
+                                active
+                                  ? "border-[#ec4899] bg-gradient-to-br from-[#a78bfa]/25 to-[#ec4899]/25 shadow-[0_0_15px_-5px_rgba(236,72,153,0.5)]"
+                                  : "border-white/10 bg-white/[0.03]"
+                              }`}
+                            >
+                              <Icon className={`w-4 h-4 ${active ? "text-[#ec4899]" : "text-white/60"}`} />
+                              <span className="text-[11px] font-medium text-center leading-tight">{label}</span>
+                            </button>
+                          );
+                        })}
                       </div>
 
-                      <div className="flex gap-2">
-                        <Button
-                          type="button"
-                          onClick={() => setStep(1)}
-                          variant="ghost"
-                          className="text-white/70 hover:text-white hover:bg-white/5"
-                        >
-                          <ArrowLeft className="w-4 h-4" />
-                        </Button>
-                        <Button
-                          type="button"
-                          onClick={handleStep2Next}
-                          disabled={!situation || !urgence}
-                          className="flex-1 bg-gradient-to-r from-[#a78bfa] to-[#ec4899] hover:opacity-90 text-white font-semibold h-12"
-                        >
-                          Continuer <ArrowRight className="w-4 h-4 ml-1" />
-                        </Button>
-                      </div>
+                      <button
+                        type="button"
+                        onClick={() => { haptic(5); setStep(1); }}
+                        className="inline-flex items-center gap-1 text-xs text-white/60 hover:text-white touch-manipulation"
+                      >
+                        <ArrowLeft className="w-3.5 h-3.5" /> Étape précédente
+                      </button>
                     </div>
                   )}
 
                   {step === 3 && (
-                    <form onSubmit={handleSubmit} className="animate-fade-in">
-                      <p className="text-xs font-semibold text-[#a78bfa] uppercase tracking-wide mb-1">Étape 3 / 3</p>
-                      <h2 className="text-xl font-bold mb-2">Dernière étape ✨</h2>
+                    <form onSubmit={handleSubmit} key="s3" className="promo-slide">
+                      <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 3 / 3</p>
+                      <h2 className="text-[19px] font-bold mb-2 leading-tight">Dernière étape ✨</h2>
 
-                      <div className="mb-5 p-3 rounded-xl bg-gradient-to-r from-[#a78bfa]/10 to-[#ec4899]/10 border border-white/10 text-xs text-white/80">
+                      <div className="mb-4 p-3 rounded-xl bg-gradient-to-r from-[#a78bfa]/10 to-[#ec4899]/10 border border-white/10 text-[12px] text-white/80 leading-relaxed">
                         Parfait, on a noté : <strong className="text-white">{objectifLabel}</strong>
                         {urgenceLabel && <> — lancement <strong className="text-white">{urgenceLabel}</strong></>} 🎯
                       </div>
 
-                      <div className="space-y-3">
-                        <div>
-                          <Input
-                            placeholder="Prénom"
-                            value={coords.prenom}
-                            onChange={(e) => setCoords({ ...coords, prenom: e.target.value })}
-                            className="h-12 bg-white/[0.06] border-white/10 text-white placeholder:text-white/40 focus-visible:border-[#ec4899] focus-visible:ring-[#ec4899]/30"
-                          />
-                          {errors.prenom && <p className="text-xs text-[#ec4899] mt-1">{errors.prenom}</p>}
-                        </div>
-                        <div>
-                          <Input
-                            type="email"
-                            placeholder="Email"
-                            value={coords.email}
-                            onChange={(e) => setCoords({ ...coords, email: e.target.value })}
-                            className="h-12 bg-white/[0.06] border-white/10 text-white placeholder:text-white/40 focus-visible:border-[#ec4899] focus-visible:ring-[#ec4899]/30"
-                          />
-                          {errors.email && <p className="text-xs text-[#ec4899] mt-1">{errors.email}</p>}
-                        </div>
-                        <div>
-                          <Input
-                            type="tel"
-                            placeholder="Téléphone"
-                            value={coords.telephone}
-                            onChange={(e) => setCoords({ ...coords, telephone: e.target.value })}
-                            className="h-12 bg-white/[0.06] border-white/10 text-white placeholder:text-white/40 focus-visible:border-[#ec4899] focus-visible:ring-[#ec4899]/30"
-                          />
-                          {errors.telephone && <p className="text-xs text-[#ec4899] mt-1">{errors.telephone}</p>}
-                        </div>
-                        <div>
-                          <Input
-                            placeholder="Nom de votre activité (optionnel)"
-                            value={coords.entreprise}
-                            onChange={(e) => setCoords({ ...coords, entreprise: e.target.value })}
-                            className="h-12 bg-white/[0.06] border-white/10 text-white placeholder:text-white/40 focus-visible:border-[#ec4899] focus-visible:ring-[#ec4899]/30"
-                          />
-                        </div>
+                      <div className="space-y-2.5">
+                        <Field
+                          name="prenom"
+                          placeholder="Prénom"
+                          value={coords.prenom}
+                          onChange={(v) => setCoords((c) => ({ ...c, prenom: v }))}
+                          error={errors.prenom}
+                          autoComplete="given-name"
+                          inputMode="text"
+                        />
+                        <Field
+                          name="email"
+                          type="email"
+                          placeholder="Email"
+                          value={coords.email}
+                          onChange={(v) => setCoords((c) => ({ ...c, email: v }))}
+                          error={errors.email}
+                          autoComplete="email"
+                          inputMode="email"
+                        />
+                        <Field
+                          name="telephone"
+                          type="tel"
+                          placeholder="Téléphone"
+                          value={coords.telephone}
+                          onChange={(v) => setCoords((c) => ({ ...c, telephone: v }))}
+                          error={errors.telephone}
+                          autoComplete="tel"
+                          inputMode="tel"
+                        />
+                        <Field
+                          name="entreprise"
+                          placeholder="Nom de votre activité (optionnel)"
+                          value={coords.entreprise}
+                          onChange={(v) => setCoords((c) => ({ ...c, entreprise: v }))}
+                          autoComplete="organization"
+                          inputMode="text"
+                        />
                       </div>
 
-                      <Button
+                      <button
                         type="submit"
                         disabled={loading}
-                        className="w-full mt-5 h-14 bg-gradient-to-r from-[#a78bfa] to-[#ec4899] hover:opacity-90 text-white font-bold text-base shadow-[0_10px_40px_-10px_rgba(236,72,153,0.6)]"
+                        className="promo-cta w-full mt-4 h-14 rounded-xl text-white font-bold text-[15px] shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] active:scale-[0.98] transition-transform touch-manipulation disabled:opacity-70 disabled:active:scale-100 flex items-center justify-center gap-2"
                       >
-                        {loading ? "Envoi..." : "🎯 Réserver mon créneau gratuit"}
-                      </Button>
+                        {loading ? (
+                          <>
+                            <Loader2 className="w-5 h-5 animate-spin" />
+                            Envoi en cours…
+                          </>
+                        ) : (
+                          <>🎯 Réserver mon créneau gratuit</>
+                        )}
+                      </button>
 
                       <button
                         type="button"
-                        onClick={() => setStep(2)}
-                        className="w-full mt-3 text-xs text-white/50 hover:text-white/80 inline-flex items-center justify-center gap-1"
+                        onClick={() => { haptic(5); setStep(2); }}
+                        className="w-full mt-2.5 text-[11px] text-white/50 hover:text-white/80 inline-flex items-center justify-center gap-1 touch-manipulation"
                       >
-                        <ArrowLeft className="w-3 h-3" /> Revenir en arrière
+                        <ArrowLeft className="w-3 h-3" /> Revenir
                       </button>
 
-                      <p className="text-[10px] text-white/40 text-center mt-4">
-                        🔒 Vos données restent confidentielles. Aucun spam.
+                      <p className="text-[10px] text-white/40 text-center mt-3">
+                        🔒 Données confidentielles · aucun spam
                       </p>
                     </form>
                   )}
@@ -365,23 +453,29 @@ const PromoSiteWeb = () => {
             )}
 
             {step === "success" && (
-              <div className="animate-fade-in flex-1 flex flex-col">
-                <div className="text-center mb-5 pt-4">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-4 animate-scale-in shadow-[0_10px_40px_-5px_rgba(236,72,153,0.7)]">
+              <div className="promo-slide flex-1 flex flex-col">
+                <div className="text-center mb-4 pt-3">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-3 promo-pop shadow-[0_10px_40px_-5px_rgba(236,72,153,0.7)]">
                     <PartyPopper className="w-10 h-10 text-white" />
                   </div>
-                  <h1 className="text-2xl font-bold mb-2">Bravo {coords.prenom} 🎉</h1>
-                  <p className="text-sm text-white/70 px-4">
-                    Vous venez de faire le premier pas. Choisissez maintenant votre créneau (15 min, gratuit).
+                  <h1 className="text-[22px] font-bold mb-1.5">Bravo {coords.prenom} 🎉</h1>
+                  <p className="text-[13px] text-white/70 px-4">
+                    Choisissez votre créneau (15 min, gratuit) pour qu'on discute de votre projet.
                   </p>
                 </div>
 
-                <div className="rounded-2xl overflow-hidden bg-white border border-white/10 shadow-2xl flex-1 min-h-[600px]">
+                <div className="relative rounded-2xl overflow-hidden bg-white border border-white/10 shadow-2xl flex-1 min-h-[620px]">
+                  {!calendlyReady && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-white">
+                      <Loader2 className="w-6 h-6 text-[#a78bfa] animate-spin" />
+                    </div>
+                  )}
                   <iframe
                     src={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=ffffff&text_color=0a0a1a&primary_color=a78bfa`}
                     title="Réserver un créneau Calendly"
-                    className="w-full h-full min-h-[600px] border-0"
+                    className="w-full h-full min-h-[620px] border-0"
                     loading="lazy"
+                    onLoad={() => setCalendlyReady(true)}
                   />
                 </div>
 
@@ -389,7 +483,7 @@ const PromoSiteWeb = () => {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 text-xs text-white/60 hover:text-white inline-flex items-center justify-center gap-1.5"
+                  className="mt-3 text-[11px] text-white/60 hover:text-white inline-flex items-center justify-center gap-1.5 touch-manipulation"
                 >
                   Ouvrir Calendly dans un nouvel onglet <ExternalLink className="w-3 h-3" />
                 </a>
@@ -401,5 +495,41 @@ const PromoSiteWeb = () => {
     </>
   );
 };
+
+// Lightweight controlled input (avoids shadcn wrapper overhead per render)
+const Field = ({
+  name,
+  placeholder,
+  value,
+  onChange,
+  type = "text",
+  error,
+  autoComplete,
+  inputMode,
+}: {
+  name: string;
+  placeholder: string;
+  value: string;
+  onChange: (v: string) => void;
+  type?: string;
+  error?: string;
+  autoComplete?: string;
+  inputMode?: "text" | "email" | "tel" | "numeric" | "search" | "url" | "none";
+}) => (
+  <div>
+    <input
+      name={name}
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      autoComplete={autoComplete}
+      inputMode={inputMode}
+      className="w-full h-12 px-4 rounded-xl bg-white/[0.06] border border-white/10 text-white placeholder:text-white/40 text-[15px] outline-none focus:border-[#ec4899] focus:ring-2 focus:ring-[#ec4899]/25 transition-colors"
+      aria-invalid={!!error}
+    />
+    {error && <p className="text-[11px] text-[#ec4899] mt-1 px-1">{error}</p>}
+  </div>
+);
 
 export default PromoSiteWeb;
