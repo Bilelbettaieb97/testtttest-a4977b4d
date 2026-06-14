@@ -864,4 +864,176 @@ const Field = ({
 };
 
 
+// ---- BookingPicker (in-house mobile-first scheduler) ----
+
+const WEEKDAY_SHORT = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
+const MONTH_SHORT = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jui", "Juil", "Aoû", "Sep", "Oct", "Nov", "Déc"];
+
+function toYMD(d: Date): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+function getNextDays(count: number): Date[] {
+  const out: Date[] = [];
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  let added = 0;
+  let i = 0;
+  while (added < count && i < count * 3) {
+    const d = new Date(today);
+    d.setDate(today.getDate() + i);
+    const wd = d.getDay();
+    if (wd !== 0 && wd !== 6) { // skip weekends
+      out.push(d);
+      added++;
+    }
+    i++;
+  }
+  return out;
+}
+
+function getSlotsForDate(ymd: string): string[] {
+  // 9:00 → 18:00 every 30 min
+  const slots: string[] = [];
+  for (let h = 9; h < 18; h++) {
+    for (const m of [0, 30]) {
+      slots.push(`${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`);
+    }
+  }
+  // Filter past slots if it's today
+  const now = new Date();
+  if (ymd === toYMD(now)) {
+    const minMs = now.getTime() + 60 * 60 * 1000; // +1h buffer
+    return slots.filter((s) => {
+      const [h, m] = s.split(":").map(Number);
+      const d = new Date(now);
+      d.setHours(h, m, 0, 0);
+      return d.getTime() >= minMs;
+    });
+  }
+  return slots;
+}
+
+const BookingPicker = ({
+  date,
+  slot,
+  onDate,
+  onSlot,
+  onConfirm,
+  loading,
+}: {
+  date: string;
+  slot: string;
+  onDate: (d: string) => void;
+  onSlot: (s: string) => void;
+  onConfirm: () => void;
+  loading: boolean;
+}) => {
+  const days = useMemo(() => getNextDays(10), []);
+  const slots = useMemo(() => (date ? getSlotsForDate(date) : []), [date]);
+  const dayScrollRef = useRef<HTMLDivElement | null>(null);
+
+  // Auto-pick first available day if none selected
+  useEffect(() => {
+    if (!date && days[0]) onDate(toYMD(days[0]));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const selectedDate = date ? new Date(date + "T00:00:00") : null;
+
+  return (
+    <div className="flex flex-col gap-4">
+      {/* Date picker */}
+      <div>
+        <p className="text-[11px] uppercase tracking-wider text-white/50 mb-2 px-1">1. Choisissez un jour</p>
+        <div
+          ref={dayScrollRef}
+          className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide"
+          style={{ scrollbarWidth: "none" }}
+        >
+          {days.map((d) => {
+            const ymd = toYMD(d);
+            const active = ymd === date;
+            return (
+              <button
+                key={ymd}
+                type="button"
+                onClick={() => onDate(ymd)}
+                className={`snap-start shrink-0 w-[68px] py-3 rounded-xl flex flex-col items-center gap-0.5 transition-all touch-manipulation ${
+                  active
+                    ? "bg-gradient-to-br from-[#a78bfa] to-[#ec4899] text-white shadow-[0_8px_24px_-6px_rgba(236,72,153,0.6)] scale-105"
+                    : "bg-white/[0.06] text-white/80 border border-white/10 hover:bg-white/10"
+                }`}
+                aria-pressed={active}
+              >
+                <span className={`text-[10px] uppercase tracking-wider ${active ? "text-white/90" : "text-white/50"}`}>
+                  {WEEKDAY_SHORT[d.getDay()]}
+                </span>
+                <span className="text-[20px] font-bold leading-none">{d.getDate()}</span>
+                <span className={`text-[10px] ${active ? "text-white/80" : "text-white/40"}`}>
+                  {MONTH_SHORT[d.getMonth()]}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Slot picker */}
+      <div>
+        <p className="text-[11px] uppercase tracking-wider text-white/50 mb-2 px-1">
+          2. Choisissez une heure {selectedDate && <span className="text-white/40 normal-case tracking-normal">· {selectedDate.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" })}</span>}
+        </p>
+        {slots.length === 0 ? (
+          <p className="text-[13px] text-white/60 text-center py-6 bg-white/[0.04] rounded-xl border border-white/10">
+            Aucun créneau disponible ce jour. Choisissez un autre jour.
+          </p>
+        ) : (
+          <div className="grid grid-cols-3 gap-2">
+            {slots.map((s) => {
+              const active = s === slot;
+              return (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => onSlot(s)}
+                  className={`h-11 rounded-xl text-[14px] font-semibold transition-all touch-manipulation ${
+                    active
+                      ? "bg-gradient-to-br from-[#a78bfa] to-[#ec4899] text-white shadow-[0_6px_18px_-4px_rgba(236,72,153,0.55)] scale-[1.03]"
+                      : "bg-white/[0.06] text-white border border-white/10 hover:bg-white/10 active:scale-95"
+                  }`}
+                  aria-pressed={active}
+                >
+                  {s}
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      {/* Confirm */}
+      <button
+        type="button"
+        disabled={!date || !slot || loading}
+        onClick={onConfirm}
+        className="mt-1 h-14 rounded-2xl bg-gradient-to-r from-[#a78bfa] to-[#ec4899] text-white font-bold text-[16px] shadow-[0_10px_30px_-8px_rgba(236,72,153,0.7)] disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-[0.98] flex items-center justify-center gap-2 touch-manipulation"
+      >
+        {loading ? (
+          <><Loader2 className="w-5 h-5 animate-spin" /> Réservation…</>
+        ) : (
+          <>Confirmer mon RDV <ArrowRight className="w-5 h-5" /></>
+        )}
+      </button>
+      <p className="text-[11px] text-white/50 text-center">
+        Rendez-vous téléphonique de 15 min · Gratuit & sans engagement
+      </p>
+    </div>
+  );
+};
+
 export default PromoSiteWeb;
+
