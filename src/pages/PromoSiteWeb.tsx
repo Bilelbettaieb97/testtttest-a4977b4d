@@ -336,7 +336,7 @@ const PromoSiteWeb = () => {
             {step !== "success" && (
               <>
                 {step === 1 && (
-                  <header className="text-center mb-3 promo-slide flex flex-col items-center">
+                  <header className="text-center mb-5 promo-slide flex flex-col items-center">
                     <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full border border-[#a78bfa]/30 bg-[#a78bfa]/10 backdrop-blur-sm mb-2">
                       <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
                         <span className="absolute inline-flex h-full w-full rounded-full bg-[#ec4899] opacity-60 animate-ping" />
@@ -377,7 +377,7 @@ const PromoSiteWeb = () => {
 
 
                 <div
-                  className="flex items-center gap-1.5 mb-3"
+                  className="flex items-center gap-1.5 mb-5"
                   role="progressbar"
                   aria-valuemin={1}
                   aria-valuemax={3}
@@ -394,7 +394,7 @@ const PromoSiteWeb = () => {
                   ))}
                 </div>
 
-                <div id="promo-form-region" className="promo-card flex-1 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-4 shadow-2xl">
+                <div id="promo-form-region" className="promo-card flex-1 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-5 shadow-2xl flex flex-col">
 
                   {step === 1 && (
                     <section key="s1" className="promo-slide" aria-labelledby="step1-heading">
