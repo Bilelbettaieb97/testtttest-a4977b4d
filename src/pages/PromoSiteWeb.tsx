@@ -76,7 +76,6 @@ const PromoSiteWeb = () => {
   const [step, setStep] = useState<Step>(1);
   const [objectif, setObjectif] = useState<string>("");
   const [situation, setSituation] = useState<string>("");
-  const [urgence, setUrgence] = useState<string>("");
   const [coords, setCoords] = useState<Coords>({ prenom: "", email: "", telephone: "", entreprise: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
@@ -139,10 +138,6 @@ const PromoSiteWeb = () => {
     () => objectifs.find((o) => o.id === objectif)?.label ?? "",
     [objectif]
   );
-  const urgenceLabel = useMemo(
-    () => urgences.find((u) => u.id === urgence)?.label.toLowerCase() ?? "",
-    [urgence]
-  );
 
   const validateField = useCallback((name: keyof Coords, value: string) => {
     const shape = coordsSchema.shape;
@@ -180,16 +175,10 @@ const PromoSiteWeb = () => {
     setTimeout(() => setStep(2), 180);
   }, []);
 
-  const handleSituation = useCallback((id: string, currentUrgence: string) => {
+  const handleSituation = useCallback((id: string) => {
     haptic(8);
     setSituation(id);
-    if (currentUrgence) setTimeout(() => setStep(3), 220);
-  }, []);
-
-  const handleUrgence = useCallback((id: string, currentSituation: string) => {
-    haptic(8);
-    setUrgence(id);
-    if (currentSituation) setTimeout(() => setStep(3), 220);
+    setTimeout(() => setStep(3), 220);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
