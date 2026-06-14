@@ -86,7 +86,7 @@ const PromoSiteWeb = () => {
   const [bookingDate, setBookingDate] = useState<string>(""); // YYYY-MM-DD
   const [bookingSlot, setBookingSlot] = useState<string>(""); // HH:mm
   const [bookingLoading, setBookingLoading] = useState(false);
-  const [bookingDone, setBookingDone] = useState<{ slotAt: string } | null>(null);
+  const [bookingDone, setBookingDone] = useState<{ slotAt: string } | null>({ slotAt: new Date(Date.now() + 86400000 * 2).toISOString() });
 
   // Newsletter CTA state
   const [newsletterEmail, setNewsletterEmail] = useState("");
