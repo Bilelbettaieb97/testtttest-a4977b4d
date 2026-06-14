@@ -389,6 +389,43 @@ Deno.serve(async (req: Request) => {
         break;
       }
 
+      case "promo_appointment": {
+        const prenom = sanitize(data.prenom, 100);
+        const telephone = sanitize(data.telephone, 50);
+        const slotIso = sanitize(data.slot_at, 64);
+        const duration = Number(data.duration_min) || 15;
+        const leadId = sanitize(data.lead_id, 64);
+        const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        const slotDate = new Date(slotIso);
+        if (!prenom || !telephone || !slotIso || isNaN(slotDate.getTime()) || slotDate.getTime() < Date.now() - 60_000) {
+          return new Response(
+            JSON.stringify({ error: "Missing or invalid appointment fields" }),
+            { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+        const { error: insErr } = await supabaseAdmin
+          .from("promo_appointments")
+          .insert({
+            lead_id: leadId && uuidRegex.test(leadId) ? leadId : null,
+            slot_at: slotDate.toISOString(),
+            duration_min: duration,
+            prenom,
+            email,
+            telephone,
+            status: "pending",
+          });
+        if (insErr) {
+          console.error("promo_appointment insert error:", insErr);
+          return new Response(
+            JSON.stringify({ error: "Booking failed" }),
+            { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+        emailContent = buildPromoAppointmentEmail({ ...data, slot_at: slotDate.toISOString() });
+        break;
+      }
+
+
 
       case "contact":
       default:
