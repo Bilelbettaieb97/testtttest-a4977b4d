@@ -310,6 +310,16 @@ Deno.serve(async (req: Request) => {
         emailContent = buildNewsletterEmail(data);
         break;
 
+      case "promo_lead":
+        if (!sanitize(data.prenom, 100) || !sanitize(data.telephone, 50) || !sanitize(data.objectif, 100) || !sanitize(data.situation, 100) || !sanitize(data.urgence, 50)) {
+          return new Response(
+            JSON.stringify({ error: "Missing required fields" }),
+            { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+        emailContent = buildPromoLeadEmail(data);
+        break;
+
       case "contact":
       default:
         if (!sanitize(data.name) || !sanitize(data.company, 200) || !sanitize(data.phone, 50) || !sanitize(data.project, 100)) {
