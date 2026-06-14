@@ -282,7 +282,6 @@ export type Database = {
           id: string
           objectif: string
           prenom: string
-          secteur: string | null
           situation: string
           telephone: string
           updated_at: string
@@ -295,7 +294,6 @@ export type Database = {
           id?: string
           objectif: string
           prenom: string
-          secteur?: string | null
           situation: string
           telephone: string
           updated_at?: string
@@ -308,7 +306,6 @@ export type Database = {
           id?: string
           objectif?: string
           prenom?: string
-          secteur?: string | null
           situation?: string
           telephone?: string
           updated_at?: string
