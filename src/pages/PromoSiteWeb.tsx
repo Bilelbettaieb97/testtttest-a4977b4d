@@ -332,42 +332,42 @@ const PromoSiteWeb = () => {
             <div className="promo-blob absolute top-1/3 -right-16 w-[300px] h-[300px] rounded-full bg-[#ec4899] opacity-20 blur-3xl" style={{ animationDelay: "-4s" }} />
           </div>
 
-          <div className="relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] flex flex-col">
+          <div className="relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] flex flex-col">
             {step !== "success" && (
               <>
-                <header className="text-center mb-5 promo-slide flex flex-col items-center">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#a78bfa]/30 bg-[#a78bfa]/10 backdrop-blur-sm mb-4">
-                    <span className="relative flex h-2 w-2" aria-hidden="true">
+                <header className="text-center mb-3 promo-slide flex flex-col items-center">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full border border-[#a78bfa]/30 bg-[#a78bfa]/10 backdrop-blur-sm mb-2">
+                    <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
                       <span className="absolute inline-flex h-full w-full rounded-full bg-[#ec4899] opacity-60 animate-ping" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ec4899]" />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#ec4899]" />
                     </span>
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#ddd6fe]">
+                    <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#ddd6fe]">
                       Offre exclusive · Paiement en 3×
                     </span>
                   </div>
 
-                  <h1 id="promo-h1" className="text-[26px] font-bold tracking-tight leading-[1.1] mb-1">
+                  <h1 id="promo-h1" className="text-[20px] font-bold tracking-tight leading-[1.1]">
                     Votre site web pro
                   </h1>
                   <div
-                    className="text-[64px] font-extrabold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#ec4899] py-1 drop-shadow-[0_0_25px_rgba(167,139,250,0.35)]"
+                    className="text-[48px] font-extrabold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#ec4899] py-1 drop-shadow-[0_0_25px_rgba(167,139,250,0.35)]"
                     aria-label="300 euros"
                   >
                     300€
                   </div>
 
-                  <p className="text-[13px] text-white/70 leading-relaxed max-w-[300px] mx-auto mt-2">
-                    Un site vitrine haute performance, livré en <strong className="text-white font-semibold">7 jours</strong>. Sans aucun abonnement caché.
+                  <p className="text-[12px] text-white/70 leading-snug max-w-[300px] mx-auto mt-1">
+                    Site vitrine pro livré en <strong className="text-white font-semibold">7 jours</strong>. Sans abonnement caché.
                   </p>
 
-                  <div className="flex items-center justify-center gap-3 mt-3 text-[11px] font-medium text-white/75">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Star className="w-3.5 h-3.5 text-[#a78bfa] fill-[#a78bfa]" aria-hidden="true" />
+                  <div className="flex items-center justify-center gap-2.5 mt-1.5 text-[10px] font-medium text-white/75">
+                    <span className="inline-flex items-center gap-1">
+                      <Star className="w-3 h-3 text-[#a78bfa] fill-[#a78bfa]" aria-hidden="true" />
                       4,9/5 <span className="text-white/50">(120+ avis)</span>
                     </span>
                     <span className="w-1 h-1 rounded-full bg-white/30" aria-hidden="true" />
-                    <span className="inline-flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#a78bfa]" aria-hidden="true" />
+                    <span className="inline-flex items-center gap-1">
+                      <ShieldCheck className="w-3 h-3 text-[#a78bfa]" aria-hidden="true" />
                       Satisfait ou remboursé
                     </span>
                   </div>
@@ -375,7 +375,7 @@ const PromoSiteWeb = () => {
 
 
                 <div
-                  className="flex items-center gap-1.5 mb-5"
+                  className="flex items-center gap-1.5 mb-3"
                   role="progressbar"
                   aria-valuemin={1}
                   aria-valuemax={3}
@@ -392,13 +392,14 @@ const PromoSiteWeb = () => {
                   ))}
                 </div>
 
-                <div id="promo-form-region" className="promo-card flex-1 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-5 shadow-2xl">
+                <div id="promo-form-region" className="promo-card flex-1 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-4 shadow-2xl">
+
                   {step === 1 && (
                     <section key="s1" className="promo-slide" aria-labelledby="step1-heading">
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 1 / 3</p>
-                      <h2 id="step1-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[19px] font-bold mb-4 leading-tight focus:outline-none">Quel est l'objectif principal de votre site ?</h2>
+                      <h2 id="step1-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[17px] font-bold mb-3 leading-tight focus:outline-none">Quel est l'objectif principal de votre site ?</h2>
                       <div
-                        className="space-y-2.5"
+                        className="space-y-2"
                         role="radiogroup"
                         aria-labelledby="step1-heading"
                         onKeyDown={handleGroupKey}
@@ -413,19 +414,19 @@ const PromoSiteWeb = () => {
                               aria-checked={active}
                               tabIndex={active || (!objectif && id === objectifs[0].id) ? 0 : -1}
                               onClick={() => handleStep1(id)}
-                              className={`group w-full text-left p-3.5 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
+                              className={`group w-full text-left p-2.5 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
                                 active
                                   ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20 shadow-[0_0_20px_-5px_rgba(236,72,153,0.5)]"
                                   : "border-white/10 bg-white/[0.03]"
                               }`}
                             >
                               <div className="flex items-center gap-3">
-                                <div aria-hidden="true" className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-transform ${active ? "scale-110" : ""} bg-gradient-to-br from-[#a78bfa] to-[#ec4899]`}>
-                                  <Icon className="w-5 h-5" />
+                                <div aria-hidden="true" className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-transform ${active ? "scale-110" : ""} bg-gradient-to-br from-[#a78bfa] to-[#ec4899]`}>
+                                  <Icon className="w-4 h-4" />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <div className="font-semibold text-[14px]">{label}</div>
-                                  <div className="text-[11px] text-white/50">{desc}</div>
+                                  <div className="font-semibold text-[14px] leading-tight">{label}</div>
+                                  <div className="text-[11px] text-white/50 leading-tight">{desc}</div>
                                 </div>
                                 {active ? (
                                   <CheckCircle2 className="w-5 h-5 text-[#ec4899] promo-pop" aria-hidden="true" />
@@ -439,6 +440,7 @@ const PromoSiteWeb = () => {
                       </div>
                     </section>
                   )}
+
 
 
                   {step === 2 && (
