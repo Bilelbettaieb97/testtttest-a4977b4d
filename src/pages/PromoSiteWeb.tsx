@@ -94,7 +94,12 @@ const PromoSiteWeb = () => {
   useEffect(() => {
     if (step === "success") {
       requestAnimationFrame(() => successHeadingRef.current?.focus());
-      setLiveMessage("Formulaire envoyé. Choisissez un créneau pour votre rendez-vous.");
+      setLiveMessage("Demande envoyée. Choisissez un créneau pour votre rendez-vous.");
+      return;
+    }
+    if (step === "recap") {
+      requestAnimationFrame(() => stepHeadingRef.current?.focus());
+      setLiveMessage("Récapitulatif de votre demande");
       return;
     }
     requestAnimationFrame(() => stepHeadingRef.current?.focus());
