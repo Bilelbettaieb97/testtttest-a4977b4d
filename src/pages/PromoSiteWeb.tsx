@@ -689,10 +689,10 @@ const PromoSiteWeb = () => {
 
                 <div className="mb-4">
                   <label htmlFor="infos-supp" className="block text-[13px] font-semibold text-white mb-1.5">
-                    Plus d'informations sur votre projet <span className="text-white/40 font-normal">(optionnel)</span>
+                    Ajouter des précisions <span className="text-white/40 font-normal">(optionnel)</span>
                   </label>
                   <p className="text-[12px] text-white/50 mb-2 leading-relaxed">
-                    Partagez tout ce qui pourrait nous aider à mieux comprendre votre projet : références, fonctionnalités souhaitées, délais, budget approximatif…
+                    Tout détail supplémentaire qui nous aidera à mieux préparer notre échange : références, fonctionnalités, délais, budget…
                   </p>
                   <textarea
                     id="infos-supp"
@@ -719,17 +719,8 @@ const PromoSiteWeb = () => {
                       <span>Envoi en cours…</span>
                     </>
                   ) : (
-                    <span>Envoyer ma demande</span>
+                    <span>{infosSupp.trim() ? "Ajouter ces infos" : "Continuer"} <ArrowRight className="w-4 h-4 inline" /></span>
                   )}
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => { haptic(5); setStep(3); }}
-                  disabled={loading}
-                  className="w-full mt-3 text-[13px] text-white/60 hover:text-white inline-flex items-center justify-center gap-1 touch-manipulation min-h-11 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] disabled:opacity-50"
-                >
-                  <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Modifier mes coordonnées
                 </button>
 
                 <p className="text-[11px] text-white/40 text-center mt-3">
@@ -737,6 +728,7 @@ const PromoSiteWeb = () => {
                 </p>
               </div>
             )}
+
 
             {step === "success" && (
               <div className="promo-slide flex-1 flex flex-col">
