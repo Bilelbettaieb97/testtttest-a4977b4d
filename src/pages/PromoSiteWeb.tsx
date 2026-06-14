@@ -428,7 +428,8 @@ const PromoSiteWeb = () => {
                       <h2 className="text-[19px] font-bold mb-2 leading-tight">Dernière étape ✨</h2>
 
                       <div className="mb-4 p-3 rounded-xl bg-gradient-to-r from-[#a78bfa]/10 to-[#ec4899]/10 border border-white/10 text-[12px] text-white/80 leading-relaxed">
-                        Parfait, on a noté : <strong> — lancement <strong className="text-white">{urgenceLabel}</strong></> 🎯
+                        Parfait, on a noté : <strong className="text-white">{objectifLabel}</strong>
+                        {urgenceLabel && <> — lancement <strong className="text-white">{urgenceLabel}</strong></>} 🎯
                       </div>
 
                       <div className="space-y-2.5">
