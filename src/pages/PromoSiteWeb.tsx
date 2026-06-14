@@ -549,6 +549,35 @@ const PromoSiteWeb = () => {
                         {urgenceLabel && <> — lancement <strong className="text-white">{urgenceLabel}</strong></>} 🎯
                       </div>
 
+                      <fieldset className="mb-5">
+                        <legend className="text-[13px] font-semibold text-white/90 mb-1">
+                          Votre secteur d'activité ? <span className="text-white/40 font-normal">(optionnel)</span>
+                        </legend>
+                        <p className="text-[11px] text-white/50 mb-2.5">On adapte le design à votre domaine.</p>
+                        <div className="flex flex-wrap gap-1.5" role="radiogroup" aria-label="Secteur d'activité">
+                          {secteurs.map((s) => {
+                            const active = secteur === s;
+                            return (
+                              <button
+                                key={s}
+                                type="button"
+                                role="radio"
+                                aria-checked={active}
+                                onClick={() => { haptic(5); setSecteur(active ? "" : s); }}
+                                className={`px-2.5 py-1.5 rounded-full text-[12px] font-medium border transition-all duration-150 active:scale-95 touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] ${
+                                  active
+                                    ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/30 to-[#ec4899]/30 text-white shadow-[0_0_10px_-3px_rgba(236,72,153,0.6)]"
+                                    : "border-white/10 bg-white/[0.04] text-white/70 hover:text-white hover:border-white/20"
+                                }`}
+                              >
+                                {s}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </fieldset>
+
+
                       <div className="space-y-3.5 flex-1">
                         <Field
                           name="prenom"
