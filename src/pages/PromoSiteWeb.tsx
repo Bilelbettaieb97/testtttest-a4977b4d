@@ -70,6 +70,14 @@ const haptic = (ms = 8) => {
   }
 };
 
+async function sha256Hex(input: string): Promise<string> {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(input.trim().toLowerCase());
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
 const PromoSiteWeb = () => {
   const { toast } = useToast();
   const [step, setStep] = useState<Step>(1);
