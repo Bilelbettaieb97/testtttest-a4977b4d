@@ -221,6 +221,22 @@ ${entreprise ? `<div class="field"><div class="field-label">Entreprise / Activit
   };
 }
 
+function buildPromoLeadUpdateEmail(data: any): { subject: string; html: string } {
+  const prenom = escapeHtml(sanitize(data.prenom, 100));
+  const email = escapeHtml(sanitize(data.email, 255));
+  const infos = escapeHtml(sanitize(data.infos_supp, 2000)).replace(/\n/g, "<br>");
+  return {
+    subject: `📝 Complément d'infos — ${prenom}`,
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8">
+<style>body{font-family:-apple-system,sans-serif;background:#f3f4f6;padding:20px;margin:0;color:#1f2937}.container{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1)}.header{background:linear-gradient(135deg,#a78bfa,#ec4899);color:#fff;padding:24px;text-align:center}.header h1{font-size:20px;margin:0}.content{padding:24px}.field{padding:14px 16px;background:#f9fafb;border-radius:10px;border-left:4px solid #a78bfa;white-space:pre-wrap;line-height:1.5}.meta{font-size:13px;color:#6b7280;margin-bottom:16px}.footer{text-align:center;padding:16px;color:#9ca3af;font-size:12px}</style></head><body><div class="container">
+<div class="header"><h1>📝 Complément d'informations</h1></div>
+<div class="content">
+<p class="meta"><strong>${prenom}</strong> (${email}) a ajouté plus de détails sur son projet :</p>
+<div class="field">${infos}</div>
+</div><div class="footer">ConvertiLab — Mise à jour fiche prospect</div></div></body></html>`,
+  };
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
