@@ -332,7 +332,7 @@ const PromoSiteWeb = () => {
             <div className="promo-blob absolute top-1/3 -right-16 w-[300px] h-[300px] rounded-full bg-[#ec4899] opacity-20 blur-3xl" style={{ animationDelay: "-4s" }} />
           </div>
 
-          <div className={`relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(1.25rem,env(safe-area-inset-top))] ${step !== "success" ? "pb-24" : "pb-[max(1.5rem,env(safe-area-inset-bottom))]"} flex flex-col`}>
+          <div className="relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] flex flex-col">
             {step !== "success" && (
               <>
                 <header className="text-center mb-5 promo-slide flex flex-col items-center">
@@ -665,43 +665,6 @@ const PromoSiteWeb = () => {
           </div>
         </div>
 
-        {step !== "success" && (
-          <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
-            <div className="px-4 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-3 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/95 to-transparent">
-              <button
-                type="button"
-                disabled={
-                  step === 1 ? !objectif :
-                  step === 2 ? !(situation && urgence) :
-                  !coordsSchema.safeParse(coords).success
-                }
-                onClick={() => {
-                  haptic(10);
-                  if (step === 1 && objectif) setStep(2);
-                  else if (step === 2 && situation && urgence) setStep(3);
-                  else if (step === 3) formRef.current?.requestSubmit();
-                }}
-                className="promo-cta w-full h-14 rounded-xl text-white font-bold text-[15px] shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] active:scale-[0.98] transition-transform touch-manipulation disabled:opacity-40 disabled:active:scale-100 flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a]"
-              >
-                {step === 1 && !objectif && <span>Sélectionnez un objectif</span>}
-                {step === 1 && objectif && (
-                  <span className="flex items-center gap-2">Continuer <ArrowRight className="w-4 h-4" aria-hidden="true" /></span>
-                )}
-                {step === 2 && !(situation && urgence) && <span>Sélectionnez votre situation</span>}
-                {step === 2 && situation && urgence && (
-                  <span className="flex items-center gap-2">Continuer <ArrowRight className="w-4 h-4" aria-hidden="true" /></span>
-                )}
-                {step === 3 && !coordsSchema.safeParse(coords).success && <span>Remplissez vos coordonnées</span>}
-                {step === 3 && coordsSchema.safeParse(coords).success && (
-                  <span>Envoyer ma demande</span>
-                )}
-              </button>
-              <p className="text-[10px] text-white/50 text-center mt-2">
-                Sans engagement · Réponse sous 2h
-              </p>
-            </div>
-          </div>
-        )}
       </main>
 
     </>
