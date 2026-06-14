@@ -421,47 +421,64 @@ const PromoSiteWeb = () => {
 
 
                   {step === 2 && (
-                    <div key="s2" className="promo-slide">
+                    <section key="s2" className="promo-slide" aria-labelledby="step2-heading">
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 2 / 3</p>
-                      <h2 className="text-[19px] font-bold mb-3 leading-tight">Où en êtes-vous aujourd'hui ?</h2>
-                      <div className="space-y-2 mb-5">
+                      <h2 id="step2-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[19px] font-bold mb-3 leading-tight focus:outline-none">Où en êtes-vous aujourd'hui ?</h2>
+                      <div
+                        className="space-y-2 mb-5"
+                        role="radiogroup"
+                        aria-labelledby="step2-heading"
+                        onKeyDown={handleGroupKey}
+                      >
                         {situations.map(({ id, label, Icon }) => {
                           const active = situation === id;
                           return (
                             <button
                               key={id}
                               type="button"
+                              role="radio"
+                              aria-checked={active}
+                              tabIndex={active || (!situation && id === situations[0].id) ? 0 : -1}
                               onClick={() => handleSituation(id, urgence)}
-                              className={`w-full text-left p-3 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation flex items-center gap-3 ${
+                              className={`w-full text-left p-3 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
                                 active
                                   ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20"
                                   : "border-white/10 bg-white/[0.03]"
                               }`}
                             >
-                              <Icon className={`w-4 h-4 shrink-0 ${active ? "text-[#ec4899]" : "text-white/50"}`} />
+                              <Icon aria-hidden="true" className={`w-4 h-4 shrink-0 ${active ? "text-[#ec4899]" : "text-white/50"}`} />
                               <span className="text-[13px] font-medium flex-1">{label}</span>
-                              {active && <CheckCircle2 className="w-4 h-4 text-[#ec4899] promo-pop" />}
+                              {active && <CheckCircle2 className="w-4 h-4 text-[#ec4899] promo-pop" aria-hidden="true" />}
                             </button>
                           );
                         })}
                       </div>
 
-                      <h3 className="text-[15px] font-bold mb-2.5">Quand voulez-vous être en ligne ?</h3>
-                      <div className="grid grid-cols-3 gap-2 mb-5">
+                      <h3 id="urgence-heading" className="text-[15px] font-bold mb-2.5">Quand voulez-vous être en ligne ?</h3>
+                      <div
+                        className="grid grid-cols-3 gap-2 mb-5"
+                        role="radiogroup"
+                        aria-labelledby="urgence-heading"
+                        onKeyDown={handleGroupKey}
+                      >
                         {urgences.map(({ id, label, Icon }) => {
                           const active = urgence === id;
                           return (
                             <button
                               key={id}
                               type="button"
+                              role="radio"
+                              aria-checked={active}
+                              aria-label={label}
+                              tabIndex={active || (!urgence && id === urgences[0].id) ? 0 : -1}
                               onClick={() => handleUrgence(id, situation)}
-                              className={`p-3 rounded-xl border transition-all duration-200 active:scale-95 touch-manipulation flex flex-col items-center gap-1.5 ${
+                              className={`p-3 rounded-xl border transition-all duration-200 active:scale-95 touch-manipulation flex flex-col items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
                                 active
                                   ? "border-[#ec4899] bg-gradient-to-br from-[#a78bfa]/25 to-[#ec4899]/25 shadow-[0_0_15px_-5px_rgba(236,72,153,0.5)]"
                                   : "border-white/10 bg-white/[0.03]"
                               }`}
                             >
-                              <Icon className={`w-4 h-4 ${active ? "text-[#ec4899]" : "text-white/60"}`} />
+                              <Icon aria-hidden="true" className={`w-4 h-4 ${active ? "text-[#ec4899]" : "text-white/60"}`} />
                               <span className="text-[11px] font-medium text-center leading-tight">{label}</span>
                             </button>
                           );
@@ -471,12 +488,13 @@ const PromoSiteWeb = () => {
                       <button
                         type="button"
                         onClick={() => { haptic(5); setStep(1); }}
-                        className="inline-flex items-center gap-1 text-xs text-white/60 hover:text-white touch-manipulation"
+                        className="inline-flex items-center gap-1 text-xs text-white/60 hover:text-white touch-manipulation min-h-11 px-2 -ml-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899]"
                       >
-                        <ArrowLeft className="w-3.5 h-3.5" /> Étape précédente
+                        <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" /> Étape précédente
                       </button>
-                    </div>
+                    </section>
                   )}
+
 
                   {step === 3 && (
                     <form onSubmit={handleSubmit} key="s3" className="promo-slide" noValidate>
