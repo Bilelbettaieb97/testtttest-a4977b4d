@@ -78,6 +78,7 @@ const PromoSiteWeb = () => {
   const [situation, setSituation] = useState<string>("");
   const [coords, setCoords] = useState<Coords>({ prenom: "", email: "", telephone: "", entreprise: "" });
   const [infosSupp, setInfosSupp] = useState<string>("");
+  const [leadId, setLeadId] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
