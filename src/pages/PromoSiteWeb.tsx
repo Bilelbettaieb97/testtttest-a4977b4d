@@ -78,6 +78,7 @@ const PromoSiteWeb = () => {
   const [situation, setSituation] = useState<string>("");
   const [coords, setCoords] = useState<Coords>({ prenom: "", email: "", telephone: "", entreprise: "" });
   const [infosSupp, setInfosSupp] = useState<string>("");
+  const [leadId, setLeadId] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
@@ -192,7 +193,7 @@ const PromoSiteWeb = () => {
     setTimeout(() => setStep(2), 220);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const parsed = coordsSchema.safeParse(coords);
@@ -222,30 +223,36 @@ const PromoSiteWeb = () => {
       return;
     }
 
-    setErrors({});
-    haptic(15);
-    setStep("recap");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    // Skip duplicate insert if already sent (user came back from recap)
+    if (leadId) {
+      setErrors({});
+      haptic(15);
+      setStep("recap");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
 
-  const handleConfirm = async () => {
+    setErrors({});
     setLoading(true);
     haptic(15);
     try {
-      const trimmedInfos = infosSupp.trim().slice(0, 2000);
       const payload = {
         objectif: objectifs.find((o) => o.id === objectif)?.label ?? objectif,
         situation: situations.find((s) => s.id === situation)?.label ?? situation,
         urgence: "Non spécifié",
-        prenom: coords.prenom,
-        email: coords.email,
-        telephone: coords.telephone,
-        entreprise: coords.entreprise || null,
-        infos_supp: trimmedInfos || null,
+        prenom: parsed.data.prenom,
+        email: parsed.data.email,
+        telephone: parsed.data.telephone,
+        entreprise: parsed.data.entreprise || null,
       };
 
-      const { error: dbError } = await supabase.from("promo_leads").insert(payload);
+      const { data: inserted, error: dbError } = await supabase
+        .from("promo_leads")
+        .insert(payload)
+        .select("id")
+        .single();
       if (dbError) throw dbError;
+      if (inserted?.id) setLeadId(inserted.id);
 
       supabase.functions.invoke("notify-contact", {
         body: { type: "promo_lead", ...payload },
@@ -256,7 +263,7 @@ const PromoSiteWeb = () => {
       }
 
       haptic(50);
-      setStep("success");
+      setStep("recap");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       console.error(err);
@@ -270,6 +277,48 @@ const PromoSiteWeb = () => {
       setLoading(false);
     }
   };
+
+  const handleConfirm = async () => {
+    const trimmedInfos = infosSupp.trim().slice(0, 2000);
+
+    // No extra info → just move on to Calendly
+    if (!trimmedInfos || !leadId) {
+      haptic(15);
+      setStep("success");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    setLoading(true);
+    haptic(15);
+    try {
+      const { error } = await supabase.functions.invoke("notify-contact", {
+        body: {
+          type: "promo_lead_update",
+          id: leadId,
+          infos_supp: trimmedInfos,
+          prenom: coords.prenom,
+          email: coords.email,
+        },
+      });
+      if (error) throw error;
+
+      haptic(50);
+      setStep("success");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: "Impossible d'envoyer le complément",
+        description: "Réessayez dans un instant.",
+        variant: "destructive",
+      });
+      haptic(30);
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
 
   const progress = typeof step === "number" ? step : 3;
@@ -568,7 +617,14 @@ const PromoSiteWeb = () => {
                         aria-busy={loading}
                         className="promo-cta w-full mt-5 h-14 rounded-xl text-white font-bold text-[15px] shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] active:scale-[0.98] transition-transform touch-manipulation disabled:opacity-70 disabled:active:scale-100 flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a]"
                       >
-                        <span>Continuer <ArrowRight className="w-4 h-4 inline" /></span>
+                        {loading ? (
+                          <>
+                            <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
+                            <span>Envoi en cours…</span>
+                          </>
+                        ) : (
+                          <span>Envoyer ma demande <ArrowRight className="w-4 h-4 inline" /></span>
+                        )}
                       </button>
 
                       <div className="mt-4 space-y-2 text-center">
@@ -604,10 +660,10 @@ const PromoSiteWeb = () => {
                     <CheckCircle2 className="w-8 h-8 text-white" />
                   </div>
                   <h2 ref={stepHeadingRef} tabIndex={-1} className="text-[20px] font-bold mb-1.5 focus:outline-none leading-tight">
-                    Récapitulatif, {coords.prenom}
+                    Merci {coords.prenom}, c'est envoyé ! <span aria-hidden="true">🎉</span>
                   </h2>
                   <p className="text-[13px] text-white/70 px-2">
-                    Vérifiez vos informations puis envoyez votre demande.
+                    Votre demande nous est bien parvenue. Voulez-vous nous en dire plus sur votre projet ?
                   </p>
                 </div>
 
@@ -633,10 +689,10 @@ const PromoSiteWeb = () => {
 
                 <div className="mb-4">
                   <label htmlFor="infos-supp" className="block text-[13px] font-semibold text-white mb-1.5">
-                    Plus d'informations sur votre projet <span className="text-white/40 font-normal">(optionnel)</span>
+                    Ajouter des précisions <span className="text-white/40 font-normal">(optionnel)</span>
                   </label>
                   <p className="text-[12px] text-white/50 mb-2 leading-relaxed">
-                    Partagez tout ce qui pourrait nous aider à mieux comprendre votre projet : références, fonctionnalités souhaitées, délais, budget approximatif…
+                    Tout détail supplémentaire qui nous aidera à mieux préparer notre échange : références, fonctionnalités, délais, budget…
                   </p>
                   <textarea
                     id="infos-supp"
@@ -663,17 +719,8 @@ const PromoSiteWeb = () => {
                       <span>Envoi en cours…</span>
                     </>
                   ) : (
-                    <span>Envoyer ma demande</span>
+                    <span>{infosSupp.trim() ? "Ajouter ces infos" : "Continuer"} <ArrowRight className="w-4 h-4 inline" /></span>
                   )}
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => { haptic(5); setStep(3); }}
-                  disabled={loading}
-                  className="w-full mt-3 text-[13px] text-white/60 hover:text-white inline-flex items-center justify-center gap-1 touch-manipulation min-h-11 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] disabled:opacity-50"
-                >
-                  <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Modifier mes coordonnées
                 </button>
 
                 <p className="text-[11px] text-white/40 text-center mt-3">
@@ -681,6 +728,7 @@ const PromoSiteWeb = () => {
                 </p>
               </div>
             )}
+
 
             {step === "success" && (
               <div className="promo-slide flex-1 flex flex-col">
