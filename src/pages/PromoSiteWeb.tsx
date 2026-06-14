@@ -760,14 +760,14 @@ const PromoSiteWeb = () => {
 
             {step === "success" && (
               <div className="promo-slide flex-1 flex flex-col justify-center">
-                <div className="text-center mb-2 pt-1">
+                <div className="text-center mb-3 pt-1">
                   <div aria-hidden="true" className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-2 promo-pop shadow-[0_10px_40px_-5px_rgba(236,72,153,0.7)]">
                     {bookingDone ? <CheckCircle2 className="w-7 h-7 text-white" /> : <PartyPopper className="w-7 h-7 text-white" />}
                   </div>
-                  <h1 ref={successHeadingRef} tabIndex={-1} className="text-[18px] font-bold mb-1 focus:outline-none">
+                  <h1 ref={successHeadingRef} tabIndex={-1} className="text-[22px] font-bold mb-1.5 focus:outline-none">
                     {bookingDone ? `RDV confirmé ${coords.prenom} ✅` : `Bravo ${coords.prenom} 🎉`}
                   </h1>
-                  <p className="text-[12px] text-white/70 px-4 leading-snug">
+                  <p className="text-[14px] text-white/80 px-2 leading-snug">
                     {bookingDone
                       ? "Vous recevrez un rappel par email. À très vite !"
                       : "Choisissez un créneau (15 min, gratuit) pour qu'on discute de votre projet."}
