@@ -72,7 +72,7 @@ const haptic = (ms = 8) => {
 
 const PromoSiteWeb = () => {
   const { toast } = useToast();
-  const [step, setStep] = useState<Step>("success");
+  const [step, setStep] = useState<Step>(1);
   const [objectif, setObjectif] = useState<string>("");
   const [situation, setSituation] = useState<string>("");
   const [coords, setCoords] = useState<Coords>({ prenom: "", email: "", telephone: "", entreprise: "" });
