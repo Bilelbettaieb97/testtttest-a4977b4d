@@ -1,0 +1,2 @@
+ALTER TABLE public.promo_leads ADD COLUMN IF NOT EXISTS infos_supp text;
+ALTER TABLE public.promo_leads ADD CONSTRAINT promo_leads_infos_len CHECK (infos_supp IS NULL OR char_length(infos_supp) <= 2000);
