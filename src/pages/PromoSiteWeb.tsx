@@ -145,6 +145,11 @@ const PromoSiteWeb = () => {
     [objectif]
   );
 
+  const situationLabel = useMemo(
+    () => situations.find((s) => s.id === situation)?.label ?? "",
+    [situation]
+  );
+
   const validateField = useCallback((name: keyof Coords, value: string) => {
     const shape = coordsSchema.shape;
     const fieldSchema = z.object({ [name]: shape[name] });
