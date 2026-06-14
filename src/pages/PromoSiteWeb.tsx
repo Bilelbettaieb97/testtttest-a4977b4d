@@ -236,7 +236,11 @@ const PromoSiteWeb = () => {
     setLoading(true);
     haptic(15);
     try {
+      const newId = (typeof crypto !== "undefined" && "randomUUID" in crypto)
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`;
       const payload = {
+        id: newId,
         objectif: objectifs.find((o) => o.id === objectif)?.label ?? objectif,
         situation: situations.find((s) => s.id === situation)?.label ?? situation,
         urgence: "Non spécifié",
@@ -246,13 +250,9 @@ const PromoSiteWeb = () => {
         entreprise: parsed.data.entreprise || null,
       };
 
-      const { data: inserted, error: dbError } = await supabase
-        .from("promo_leads")
-        .insert(payload)
-        .select("id")
-        .single();
+      const { error: dbError } = await supabase.from("promo_leads").insert(payload);
       if (dbError) throw dbError;
-      if (inserted?.id) setLeadId(inserted.id);
+      setLeadId(newId);
 
       supabase.functions.invoke("notify-contact", {
         body: { type: "promo_lead", ...payload },
