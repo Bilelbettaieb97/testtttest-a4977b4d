@@ -524,17 +524,16 @@ const PromoSiteWeb = () => {
 
 
                   {step === 3 && (
-                    <form ref={formRef} onSubmit={handleSubmit} key="s3" className="promo-slide" noValidate aria-labelledby="step3-heading">
-                      <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 3 / 3</p>
-                      <h2 id="step3-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[19px] font-bold mb-2 leading-tight focus:outline-none">Dernière étape ✨</h2>
+                    <form ref={formRef} onSubmit={handleSubmit} key="s3" className="promo-slide flex flex-col" noValidate aria-labelledby="step3-heading">
+                      <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1.5">Étape 3 / 3</p>
+                      <h2 id="step3-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[18px] font-bold mb-5 leading-tight focus:outline-none">Dernière étape ✨</h2>
 
-
-                      <div className="mb-4 p-3 rounded-xl bg-gradient-to-r from-[#a78bfa]/10 to-[#ec4899]/10 border border-white/10 text-[12px] text-white/80 leading-relaxed">
+                      <div className="mb-5 p-3.5 rounded-xl bg-gradient-to-r from-[#a78bfa]/10 to-[#ec4899]/10 border border-white/10 text-[13px] text-white/80 leading-relaxed">
                         Parfait, on a noté : <strong className="text-white">{objectifLabel}</strong>
                         {urgenceLabel && <> — lancement <strong className="text-white">{urgenceLabel}</strong></>} 🎯
                       </div>
 
-                      <div className="space-y-2.5">
+                      <div className="space-y-3.5 flex-1">
                         <Field
                           name="prenom"
                           placeholder="Prénom"
@@ -591,7 +590,7 @@ const PromoSiteWeb = () => {
                         type="submit"
                         disabled={loading}
                         aria-busy={loading}
-                        className="promo-cta w-full mt-4 h-14 rounded-xl text-white font-bold text-[15px] shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] active:scale-[0.98] transition-transform touch-manipulation disabled:opacity-70 disabled:active:scale-100 flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a]"
+                        className="promo-cta w-full mt-5 h-14 rounded-xl text-white font-bold text-[15px] shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] active:scale-[0.98] transition-transform touch-manipulation disabled:opacity-70 disabled:active:scale-100 flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a]"
                       >
                         {loading ? (
                           <>
@@ -603,11 +602,11 @@ const PromoSiteWeb = () => {
                         )}
                       </button>
 
-                      <div className="mt-3 space-y-1.5 text-center">
-                        <p className="text-[11px] text-white/60 font-medium">
+                      <div className="mt-4 space-y-2 text-center">
+                        <p className="text-[12px] text-white/60 font-medium">
                           Devis personnalisé sous 24h · Appel de 15 min optionnel
                         </p>
-                        <p className="text-[10px] text-white/40">
+                        <p className="text-[11px] text-white/40">
                           Sans engagement · Pas de carte bancaire requise · Réponse garantie sous 2h
                         </p>
                       </div>
@@ -615,13 +614,12 @@ const PromoSiteWeb = () => {
                       <button
                         type="button"
                         onClick={() => { haptic(5); setStep(2); }}
-                        className="w-full mt-3 text-[11px] text-white/50 hover:text-white/80 inline-flex items-center justify-center gap-1 touch-manipulation min-h-11 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899]"
+                        className="w-full mt-4 text-[13px] text-white/50 hover:text-white/80 inline-flex items-center justify-center gap-1 touch-manipulation min-h-11 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899]"
                       >
-                        <ArrowLeft className="w-3 h-3" aria-hidden="true" /> Revenir
+                        <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Revenir
                       </button>
 
-
-                      <p className="text-[10px] text-white/40 text-center mt-3">
+                      <p className="text-[11px] text-white/40 text-center mt-4">
                         🔒 Données confidentielles · aucun spam
                       </p>
                     </form>
