@@ -219,6 +219,7 @@ const PromoSiteWeb = () => {
       const payload = {
         objectif: objectifs.find((o) => o.id === objectif)?.label ?? objectif,
         situation: situations.find((s) => s.id === situation)?.label ?? situation,
+        urgence: "Non spécifié",
         prenom: parsed.data.prenom,
         email: parsed.data.email,
         telephone: parsed.data.telephone,
