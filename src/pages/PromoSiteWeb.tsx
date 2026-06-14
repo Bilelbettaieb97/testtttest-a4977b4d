@@ -497,9 +497,10 @@ const PromoSiteWeb = () => {
 
 
                   {step === 3 && (
-                    <form onSubmit={handleSubmit} key="s3" className="promo-slide" noValidate>
+                    <form onSubmit={handleSubmit} key="s3" className="promo-slide" noValidate aria-labelledby="step3-heading">
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 3 / 3</p>
-                      <h2 className="text-[19px] font-bold mb-2 leading-tight">Dernière étape ✨</h2>
+                      <h2 id="step3-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[19px] font-bold mb-2 leading-tight focus:outline-none">Dernière étape ✨</h2>
+
 
                       <div className="mb-4 p-3 rounded-xl bg-gradient-to-r from-[#a78bfa]/10 to-[#ec4899]/10 border border-white/10 text-[12px] text-white/80 leading-relaxed">
                         Parfait, on a noté : <strong className="text-white">{objectifLabel}</strong>
