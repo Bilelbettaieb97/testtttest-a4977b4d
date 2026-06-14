@@ -599,7 +599,7 @@ const PromoSiteWeb = () => {
 
                       <div className="mt-3 space-y-1.5 text-center">
                         <p className="text-[11px] text-white/60 font-medium">
-                          Appel de 15 min · Devis personnalisé sous 24h
+                          Devis personnalisé sous 24h · Appel de 15 min optionnel
                         </p>
                         <p className="text-[10px] text-white/40">
                           Sans engagement · Pas de carte bancaire requise · Réponse garantie sous 2h
