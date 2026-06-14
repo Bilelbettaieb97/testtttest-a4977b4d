@@ -88,6 +88,7 @@ const PromoSiteWeb = () => {
   const fieldRefs = useRef<Record<string, HTMLInputElement | null>>({});
   const stepHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const successHeadingRef = useRef<HTMLHeadingElement | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   // Focus management + screen-reader announcement on step change
   useEffect(() => {
@@ -331,7 +332,7 @@ const PromoSiteWeb = () => {
             <div className="promo-blob absolute top-1/3 -right-16 w-[300px] h-[300px] rounded-full bg-[#ec4899] opacity-20 blur-3xl" style={{ animationDelay: "-4s" }} />
           </div>
 
-          <div className="relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] flex flex-col">
+          <div className={`relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(1.25rem,env(safe-area-inset-top))] ${step !== "success" ? "pb-24" : "pb-[max(1.5rem,env(safe-area-inset-bottom))]"} flex flex-col`}>
             {step !== "success" && (
               <>
                 <header className="text-center mb-5 promo-slide flex flex-col items-center">
@@ -517,7 +518,7 @@ const PromoSiteWeb = () => {
 
 
                   {step === 3 && (
-                    <form onSubmit={handleSubmit} key="s3" className="promo-slide" noValidate aria-labelledby="step3-heading">
+                    <form ref={formRef} onSubmit={handleSubmit} key="s3" className="promo-slide" noValidate aria-labelledby="step3-heading">
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 3 / 3</p>
                       <h2 id="step3-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[19px] font-bold mb-2 leading-tight focus:outline-none">Dernière étape ✨</h2>
 
@@ -592,14 +593,23 @@ const PromoSiteWeb = () => {
                             <span>Envoi en cours…</span>
                           </>
                         ) : (
-                          <span><span aria-hidden="true">🎯 </span>Réserver mon créneau gratuit</span>
+                          <span><span aria-hidden="true">🎯 </span>Réserver mon appel gratuit</span>
                         )}
                       </button>
+
+                      <div className="mt-3 space-y-1.5 text-center">
+                        <p className="text-[11px] text-white/60 font-medium">
+                          Appel de 15 min · Devis personnalisé sous 24h
+                        </p>
+                        <p className="text-[10px] text-white/40">
+                          Sans engagement · Pas de carte bancaire requise · Réponse garantie sous 2h
+                        </p>
+                      </div>
 
                       <button
                         type="button"
                         onClick={() => { haptic(5); setStep(2); }}
-                        className="w-full mt-2.5 text-[11px] text-white/50 hover:text-white/80 inline-flex items-center justify-center gap-1 touch-manipulation min-h-11 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899]"
+                        className="w-full mt-3 text-[11px] text-white/50 hover:text-white/80 inline-flex items-center justify-center gap-1 touch-manipulation min-h-11 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899]"
                       >
                         <ArrowLeft className="w-3 h-3" aria-hidden="true" /> Revenir
                       </button>
@@ -654,6 +664,44 @@ const PromoSiteWeb = () => {
             )}
           </div>
         </div>
+
+        {step !== "success" && (
+          <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+            <div className="px-4 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-3 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/95 to-transparent">
+              <button
+                type="button"
+                disabled={
+                  step === 1 ? !objectif :
+                  step === 2 ? !(situation && urgence) :
+                  !coordsSchema.safeParse(coords).success
+                }
+                onClick={() => {
+                  haptic(10);
+                  if (step === 1 && objectif) setStep(2);
+                  else if (step === 2 && situation && urgence) setStep(3);
+                  else if (step === 3) formRef.current?.requestSubmit();
+                }}
+                className="promo-cta w-full h-14 rounded-xl text-white font-bold text-[15px] shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] active:scale-[0.98] transition-transform touch-manipulation disabled:opacity-40 disabled:active:scale-100 flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a]"
+              >
+                {step === 1 && !objectif && <span>Sélectionnez un objectif</span>}
+                {step === 1 && objectif && (
+                  <span className="flex items-center gap-2">Continuer <ArrowRight className="w-4 h-4" aria-hidden="true" /></span>
+                )}
+                {step === 2 && !(situation && urgence) && <span>Sélectionnez votre situation</span>}
+                {step === 2 && situation && urgence && (
+                  <span className="flex items-center gap-2">Continuer <ArrowRight className="w-4 h-4" aria-hidden="true" /></span>
+                )}
+                {step === 3 && !coordsSchema.safeParse(coords).success && <span>Remplissez vos coordonnées</span>}
+                {step === 3 && coordsSchema.safeParse(coords).success && (
+                  <span><span aria-hidden="true">🎯 </span>Réserver mon appel gratuit</span>
+                )}
+              </button>
+              <p className="text-[10px] text-white/50 text-center mt-2">
+                Sans engagement · Réponse sous 2h
+              </p>
+            </div>
+          </div>
+        )}
       </main>
 
     </>
