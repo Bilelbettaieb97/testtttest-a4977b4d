@@ -759,15 +759,15 @@ const PromoSiteWeb = () => {
 
 
             {step === "success" && (
-              <div className="promo-slide flex-1 flex flex-col">
-                <div className="text-center mb-4 pt-3">
-                  <div aria-hidden="true" className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-3 promo-pop shadow-[0_10px_40px_-5px_rgba(236,72,153,0.7)]">
-                    {bookingDone ? <CheckCircle2 className="w-10 h-10 text-white" /> : <PartyPopper className="w-10 h-10 text-white" />}
+              <div className="promo-slide flex-1 flex flex-col justify-center">
+                <div className="text-center mb-2 pt-1">
+                  <div aria-hidden="true" className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-2 promo-pop shadow-[0_10px_40px_-5px_rgba(236,72,153,0.7)]">
+                    {bookingDone ? <CheckCircle2 className="w-7 h-7 text-white" /> : <PartyPopper className="w-7 h-7 text-white" />}
                   </div>
-                  <h1 ref={successHeadingRef} tabIndex={-1} className="text-[22px] font-bold mb-1.5 focus:outline-none">
+                  <h1 ref={successHeadingRef} tabIndex={-1} className="text-[18px] font-bold mb-1 focus:outline-none">
                     {bookingDone ? `RDV confirmé ${coords.prenom} ✅` : `Bravo ${coords.prenom} 🎉`}
                   </h1>
-                  <p className="text-[13px] text-white/70 px-4">
+                  <p className="text-[12px] text-white/70 px-4 leading-snug">
                     {bookingDone
                       ? "Vous recevrez un rappel par email. À très vite !"
                       : "Choisissez un créneau (15 min, gratuit) pour qu'on discute de votre projet."}
@@ -775,31 +775,31 @@ const PromoSiteWeb = () => {
                 </div>
 
                 {bookingDone ? (
-                  <div className="flex flex-col gap-4">
-                    <div className="rounded-2xl bg-white/[0.06] border border-white/10 p-5 text-center">
-                      <p className="text-[12px] uppercase tracking-wider text-white/50 mb-2">Votre rendez-vous</p>
-                      <p className="text-white font-semibold text-[17px] leading-snug">
+                  <div className="flex flex-col gap-3">
+                    <div className="rounded-2xl bg-white/[0.06] border border-white/10 p-4 text-center">
+                      <p className="text-[11px] uppercase tracking-wider text-white/50 mb-1">Votre rendez-vous</p>
+                      <p className="text-white font-semibold text-[15px] leading-snug">
                         {new Date(bookingDone.slotAt).toLocaleString("fr-FR", { dateStyle: "full", timeStyle: "short" })}
                       </p>
                     </div>
 
                     {/* Newsletter CTA */}
-                    <div className="rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-300/20 p-5 text-center">
+                    <div className="rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-300/20 p-4 text-center">
                       {newsletterDone ? (
-                        <div className="flex flex-col items-center gap-2 promo-pop">
-                          <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                            <CheckCircle2 className="w-5 h-5 text-green-400" />
+                        <div className="flex flex-col items-center gap-1.5 promo-pop">
+                          <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                            <CheckCircle2 className="w-4 h-4 text-green-400" />
                           </div>
-                          <p className="text-[15px] font-semibold text-white">Bienvenue dans la communauté !</p>
-                          <p className="text-[12px] text-white/70">Vous recevrez nos meilleurs conseils directement dans votre boîte mail.</p>
+                          <p className="text-[14px] font-semibold text-white">Bienvenue dans la communauté !</p>
+                          <p className="text-[11px] text-white/70">Vous recevrez nos meilleurs conseils directement dans votre boîte mail.</p>
                         </div>
                       ) : (
                         <>
-                          <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 mb-3">
-                            <Mail className="w-5 h-5 text-purple-300" />
+                          <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-500/20 mb-2">
+                            <Mail className="w-4 h-4 text-purple-300" />
                           </div>
-                          <p className="text-[15px] font-semibold text-white mb-1">Ne manquez plus aucune astuce</p>
-                          <p className="text-[12px] text-white/60 mb-4 leading-snug">
+                          <p className="text-[14px] font-semibold text-white mb-0.5">Ne manquez plus aucune astuce</p>
+                          <p className="text-[11px] text-white/60 mb-3 leading-snug">
                             Conseils marketing digital, SEO, conversion… directement dans votre boîte mail.
                           </p>
                           <div className="flex flex-col gap-2">
@@ -808,13 +808,13 @@ const PromoSiteWeb = () => {
                               value={newsletterEmail}
                               onChange={(e) => setNewsletterEmail(e.target.value)}
                               placeholder="votre@email.com"
-                              className="w-full h-11 px-4 rounded-xl bg-white/[0.08] border border-white/10 text-white placeholder:text-white/40 text-[14px] outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/25 transition-colors"
+                              className="w-full h-10 px-3 rounded-xl bg-white/[0.08] border border-white/10 text-white placeholder:text-white/40 text-[13px] outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/25 transition-colors"
                             />
                             <button
                               type="button"
                               onClick={handleNewsletterSubmit}
                               disabled={newsletterLoading}
-                              className="w-full h-11 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold text-[14px] shadow-[0_8px_24px_-6px_rgba(236,72,153,0.6)] active:scale-[0.98] transition-transform disabled:opacity-60 flex items-center justify-center gap-2"
+                              className="w-full h-10 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold text-[13px] shadow-[0_8px_24px_-6px_rgba(236,72,153,0.6)] active:scale-[0.98] transition-transform disabled:opacity-60 flex items-center justify-center gap-2"
                             >
                               {newsletterLoading ? (
                                 <><Loader2 className="w-4 h-4 animate-spin" /> Inscription…</>
@@ -823,7 +823,7 @@ const PromoSiteWeb = () => {
                               )}
                             </button>
                           </div>
-                          <p className="text-[10px] text-white/40 mt-3">Aucun spam. Désinscription à tout moment.</p>
+                          <p className="text-[10px] text-white/40 mt-2">Aucun spam. Désinscription à tout moment.</p>
                         </>
                       )}
                     </div>
@@ -1024,13 +1024,13 @@ const BookingPicker = ({
   const selectedDate = date ? new Date(date + "T00:00:00") : null;
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2">
       {/* Date picker */}
       <div>
-        <p className="text-[11px] uppercase tracking-wider text-white/50 mb-2 px-1">1. Choisissez un jour</p>
+        <p className="text-[10px] uppercase tracking-wider text-white/50 mb-1 px-1">1. Choisissez un jour</p>
         <div
           ref={dayScrollRef}
-          className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide"
+          className="flex gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide"
           style={{ scrollbarWidth: "none" }}
         >
           {days.map((d) => {
@@ -1041,18 +1041,18 @@ const BookingPicker = ({
                 key={ymd}
                 type="button"
                 onClick={() => onDate(ymd)}
-                className={`snap-start shrink-0 w-[68px] py-3 rounded-xl flex flex-col items-center gap-0.5 transition-all touch-manipulation ${
+                className={`snap-start shrink-0 w-[60px] py-2 rounded-xl flex flex-col items-center gap-0.5 transition-all touch-manipulation ${
                   active
                     ? "bg-gradient-to-br from-[#a78bfa] to-[#ec4899] text-white shadow-[0_8px_24px_-6px_rgba(236,72,153,0.6)] scale-105"
                     : "bg-white/[0.06] text-white/80 border border-white/10 hover:bg-white/10"
                 }`}
                 aria-pressed={active}
               >
-                <span className={`text-[10px] uppercase tracking-wider ${active ? "text-white/90" : "text-white/50"}`}>
+                <span className={`text-[9px] uppercase tracking-wider ${active ? "text-white/90" : "text-white/50"}`}>
                   {WEEKDAY_SHORT[d.getDay()]}
                 </span>
-                <span className="text-[20px] font-bold leading-none">{d.getDate()}</span>
-                <span className={`text-[10px] ${active ? "text-white/80" : "text-white/40"}`}>
+                <span className="text-[18px] font-bold leading-none">{d.getDate()}</span>
+                <span className={`text-[9px] ${active ? "text-white/80" : "text-white/40"}`}>
                   {MONTH_SHORT[d.getMonth()]}
                 </span>
               </button>
@@ -1063,15 +1063,15 @@ const BookingPicker = ({
 
       {/* Slot picker */}
       <div>
-        <p className="text-[11px] uppercase tracking-wider text-white/50 mb-2 px-1">
+        <p className="text-[10px] uppercase tracking-wider text-white/50 mb-1 px-1">
           2. Choisissez une heure {selectedDate && <span className="text-white/40 normal-case tracking-normal">· {selectedDate.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" })}</span>}
         </p>
         {slots.length === 0 ? (
-          <p className="text-[13px] text-white/60 text-center py-6 bg-white/[0.04] rounded-xl border border-white/10">
+          <p className="text-[12px] text-white/60 text-center py-4 bg-white/[0.04] rounded-xl border border-white/10">
             Aucun créneau disponible ce jour. Choisissez un autre jour.
           </p>
         ) : (
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-4 gap-1.5">
             {slots.map((s) => {
               const active = s === slot;
               return (
@@ -1079,7 +1079,7 @@ const BookingPicker = ({
                   key={s}
                   type="button"
                   onClick={() => onSlot(s)}
-                  className={`h-11 rounded-xl text-[14px] font-semibold transition-all touch-manipulation ${
+                  className={`h-9 rounded-xl text-[12px] font-semibold transition-all touch-manipulation ${
                     active
                       ? "bg-gradient-to-br from-[#a78bfa] to-[#ec4899] text-white shadow-[0_6px_18px_-4px_rgba(236,72,153,0.55)] scale-[1.03]"
                       : "bg-white/[0.06] text-white border border-white/10 hover:bg-white/10 active:scale-95"
@@ -1099,7 +1099,7 @@ const BookingPicker = ({
         type="button"
         disabled={!date || !slot || loading}
         onClick={onConfirm}
-        className="mt-1 h-14 rounded-2xl bg-gradient-to-r from-[#a78bfa] to-[#ec4899] text-white font-bold text-[16px] shadow-[0_10px_30px_-8px_rgba(236,72,153,0.7)] disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-[0.98] flex items-center justify-center gap-2 touch-manipulation"
+        className="mt-1 h-12 rounded-2xl bg-gradient-to-r from-[#a78bfa] to-[#ec4899] text-white font-bold text-[15px] shadow-[0_10px_30px_-8px_rgba(236,72,153,0.7)] disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-[0.98] flex items-center justify-center gap-2 touch-manipulation"
       >
         {loading ? (
           <><Loader2 className="w-5 h-5 animate-spin" /> Réservation…</>
@@ -1107,12 +1107,12 @@ const BookingPicker = ({
           <>Confirmer mon RDV <ArrowRight className="w-5 h-5" /></>
         )}
       </button>
-      <p className="text-[11px] text-white/50 text-center">
+      <p className="text-[10px] text-white/50 text-center">
         Rendez-vous téléphonique de 15 min · Gratuit & sans engagement
       </p>
     </div>
   );
-};
+}
 
 export default PromoSiteWeb;
 
