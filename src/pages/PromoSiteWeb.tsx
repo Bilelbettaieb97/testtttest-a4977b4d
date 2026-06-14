@@ -777,8 +777,8 @@ const PromoSiteWeb = () => {
                 {bookingDone ? (
                   <div className="flex flex-col gap-3">
                     <div className="rounded-2xl bg-white/[0.06] border border-white/10 p-4 text-center">
-                      <p className="text-[11px] uppercase tracking-wider text-white/50 mb-1">Votre rendez-vous</p>
-                      <p className="text-white font-semibold text-[15px] leading-snug">
+                      <p className="text-[12px] uppercase tracking-wider text-white/60 mb-1">Votre rendez-vous</p>
+                      <p className="text-white font-semibold text-[16px] leading-snug">
                         {new Date(bookingDone.slotAt).toLocaleString("fr-FR", { dateStyle: "full", timeStyle: "short" })}
                       </p>
                     </div>
