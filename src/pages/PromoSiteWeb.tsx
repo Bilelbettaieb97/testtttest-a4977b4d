@@ -116,6 +116,11 @@ const PromoSiteWeb = () => {
     setLiveMessage(`Étape ${step} sur 3`);
   }, [step]);
 
+  // Pre-fill newsletter email from form coordinates
+  useEffect(() => {
+    if (coords.email) setNewsletterEmail(coords.email);
+  }, [coords.email]);
+
   // (Calendly preconnect removed — using in-house booking picker)
 
 
