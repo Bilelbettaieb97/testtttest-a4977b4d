@@ -324,7 +324,30 @@ const PromoSiteWeb = () => {
     }
   };
 
+  const handleNewsletterSubmit = async () => {
+    const email = newsletterEmail.trim().toLowerCase();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email) || email.length > 255) {
+      toast({ title: "Email invalide", description: "Vérifiez le format de votre adresse.", variant: "destructive" });
+      return;
+    }
+    setNewsletterLoading(true);
+    try {
+      const { error } = await supabase.from("newsletter_subscriptions").insert([{ email }]);
+      if (error && (error as any).code !== "23505") throw error;
 
+      await supabase.functions.invoke("notify-contact", {
+        body: { type: "newsletter", email },
+      }).catch(() => { /* ignore */ });
+
+      setNewsletterDone(true);
+      haptic(15);
+    } catch {
+      toast({ title: "Erreur", description: "Impossible de s'inscrire. Réessayez.", variant: "destructive" });
+    } finally {
+      setNewsletterLoading(false);
+    }
+  };
 
   const progress = typeof step === "number" ? step : 3;
 
