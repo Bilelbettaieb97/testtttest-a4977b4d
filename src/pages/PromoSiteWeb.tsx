@@ -593,13 +593,13 @@ const PromoSiteWeb = () => {
                             <span>Envoi en cours…</span>
                           </>
                         ) : (
-                          <span><span aria-hidden="true">🎯 </span>Réserver mon appel gratuit</span>
+                          <span>Envoyer ma demande</span>
                         )}
                       </button>
 
                       <div className="mt-3 space-y-1.5 text-center">
                         <p className="text-[11px] text-white/60 font-medium">
-                          Appel de 15 min · Devis personnalisé sous 24h
+                          Devis personnalisé sous 24h · Appel de 15 min optionnel
                         </p>
                         <p className="text-[10px] text-white/40">
                           Sans engagement · Pas de carte bancaire requise · Réponse garantie sous 2h
@@ -693,7 +693,7 @@ const PromoSiteWeb = () => {
                 )}
                 {step === 3 && !coordsSchema.safeParse(coords).success && <span>Remplissez vos coordonnées</span>}
                 {step === 3 && coordsSchema.safeParse(coords).success && (
-                  <span><span aria-hidden="true">🎯 </span>Réserver mon appel gratuit</span>
+                  <span>Envoyer ma demande</span>
                 )}
               </button>
               <p className="text-[10px] text-white/50 text-center mt-2">
