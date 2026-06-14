@@ -27,7 +27,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-type Step = 1 | 2 | 3 | "success";
+type Step = 1 | 2 | 3 | "recap" | "success";
 
 const objectifs = [
   { id: "leads", label: "Attirer des clients", desc: "Génération de leads", Icon: Target },
