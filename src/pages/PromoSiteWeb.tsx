@@ -739,40 +739,70 @@ const PromoSiteWeb = () => {
               <div className="promo-slide flex-1 flex flex-col">
                 <div className="text-center mb-4 pt-3">
                   <div aria-hidden="true" className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-3 promo-pop shadow-[0_10px_40px_-5px_rgba(236,72,153,0.7)]">
-                    <PartyPopper className="w-10 h-10 text-white" />
+                    {bookingDone ? <CheckCircle2 className="w-10 h-10 text-white" /> : <PartyPopper className="w-10 h-10 text-white" />}
                   </div>
-                  <h1 ref={successHeadingRef} tabIndex={-1} className="text-[22px] font-bold mb-1.5 focus:outline-none">Bravo {coords.prenom} <span aria-hidden="true">🎉</span></h1>
+                  <h1 ref={successHeadingRef} tabIndex={-1} className="text-[22px] font-bold mb-1.5 focus:outline-none">
+                    {bookingDone ? `RDV confirmé ${coords.prenom} ✅` : `Bravo ${coords.prenom} 🎉`}
+                  </h1>
                   <p className="text-[13px] text-white/70 px-4">
-                    Choisissez votre créneau (15 min, gratuit) pour qu'on discute de votre projet.
+                    {bookingDone
+                      ? "Vous recevrez un rappel par email. À très vite !"
+                      : "Choisissez un créneau (15 min, gratuit) pour qu'on discute de votre projet."}
                   </p>
                 </div>
 
-
-                <div className="relative rounded-2xl overflow-hidden bg-white border border-white/10 shadow-2xl flex-1 min-h-[620px]">
-                  {!calendlyReady && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-white">
-                      <Loader2 className="w-6 h-6 text-[#a78bfa] animate-spin" />
-                    </div>
-                  )}
-                  <iframe
-                    src={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=ffffff&text_color=0a0a1a&primary_color=a78bfa`}
-                    title="Réserver un créneau Calendly"
-                    className="w-full h-full min-h-[620px] border-0"
-                    loading="lazy"
-                    onLoad={() => setCalendlyReady(true)}
+                {bookingDone ? (
+                  <div className="rounded-2xl bg-white/[0.06] border border-white/10 p-5 text-center">
+                    <p className="text-[12px] uppercase tracking-wider text-white/50 mb-2">Votre rendez-vous</p>
+                    <p className="text-white font-semibold text-[17px] leading-snug">
+                      {new Date(bookingDone.slotAt).toLocaleString("fr-FR", { dateStyle: "full", timeStyle: "short" })}
+                    </p>
+                  </div>
+                ) : (
+                  <BookingPicker
+                    date={bookingDate}
+                    slot={bookingSlot}
+                    onDate={(d) => { setBookingDate(d); setBookingSlot(""); haptic(); }}
+                    onSlot={(s) => { setBookingSlot(s); haptic(12); }}
+                    loading={bookingLoading}
+                    onConfirm={async () => {
+                      if (!bookingDate || !bookingSlot) return;
+                      setBookingLoading(true);
+                      const [h, m] = bookingSlot.split(":").map(Number);
+                      const [y, mo, d] = bookingDate.split("-").map(Number);
+                      const slotAt = new Date(y, mo - 1, d, h, m, 0, 0);
+                      try {
+                        const { error } = await supabase.functions.invoke("notify-contact", {
+                          body: {
+                            type: "promo_appointment",
+                            lead_id: leadId,
+                            prenom: coords.prenom,
+                            email: coords.email,
+                            telephone: coords.telephone,
+                            slot_at: slotAt.toISOString(),
+                            duration_min: 15,
+                          },
+                        });
+                        if (error) throw error;
+                        setBookingDone({ slotAt: slotAt.toISOString() });
+                        setLiveMessage("Rendez-vous confirmé");
+                        haptic(20);
+                      } catch (e) {
+                        console.error(e);
+                        toast({
+                          title: "Oups",
+                          description: "Impossible de réserver ce créneau. Réessayez.",
+                          variant: "destructive",
+                        });
+                      } finally {
+                        setBookingLoading(false);
+                      }
+                    }}
                   />
-                </div>
-
-                <a
-                  href={CALENDLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 text-[11px] text-white/60 hover:text-white inline-flex items-center justify-center gap-1.5 touch-manipulation"
-                >
-                  Ouvrir Calendly dans un nouvel onglet <ExternalLink className="w-3 h-3" />
-                </a>
+                )}
               </div>
             )}
+
           </div>
         </div>
 
