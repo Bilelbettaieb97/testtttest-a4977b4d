@@ -666,10 +666,13 @@ const Field = ({
   inputRef?: React.Ref<HTMLInputElement>;
 }) => {
   const showError = touched && !!error;
+  const inputId = `promo-${name}`;
   return (
     <div className={showError ? "promo-shake" : undefined}>
+      <label htmlFor={inputId} className="sr-only">{placeholder}</label>
       <input
         ref={inputRef}
+        id={inputId}
         name={name}
         type={type}
         placeholder={placeholder}
@@ -678,22 +681,24 @@ const Field = ({
         onBlur={onBlur}
         autoComplete={autoComplete}
         inputMode={inputMode}
-        className={`w-full h-12 px-4 rounded-xl bg-white/[0.06] border text-white placeholder:text-white/40 text-[15px] outline-none transition-colors ${
+        className={`w-full h-12 px-4 rounded-xl bg-white/[0.06] border text-white placeholder:text-white/40 text-[15px] outline-none transition-colors focus:outline-none ${
           showError
             ? "border-[#ec4899] focus:border-[#ec4899] focus:ring-2 focus:ring-[#ec4899]/25"
             : "border-white/10 focus:border-[#ec4899] focus:ring-2 focus:ring-[#ec4899]/25"
         }`}
         aria-invalid={showError}
+        aria-errormessage={showError ? `${name}-error` : undefined}
         aria-describedby={showError ? `${name}-error` : undefined}
       />
       {showError && (
-        <p id={`${name}-error`} className="flex items-start gap-1 text-[11px] text-[#ec4899] mt-1 px-1 promo-pop">
-          <AlertCircle className="w-3 h-3 shrink-0 mt-[1px]" />
-          {error}
+        <p id={`${name}-error`} role="alert" className="flex items-start gap-1 text-[11px] text-[#ec4899] mt-1 px-1 promo-pop">
+          <AlertCircle className="w-3 h-3 shrink-0 mt-[1px]" aria-hidden="true" />
+          <span>{error}</span>
         </p>
       )}
     </div>
   );
 };
+
 
 export default PromoSiteWeb;
