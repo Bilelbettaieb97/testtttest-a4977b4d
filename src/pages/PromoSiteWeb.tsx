@@ -397,9 +397,9 @@ const PromoSiteWeb = () => {
                   {step === 1 && (
                     <section key="s1" className="promo-slide" aria-labelledby="step1-heading">
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 1 / 3</p>
-                      <h2 id="step1-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[19px] font-bold mb-4 leading-tight focus:outline-none">Quel est l'objectif principal de votre site ?</h2>
+                      <h2 id="step1-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[17px] font-bold mb-3 leading-tight focus:outline-none">Quel est l'objectif principal de votre site ?</h2>
                       <div
-                        className="space-y-2.5"
+                        className="space-y-2"
                         role="radiogroup"
                         aria-labelledby="step1-heading"
                         onKeyDown={handleGroupKey}
@@ -414,19 +414,19 @@ const PromoSiteWeb = () => {
                               aria-checked={active}
                               tabIndex={active || (!objectif && id === objectifs[0].id) ? 0 : -1}
                               onClick={() => handleStep1(id)}
-                              className={`group w-full text-left p-3.5 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
+                              className={`group w-full text-left p-2.5 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
                                 active
                                   ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20 shadow-[0_0_20px_-5px_rgba(236,72,153,0.5)]"
                                   : "border-white/10 bg-white/[0.03]"
                               }`}
                             >
                               <div className="flex items-center gap-3">
-                                <div aria-hidden="true" className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-transform ${active ? "scale-110" : ""} bg-gradient-to-br from-[#a78bfa] to-[#ec4899]`}>
-                                  <Icon className="w-5 h-5" />
+                                <div aria-hidden="true" className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-transform ${active ? "scale-110" : ""} bg-gradient-to-br from-[#a78bfa] to-[#ec4899]`}>
+                                  <Icon className="w-4 h-4" />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <div className="font-semibold text-[14px]">{label}</div>
-                                  <div className="text-[11px] text-white/50">{desc}</div>
+                                  <div className="font-semibold text-[14px] leading-tight">{label}</div>
+                                  <div className="text-[11px] text-white/50 leading-tight">{desc}</div>
                                 </div>
                                 {active ? (
                                   <CheckCircle2 className="w-5 h-5 text-[#ec4899] promo-pop" aria-hidden="true" />
@@ -440,6 +440,7 @@ const PromoSiteWeb = () => {
                       </div>
                     </section>
                   )}
+
 
 
                   {step === 2 && (
