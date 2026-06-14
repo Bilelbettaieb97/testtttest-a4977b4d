@@ -219,7 +219,6 @@ const PromoSiteWeb = () => {
       const payload = {
         objectif: objectifs.find((o) => o.id === objectif)?.label ?? objectif,
         situation: situations.find((s) => s.id === situation)?.label ?? situation,
-        urgence: urgences.find((u) => u.id === urgence)?.label ?? urgence,
         prenom: parsed.data.prenom,
         email: parsed.data.email,
         telephone: parsed.data.telephone,
@@ -453,7 +452,7 @@ const PromoSiteWeb = () => {
                               role="radio"
                               aria-checked={active}
                               tabIndex={active || (!situation && id === situations[0].id) ? 0 : -1}
-                              onClick={() => handleSituation(id, urgence)}
+                              onClick={() => handleSituation(id)}
                               className={`w-full text-left p-3.5 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
                                 active
                                   ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20 shadow-[0_0_20px_-5px_rgba(236,72,153,0.5)]"
@@ -470,36 +469,6 @@ const PromoSiteWeb = () => {
                         })}
                       </div>
 
-                      <h3 id="urgence-heading" className="text-[16px] font-bold mb-3">Quand voulez-vous être en ligne ?</h3>
-                      <div
-                        className="grid grid-cols-3 gap-2.5 mb-6"
-                        role="radiogroup"
-                        aria-labelledby="urgence-heading"
-                        onKeyDown={handleGroupKey}
-                      >
-                        {urgences.map(({ id, label, Icon }) => {
-                          const active = urgence === id;
-                          return (
-                            <button
-                              key={id}
-                              type="button"
-                              role="radio"
-                              aria-checked={active}
-                              aria-label={label}
-                              tabIndex={active || (!urgence && id === urgences[0].id) ? 0 : -1}
-                              onClick={() => handleUrgence(id, situation)}
-                              className={`p-4 rounded-xl border transition-all duration-200 active:scale-95 touch-manipulation flex flex-col items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
-                                active
-                                  ? "border-[#ec4899] bg-gradient-to-br from-[#a78bfa]/25 to-[#ec4899]/25 shadow-[0_0_15px_-5px_rgba(236,72,153,0.5)]"
-                                  : "border-white/10 bg-white/[0.03]"
-                              }`}
-                            >
-                              <Icon aria-hidden="true" className={`w-5 h-5 ${active ? "text-[#ec4899]" : "text-white/60"}`} />
-                              <span className="text-[12px] font-medium text-center leading-tight">{label}</span>
-                            </button>
-                          );
-                        })}
-                      </div>
 
                       <button
                         type="button"
@@ -518,8 +487,7 @@ const PromoSiteWeb = () => {
                       <h2 id="step3-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[18px] font-bold mb-5 leading-tight focus:outline-none">Dernière étape ✨</h2>
 
                       <div className="mb-5 p-3.5 rounded-xl bg-gradient-to-r from-[#a78bfa]/10 to-[#ec4899]/10 border border-white/10 text-[13px] text-white/80 leading-relaxed">
-                        Parfait, on a noté : <strong className="text-white">{objectifLabel}</strong>
-                        {urgenceLabel && <> — lancement <strong className="text-white">{urgenceLabel}</strong></>} 🎯
+                        Parfait, on a noté : <strong className="text-white">{objectifLabel}</strong> 🎯
                       </div>
 
                       <div className="space-y-3.5 flex-1">
