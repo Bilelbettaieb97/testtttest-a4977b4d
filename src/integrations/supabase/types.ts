@@ -274,6 +274,53 @@ export type Database = {
         }
         Relationships: []
       }
+      promo_appointments: {
+        Row: {
+          created_at: string
+          duration_min: number
+          email: string
+          id: string
+          lead_id: string | null
+          prenom: string
+          slot_at: string
+          status: string
+          telephone: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          duration_min?: number
+          email: string
+          id?: string
+          lead_id?: string | null
+          prenom: string
+          slot_at: string
+          status?: string
+          telephone: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          duration_min?: number
+          email?: string
+          id?: string
+          lead_id?: string | null
+          prenom?: string
+          slot_at?: string
+          status?: string
+          telephone?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "promo_appointments_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "promo_leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       promo_leads: {
         Row: {
           created_at: string
