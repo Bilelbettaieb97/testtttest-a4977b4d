@@ -80,9 +80,23 @@ const PromoSiteWeb = () => {
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
   const [calendlyReady, setCalendlyReady] = useState(false);
+  const [liveMessage, setLiveMessage] = useState<string>("");
 
   const fieldOrder: (keyof Coords)[] = ["prenom", "email", "telephone", "entreprise"];
   const fieldRefs = useRef<Record<string, HTMLInputElement | null>>({});
+  const stepHeadingRef = useRef<HTMLHeadingElement | null>(null);
+  const successHeadingRef = useRef<HTMLHeadingElement | null>(null);
+
+  // Focus management + screen-reader announcement on step change
+  useEffect(() => {
+    if (step === "success") {
+      requestAnimationFrame(() => successHeadingRef.current?.focus());
+      setLiveMessage("Formulaire envoyé. Choisissez un créneau pour votre rendez-vous.");
+      return;
+    }
+    requestAnimationFrame(() => stepHeadingRef.current?.focus());
+    setLiveMessage(`Étape ${step} sur 3`);
+  }, [step]);
 
   useEffect(() => {
     if (step !== 3) return;
@@ -95,6 +109,28 @@ const PromoSiteWeb = () => {
     link.crossOrigin = "";
     document.head.appendChild(link);
   }, [step]);
+
+  // Keyboard navigation within a radiogroup of buttons (Arrow keys)
+  const handleGroupKey = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      const target = e.target as HTMLElement;
+      if (target.getAttribute("role") !== "radio") return;
+      const items = Array.from(
+        e.currentTarget.querySelectorAll<HTMLButtonElement>('[role="radio"]')
+      );
+      const idx = items.indexOf(target as HTMLButtonElement);
+      if (idx === -1) return;
+      let next = idx;
+      if (["ArrowDown", "ArrowRight"].includes(e.key)) next = (idx + 1) % items.length;
+      else if (["ArrowUp", "ArrowLeft"].includes(e.key)) next = (idx - 1 + items.length) % items.length;
+      else if (e.key === "Home") next = 0;
+      else if (e.key === "End") next = items.length - 1;
+      else return;
+      e.preventDefault();
+      items[next]?.focus();
+    },
+    []
+  );
 
   const objectifLabel = useMemo(
     () => objectifs.find((o) => o.id === objectif)?.label ?? "",
@@ -282,7 +318,11 @@ const PromoSiteWeb = () => {
         }
       `}</style>
 
-      <div className="min-h-[100dvh] w-full bg-[#0a0a1a] text-white flex items-center justify-center md:p-8 overflow-x-hidden">
+      <main id="main-content" className="min-h-[100dvh] w-full bg-[#0a0a1a] text-white flex items-center justify-center md:p-8 overflow-x-hidden" aria-labelledby="promo-h1">
+        <a href="#promo-form-region" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-[#0a0a1a] focus:px-3 focus:py-2 focus:rounded-md focus:font-semibold">
+          Aller au formulaire
+        </a>
+        <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">{liveMessage}</div>
         <div className="relative w-full md:max-w-[440px] md:rounded-[2.5rem] md:overflow-hidden md:shadow-[0_30px_120px_-20px_rgba(167,139,250,0.5)] md:border md:border-white/10 md:my-8">
           <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
             <div className="promo-blob absolute -top-24 -left-16 w-[340px] h-[340px] rounded-full bg-[#a78bfa] opacity-25 blur-3xl" />
@@ -294,10 +334,10 @@ const PromoSiteWeb = () => {
               <>
                 <header className="text-center mb-5 promo-slide">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20 border border-white/10 text-[11px] font-semibold mb-3">
-                    <Sparkles className="w-3 h-3 text-[#ec4899]" />
+                    <Sparkles className="w-3 h-3 text-[#ec4899]" aria-hidden="true" />
                     Offre limitée
                   </div>
-                  <h1 className="text-[28px] leading-[1.1] font-bold mb-1.5">
+                  <h1 id="promo-h1" className="text-[28px] leading-[1.1] font-bold mb-1.5">
                     Votre site web pro
                     <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#ec4899]">à 300€</span>
@@ -305,17 +345,24 @@ const PromoSiteWeb = () => {
                   <p className="text-[13px] text-white/70 mb-3">Livré en 7 jours. Sans abonnement.</p>
 
                   <div className="flex justify-center gap-2 text-[11px] text-white/60">
-                    <span className="inline-flex items-center gap-1"><Zap className="w-3 h-3" /> 7 jours</span>
-                    <span className="text-white/30">·</span>
-                    <span className="inline-flex items-center gap-1"><Palette className="w-3 h-3" /> Sur mesure</span>
-                    <span className="text-white/30">·</span>
-                    <span className="inline-flex items-center gap-1"><CreditCard className="w-3 h-3" /> 3x</span>
+                    <span className="inline-flex items-center gap-1"><Zap className="w-3 h-3" aria-hidden="true" /> 7 jours</span>
+                    <span className="text-white/30" aria-hidden="true">·</span>
+                    <span className="inline-flex items-center gap-1"><Palette className="w-3 h-3" aria-hidden="true" /> Sur mesure</span>
+                    <span className="text-white/30" aria-hidden="true">·</span>
+                    <span className="inline-flex items-center gap-1"><CreditCard className="w-3 h-3" aria-hidden="true" /> 3x</span>
                   </div>
                 </header>
 
-                <div className="flex items-center gap-1.5 mb-5">
+                <div
+                  className="flex items-center gap-1.5 mb-5"
+                  role="progressbar"
+                  aria-valuemin={1}
+                  aria-valuemax={3}
+                  aria-valuenow={progress}
+                  aria-label={`Progression du formulaire : étape ${progress} sur 3`}
+                >
                   {[1, 2, 3].map((n) => (
-                    <div key={n} className="flex-1 h-1 rounded-full bg-white/10 overflow-hidden">
+                    <div key={n} aria-hidden="true" className="flex-1 h-1 rounded-full bg-white/10 overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-[#a78bfa] to-[#ec4899] transition-all duration-500 ease-out"
                         style={{ width: progress >= n ? "100%" : "0%" }}
@@ -324,27 +371,35 @@ const PromoSiteWeb = () => {
                   ))}
                 </div>
 
-                <div className="promo-card flex-1 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-5 shadow-2xl">
+                <div id="promo-form-region" className="promo-card flex-1 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-5 shadow-2xl">
                   {step === 1 && (
-                    <div key="s1" className="promo-slide">
+                    <section key="s1" className="promo-slide" aria-labelledby="step1-heading">
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 1 / 3</p>
-                      <h2 className="text-[19px] font-bold mb-4 leading-tight">Quel est l'objectif principal de votre site ?</h2>
-                      <div className="space-y-2.5">
+                      <h2 id="step1-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[19px] font-bold mb-4 leading-tight focus:outline-none">Quel est l'objectif principal de votre site ?</h2>
+                      <div
+                        className="space-y-2.5"
+                        role="radiogroup"
+                        aria-labelledby="step1-heading"
+                        onKeyDown={handleGroupKey}
+                      >
                         {objectifs.map(({ id, label, desc, Icon }) => {
                           const active = objectif === id;
                           return (
                             <button
                               key={id}
                               type="button"
+                              role="radio"
+                              aria-checked={active}
+                              tabIndex={active || (!objectif && id === objectifs[0].id) ? 0 : -1}
                               onClick={() => handleStep1(id)}
-                              className={`group w-full text-left p-3.5 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation ${
+                              className={`group w-full text-left p-3.5 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
                                 active
                                   ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20 shadow-[0_0_20px_-5px_rgba(236,72,153,0.5)]"
                                   : "border-white/10 bg-white/[0.03]"
                               }`}
                             >
                               <div className="flex items-center gap-3">
-                                <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-transform ${active ? "scale-110" : ""} bg-gradient-to-br from-[#a78bfa] to-[#ec4899]`}>
+                                <div aria-hidden="true" className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-transform ${active ? "scale-110" : ""} bg-gradient-to-br from-[#a78bfa] to-[#ec4899]`}>
                                   <Icon className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1 min-w-0">
@@ -352,60 +407,78 @@ const PromoSiteWeb = () => {
                                   <div className="text-[11px] text-white/50">{desc}</div>
                                 </div>
                                 {active ? (
-                                  <CheckCircle2 className="w-5 h-5 text-[#ec4899] promo-pop" />
+                                  <CheckCircle2 className="w-5 h-5 text-[#ec4899] promo-pop" aria-hidden="true" />
                                 ) : (
-                                  <ArrowRight className="w-4 h-4 text-white/40" />
+                                  <ArrowRight className="w-4 h-4 text-white/40" aria-hidden="true" />
                                 )}
                               </div>
                             </button>
                           );
                         })}
                       </div>
-                    </div>
+                    </section>
                   )}
 
+
                   {step === 2 && (
-                    <div key="s2" className="promo-slide">
+                    <section key="s2" className="promo-slide" aria-labelledby="step2-heading">
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 2 / 3</p>
-                      <h2 className="text-[19px] font-bold mb-3 leading-tight">Où en êtes-vous aujourd'hui ?</h2>
-                      <div className="space-y-2 mb-5">
+                      <h2 id="step2-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[19px] font-bold mb-3 leading-tight focus:outline-none">Où en êtes-vous aujourd'hui ?</h2>
+                      <div
+                        className="space-y-2 mb-5"
+                        role="radiogroup"
+                        aria-labelledby="step2-heading"
+                        onKeyDown={handleGroupKey}
+                      >
                         {situations.map(({ id, label, Icon }) => {
                           const active = situation === id;
                           return (
                             <button
                               key={id}
                               type="button"
+                              role="radio"
+                              aria-checked={active}
+                              tabIndex={active || (!situation && id === situations[0].id) ? 0 : -1}
                               onClick={() => handleSituation(id, urgence)}
-                              className={`w-full text-left p-3 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation flex items-center gap-3 ${
+                              className={`w-full text-left p-3 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
                                 active
                                   ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20"
                                   : "border-white/10 bg-white/[0.03]"
                               }`}
                             >
-                              <Icon className={`w-4 h-4 shrink-0 ${active ? "text-[#ec4899]" : "text-white/50"}`} />
+                              <Icon aria-hidden="true" className={`w-4 h-4 shrink-0 ${active ? "text-[#ec4899]" : "text-white/50"}`} />
                               <span className="text-[13px] font-medium flex-1">{label}</span>
-                              {active && <CheckCircle2 className="w-4 h-4 text-[#ec4899] promo-pop" />}
+                              {active && <CheckCircle2 className="w-4 h-4 text-[#ec4899] promo-pop" aria-hidden="true" />}
                             </button>
                           );
                         })}
                       </div>
 
-                      <h3 className="text-[15px] font-bold mb-2.5">Quand voulez-vous être en ligne ?</h3>
-                      <div className="grid grid-cols-3 gap-2 mb-5">
+                      <h3 id="urgence-heading" className="text-[15px] font-bold mb-2.5">Quand voulez-vous être en ligne ?</h3>
+                      <div
+                        className="grid grid-cols-3 gap-2 mb-5"
+                        role="radiogroup"
+                        aria-labelledby="urgence-heading"
+                        onKeyDown={handleGroupKey}
+                      >
                         {urgences.map(({ id, label, Icon }) => {
                           const active = urgence === id;
                           return (
                             <button
                               key={id}
                               type="button"
+                              role="radio"
+                              aria-checked={active}
+                              aria-label={label}
+                              tabIndex={active || (!urgence && id === urgences[0].id) ? 0 : -1}
                               onClick={() => handleUrgence(id, situation)}
-                              className={`p-3 rounded-xl border transition-all duration-200 active:scale-95 touch-manipulation flex flex-col items-center gap-1.5 ${
+                              className={`p-3 rounded-xl border transition-all duration-200 active:scale-95 touch-manipulation flex flex-col items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
                                 active
                                   ? "border-[#ec4899] bg-gradient-to-br from-[#a78bfa]/25 to-[#ec4899]/25 shadow-[0_0_15px_-5px_rgba(236,72,153,0.5)]"
                                   : "border-white/10 bg-white/[0.03]"
                               }`}
                             >
-                              <Icon className={`w-4 h-4 ${active ? "text-[#ec4899]" : "text-white/60"}`} />
+                              <Icon aria-hidden="true" className={`w-4 h-4 ${active ? "text-[#ec4899]" : "text-white/60"}`} />
                               <span className="text-[11px] font-medium text-center leading-tight">{label}</span>
                             </button>
                           );
@@ -415,17 +488,19 @@ const PromoSiteWeb = () => {
                       <button
                         type="button"
                         onClick={() => { haptic(5); setStep(1); }}
-                        className="inline-flex items-center gap-1 text-xs text-white/60 hover:text-white touch-manipulation"
+                        className="inline-flex items-center gap-1 text-xs text-white/60 hover:text-white touch-manipulation min-h-11 px-2 -ml-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899]"
                       >
-                        <ArrowLeft className="w-3.5 h-3.5" /> Étape précédente
+                        <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" /> Étape précédente
                       </button>
-                    </div>
+                    </section>
                   )}
 
+
                   {step === 3 && (
-                    <form onSubmit={handleSubmit} key="s3" className="promo-slide" noValidate>
+                    <form onSubmit={handleSubmit} key="s3" className="promo-slide" noValidate aria-labelledby="step3-heading">
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 3 / 3</p>
-                      <h2 className="text-[19px] font-bold mb-2 leading-tight">Dernière étape ✨</h2>
+                      <h2 id="step3-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[19px] font-bold mb-2 leading-tight focus:outline-none">Dernière étape ✨</h2>
+
 
                       <div className="mb-4 p-3 rounded-xl bg-gradient-to-r from-[#a78bfa]/10 to-[#ec4899]/10 border border-white/10 text-[12px] text-white/80 leading-relaxed">
                         Parfait, on a noté : <strong className="text-white">{objectifLabel}</strong>
@@ -488,25 +563,27 @@ const PromoSiteWeb = () => {
                       <button
                         type="submit"
                         disabled={loading}
-                        className="promo-cta w-full mt-4 h-14 rounded-xl text-white font-bold text-[15px] shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] active:scale-[0.98] transition-transform touch-manipulation disabled:opacity-70 disabled:active:scale-100 flex items-center justify-center gap-2"
+                        aria-busy={loading}
+                        className="promo-cta w-full mt-4 h-14 rounded-xl text-white font-bold text-[15px] shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] active:scale-[0.98] transition-transform touch-manipulation disabled:opacity-70 disabled:active:scale-100 flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a]"
                       >
                         {loading ? (
                           <>
-                            <Loader2 className="w-5 h-5 animate-spin" />
-                            Envoi en cours…
+                            <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
+                            <span>Envoi en cours…</span>
                           </>
                         ) : (
-                          <>🎯 Réserver mon créneau gratuit</>
+                          <span><span aria-hidden="true">🎯 </span>Réserver mon créneau gratuit</span>
                         )}
                       </button>
 
                       <button
                         type="button"
                         onClick={() => { haptic(5); setStep(2); }}
-                        className="w-full mt-2.5 text-[11px] text-white/50 hover:text-white/80 inline-flex items-center justify-center gap-1 touch-manipulation"
+                        className="w-full mt-2.5 text-[11px] text-white/50 hover:text-white/80 inline-flex items-center justify-center gap-1 touch-manipulation min-h-11 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899]"
                       >
-                        <ArrowLeft className="w-3 h-3" /> Revenir
+                        <ArrowLeft className="w-3 h-3" aria-hidden="true" /> Revenir
                       </button>
+
 
                       <p className="text-[10px] text-white/40 text-center mt-3">
                         🔒 Données confidentielles · aucun spam
@@ -520,14 +597,15 @@ const PromoSiteWeb = () => {
             {step === "success" && (
               <div className="promo-slide flex-1 flex flex-col">
                 <div className="text-center mb-4 pt-3">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-3 promo-pop shadow-[0_10px_40px_-5px_rgba(236,72,153,0.7)]">
+                  <div aria-hidden="true" className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-3 promo-pop shadow-[0_10px_40px_-5px_rgba(236,72,153,0.7)]">
                     <PartyPopper className="w-10 h-10 text-white" />
                   </div>
-                  <h1 className="text-[22px] font-bold mb-1.5">Bravo {coords.prenom} 🎉</h1>
+                  <h1 ref={successHeadingRef} tabIndex={-1} className="text-[22px] font-bold mb-1.5 focus:outline-none">Bravo {coords.prenom} <span aria-hidden="true">🎉</span></h1>
                   <p className="text-[13px] text-white/70 px-4">
                     Choisissez votre créneau (15 min, gratuit) pour qu'on discute de votre projet.
                   </p>
                 </div>
+
 
                 <div className="relative rounded-2xl overflow-hidden bg-white border border-white/10 shadow-2xl flex-1 min-h-[620px]">
                   {!calendlyReady && (
@@ -556,7 +634,8 @@ const PromoSiteWeb = () => {
             )}
           </div>
         </div>
-      </div>
+      </main>
+
     </>
   );
 };
@@ -587,10 +666,13 @@ const Field = ({
   inputRef?: React.Ref<HTMLInputElement>;
 }) => {
   const showError = touched && !!error;
+  const inputId = `promo-${name}`;
   return (
     <div className={showError ? "promo-shake" : undefined}>
+      <label htmlFor={inputId} className="sr-only">{placeholder}</label>
       <input
         ref={inputRef}
+        id={inputId}
         name={name}
         type={type}
         placeholder={placeholder}
@@ -599,22 +681,24 @@ const Field = ({
         onBlur={onBlur}
         autoComplete={autoComplete}
         inputMode={inputMode}
-        className={`w-full h-12 px-4 rounded-xl bg-white/[0.06] border text-white placeholder:text-white/40 text-[15px] outline-none transition-colors ${
+        className={`w-full h-12 px-4 rounded-xl bg-white/[0.06] border text-white placeholder:text-white/40 text-[15px] outline-none transition-colors focus:outline-none ${
           showError
             ? "border-[#ec4899] focus:border-[#ec4899] focus:ring-2 focus:ring-[#ec4899]/25"
             : "border-white/10 focus:border-[#ec4899] focus:ring-2 focus:ring-[#ec4899]/25"
         }`}
         aria-invalid={showError}
+        aria-errormessage={showError ? `${name}-error` : undefined}
         aria-describedby={showError ? `${name}-error` : undefined}
       />
       {showError && (
-        <p id={`${name}-error`} className="flex items-start gap-1 text-[11px] text-[#ec4899] mt-1 px-1 promo-pop">
-          <AlertCircle className="w-3 h-3 shrink-0 mt-[1px]" />
-          {error}
+        <p id={`${name}-error`} role="alert" className="flex items-start gap-1 text-[11px] text-[#ec4899] mt-1 px-1 promo-pop">
+          <AlertCircle className="w-3 h-3 shrink-0 mt-[1px]" aria-hidden="true" />
+          <span>{error}</span>
         </p>
       )}
     </div>
   );
 };
+
 
 export default PromoSiteWeb;
