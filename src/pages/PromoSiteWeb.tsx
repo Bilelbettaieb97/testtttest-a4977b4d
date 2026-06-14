@@ -88,6 +88,11 @@ const PromoSiteWeb = () => {
   const [bookingLoading, setBookingLoading] = useState(false);
   const [bookingDone, setBookingDone] = useState<{ slotAt: string } | null>(null);
 
+  // Newsletter CTA state
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterLoading, setNewsletterLoading] = useState(false);
+  const [newsletterDone, setNewsletterDone] = useState(false);
+
 
   const fieldOrder: (keyof Coords)[] = ["prenom", "email", "telephone", "entreprise"];
   const fieldRefs = useRef<Record<string, HTMLInputElement | null>>({});
