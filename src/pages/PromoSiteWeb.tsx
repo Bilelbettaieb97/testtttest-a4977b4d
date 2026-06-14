@@ -21,7 +21,7 @@ import {
   PartyPopper,
   Calendar,
   Loader2,
-
+  Mail,
   AlertCircle,
   Star,
   ShieldCheck,
