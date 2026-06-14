@@ -760,14 +760,14 @@ const PromoSiteWeb = () => {
 
             {step === "success" && (
               <div className="promo-slide flex-1 flex flex-col justify-center">
-                <div className="text-center mb-2 pt-1">
+                <div className="text-center mb-3 pt-1">
                   <div aria-hidden="true" className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-2 promo-pop shadow-[0_10px_40px_-5px_rgba(236,72,153,0.7)]">
                     {bookingDone ? <CheckCircle2 className="w-7 h-7 text-white" /> : <PartyPopper className="w-7 h-7 text-white" />}
                   </div>
-                  <h1 ref={successHeadingRef} tabIndex={-1} className="text-[18px] font-bold mb-1 focus:outline-none">
+                  <h1 ref={successHeadingRef} tabIndex={-1} className="text-[22px] font-bold mb-1.5 focus:outline-none">
                     {bookingDone ? `RDV confirmé ${coords.prenom} ✅` : `Bravo ${coords.prenom} 🎉`}
                   </h1>
-                  <p className="text-[12px] text-white/70 px-4 leading-snug">
+                  <p className="text-[14px] text-white/80 px-2 leading-snug">
                     {bookingDone
                       ? "Vous recevrez un rappel par email. À très vite !"
                       : "Choisissez un créneau (15 min, gratuit) pour qu'on discute de votre projet."}
@@ -777,8 +777,8 @@ const PromoSiteWeb = () => {
                 {bookingDone ? (
                   <div className="flex flex-col gap-3">
                     <div className="rounded-2xl bg-white/[0.06] border border-white/10 p-4 text-center">
-                      <p className="text-[11px] uppercase tracking-wider text-white/50 mb-1">Votre rendez-vous</p>
-                      <p className="text-white font-semibold text-[15px] leading-snug">
+                      <p className="text-[12px] uppercase tracking-wider text-white/60 mb-1">Votre rendez-vous</p>
+                      <p className="text-white font-semibold text-[16px] leading-snug">
                         {new Date(bookingDone.slotAt).toLocaleString("fr-FR", { dateStyle: "full", timeStyle: "short" })}
                       </p>
                     </div>
@@ -790,16 +790,16 @@ const PromoSiteWeb = () => {
                           <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
                             <CheckCircle2 className="w-4 h-4 text-green-400" />
                           </div>
-                          <p className="text-[14px] font-semibold text-white">Bienvenue dans la communauté !</p>
-                          <p className="text-[11px] text-white/70">Vous recevrez nos meilleurs conseils directement dans votre boîte mail.</p>
+                          <p className="text-[15px] font-semibold text-white">Bienvenue dans la communauté !</p>
+                          <p className="text-[12px] text-white/80">Vous recevrez nos meilleurs conseils directement dans votre boîte mail.</p>
                         </div>
                       ) : (
                         <>
                           <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-500/20 mb-2">
                             <Mail className="w-4 h-4 text-purple-300" />
                           </div>
-                          <p className="text-[14px] font-semibold text-white mb-0.5">Ne manquez plus aucune astuce</p>
-                          <p className="text-[11px] text-white/60 mb-3 leading-snug">
+                          <p className="text-[15px] font-semibold text-white mb-0.5">Ne manquez plus aucune astuce</p>
+                          <p className="text-[12px] text-white/70 mb-3 leading-snug">
                             Conseils marketing digital, SEO, conversion… directement dans votre boîte mail.
                           </p>
                           <div className="flex flex-col gap-2">
@@ -808,13 +808,13 @@ const PromoSiteWeb = () => {
                               value={newsletterEmail}
                               onChange={(e) => setNewsletterEmail(e.target.value)}
                               placeholder="votre@email.com"
-                              className="w-full h-10 px-3 rounded-xl bg-white/[0.08] border border-white/10 text-white placeholder:text-white/40 text-[13px] outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/25 transition-colors"
+                              className="w-full h-10 px-3 rounded-xl bg-white/[0.08] border border-white/10 text-white placeholder:text-white/40 text-[14px] outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/25 transition-colors"
                             />
                             <button
                               type="button"
                               onClick={handleNewsletterSubmit}
                               disabled={newsletterLoading}
-                              className="w-full h-10 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold text-[13px] shadow-[0_8px_24px_-6px_rgba(236,72,153,0.6)] active:scale-[0.98] transition-transform disabled:opacity-60 flex items-center justify-center gap-2"
+                              className="w-full h-10 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold text-[14px] shadow-[0_8px_24px_-6px_rgba(236,72,153,0.6)] active:scale-[0.98] transition-transform disabled:opacity-60 flex items-center justify-center gap-2"
                             >
                               {newsletterLoading ? (
                                 <><Loader2 className="w-4 h-4 animate-spin" /> Inscription…</>
@@ -823,7 +823,7 @@ const PromoSiteWeb = () => {
                               )}
                             </button>
                           </div>
-                          <p className="text-[10px] text-white/40 mt-2">Aucun spam. Désinscription à tout moment.</p>
+                          <p className="text-[11px] text-white/50 mt-2">Aucun spam. Désinscription à tout moment.</p>
                         </>
                       )}
                     </div>
