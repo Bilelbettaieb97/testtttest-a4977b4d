@@ -192,7 +192,7 @@ const PromoSiteWeb = () => {
     setTimeout(() => setStep(2), 220);
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     const parsed = coordsSchema.safeParse(coords);
@@ -223,18 +223,25 @@ const PromoSiteWeb = () => {
     }
 
     setErrors({});
+    haptic(15);
+    setStep("recap");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleConfirm = async () => {
     setLoading(true);
     haptic(15);
-
     try {
+      const trimmedInfos = infosSupp.trim().slice(0, 2000);
       const payload = {
         objectif: objectifs.find((o) => o.id === objectif)?.label ?? objectif,
         situation: situations.find((s) => s.id === situation)?.label ?? situation,
         urgence: "Non spécifié",
-        prenom: parsed.data.prenom,
-        email: parsed.data.email,
-        telephone: parsed.data.telephone,
-        entreprise: parsed.data.entreprise || null,
+        prenom: coords.prenom,
+        email: coords.email,
+        telephone: coords.telephone,
+        entreprise: coords.entreprise || null,
+        infos_supp: trimmedInfos || null,
       };
 
       const { error: dbError } = await supabase.from("promo_leads").insert(payload);
@@ -263,6 +270,7 @@ const PromoSiteWeb = () => {
       setLoading(false);
     }
   };
+
 
   const progress = typeof step === "number" ? step : 3;
 
