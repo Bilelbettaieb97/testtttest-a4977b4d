@@ -445,7 +445,7 @@ const PromoSiteWeb = () => {
 
 
                   {step === 2 && (
-                    <section key="s2" className="promo-slide flex flex-col" aria-labelledby="step2-heading">
+                    <section key="s2" className="promo-slide flex-1 flex flex-col justify-center" aria-labelledby="step2-heading">
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1.5">Étape 2 / 3</p>
                       <h2 id="step2-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[18px] font-bold mb-5 leading-tight focus:outline-none">Quel est l'objectif principal de votre site ?</h2>
                       <div
