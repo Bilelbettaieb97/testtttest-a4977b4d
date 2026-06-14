@@ -20,8 +20,8 @@ import {
   Hammer,
   PartyPopper,
   Calendar,
-  ExternalLink,
   Loader2,
+
   AlertCircle,
   Star,
   ShieldCheck,
