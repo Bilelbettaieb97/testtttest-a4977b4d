@@ -574,7 +574,7 @@ const PromoSiteWeb = () => {
                         />
                         <Field
                           name="entreprise"
-                          placeholder="Nom de votre activité (optionnel)"
+                          placeholder="Activité (optionnel)"
                           value={coords.entreprise}
                           onChange={(v) => handleCoordChange("entreprise", v)}
                           onBlur={() => handleBlur("entreprise", coords.entreprise)}
