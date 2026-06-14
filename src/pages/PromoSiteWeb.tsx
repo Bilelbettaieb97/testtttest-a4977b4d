@@ -80,9 +80,23 @@ const PromoSiteWeb = () => {
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
   const [calendlyReady, setCalendlyReady] = useState(false);
+  const [liveMessage, setLiveMessage] = useState<string>("");
 
   const fieldOrder: (keyof Coords)[] = ["prenom", "email", "telephone", "entreprise"];
   const fieldRefs = useRef<Record<string, HTMLInputElement | null>>({});
+  const stepHeadingRef = useRef<HTMLHeadingElement | null>(null);
+  const successHeadingRef = useRef<HTMLHeadingElement | null>(null);
+
+  // Focus management + screen-reader announcement on step change
+  useEffect(() => {
+    if (step === "success") {
+      requestAnimationFrame(() => successHeadingRef.current?.focus());
+      setLiveMessage("Formulaire envoyé. Choisissez un créneau pour votre rendez-vous.");
+      return;
+    }
+    requestAnimationFrame(() => stepHeadingRef.current?.focus());
+    setLiveMessage(`Étape ${step} sur 3`);
+  }, [step]);
 
   useEffect(() => {
     if (step !== 3) return;
@@ -95,6 +109,28 @@ const PromoSiteWeb = () => {
     link.crossOrigin = "";
     document.head.appendChild(link);
   }, [step]);
+
+  // Keyboard navigation within a radiogroup of buttons (Arrow keys)
+  const handleGroupKey = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      const target = e.target as HTMLElement;
+      if (target.getAttribute("role") !== "radio") return;
+      const items = Array.from(
+        e.currentTarget.querySelectorAll<HTMLButtonElement>('[role="radio"]')
+      );
+      const idx = items.indexOf(target as HTMLButtonElement);
+      if (idx === -1) return;
+      let next = idx;
+      if (["ArrowDown", "ArrowRight"].includes(e.key)) next = (idx + 1) % items.length;
+      else if (["ArrowUp", "ArrowLeft"].includes(e.key)) next = (idx - 1 + items.length) % items.length;
+      else if (e.key === "Home") next = 0;
+      else if (e.key === "End") next = items.length - 1;
+      else return;
+      e.preventDefault();
+      items[next]?.focus();
+    },
+    []
+  );
 
   const objectifLabel = useMemo(
     () => objectifs.find((o) => o.id === objectif)?.label ?? "",
