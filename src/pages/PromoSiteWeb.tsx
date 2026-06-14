@@ -518,7 +518,7 @@ const PromoSiteWeb = () => {
 
 
                   {step === 3 && (
-                    <form onSubmit={handleSubmit} key="s3" className="promo-slide" noValidate aria-labelledby="step3-heading">
+                    <form ref={formRef} onSubmit={handleSubmit} key="s3" className="promo-slide" noValidate aria-labelledby="step3-heading">
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 3 / 3</p>
                       <h2 id="step3-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[19px] font-bold mb-2 leading-tight focus:outline-none">Dernière étape ✨</h2>
 
