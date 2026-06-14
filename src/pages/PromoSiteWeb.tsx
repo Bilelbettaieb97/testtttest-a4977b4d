@@ -664,6 +664,44 @@ const PromoSiteWeb = () => {
             )}
           </div>
         </div>
+
+        {step !== "success" && (
+          <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+            <div className="px-4 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-3 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/95 to-transparent">
+              <button
+                type="button"
+                disabled={
+                  step === 1 ? !objectif :
+                  step === 2 ? !(situation && urgence) :
+                  !coordsSchema.safeParse(coords).success
+                }
+                onClick={() => {
+                  haptic(10);
+                  if (step === 1 && objectif) setStep(2);
+                  else if (step === 2 && situation && urgence) setStep(3);
+                  else if (step === 3) formRef.current?.requestSubmit();
+                }}
+                className="promo-cta w-full h-14 rounded-xl text-white font-bold text-[15px] shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] active:scale-[0.98] transition-transform touch-manipulation disabled:opacity-40 disabled:active:scale-100 flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a]"
+              >
+                {step === 1 && !objectif && <span>Sélectionnez un objectif</span>}
+                {step === 1 && objectif && (
+                  <span className="flex items-center gap-2">Continuer <ArrowRight className="w-4 h-4" aria-hidden="true" /></span>
+                )}
+                {step === 2 && !(situation && urgence) && <span>Sélectionnez votre situation</span>}
+                {step === 2 && situation && urgence && (
+                  <span className="flex items-center gap-2">Continuer <ArrowRight className="w-4 h-4" aria-hidden="true" /></span>
+                )}
+                {step === 3 && !coordsSchema.safeParse(coords).success && <span>Remplissez vos coordonnées</span>}
+                {step === 3 && coordsSchema.safeParse(coords).success && (
+                  <span><span aria-hidden="true">🎯 </span>Réserver mon appel gratuit</span>
+                )}
+              </button>
+              <p className="text-[10px] text-white/50 text-center mt-2">
+                Sans engagement · Réponse sous 2h
+              </p>
+            </div>
+          </div>
+        )}
       </main>
 
     </>
