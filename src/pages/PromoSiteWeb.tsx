@@ -275,6 +275,17 @@ const PromoSiteWeb = () => {
         (window as any).dataLayer.push({ event: "promo_lead_submit" });
       }
 
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        const w = window as any;
+        sha256Hex(parsed.data.email).then((em) =>
+          sha256Hex(parsed.data.telephone).then((ph) =>
+            sha256Hex(parsed.data.prenom).then((fn) =>
+              w.fbq("track", "Lead", {}, { em, ph, fn })
+            )
+          )
+        );
+      }
+
       haptic(50);
       setStep("recap");
       window.scrollTo({ top: 0, behavior: "smooth" });
