@@ -39,6 +39,7 @@ const DemandeMaquette = lazy(() => import("./pages/DemandeMaquette"));
 const OffreMensuelle = lazy(() => import("./pages/OffreMensuelle"));
 const DevisPage = lazy(() => import("./pages/DevisPage"));
 const EstimationPrix = lazy(() => import("./pages/EstimationPrix"));
+const PromoSiteWeb = lazy(() => import("./pages/PromoSiteWeb"));
 
 const queryClient = new QueryClient();
 
