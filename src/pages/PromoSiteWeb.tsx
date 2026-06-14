@@ -593,7 +593,7 @@ const PromoSiteWeb = () => {
                             <span>Envoi en cours…</span>
                           </>
                         ) : (
-                          <span><span aria-hidden="true">🎯 </span>Réserver mon appel gratuit</span>
+                          <span>Envoyer ma demande</span>
                         )}
                       </button>
 
