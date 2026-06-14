@@ -592,14 +592,23 @@ const PromoSiteWeb = () => {
                             <span>Envoi en cours…</span>
                           </>
                         ) : (
-                          <span><span aria-hidden="true">🎯 </span>Réserver mon créneau gratuit</span>
+                          <span><span aria-hidden="true">🎯 </span>Réserver mon appel gratuit</span>
                         )}
                       </button>
+
+                      <div className="mt-3 space-y-1.5 text-center">
+                        <p className="text-[11px] text-white/60 font-medium">
+                          Appel de 15 min · Devis personnalisé sous 24h
+                        </p>
+                        <p className="text-[10px] text-white/40">
+                          Sans engagement · Pas de carte bancaire requise · Réponse garantie sous 2h
+                        </p>
+                      </div>
 
                       <button
                         type="button"
                         onClick={() => { haptic(5); setStep(2); }}
-                        className="w-full mt-2.5 text-[11px] text-white/50 hover:text-white/80 inline-flex items-center justify-center gap-1 touch-manipulation min-h-11 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899]"
+                        className="w-full mt-3 text-[11px] text-white/50 hover:text-white/80 inline-flex items-center justify-center gap-1 touch-manipulation min-h-11 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899]"
                       >
                         <ArrowLeft className="w-3 h-3" aria-hidden="true" /> Revenir
                       </button>
