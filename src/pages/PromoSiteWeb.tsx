@@ -70,6 +70,14 @@ const haptic = (ms = 8) => {
   }
 };
 
+async function sha256Hex(input: string): Promise<string> {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(input.trim().toLowerCase());
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
 const PromoSiteWeb = () => {
   const { toast } = useToast();
   const [step, setStep] = useState<Step>(1);
@@ -265,6 +273,17 @@ const PromoSiteWeb = () => {
 
       if (typeof window !== "undefined" && (window as any).dataLayer) {
         (window as any).dataLayer.push({ event: "promo_lead_submit" });
+      }
+
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        const w = window as any;
+        sha256Hex(parsed.data.email).then((em) =>
+          sha256Hex(parsed.data.telephone).then((ph) =>
+            sha256Hex(parsed.data.prenom).then((fn) =>
+              w.fbq("track", "Lead", {}, { em, ph, fn })
+            )
+          )
+        );
       }
 
       haptic(50);
