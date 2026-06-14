@@ -194,6 +194,33 @@ ${description ? `<div class="field"><div class="field-label">Description</div><d
   };
 }
 
+function buildPromoLeadEmail(data: any): { subject: string; html: string } {
+  const prenom = escapeHtml(sanitize(data.prenom, 100));
+  const email = escapeHtml(sanitize(data.email, 255));
+  const telephone = escapeHtml(sanitize(data.telephone, 50));
+  const entreprise = data.entreprise ? escapeHtml(sanitize(data.entreprise, 200)) : "";
+  const objectif = escapeHtml(sanitize(data.objectif, 100));
+  const situation = escapeHtml(sanitize(data.situation, 100));
+  const urgence = escapeHtml(sanitize(data.urgence, 50));
+
+  return {
+    subject: `🚀 Nouveau lead PUB Offre 300€ — ${prenom} (${urgence})`,
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f3f4f6;padding:20px;margin:0;color:#1f2937}.container{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.1)}.header{background:linear-gradient(135deg,#a78bfa,#ec4899);color:#fff;padding:30px;text-align:center}.header h1{font-size:22px;margin:0 0 5px}.header p{font-size:14px;opacity:.9;margin:0}.content{padding:30px}.field{margin-bottom:16px;padding:12px 16px;background:#f9fafb;border-radius:10px;border-left:4px solid #a78bfa}.field-label{font-size:11px;text-transform:uppercase;color:#6b7280;font-weight:700;letter-spacing:.5px;margin-bottom:4px}.field-value{font-size:15px;color:#111827;font-weight:500}.badge{display:inline-block;background:linear-gradient(135deg,#a78bfa,#ec4899);color:#fff;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}.cta{text-align:center;margin-top:24px}.cta a{display:inline-block;background:#a78bfa;color:#fff;padding:12px 30px;border-radius:8px;text-decoration:none;font-weight:600}.footer{text-align:center;padding:20px;color:#9ca3af;font-size:12px}</style></head><body><div class="container">
+<div class="header"><h1>🚀 Lead Publicité Offre 300€</h1><p>Un prospect vient de remplir le formulaire pub</p></div>
+<div class="content">
+<div class="field"><div class="field-label">Urgence</div><div class="field-value"><span class="badge">${urgence}</span></div></div>
+<div class="field"><div class="field-label">Prénom</div><div class="field-value">${prenom}</div></div>
+<div class="field"><div class="field-label">Email</div><div class="field-value"><a href="mailto:${email}">${email}</a></div></div>
+<div class="field"><div class="field-label">Téléphone</div><div class="field-value"><a href="tel:${telephone}">${telephone}</a></div></div>
+${entreprise ? `<div class="field"><div class="field-label">Entreprise / Activité</div><div class="field-value">${entreprise}</div></div>` : ""}
+<div class="field"><div class="field-label">Objectif du site</div><div class="field-value">${objectif}</div></div>
+<div class="field"><div class="field-label">Situation actuelle</div><div class="field-value">${situation}</div></div>
+<div class="cta"><a href="mailto:${email}?subject=Re: Votre demande site web 300€ — ConvertiLab">Contacter le prospect</a></div>
+</div><div class="footer">ConvertiLab — Notification automatique (campagne PUB)</div></div></body></html>`,
+  };
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -281,6 +308,16 @@ Deno.serve(async (req: Request) => {
 
       case "newsletter":
         emailContent = buildNewsletterEmail(data);
+        break;
+
+      case "promo_lead":
+        if (!sanitize(data.prenom, 100) || !sanitize(data.telephone, 50) || !sanitize(data.objectif, 100) || !sanitize(data.situation, 100) || !sanitize(data.urgence, 50)) {
+          return new Response(
+            JSON.stringify({ error: "Missing required fields" }),
+            { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+        emailContent = buildPromoLeadEmail(data);
         break;
 
       case "contact":
