@@ -82,8 +82,13 @@ const PromoSiteWeb = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
-  const [calendlyReady, setCalendlyReady] = useState(false);
   const [liveMessage, setLiveMessage] = useState<string>("");
+  // Booking state
+  const [bookingDate, setBookingDate] = useState<string>(""); // YYYY-MM-DD
+  const [bookingSlot, setBookingSlot] = useState<string>(""); // HH:mm
+  const [bookingLoading, setBookingLoading] = useState(false);
+  const [bookingDone, setBookingDone] = useState<{ slotAt: string } | null>(null);
+
 
   const fieldOrder: (keyof Coords)[] = ["prenom", "email", "telephone", "entreprise"];
   const fieldRefs = useRef<Record<string, HTMLInputElement | null>>({});
