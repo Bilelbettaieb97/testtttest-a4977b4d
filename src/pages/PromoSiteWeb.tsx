@@ -597,14 +597,15 @@ const PromoSiteWeb = () => {
             {step === "success" && (
               <div className="promo-slide flex-1 flex flex-col">
                 <div className="text-center mb-4 pt-3">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-3 promo-pop shadow-[0_10px_40px_-5px_rgba(236,72,153,0.7)]">
+                  <div aria-hidden="true" className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#ec4899] mb-3 promo-pop shadow-[0_10px_40px_-5px_rgba(236,72,153,0.7)]">
                     <PartyPopper className="w-10 h-10 text-white" />
                   </div>
-                  <h1 className="text-[22px] font-bold mb-1.5">Bravo {coords.prenom} 🎉</h1>
+                  <h1 ref={successHeadingRef} tabIndex={-1} className="text-[22px] font-bold mb-1.5 focus:outline-none">Bravo {coords.prenom} <span aria-hidden="true">🎉</span></h1>
                   <p className="text-[13px] text-white/70 px-4">
                     Choisissez votre créneau (15 min, gratuit) pour qu'on discute de votre projet.
                   </p>
                 </div>
+
 
                 <div className="relative rounded-2xl overflow-hidden bg-white border border-white/10 shadow-2xl flex-1 min-h-[620px]">
                   {!calendlyReady && (
