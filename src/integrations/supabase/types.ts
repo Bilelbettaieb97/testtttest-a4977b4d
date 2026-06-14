@@ -274,6 +274,45 @@ export type Database = {
         }
         Relationships: []
       }
+      promo_leads: {
+        Row: {
+          created_at: string
+          email: string
+          entreprise: string | null
+          id: string
+          objectif: string
+          prenom: string
+          situation: string
+          telephone: string
+          updated_at: string
+          urgence: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          entreprise?: string | null
+          id?: string
+          objectif: string
+          prenom: string
+          situation: string
+          telephone: string
+          updated_at?: string
+          urgence: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          entreprise?: string | null
+          id?: string
+          objectif?: string
+          prenom?: string
+          situation?: string
+          telephone?: string
+          updated_at?: string
+          urgence?: string
+        }
+        Relationships: []
+      }
       rate_limit_log: {
         Row: {
           created_at: string
