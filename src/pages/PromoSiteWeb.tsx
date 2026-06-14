@@ -112,17 +112,8 @@ const PromoSiteWeb = () => {
     setLiveMessage(`Étape ${step} sur 3`);
   }, [step]);
 
-  useEffect(() => {
-    if (step !== 3) return;
-    const id = "calendly-preconnect";
-    if (document.getElementById(id)) return;
-    const link = document.createElement("link");
-    link.id = id;
-    link.rel = "preconnect";
-    link.href = "https://calendly.com";
-    link.crossOrigin = "";
-    document.head.appendChild(link);
-  }, [step]);
+  // (Calendly preconnect removed — using in-house booking picker)
+
 
   // Keyboard navigation within a radiogroup of buttons (Arrow keys)
   const handleGroupKey = useCallback(
