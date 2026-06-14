@@ -332,7 +332,7 @@ const PromoSiteWeb = () => {
             <div className="promo-blob absolute top-1/3 -right-16 w-[300px] h-[300px] rounded-full bg-[#ec4899] opacity-20 blur-3xl" style={{ animationDelay: "-4s" }} />
           </div>
 
-          <div className="relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] flex flex-col">
+          <div className={`relative z-10 min-h-[100dvh] md:min-h-[800px] px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] flex flex-col ${step !== "success" ? "pb-24" : ""}`}>
             {step !== "success" && (
               <>
                 <header className="text-center mb-5 promo-slide flex flex-col items-center">
