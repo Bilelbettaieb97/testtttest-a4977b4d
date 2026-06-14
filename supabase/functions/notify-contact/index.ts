@@ -336,6 +336,32 @@ Deno.serve(async (req: Request) => {
         emailContent = buildPromoLeadEmail(data);
         break;
 
+      case "promo_lead_update": {
+        const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        const leadId = sanitize(data.id, 64);
+        const infos = sanitize(data.infos_supp, 2000);
+        if (!uuidRegex.test(leadId) || !infos) {
+          return new Response(
+            JSON.stringify({ error: "Missing or invalid fields" }),
+            { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+        const { error: updErr } = await supabaseAdmin
+          .from("promo_leads")
+          .update({ infos_supp: infos })
+          .eq("id", leadId);
+        if (updErr) {
+          console.error("promo_lead update error:", updErr);
+          return new Response(
+            JSON.stringify({ error: "Update failed" }),
+            { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+        emailContent = buildPromoLeadUpdateEmail(data);
+        break;
+      }
+
+
       case "contact":
       default:
         if (!sanitize(data.name) || !sanitize(data.company, 200) || !sanitize(data.phone, 50) || !sanitize(data.project, 100)) {
