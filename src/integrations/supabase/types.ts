@@ -280,6 +280,7 @@ export type Database = {
           email: string
           entreprise: string | null
           id: string
+          infos_supp: string | null
           objectif: string
           prenom: string
           secteur: string | null
@@ -293,6 +294,7 @@ export type Database = {
           email: string
           entreprise?: string | null
           id?: string
+          infos_supp?: string | null
           objectif: string
           prenom: string
           secteur?: string | null
@@ -306,6 +308,7 @@ export type Database = {
           email?: string
           entreprise?: string | null
           id?: string
+          infos_supp?: string | null
           objectif?: string
           prenom?: string
           secteur?: string | null
