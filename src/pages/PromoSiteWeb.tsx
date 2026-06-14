@@ -660,10 +660,10 @@ const PromoSiteWeb = () => {
                     <CheckCircle2 className="w-8 h-8 text-white" />
                   </div>
                   <h2 ref={stepHeadingRef} tabIndex={-1} className="text-[20px] font-bold mb-1.5 focus:outline-none leading-tight">
-                    Récapitulatif, {coords.prenom}
+                    Merci {coords.prenom}, c'est envoyé ! <span aria-hidden="true">🎉</span>
                   </h2>
                   <p className="text-[13px] text-white/70 px-2">
-                    Vérifiez vos informations puis envoyez votre demande.
+                    Votre demande nous est bien parvenue. Voulez-vous nous en dire plus sur votre projet ?
                   </p>
                 </div>
 
