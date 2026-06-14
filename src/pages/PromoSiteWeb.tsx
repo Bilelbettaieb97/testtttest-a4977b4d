@@ -23,6 +23,8 @@ import {
   ExternalLink,
   Loader2,
   AlertCircle,
+  Star,
+  ShieldCheck,
 } from "lucide-react";
 
 type Step = 1 | 2 | 3 | "success";
