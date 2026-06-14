@@ -21,7 +21,7 @@ import {
   PartyPopper,
   Calendar,
   Loader2,
-
+  Mail,
   AlertCircle,
   Star,
   ShieldCheck,
@@ -88,6 +88,11 @@ const PromoSiteWeb = () => {
   const [bookingLoading, setBookingLoading] = useState(false);
   const [bookingDone, setBookingDone] = useState<{ slotAt: string } | null>(null);
 
+  // Newsletter CTA state
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterLoading, setNewsletterLoading] = useState(false);
+  const [newsletterDone, setNewsletterDone] = useState(false);
+
 
   const fieldOrder: (keyof Coords)[] = ["prenom", "email", "telephone", "entreprise"];
   const fieldRefs = useRef<Record<string, HTMLInputElement | null>>({});
@@ -110,6 +115,11 @@ const PromoSiteWeb = () => {
     requestAnimationFrame(() => stepHeadingRef.current?.focus());
     setLiveMessage(`Étape ${step} sur 3`);
   }, [step]);
+
+  // Pre-fill newsletter email from form coordinates
+  useEffect(() => {
+    if (coords.email) setNewsletterEmail(coords.email);
+  }, [coords.email]);
 
   // (Calendly preconnect removed — using in-house booking picker)
 
@@ -314,7 +324,30 @@ const PromoSiteWeb = () => {
     }
   };
 
+  const handleNewsletterSubmit = async () => {
+    const email = newsletterEmail.trim().toLowerCase();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email) || email.length > 255) {
+      toast({ title: "Email invalide", description: "Vérifiez le format de votre adresse.", variant: "destructive" });
+      return;
+    }
+    setNewsletterLoading(true);
+    try {
+      const { error } = await supabase.from("newsletter_subscriptions").insert([{ email }]);
+      if (error && (error as any).code !== "23505") throw error;
 
+      await supabase.functions.invoke("notify-contact", {
+        body: { type: "newsletter", email },
+      }).catch(() => { /* ignore */ });
+
+      setNewsletterDone(true);
+      haptic(15);
+    } catch {
+      toast({ title: "Erreur", description: "Impossible de s'inscrire. Réessayez.", variant: "destructive" });
+    } finally {
+      setNewsletterLoading(false);
+    }
+  };
 
   const progress = typeof step === "number" ? step : 3;
 
@@ -742,11 +775,58 @@ const PromoSiteWeb = () => {
                 </div>
 
                 {bookingDone ? (
-                  <div className="rounded-2xl bg-white/[0.06] border border-white/10 p-5 text-center">
-                    <p className="text-[12px] uppercase tracking-wider text-white/50 mb-2">Votre rendez-vous</p>
-                    <p className="text-white font-semibold text-[17px] leading-snug">
-                      {new Date(bookingDone.slotAt).toLocaleString("fr-FR", { dateStyle: "full", timeStyle: "short" })}
-                    </p>
+                  <div className="flex flex-col gap-4">
+                    <div className="rounded-2xl bg-white/[0.06] border border-white/10 p-5 text-center">
+                      <p className="text-[12px] uppercase tracking-wider text-white/50 mb-2">Votre rendez-vous</p>
+                      <p className="text-white font-semibold text-[17px] leading-snug">
+                        {new Date(bookingDone.slotAt).toLocaleString("fr-FR", { dateStyle: "full", timeStyle: "short" })}
+                      </p>
+                    </div>
+
+                    {/* Newsletter CTA */}
+                    <div className="rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-300/20 p-5 text-center">
+                      {newsletterDone ? (
+                        <div className="flex flex-col items-center gap-2 promo-pop">
+                          <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                            <CheckCircle2 className="w-5 h-5 text-green-400" />
+                          </div>
+                          <p className="text-[15px] font-semibold text-white">Bienvenue dans la communauté !</p>
+                          <p className="text-[12px] text-white/70">Vous recevrez nos meilleurs conseils directement dans votre boîte mail.</p>
+                        </div>
+                      ) : (
+                        <>
+                          <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 mb-3">
+                            <Mail className="w-5 h-5 text-purple-300" />
+                          </div>
+                          <p className="text-[15px] font-semibold text-white mb-1">Ne manquez plus aucune astuce</p>
+                          <p className="text-[12px] text-white/60 mb-4 leading-snug">
+                            Conseils marketing digital, SEO, conversion… directement dans votre boîte mail.
+                          </p>
+                          <div className="flex flex-col gap-2">
+                            <input
+                              type="email"
+                              value={newsletterEmail}
+                              onChange={(e) => setNewsletterEmail(e.target.value)}
+                              placeholder="votre@email.com"
+                              className="w-full h-11 px-4 rounded-xl bg-white/[0.08] border border-white/10 text-white placeholder:text-white/40 text-[14px] outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/25 transition-colors"
+                            />
+                            <button
+                              type="button"
+                              onClick={handleNewsletterSubmit}
+                              disabled={newsletterLoading}
+                              className="w-full h-11 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold text-[14px] shadow-[0_8px_24px_-6px_rgba(236,72,153,0.6)] active:scale-[0.98] transition-transform disabled:opacity-60 flex items-center justify-center gap-2"
+                            >
+                              {newsletterLoading ? (
+                                <><Loader2 className="w-4 h-4 animate-spin" /> Inscription…</>
+                              ) : (
+                                <>S'abonner gratuitement <ArrowRight className="w-4 h-4" /></>
+                              )}
+                            </button>
+                          </div>
+                          <p className="text-[10px] text-white/40 mt-3">Aucun spam. Désinscription à tout moment.</p>
+                        </>
+                      )}
+                    </div>
                   </div>
                 ) : (
                   <BookingPicker
