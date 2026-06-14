@@ -405,7 +405,7 @@ const PromoSiteWeb = () => {
                 <div id="promo-form-region" className="promo-card flex-1 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-5 shadow-2xl flex flex-col">
 
                   {step === 1 && (
-                    <section key="s1" className="promo-slide flex flex-col" aria-labelledby="step1-heading">
+                    <section key="s1" className="promo-slide flex-1 flex flex-col justify-center" aria-labelledby="step1-heading">
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1.5">Étape 1 / 3</p>
                       <h2 id="step1-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[18px] font-bold mb-5 leading-tight focus:outline-none">Où en êtes-vous aujourd'hui ?</h2>
                       <div
