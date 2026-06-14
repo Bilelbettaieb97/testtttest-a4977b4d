@@ -63,7 +63,6 @@ const coordsSchema = z.object({
 
 type Coords = z.infer<typeof coordsSchema>;
 
-const CALENDLY_URL = "https://calendly.com/convertilab-5bsc/30min";
 
 const haptic = (ms = 8) => {
   if (typeof navigator !== "undefined" && "vibrate" in navigator) {
