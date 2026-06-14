@@ -617,7 +617,14 @@ const PromoSiteWeb = () => {
                         aria-busy={loading}
                         className="promo-cta w-full mt-5 h-14 rounded-xl text-white font-bold text-[15px] shadow-[0_10px_40px_-10px_rgba(236,72,153,0.7)] active:scale-[0.98] transition-transform touch-manipulation disabled:opacity-70 disabled:active:scale-100 flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a]"
                       >
-                        <span>Continuer <ArrowRight className="w-4 h-4 inline" /></span>
+                        {loading ? (
+                          <>
+                            <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
+                            <span>Envoi en cours…</span>
+                          </>
+                        ) : (
+                          <span>Envoyer ma demande <ArrowRight className="w-4 h-4 inline" /></span>
+                        )}
                       </button>
 
                       <div className="mt-4 space-y-2 text-center">
