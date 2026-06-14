@@ -446,11 +446,11 @@ const PromoSiteWeb = () => {
 
 
                   {step === 2 && (
-                    <section key="s2" className="promo-slide" aria-labelledby="step2-heading">
-                      <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 2 / 3</p>
-                      <h2 id="step2-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[19px] font-bold mb-3 leading-tight focus:outline-none">Où en êtes-vous aujourd'hui ?</h2>
+                    <section key="s2" className="promo-slide flex flex-col" aria-labelledby="step2-heading">
+                      <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1.5">Étape 2 / 3</p>
+                      <h2 id="step2-heading" ref={stepHeadingRef} tabIndex={-1} className="text-[18px] font-bold mb-5 leading-tight focus:outline-none">Où en êtes-vous aujourd'hui ?</h2>
                       <div
-                        className="space-y-2 mb-5"
+                        className="space-y-3 mb-6"
                         role="radiogroup"
                         aria-labelledby="step2-heading"
                         onKeyDown={handleGroupKey}
@@ -465,23 +465,25 @@ const PromoSiteWeb = () => {
                               aria-checked={active}
                               tabIndex={active || (!situation && id === situations[0].id) ? 0 : -1}
                               onClick={() => handleSituation(id, urgence)}
-                              className={`w-full text-left p-3 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
+                              className={`w-full text-left p-3.5 rounded-xl border transition-all duration-200 active:scale-[0.97] touch-manipulation flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
                                 active
-                                  ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20"
+                                  ? "border-[#ec4899] bg-gradient-to-r from-[#a78bfa]/20 to-[#ec4899]/20 shadow-[0_0_20px_-5px_rgba(236,72,153,0.5)]"
                                   : "border-white/10 bg-white/[0.03]"
                               }`}
                             >
-                              <Icon aria-hidden="true" className={`w-4 h-4 shrink-0 ${active ? "text-[#ec4899]" : "text-white/50"}`} />
-                              <span className="text-[13px] font-medium flex-1">{label}</span>
-                              {active && <CheckCircle2 className="w-4 h-4 text-[#ec4899] promo-pop" aria-hidden="true" />}
+                              <div aria-hidden="true" className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-transform ${active ? "scale-110" : ""} bg-gradient-to-br from-[#a78bfa] to-[#ec4899]`}>
+                                <Icon className="w-5 h-5" />
+                              </div>
+                              <span className="text-[15px] font-semibold flex-1 leading-tight">{label}</span>
+                              {active && <CheckCircle2 className="w-5 h-5 text-[#ec4899] promo-pop" aria-hidden="true" />}
                             </button>
                           );
                         })}
                       </div>
 
-                      <h3 id="urgence-heading" className="text-[15px] font-bold mb-2.5">Quand voulez-vous être en ligne ?</h3>
+                      <h3 id="urgence-heading" className="text-[16px] font-bold mb-3">Quand voulez-vous être en ligne ?</h3>
                       <div
-                        className="grid grid-cols-3 gap-2 mb-5"
+                        className="grid grid-cols-3 gap-2.5 mb-6"
                         role="radiogroup"
                         aria-labelledby="urgence-heading"
                         onKeyDown={handleGroupKey}
@@ -497,14 +499,14 @@ const PromoSiteWeb = () => {
                               aria-label={label}
                               tabIndex={active || (!urgence && id === urgences[0].id) ? 0 : -1}
                               onClick={() => handleUrgence(id, situation)}
-                              className={`p-3 rounded-xl border transition-all duration-200 active:scale-95 touch-manipulation flex flex-col items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
+                              className={`p-4 rounded-xl border transition-all duration-200 active:scale-95 touch-manipulation flex flex-col items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a] ${
                                 active
                                   ? "border-[#ec4899] bg-gradient-to-br from-[#a78bfa]/25 to-[#ec4899]/25 shadow-[0_0_15px_-5px_rgba(236,72,153,0.5)]"
                                   : "border-white/10 bg-white/[0.03]"
                               }`}
                             >
-                              <Icon aria-hidden="true" className={`w-4 h-4 ${active ? "text-[#ec4899]" : "text-white/60"}`} />
-                              <span className="text-[11px] font-medium text-center leading-tight">{label}</span>
+                              <Icon aria-hidden="true" className={`w-5 h-5 ${active ? "text-[#ec4899]" : "text-white/60"}`} />
+                              <span className="text-[12px] font-medium text-center leading-tight">{label}</span>
                             </button>
                           );
                         })}
@@ -513,9 +515,9 @@ const PromoSiteWeb = () => {
                       <button
                         type="button"
                         onClick={() => { haptic(5); setStep(1); }}
-                        className="inline-flex items-center gap-1 text-xs text-white/60 hover:text-white touch-manipulation min-h-11 px-2 -ml-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899]"
+                        className="inline-flex items-center gap-1 text-[13px] text-white/60 hover:text-white touch-manipulation min-h-11 px-2 -ml-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ec4899]"
                       >
-                        <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" /> Étape précédente
+                        <ArrowLeft className="w-4 h-4" aria-hidden="true" /> Étape précédente
                       </button>
                     </section>
                   )}
