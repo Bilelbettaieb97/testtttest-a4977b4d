@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
@@ -22,6 +22,7 @@ import {
   Calendar,
   ExternalLink,
   Loader2,
+  AlertCircle,
 } from "lucide-react";
 
 type Step = 1 | 2 | 3 | "success";
@@ -47,20 +48,21 @@ const urgences = [
 ] as const;
 
 const coordsSchema = z.object({
-  prenom: z.string().trim().min(2, "Prénom requis").max(100),
-  email: z.string().trim().email("Email invalide").max(255),
+  prenom: z.string().trim().min(2, "Prénom requis (2 caractères min)").max(100, "Trop long"),
+  email: z.string().trim().email("Email invalide, vérifiez le format").max(255, "Trop long"),
   telephone: z
     .string()
     .trim()
-    .min(5, "Téléphone requis")
-    .max(30)
-    .regex(/^[0-9+\s().-]+$/, "Téléphone invalide"),
-  entreprise: z.string().trim().max(200).optional(),
+    .min(5, "Numéro requis")
+    .max(30, "Trop long")
+    .regex(/^[0-9+\s().-]+$/, "Téléphone invalide (chiffres uniquement)"),
+  entreprise: z.string().trim().max(200, "Trop long").optional(),
 });
+
+type Coords = z.infer<typeof coordsSchema>;
 
 const CALENDLY_URL = "https://calendly.com/convertilab-5bsc/30min";
 
-// Tiny haptic helper (no-op on unsupported browsers)
 const haptic = (ms = 8) => {
   if (typeof navigator !== "undefined" && "vibrate" in navigator) {
     try { navigator.vibrate(ms); } catch { /* ignore */ }
@@ -73,12 +75,15 @@ const PromoSiteWeb = () => {
   const [objectif, setObjectif] = useState<string>("");
   const [situation, setSituation] = useState<string>("");
   const [urgence, setUrgence] = useState<string>("");
-  const [coords, setCoords] = useState({ prenom: "", email: "", telephone: "", entreprise: "" });
+  const [coords, setCoords] = useState<Coords>({ prenom: "", email: "", telephone: "", entreprise: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
   const [calendlyReady, setCalendlyReady] = useState(false);
 
-  // Warm Calendly DNS as soon as user reaches step 3 (perceived speed boost on success)
+  const fieldOrder: (keyof Coords)[] = ["prenom", "email", "telephone", "entreprise"];
+  const fieldRefs = useRef<Record<string, HTMLInputElement | null>>({});
+
   useEffect(() => {
     if (step !== 3) return;
     const id = "calendly-preconnect";
@@ -100,6 +105,36 @@ const PromoSiteWeb = () => {
     [urgence]
   );
 
+  const validateField = useCallback((name: keyof Coords, value: string) => {
+    const shape = coordsSchema.shape;
+    const fieldSchema = z.object({ [name]: shape[name] });
+    const result = fieldSchema.safeParse({ [name]: value });
+    if (!result.success) {
+      const msg = result.error.issues[0]?.message ?? "Invalide";
+      setErrors((prev) => ({ ...prev, [name]: msg }));
+      return false;
+    }
+    setErrors((prev) => {
+      if (!prev[name]) return prev;
+      const next = { ...prev };
+      delete next[name];
+      return next;
+    });
+    return true;
+  }, []);
+
+  const handleCoordChange = useCallback((name: keyof Coords, value: string) => {
+    setCoords((prev) => ({ ...prev, [name]: value }));
+    if (touched[name] || errors[name]) {
+      validateField(name, value);
+    }
+  }, [touched, errors, validateField]);
+
+  const handleBlur = useCallback((name: keyof Coords, value: string) => {
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    validateField(name, value);
+  }, [validateField]);
+
   const handleStep1 = useCallback((id: string) => {
     haptic(10);
     setObjectif(id);
@@ -109,7 +144,6 @@ const PromoSiteWeb = () => {
   const handleSituation = useCallback((id: string, currentUrgence: string) => {
     haptic(8);
     setSituation(id);
-    // Auto-advance if urgence already chosen
     if (currentUrgence) setTimeout(() => setStep(3), 220);
   }, []);
 
@@ -121,6 +155,7 @@ const PromoSiteWeb = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     const parsed = coordsSchema.safeParse(coords);
     if (!parsed.success) {
       const fieldErrors: Record<string, string> = {};
@@ -128,9 +163,26 @@ const PromoSiteWeb = () => {
         if (i.path[0]) fieldErrors[i.path[0] as string] = i.message;
       });
       setErrors(fieldErrors);
+      setTouched((prev) => {
+        const next = { ...prev };
+        Object.keys(fieldErrors).forEach((k) => { next[k] = true; });
+        return next;
+      });
       haptic(30);
+
+      const firstError = fieldOrder.find((f) => fieldErrors[f]);
+      if (firstError) {
+        requestAnimationFrame(() => {
+          const el = fieldRefs.current[firstError];
+          if (el) {
+            el.focus();
+            el.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        });
+      }
       return;
     }
+
     setErrors({});
     setLoading(true);
     haptic(15);
@@ -149,16 +201,12 @@ const PromoSiteWeb = () => {
       const { error: dbError } = await supabase.from("promo_leads").insert(payload);
       if (dbError) throw dbError;
 
-      // Fire-and-forget notification (doesn't block UX)
       supabase.functions.invoke("notify-contact", {
         body: { type: "promo_lead", ...payload },
       }).catch(() => { /* ignore */ });
 
-      // GA / Meta tracking hook
-      // @ts-expect-error optional dataLayer
-      if (typeof window !== "undefined" && window.dataLayer) {
-        // @ts-expect-error optional dataLayer
-        window.dataLayer.push({ event: "promo_lead_submit" });
+      if (typeof window !== "undefined" && (window as any).dataLayer) {
+        (window as any).dataLayer.push({ event: "promo_lead_submit" });
       }
 
       haptic(50);
@@ -193,7 +241,6 @@ const PromoSiteWeb = () => {
         <link rel="dns-prefetch" href="https://calendly.com" />
       </Helmet>
 
-      {/* Page-scoped CSS for perf-friendly animations & glow */}
       <style>{`
         @keyframes promo-blob {
           0%,100% { transform: translate3d(0,0,0) scale(1); }
@@ -211,6 +258,14 @@ const PromoSiteWeb = () => {
           to   { transform: translate3d(0,0,0);   opacity: 1; }
         }
         .promo-slide { animation: promo-slide-up .32s cubic-bezier(.22,.61,.36,1) both; }
+        @keyframes promo-shake {
+          0%,100% { transform: translateX(0); }
+          20% { transform: translateX(-4px); }
+          40% { transform: translateX(4px); }
+          60% { transform: translateX(-3px); }
+          80% { transform: translateX(2px); }
+        }
+        .promo-shake { animation: promo-shake .35s ease-in-out both; }
         @keyframes promo-shimmer {
           0% { background-position: -200% 0; }
           100% { background-position: 200% 0; }
@@ -223,13 +278,12 @@ const PromoSiteWeb = () => {
         .promo-card { contain: layout style paint; }
         @media (prefers-reduced-motion: reduce) {
           .promo-blob, .promo-cta { animation: none !important; }
-          .promo-pop, .promo-slide { animation-duration: .01ms !important; }
+          .promo-pop, .promo-slide, .promo-shake { animation-duration: .01ms !important; }
         }
       `}</style>
 
       <div className="min-h-[100dvh] w-full bg-[#0a0a1a] text-white flex items-center justify-center md:p-8 overflow-x-hidden">
         <div className="relative w-full md:max-w-[440px] md:rounded-[2.5rem] md:overflow-hidden md:shadow-[0_30px_120px_-20px_rgba(167,139,250,0.5)] md:border md:border-white/10 md:my-8">
-          {/* Aurora background — 2 blobs (lighter on mobile for perf) */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
             <div className="promo-blob absolute -top-24 -left-16 w-[340px] h-[340px] rounded-full bg-[#a78bfa] opacity-25 blur-3xl" />
             <div className="promo-blob absolute top-1/3 -right-16 w-[300px] h-[300px] rounded-full bg-[#ec4899] opacity-20 blur-3xl" style={{ animationDelay: "-4s" }} />
@@ -259,7 +313,6 @@ const PromoSiteWeb = () => {
                   </div>
                 </header>
 
-                {/* Progress */}
                 <div className="flex items-center gap-1.5 mb-5">
                   {[1, 2, 3].map((n) => (
                     <div key={n} className="flex-1 h-1 rounded-full bg-white/10 overflow-hidden">
@@ -271,7 +324,6 @@ const PromoSiteWeb = () => {
                   ))}
                 </div>
 
-                {/* Card */}
                 <div className="promo-card flex-1 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-5 shadow-2xl">
                   {step === 1 && (
                     <div key="s1" className="promo-slide">
@@ -371,7 +423,7 @@ const PromoSiteWeb = () => {
                   )}
 
                   {step === 3 && (
-                    <form onSubmit={handleSubmit} key="s3" className="promo-slide">
+                    <form onSubmit={handleSubmit} key="s3" className="promo-slide" noValidate>
                       <p className="text-[11px] font-semibold text-[#a78bfa] uppercase tracking-wider mb-1">Étape 3 / 3</p>
                       <h2 className="text-[19px] font-bold mb-2 leading-tight">Dernière étape ✨</h2>
 
@@ -385,38 +437,51 @@ const PromoSiteWeb = () => {
                           name="prenom"
                           placeholder="Prénom"
                           value={coords.prenom}
-                          onChange={(v) => setCoords((c) => ({ ...c, prenom: v }))}
+                          onChange={(v) => handleCoordChange("prenom", v)}
+                          onBlur={() => handleBlur("prenom", coords.prenom)}
                           error={errors.prenom}
+                          touched={touched.prenom}
                           autoComplete="given-name"
                           inputMode="text"
+                          inputRef={(el) => { fieldRefs.current.prenom = el; }}
                         />
                         <Field
                           name="email"
                           type="email"
                           placeholder="Email"
                           value={coords.email}
-                          onChange={(v) => setCoords((c) => ({ ...c, email: v }))}
+                          onChange={(v) => handleCoordChange("email", v)}
+                          onBlur={() => handleBlur("email", coords.email)}
                           error={errors.email}
+                          touched={touched.email}
                           autoComplete="email"
                           inputMode="email"
+                          inputRef={(el) => { fieldRefs.current.email = el; }}
                         />
                         <Field
                           name="telephone"
                           type="tel"
                           placeholder="Téléphone"
                           value={coords.telephone}
-                          onChange={(v) => setCoords((c) => ({ ...c, telephone: v }))}
+                          onChange={(v) => handleCoordChange("telephone", v)}
+                          onBlur={() => handleBlur("telephone", coords.telephone)}
                           error={errors.telephone}
+                          touched={touched.telephone}
                           autoComplete="tel"
                           inputMode="tel"
+                          inputRef={(el) => { fieldRefs.current.telephone = el; }}
                         />
                         <Field
                           name="entreprise"
                           placeholder="Nom de votre activité (optionnel)"
                           value={coords.entreprise}
-                          onChange={(v) => setCoords((c) => ({ ...c, entreprise: v }))}
+                          onChange={(v) => handleCoordChange("entreprise", v)}
+                          onBlur={() => handleBlur("entreprise", coords.entreprise)}
+                          error={errors.entreprise}
+                          touched={touched.entreprise}
                           autoComplete="organization"
                           inputMode="text"
+                          inputRef={(el) => { fieldRefs.current.entreprise = el; }}
                         />
                       </div>
 
@@ -496,40 +561,60 @@ const PromoSiteWeb = () => {
   );
 };
 
-// Lightweight controlled input (avoids shadcn wrapper overhead per render)
 const Field = ({
   name,
   placeholder,
   value,
   onChange,
+  onBlur,
   type = "text",
   error,
+  touched,
   autoComplete,
   inputMode,
+  inputRef,
 }: {
   name: string;
   placeholder: string;
   value: string;
   onChange: (v: string) => void;
+  onBlur?: () => void;
   type?: string;
   error?: string;
+  touched?: boolean;
   autoComplete?: string;
   inputMode?: "text" | "email" | "tel" | "numeric" | "search" | "url" | "none";
-}) => (
-  <div>
-    <input
-      name={name}
-      type={type}
-      placeholder={placeholder}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      autoComplete={autoComplete}
-      inputMode={inputMode}
-      className="w-full h-12 px-4 rounded-xl bg-white/[0.06] border border-white/10 text-white placeholder:text-white/40 text-[15px] outline-none focus:border-[#ec4899] focus:ring-2 focus:ring-[#ec4899]/25 transition-colors"
-      aria-invalid={!!error}
-    />
-    {error && <p className="text-[11px] text-[#ec4899] mt-1 px-1">{error}</p>}
-  </div>
-);
+  inputRef?: React.Ref<HTMLInputElement>;
+}) => {
+  const showError = touched && !!error;
+  return (
+    <div className={showError ? "promo-shake" : undefined}>
+      <input
+        ref={inputRef}
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onBlur={onBlur}
+        autoComplete={autoComplete}
+        inputMode={inputMode}
+        className={`w-full h-12 px-4 rounded-xl bg-white/[0.06] border text-white placeholder:text-white/40 text-[15px] outline-none transition-colors ${
+          showError
+            ? "border-[#ec4899] focus:border-[#ec4899] focus:ring-2 focus:ring-[#ec4899]/25"
+            : "border-white/10 focus:border-[#ec4899] focus:ring-2 focus:ring-[#ec4899]/25"
+        }`}
+        aria-invalid={showError}
+        aria-describedby={showError ? `${name}-error` : undefined}
+      />
+      {showError && (
+        <p id={`${name}-error`} className="flex items-start gap-1 text-[11px] text-[#ec4899] mt-1 px-1 promo-pop">
+          <AlertCircle className="w-3 h-3 shrink-0 mt-[1px]" />
+          {error}
+        </p>
+      )}
+    </div>
+  );
+};
 
 export default PromoSiteWeb;
