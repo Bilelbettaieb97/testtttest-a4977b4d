@@ -246,6 +246,7 @@ const PromoSiteWeb = () => {
         objectif: objectifs.find((o) => o.id === objectif)?.label ?? objectif,
         situation: situations.find((s) => s.id === situation)?.label ?? situation,
         urgence: urgences.find((u) => u.id === urgence)?.label ?? urgence,
+        secteur: secteur || null,
         prenom: parsed.data.prenom,
         email: parsed.data.email,
         telephone: parsed.data.telephone,
