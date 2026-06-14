@@ -172,13 +172,13 @@ const PromoSiteWeb = () => {
   const handleStep1 = useCallback((id: string) => {
     haptic(10);
     setObjectif(id);
-    setTimeout(() => setStep(2), 180);
+    setTimeout(() => setStep(3), 180);
   }, []);
 
   const handleSituation = useCallback((id: string) => {
     haptic(8);
     setSituation(id);
-    setTimeout(() => setStep(3), 220);
+    setTimeout(() => setStep(2), 220);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
