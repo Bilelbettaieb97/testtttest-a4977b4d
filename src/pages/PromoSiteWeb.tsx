@@ -612,7 +612,8 @@ const PromoSiteWeb = () => {
             )}
           </div>
         </div>
-      </div>
+      </main>
+
     </>
   );
 };
