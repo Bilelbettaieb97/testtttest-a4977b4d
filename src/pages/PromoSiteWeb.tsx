@@ -88,6 +88,7 @@ const PromoSiteWeb = () => {
   const fieldRefs = useRef<Record<string, HTMLInputElement | null>>({});
   const stepHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const successHeadingRef = useRef<HTMLHeadingElement | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   // Focus management + screen-reader announcement on step change
   useEffect(() => {
